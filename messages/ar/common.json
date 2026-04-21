@@ -1,0 +1,15 @@
+{
+  "site": {
+    "title": "أركوود",
+    "description": "أركوود — تطبيق Next.js مع next-intl"
+  },
+  "header": {
+    "brand": "أركوود",
+    "nav": {
+      "home": "الرئيسية"
+    }
+  },
+  "footer": {
+    "copyright": "© {year} أركوود. جميع الحقوق محفوظة."
+  }
+}

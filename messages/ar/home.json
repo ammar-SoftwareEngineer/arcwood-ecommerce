@@ -1,0 +1,17 @@
+{
+  "title": "للبدء، عدّل ملف page.tsx.",
+  "intro": "تبحث عن نقطة انطلاق أو المزيد من التعليمات؟ تصفح",
+  "introMiddle": "أو",
+  "introEnd": ".",
+  "links": {
+    "templates": "القوالب",
+    "learning": "التعلّم"
+  },
+  "cta": {
+    "deploy": "نشر الآن",
+    "documentation": "التوثيق"
+  },
+  "images": {
+    "vercelAlt": "شعار Vercel"
+  }
+}

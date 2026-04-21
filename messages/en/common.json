@@ -1,0 +1,15 @@
+{
+  "site": {
+    "title": "Arcwood",
+    "description": "Arcwood — Next.js app with next-intl"
+  },
+  "header": {
+    "brand": "Arcwood",
+    "nav": {
+      "home": "Home"
+    }
+  },
+  "footer": {
+    "copyright": "© {year} Arcwood. All rights reserved."
+  }
+}

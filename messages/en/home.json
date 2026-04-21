@@ -1,0 +1,17 @@
+{
+  "title": "To get started, edit the page.tsx file.",
+  "intro": "Looking for a starting point or more instructions? Head over to",
+  "introMiddle": "or the",
+  "introEnd": " center.",
+  "links": {
+    "templates": "Templates",
+    "learning": "Learning"
+  },
+  "cta": {
+    "deploy": "Deploy Now",
+    "documentation": "Documentation"
+  },
+  "images": {
+    "vercelAlt": "Vercel logomark"
+  }
+}
