@@ -21,6 +21,7 @@ type ModuleName = keyof (typeof loaders)["en"];
 
 const loadOrder: ModuleName[] = ["common", "home", "about", "categories"];
 
+
 export async function loadMessages(
   locale: string
 ): Promise<AbstractIntlMessages> {
@@ -28,8 +29,14 @@ export async function loadMessages(
   const bundle = loaders[lng];
   const merged: Record<string, unknown> = {};
 
-  for (const name of loadOrder) {
-    const { default: data } = await bundle[name]();
+  const results = await Promise.all(
+    loadOrder.map(async (name) => {
+      const { default: data } = await bundle[name]();
+      return { name, data };
+    })
+  );
+
+  for (const { name, data } of results) {
     if (name === "common") {
       Object.assign(merged, data);
     } else {
