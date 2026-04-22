@@ -42,20 +42,8 @@ export default async function ShopLocaleLayout({ children, params }: Props) {
   return (
     <NextIntlClientProvider messages={messages}>
       <Header />
-      {children}
-      <Footer />
-    </NextIntlClientProvider>
-  );
-}
-import Footer from "@/components/footer/Footer";
-import Header from "@/components/header/Header";
-
-export default function ShopLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="min-h-screen flex flex-col">
-      <Header />
       <main className="flex-1">{children}</main>
       <Footer />
-    </div>
+    </NextIntlClientProvider>
   );
 }
