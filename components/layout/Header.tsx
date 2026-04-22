@@ -12,6 +12,26 @@ export default async function Header() {
           {t("nav.home")}
         </Link>
       </nav>
+      <nav>
+        <Link href="/products" className="text-sm underline-offset-4 hover:underline">
+          {t("nav.products")}
+        </Link>
+      </nav>
+      <nav>
+        <Link href="/categories" className="text-sm underline-offset-4 hover:underline">
+          {t("nav.categories")}
+        </Link>
+      </nav>
+      <nav>
+        <Link href="/brands" className="text-sm underline-offset-4 hover:underline">
+          {t("nav.brands")}
+        </Link>
+      </nav>
+      <nav>
+        <Link href="/contact" className="text-sm underline-offset-4 hover:underline">
+          {t("nav.contact")}
+        </Link>
+      </nav>
     </header>
   );
 }

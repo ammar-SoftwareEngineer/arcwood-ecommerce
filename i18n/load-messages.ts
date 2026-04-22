@@ -1,27 +1,25 @@
 import type { AbstractIntlMessages } from "next-intl";
 
-/**
- * Each key maps to `messages/{locale}/{name}.json`.
- * - `common`: root keys (site, header, footer, …)
- * - Other names: page namespaces, e.g. `getTranslations("home")`.
- */
+
 const loaders = {
   en: {
     common: () => import("../messages/en/common.json"),
     home: () => import("../messages/en/home.json"),
     about: () => import("../messages/en/about.json"),
+    categories: () => import("../messages/en/categories.json"),
   },
   ar: {
     common: () => import("../messages/ar/common.json"),
     home: () => import("../messages/ar/home.json"),
     about: () => import("../messages/ar/about.json"),
+    categories: () => import("../messages/ar/categories.json"),
   },
 } as const;
 
 type AppLocale = keyof typeof loaders;
 type ModuleName = keyof (typeof loaders)["en"];
 
-const loadOrder: ModuleName[] = ["common", "home", "about"];
+const loadOrder: ModuleName[] = ["common", "home", "about", "categories"];
 
 export async function loadMessages(
   locale: string

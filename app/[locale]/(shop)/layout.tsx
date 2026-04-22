@@ -41,9 +41,9 @@ export default async function ShopLocaleLayout({ children, params }: Props) {
 
   return (
     <NextIntlClientProvider messages={messages}>
-      <Header />
+    
       <main className="flex-1">{children}</main>
-      <Footer />
+    
     </NextIntlClientProvider>
   );
 }

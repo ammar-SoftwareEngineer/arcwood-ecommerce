@@ -4,7 +4,7 @@ import { routing } from "@/i18n/routing";
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 
 const publicPaths = ["/", "/login", "/register"];
-const userPaths = ["/account", "/orders"];
+
 
 function buildLocalizedUrl(locale: string, path: string) {
   return `${baseUrl}/${locale}${path === "/" ? "" : path}`;
@@ -12,7 +12,7 @@ function buildLocalizedUrl(locale: string, path: string) {
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
-  const allPaths = [...publicPaths, ...userPaths];
+  const allPaths = [...publicPaths];
 
   return allPaths.flatMap((path) =>
     routing.locales.map((locale) => ({

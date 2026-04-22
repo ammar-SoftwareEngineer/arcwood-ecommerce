@@ -6,7 +6,11 @@
   "header": {
     "brand": "Arcwood",
     "nav": {
-      "home": "Home"
+      "home": "Home",
+      "products": "Products",
+      "categories": "Categories",
+      "brands": "Brands",
+      "contact": "Contact"
     }
   },
   "footer": {
