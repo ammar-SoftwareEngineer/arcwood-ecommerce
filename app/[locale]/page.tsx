@@ -1,3 +1,4 @@
+import HeroSection from "@/components/home/HeroSection";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import Image from "next/image";
 
@@ -12,6 +13,7 @@ export default async function Home({ params }: Props) {
 
   return (
     <div>
+      <HeroSection />
 
     </div>
   );
