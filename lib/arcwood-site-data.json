@@ -1,0 +1,367 @@
+{
+  "source": {
+    "website": "https://www.arcwood-eg.com/en",
+    "locale": "en",
+    "capturedAt": "2026-04-23",
+    "currency": "EGP"
+  },
+  "branding": {
+    "name": "Arcwood Office Furniture",
+    "tagline": "High Quality, Modern Designs, Affordable Prices",
+    "promotion": "Discounts of up to 20% on products"
+  },
+  "mainCategories": [
+    {
+      "name": "Offices",
+      "image": null,
+      "imageAlt": "Offices"
+    },
+    {
+      "name": "Office Furniture",
+      "image": null,
+      "imageAlt": "Office Furniture"
+    },
+    {
+      "name": "Working Station",
+      "image": null,
+      "imageAlt": "Working Station"
+    },
+    {
+      "name": "Office Cupboards & Shannon",
+      "image": null,
+      "imageAlt": "Office Cupboards & Shannon"
+    },
+    {
+      "name": "Meeting Table",
+      "image": null,
+      "imageAlt": "Meeting Table"
+    },
+    {
+      "name": "Chairs",
+      "image": null,
+      "imageAlt": "Chairs"
+    },
+    {
+      "name": "Counter reception",
+      "image": null,
+      "imageAlt": "Counter reception"
+    },
+    {
+      "name": "Office blinds",
+      "image": null,
+      "imageAlt": "Office blinds"
+    },
+    {
+      "name": "Maintenance and repair",
+      "image": null,
+      "imageAlt": "Maintenance and repair"
+    }
+  ],
+  "chairsSubcategories": [
+    "Guest & Reception Chairs",
+    "Rolling chairs",
+    "Chairs for restaurants and cafes",
+    "Bar chairs"
+  ],
+  "mostViewedProducts": [
+    {
+      "name": "zaan wood leather general manager chair",
+      "category": "Rolling chairs",
+      "priceEGP": 5175,
+      "image": null,
+      "imageAlt": "zaan wood leather general manager chair"
+    },
+    {
+      "name": "Desk, size 120*60 cm",
+      "category": "Offices",
+      "priceEGP": 3140,
+      "image": null,
+      "imageAlt": "Desk, size 120*60 cm"
+    },
+    {
+      "name": "vertical blinds",
+      "category": "Office blinds",
+      "priceEGP": 3296,
+      "image": null,
+      "imageAlt": "vertical blinds"
+    },
+    {
+      "name": "Meeting and Conference Table",
+      "category": "Meeting Table",
+      "priceEGP": 8895,
+      "image": null,
+      "imageAlt": "Meeting and Conference Table"
+    },
+    {
+      "name": "Foam sponge injection chair",
+      "category": "Guest & Reception Chairs",
+      "priceEGP": 1610,
+      "image": null,
+      "imageAlt": "Foam sponge injection chair"
+    },
+    {
+      "name": "Modern Reception Counters",
+      "category": "Counter reception",
+      "priceEGP": 11601,
+      "image": null,
+      "imageAlt": "Modern Reception Counters"
+    },
+    {
+      "name": "Reclining medical chair",
+      "category": "Rolling chairs",
+      "priceEGP": 7245,
+      "image": null,
+      "imageAlt": "Reclining medical chair"
+    },
+    {
+      "name": "WOODEN COUNTER",
+      "category": "Counter reception",
+      "priceEGP": 11601,
+      "image": null,
+      "imageAlt": "WOODEN COUNTER"
+    },
+    {
+      "name": "Workstation Desks",
+      "category": "Working Station",
+      "priceEGP": 16100,
+      "image": null,
+      "imageAlt": "Workstation Desks"
+    },
+    {
+      "name": "Leather sofa - 2 chairs - black color",
+      "category": "Office Furniture",
+      "priceEGP": 20781,
+      "image": null,
+      "imageAlt": "Leather sofa - 2 chairs - black color"
+    },
+    {
+      "name": "Wooden drawer unit 2-3-4 drawers",
+      "category": "Office Cupboards & Shannon",
+      "priceEGP": 13455,
+      "image": null,
+      "imageAlt": "Wooden drawer unit 2-3-4 drawers"
+    },
+    {
+      "name": "Leather sofas for offices",
+      "category": "Office Furniture",
+      "priceEGP": 21678,
+      "image": null,
+      "imageAlt": "Leather sofas for offices"
+    },
+    {
+      "name": "roller blind",
+      "category": "Office blinds",
+      "priceEGP": 2438,
+      "image": null,
+      "imageAlt": "roller blind"
+    },
+    {
+      "name": "WOOD RECEPTION COUNTER",
+      "category": "Counter reception",
+      "priceEGP": 10166,
+      "image": null,
+      "imageAlt": "WOOD RECEPTION COUNTER"
+    },
+    {
+      "name": "Open wooden library",
+      "category": "Office Cupboards & Shannon",
+      "priceEGP": 36225,
+      "image": null,
+      "imageAlt": "Open wooden library"
+    },
+    {
+      "name": "MEDICAL MESH CHAIR",
+      "category": "Rolling chairs",
+      "priceEGP": 10235,
+      "image": null,
+      "imageAlt": "MEDICAL MESH CHAIR"
+    },
+    {
+      "name": "CIRCULAR MEETING TABLE",
+      "category": "Meeting Table",
+      "priceEGP": 4186,
+      "image": null,
+      "imageAlt": "CIRCULAR MEETING TABLE"
+    },
+    {
+      "name": "Work station for 4 people, size 60*120 cm",
+      "category": "Working Station",
+      "priceEGP": 6728,
+      "image": null,
+      "imageAlt": "Work station for 4 people, size 60*120 cm"
+    },
+    {
+      "name": "Work station, quad work cell",
+      "category": "Working Station",
+      "priceEGP": 21448,
+      "image": null,
+      "imageAlt": "Work station, quad work cell"
+    },
+    {
+      "name": "Workstation cell for 6 people (glass separator)",
+      "category": "Working Station",
+      "priceEGP": 19061,
+      "image": null,
+      "imageAlt": "Workstation cell for 6 people (glass separator)"
+    }
+  ],
+  "bestSellerProducts": [
+    {
+      "name": "Beech wood waiting chair",
+      "category": "Guest & Reception Chairs",
+      "priceEGP": 1898,
+      "image": null,
+      "imageAlt": "Beech wood waiting chair"
+    },
+    {
+      "name": "Waiting hotel chair",
+      "category": "Guest & Reception Chairs",
+      "priceEGP": 3680,
+      "image": null,
+      "imageAlt": "Waiting hotel chair"
+    },
+    {
+      "name": "Work station, quad work cell",
+      "category": "Working Station",
+      "priceEGP": 21448,
+      "image": null,
+      "imageAlt": "Work station, quad work cell"
+    },
+    {
+      "name": "Foam sponge injection star manager chair",
+      "category": "Rolling chairs",
+      "priceEGP": 2128,
+      "image": null,
+      "imageAlt": "Foam sponge injection star manager chair"
+    },
+    {
+      "name": "WOODEN RECEPTION COUNTER, 110*60*2 M",
+      "category": "Counter reception",
+      "priceEGP": 12334,
+      "image": null,
+      "imageAlt": "WOODEN RECEPTION COUNTER, 110*60*2 M"
+    },
+    {
+      "name": "MODERN MEETING TABLE, 2 COLORS, 180*100*75 CM",
+      "category": "Meeting Table",
+      "priceEGP": 10166,
+      "image": null,
+      "imageAlt": "MODERN MEETING TABLE, 2 COLORS, 180*100*75 CM"
+    },
+    {
+      "name": "Office reception lounge",
+      "category": "Office Furniture",
+      "priceEGP": 18389,
+      "image": null,
+      "imageAlt": "Office reception lounge"
+    },
+    {
+      "name": "CIRCULAR MEETING TABLE",
+      "category": "Meeting Table",
+      "priceEGP": 4186,
+      "image": null,
+      "imageAlt": "CIRCULAR MEETING TABLE"
+    },
+    {
+      "name": "Chassis waiting chair",
+      "category": "Guest & Reception Chairs",
+      "priceEGP": 633,
+      "image": null,
+      "imageAlt": "Chassis waiting chair"
+    },
+    {
+      "name": "NATURAL WOOD MEETING TABLE, 3 M",
+      "category": "Meeting Table",
+      "priceEGP": 55315,
+      "image": null,
+      "imageAlt": "NATURAL WOOD MEETING TABLE, 3 M"
+    },
+    {
+      "name": "Modern Reception Counters",
+      "category": "Counter reception",
+      "priceEGP": 11601,
+      "image": null,
+      "imageAlt": "Modern Reception Counters"
+    },
+    {
+      "name": "Quadruple Workstation, size 60*120 cm",
+      "category": "Working Station",
+      "priceEGP": 4635,
+      "image": null,
+      "imageAlt": "Quadruple Workstation, size 60*120 cm"
+    },
+    {
+      "name": "Medical chair supportive manager of cattlemen",
+      "category": "Rolling chairs",
+      "priceEGP": 4025,
+      "image": null,
+      "imageAlt": "Medical chair supportive manager of cattlemen"
+    },
+    {
+      "name": "Hydraulic leather manager chair",
+      "category": "Rolling chairs",
+      "priceEGP": 6670,
+      "image": null,
+      "imageAlt": "Hydraulic leather manager chair"
+    },
+    {
+      "name": "MOVABLE HYDRAULIC BAR STOOL - BLACK",
+      "category": "Bar chairs",
+      "priceEGP": 3738,
+      "image": null,
+      "imageAlt": "MOVABLE HYDRAULIC BAR STOOL - BLACK"
+    },
+    {
+      "name": "MEDICAL MESH CHAIR",
+      "category": "Rolling chairs",
+      "priceEGP": 10235,
+      "image": null,
+      "imageAlt": "MEDICAL MESH CHAIR"
+    },
+    {
+      "name": "Hydraulic Office Chair",
+      "category": "Rolling chairs",
+      "priceEGP": 1650,
+      "image": null,
+      "imageAlt": "Hydraulic Office Chair"
+    },
+    {
+      "name": "bar chair",
+      "category": "Bar chairs",
+      "priceEGP": 3738,
+      "image": null,
+      "imageAlt": "bar chair"
+    },
+    {
+      "name": "Gemmer Leather Seat",
+      "category": "Rolling chairs",
+      "priceEGP": 9085,
+      "image": null,
+      "imageAlt": "Gemmer Leather Seat"
+    }
+  ],
+  "contact": {
+    "email": "info@arcwood-eg.com",
+    "phones": [
+      "01080561917",
+      "01147882249"
+    ],
+    "whatsapp": "01501909001",
+    "address": "22 Dr. Abdel Hakim Al-Rifai Street, off Abbas Al-Akkad - Nasr City"
+  },
+  "navigation": {
+    "quickLinks": [
+      "About Us",
+      "Trending",
+      "Contact Us"
+    ],
+    "myAccount": [
+      "Login",
+      "Register"
+    ],
+    "customerServices": [
+      "Privacy Policy",
+      "Refund and return policy"
+    ]
+  }
+}

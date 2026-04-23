@@ -1,0 +1,14 @@
+
+{
+    "navItems": [
+      { "href": "/", "labelKey": "nav.home" },
+      { "href": "/about", "labelKey": "nav.about" },
+      { "href": "/products", "labelKey": "nav.products" },
+      { "href": "/contact", "labelKey": "nav.contact" }
+    ],
+    "categoryItems": [
+      { "href": "/categories/flooring", "labelKey": "categoriesMenu.flooring" },
+      { "href": "/categories/doors", "labelKey": "categoriesMenu.doors" },
+      { "href": "/categories/panels", "labelKey": "categoriesMenu.panels" }
+    ]
+  }
