@@ -30,8 +30,7 @@ export default function HeroSection() {
               src={slide.src}
               alt={slide.alt}
               className="h-full w-full object-cover"
-              
-             
+              priority={index === 0}
               loading="lazy"
             />
           </SwiperSlide>
