@@ -1,8 +1,11 @@
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
-import navbarData from "@/lib/navbar.json";
-import logo from "@/public/logo/logo1.webp";
+import navbarData from "@/lib/data/navbar.json";
+import logo from "@/public/logo/logo1.png";
+import "@/styles/home/Header.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronDown, faLayerGroup } from "@fortawesome/free-solid-svg-icons";
 
 type HeaderVariant = "default" | "home";
 
@@ -15,88 +18,88 @@ export default async function Header({ variant = "default" }: HeaderProps) {
   const navItems = navbarData.navItems;
   const categoryItems = navbarData.categoryItems;
   const isHome = variant === "home";
+  const promoText = "Only this week: 40% OFF on all sofas and couches";
+
+  const headerPositionClass = isHome ? "static inset-x-0 top-0 text-white" : "fixed top-0 inset-x-0 text-black";
+  const topBarClass = isHome
+    ? "border-white/10 bg-black/65 text-white/75"
+    : "border-black/10 bg-white/55 text-black/75";
+  const mainBarClass = isHome
+    ? "border-white/10 bg-black/35 text-white md:mt-2 md:rounded-xl"
+    : "w-full border-black/10 bg-white/55 text-black";
+  const navLinkClass = isHome ? "text-white/80 hover:text-white" : "text-black/80 hover:text-black";
+  const categoryButtonClass = isHome
+    ? "border-white/35 bg-white/10 text-white hover:bg-white/20"
+    : "border-black/20 bg-black/5 text-black hover:bg-black/10";
+  const searchIconClass = isHome ? "text-white/55" : "text-black/55";
+  const searchInputClass = isHome
+    ? "border-white/20 bg-black/35 text-white placeholder:text-white/55 focus:border-white/50"
+    : "border-black/20 bg-white/35 text-black placeholder:text-black/55 focus:border-black/40";
+  const iconButtonClass = isHome
+    ? "border-white/25 text-white/90 hover:bg-white/10 hover:text-white"
+    : "border-black/20 text-black/90 hover:bg-black/10 hover:text-black";
 
   return (
-    <header className={`${isHome ? "absolute inset-x-0 top-0 text-white" : "fixed top-0 inset-0  text-black"} z-30`}>
-      <div
-        className={`hidden border-b backdrop-blur md:block ${
-          isHome ? "border-white/10 bg-black/65 text-white/75" : "border-black/10 bg-white/65 text-black/75"
-        }`}
-      >
-        <div className="mx-auto flex w items-center justify-between px-6 py-2 text-xs">
-          <p className="tracking-wide">Only this week: 40% OFF on all sofas and couches</p>
-          <div className="flex items-center gap-4">
-            <Link href="/about" className={`${isHome ? "hover:text-white" : "hover:text-black"} transition`}>
-              About Us
-            </Link>
-            <Link href="/blog" className={`${isHome ? "hover:text-white" : "hover:text-black"} transition`}>
-              Blog
-            </Link>
-            <Link href="/contact" className={`${isHome ? "hover:text-white" : "hover:text-black"} transition`}>
-              Contact
-            </Link>
-            <span className={`h-3 w-px ${isHome ? "bg-white/30" : "bg-black/20"}`} />
-            <button type="button" className={`${isHome ? "hover:text-white" : "hover:text-black"} transition`}>
-              English
-            </button>
-            <button type="button" className={`${isHome ? "hover:text-white" : "hover:text-black"} transition`}>
-              $ USD
-            </button>
+    <header className={`${headerPositionClass} z-30`}>
+      <div className={`hidden border-b backdrop-blur md:block ${topBarClass}`}>
+        {/* Promo marquee shown only on desktop. */}
+        <div className="mx-auto w-full overflow-hidden px-6 py-2 text-xs">
+          <div className="flex items-center justify-center gap-12 whitespace-nowrap animate-[headerMarquee_18s_linear_infinite]">
+            <p className="tracking-wide">{promoText}</p>
+            <p className="tracking-wide" aria-hidden="true">
+              {promoText}
+            </p>
           </div>
         </div>
       </div>
 
-      <div
-        className={`mx-auto mt-0 flex max-w-7xl items-center gap-3 border-b px-4 py-4 backdrop-blur md:gap-6 md:px-6 ${
-          isHome
-            ? "border-white/10 bg-black/35 text-white md:mt-2 md:rounded-xl"
-            : "w-full border-black/10 bg-white/65 text-black"
-        }`}
-      >
+      <div className={`mx-auto mt-0 flex w-full items-center gap-3 border-b px-4 py-4 backdrop-blur md:gap-6 md:px-30 ${mainBarClass}`}>
         <Link href="/" className="shrink-0 text-lg font-bold tracking-wide">
           <Image src={logo} alt="logo" width={160} height={52} loading="lazy" />
         </Link>
 
         <nav className="hidden items-center gap-6 md:flex">
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={`text-sm font-medium underline-offset-4 transition hover:underline ${
-                isHome ? "text-white/80 hover:text-white" : "text-black/80 hover:text-black"
-              }`}
-            >
-              {t(item.labelKey)}
-            </Link>
-          ))}
-          <div className="group relative">
+            {/* Highlighted categories trigger + dropdown for desktop. */}
+            <div className="group relative">
             <button
               type="button"
-              className={`cursor-pointer text-sm font-medium underline-offset-4 transition hover:underline ${
-                isHome ? "text-white/80 hover:text-white" : "text-black/80 hover:text-black"
-              }`}
+              className={`inline-flex items-center gap-1.5 rounded-lg border px-3 py-1.5 text-sm font-semibold transition ${categoryButtonClass}`}
             >
+              <FontAwesomeIcon icon={faLayerGroup} />
               {t("nav.categories")}
+              <FontAwesomeIcon icon={faChevronDown} />
             </button>
-            <div className="invisible absolute top-8 min-w-56 rounded-md border border-white/10 bg-black/95 p-2 opacity-0 shadow-lg transition-all group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+            <div className="invisible absolute top-8 min-w-56 rounded-md border border-white/10 bg-white/95 p-2 opacity-0 shadow-lg transition-all group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
               <nav className="flex flex-col">
                 {categoryItems.map((item) => (
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="rounded-md px-3 py-2 text-sm text-white/80 transition hover:bg-white/10 hover:text-white"
+                    className="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-black/80 transition hover:bg-white/10 hover:"
                   >
+                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-400/80" />
                     {t(item.labelKey)}
                   </Link>
                 ))}
               </nav>
             </div>
           </div>
+          {navItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={`text-sm font-medium underline-offset-4 transition hover:underline ${navLinkClass}`}
+            >
+              {t(item.labelKey)}
+            </Link>
+          ))}
+
+        
         </nav>
 
         <form className="ml-auto hidden min-w-0 flex-1 md:block">
           <label className="relative block">
-            <span className={`pointer-events-none absolute inset-y-0 left-3 flex items-center ${isHome ? "text-white/55" : "text-black/55"}`}>
+            <span className={`pointer-events-none absolute inset-y-0 left-3 flex items-center ${searchIconClass}`}>
               <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.8">
                 <circle cx="11" cy="11" r="7" />
                 <path d="m20 20-3.5-3.5" />
@@ -105,11 +108,7 @@ export default async function Header({ variant = "default" }: HeaderProps) {
             <input
               type="search"
               placeholder="Search for products"
-              className={`w-full rounded-full border py-2 pl-10 pr-4 text-sm outline-none transition ${
-                isHome
-                  ? "border-white/20 bg-black/35 text-white placeholder:text-white/55 focus:border-white/50"
-                  : "border-black/20 bg-white/35 text-black placeholder:text-black/55 focus:border-black/40"
-              }`}
+              className={`w-full rounded-full border py-2 pl-10 pr-4 text-sm outline-none transition ${searchInputClass}`}
             />
           </label>
         </form>
@@ -118,11 +117,7 @@ export default async function Header({ variant = "default" }: HeaderProps) {
           <button
             type="button"
             aria-label="Account"
-            className={`rounded-full border p-2 transition ${
-              isHome
-                ? "border-white/25 text-white/90 hover:bg-white/10 hover:text-white"
-                : "border-black/20 text-black/90 hover:bg-black/10 hover:text-black"
-            }`}
+            className={`rounded-full border p-2 transition ${iconButtonClass}`}
           >
             <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8">
               <circle cx="12" cy="8" r="3.5" />
@@ -132,11 +127,7 @@ export default async function Header({ variant = "default" }: HeaderProps) {
           <button
             type="button"
             aria-label="Shopping cart"
-            className={`relative rounded-full border p-2 transition ${
-              isHome
-                ? "border-white/25 text-white/90 hover:bg-white/10 hover:text-white"
-                : "border-black/20 text-black/90 hover:bg-black/10 hover:text-black"
-            }`}
+            className={`relative rounded-full border p-2 transition ${iconButtonClass}`}
           >
             <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8">
               <circle cx="9" cy="20" r="1.3" />
@@ -146,14 +137,9 @@ export default async function Header({ variant = "default" }: HeaderProps) {
             <span className="absolute -right-1 -top-1 rounded-full bg-emerald-500 px-1.5 text-[10px] font-medium text-black">0</span>
           </button>
 
+          {/* Mobile menu panel with search and nested category links. */}
           <details className="md:hidden">
-            <summary
-              className={`list-none rounded-full border p-2 transition ${
-                isHome
-                  ? "border-white/25 text-white hover:bg-white/10"
-                  : "border-black/20 text-black hover:bg-black/10"
-              }`}
-            >
+            <summary className={`list-none rounded-full border p-2 transition ${iconButtonClass}`}>
               <span className="sr-only">Open menu</span>
               <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8">
                 <path d="M4 7h16M4 12h16M4 17h16" />
@@ -201,3 +187,4 @@ export default async function Header({ variant = "default" }: HeaderProps) {
     </header>
   );
 }
+

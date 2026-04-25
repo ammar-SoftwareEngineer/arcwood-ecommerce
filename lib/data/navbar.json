@@ -4,6 +4,8 @@
       { "href": "/", "labelKey": "nav.home" },
       { "href": "/about", "labelKey": "nav.about" },
       { "href": "/products", "labelKey": "nav.products" },
+     
+      { "href": "/blogs", "labelKey": "nav.blogs" },
       { "href": "/contact", "labelKey": "nav.contact" }
     ],
     "categoryItems": [

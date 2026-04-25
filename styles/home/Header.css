@@ -1,0 +1,13 @@
+.clip{
+    clip-path: polygon(50% 0, 100% 24%, 100% 80%, 51% 100%, 0 81%, 0 23%);
+
+
+}
+@keyframes headerMarquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-50% - 1.5rem));
+    }
+  }
