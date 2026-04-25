@@ -1,2 +1,2 @@
-# arcwood-ecommerce
-new project next.js
+# arcwood
+new project Next.js (E-Commerce)
