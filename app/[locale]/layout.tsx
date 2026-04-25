@@ -57,7 +57,7 @@ export default async function LocaleLayout({ children, params }: Props) {
     >
       <body className="min-h-full flex flex-col">
         <NextIntlClientProvider messages={messages}>
-          <Header />
+          <Header variant="default" />
           {children}
           <Footer />
         </NextIntlClientProvider>
