@@ -31,7 +31,7 @@ export default async function Header({ variant = "default" }: HeaderProps) {
   const mainBarClass = isHome
     ? "border-white/10 bg-black/35 text-white md:mt-2 md:rounded-xl"
     : "w-full border-black/10 bg-white/55 text-black";
-  const navLinkClass = isHome ? "text-white/80 hover:text-white" : "text-black/80 hover:text-black";
+  const navLinkClass = isHome ? "text-white/80 hover:text-white" : "text-black/80 hover:text-main!";
   const categoryButtonClass = isHome
     ? "border-white/35 bg-white/10 text-white hover:bg-white/20"
     : "border-black/20 bg-black/5 text-black hover:bg-black/10";

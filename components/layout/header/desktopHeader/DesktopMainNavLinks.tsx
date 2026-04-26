@@ -13,7 +13,7 @@ export default function DesktopMainNavLinks({ items, linkClass }: DesktopMainNav
         <Link
           key={item.href}
           href={item.href}
-          className={`text-sm font-medium underline-offset-4 transition hover:underline ${linkClass}`}
+          className={`text-base font-medium underline-offset-4 transition hover:underline cursor-pointer hover:text-main! ${linkClass}`}
         >
           {item.label}
         </Link>

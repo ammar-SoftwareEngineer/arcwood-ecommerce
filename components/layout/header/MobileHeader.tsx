@@ -1,6 +1,8 @@
 "use client";
 
-import { Link } from "@/i18n/navigation";
+import { Link, usePathname, useRouter } from "@/i18n/navigation";
+import { useLocale } from "next-intl";
+import { routing } from "@/i18n/routing";
 import Image, { type StaticImageData } from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useId, useState } from "react";
@@ -10,17 +12,15 @@ import {
   faBars,
   faChevronDown,
   faEnvelope,
-  faHeart,
   faLocationDot,
   faPhoneVolume,
-  faSearch,
-  faShoppingCart,
-  faUser,
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import { faFacebookF, faInstagram, faWhatsapp, faXTwitter } from "@fortawesome/free-brands-svg-icons";
 import type { HeaderItem } from "./headerTypes";
 import { CiHeart, CiSearch, CiShop, CiUser } from "react-icons/ci";
+
+type AppLocale = (typeof routing.locales)[number];
 
 type MobileHeaderProps = {
   navItems: HeaderItem[];
@@ -44,7 +44,17 @@ export default function MobileHeader({
   const [isCartOpen, setIsCartOpen] = useState(false);
   const searchDrawerId = useId();
   const cartDrawerId = useId();
+  const router = useRouter();
+  const pathname = usePathname();
+  const locale = useLocale() as AppLocale;
+  const targetLocale: AppLocale = locale === "en" ? "ar" : "en";
+  const targetLabel = targetLocale === "ar" ? "AR" : "EN";
+  const switchLabel = targetLocale === "ar" ? "العربية" : "English";
   const actionButtonClass = "flex h-11 w-11 items-center justify-center rounded-xl text-black/75 transition hover:bg-black/5 hover:text-black";
+
+  const switchLocale = () => {
+    router.replace(pathname, { locale: targetLocale });
+  };
 
   const openSearch = () => {
     setIsMenuOpen(false);
@@ -73,10 +83,12 @@ export default function MobileHeader({
       <div className="ml-auto flex items-center gap-2">
         <button
           type="button"
-          aria-label="Language"
-          className={`relative h-10 min-w-10 rounded-0 border px-2 text-sm font-bold transition ${iconButtonClass}`}
+          onClick={switchLocale}
+          className={`relative flex h-10 min-w-10 cursor-pointer items-center justify-center rounded-0 border px-2 text-sm font-bold transition ${iconButtonClass}`}
+          aria-label={switchLabel}
+          title={switchLabel}
         >
-          <span className="text-main">AR</span>
+          <span className="text-main">{targetLabel}</span>
         </button>
 
         <button

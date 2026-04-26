@@ -28,7 +28,6 @@ type DesktopHeaderProps = {
   categoriesLabel: string;
   searchDrawerTitle?: string;
   searchPlaceholder?: string;
-  languageLabel?: string;
 };
 
 export default function DesktopHeader({
@@ -45,7 +44,6 @@ export default function DesktopHeader({
   categoriesLabel,
   searchDrawerTitle,
   searchPlaceholder,
-  languageLabel = "AR",
 }: DesktopHeaderProps) {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -101,12 +99,7 @@ export default function DesktopHeader({
             </span>
           </button>
 
-          <DesktopHeaderActions
-            languageLabel={languageLabel}
-            isCartOpen={isCartOpen}
-            cartDrawerId={cartDrawerId}
-            onOpenCart={openCart}
-          />
+          <DesktopHeaderActions isCartOpen={isCartOpen} cartDrawerId={cartDrawerId} onOpenCart={openCart} />
         </div>
       </div>
 

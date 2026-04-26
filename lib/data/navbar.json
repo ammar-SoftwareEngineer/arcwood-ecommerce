@@ -1,16 +1,20 @@
-
 {
-    "navItems": [
-      { "href": "/", "labelKey": "nav.home" },
-      { "href": "/about", "labelKey": "nav.about" },
-      { "href": "/products", "labelKey": "nav.products" },
-     
-      { "href": "/blogs", "labelKey": "nav.blogs" },
-      { "href": "/contact", "labelKey": "nav.contact" }
-    ],
-    "categoryItems": [
-      { "href": "/categories/flooring", "labelKey": "categoriesMenu.flooring" },
-      { "href": "/categories/doors", "labelKey": "categoriesMenu.doors" },
-      { "href": "/categories/panels", "labelKey": "categoriesMenu.panels" }
-    ]
-  }
+  "navItems": [
+    { "href": "/", "labelKey": "nav.home" },
+    { "href": "/about", "labelKey": "nav.about" },
+    { "href": "/products", "labelKey": "nav.products" },
+    { "href": "/blogs", "labelKey": "nav.blogs" },
+    { "href": "/contact", "labelKey": "nav.contact" }
+  ],
+  "categoryItems": [
+    { "href": "/categories/offices", "labelKey": "categoriesMenu.offices" },
+    { "href": "/categories/office-furniture", "labelKey": "categoriesMenu.officeFurniture" },
+    { "href": "/categories/working-station", "labelKey": "categoriesMenu.workingStation" },
+    { "href": "/categories/office-cupboards-shannon", "labelKey": "categoriesMenu.officeCupboardsShannon" },
+    { "href": "/categories/meeting-table", "labelKey": "categoriesMenu.meetingTable" },
+    { "href": "/categories/chairs", "labelKey": "categoriesMenu.chairs" },
+    { "href": "/categories/counter-reception", "labelKey": "categoriesMenu.counterReception" },
+    { "href": "/categories/office-blinds", "labelKey": "categoriesMenu.officeBlinds" },
+    { "href": "/categories/maintenance-repair", "labelKey": "categoriesMenu.maintenanceRepair" }
+  ]
+}

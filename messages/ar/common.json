@@ -14,9 +14,15 @@
       "contact": "تواصل معنا"
     },
     "categoriesMenu": {
-      "flooring": "الأرضيات",
-      "doors": "الأبواب",
-      "panels": "البانلز"
+      "offices": "مكاتب",
+      "officeFurniture": "أثاث مكتبي",
+      "workingStation": "محطات العمل",
+      "officeCupboardsShannon": "خزائن مكتبية وشانون",
+      "meetingTable": "طاولات اجتماعات",
+      "chairs": "كراسي",
+      "counterReception": "كاونتر استقبال",
+      "officeBlinds": "ستائر مكتبية",
+      "maintenanceRepair": "صيانة وإصلاح"
     }
   },
   "footer": {

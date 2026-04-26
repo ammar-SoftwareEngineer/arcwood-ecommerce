@@ -14,9 +14,15 @@
       "contact": "Contact Us"
     },
     "categoriesMenu": {
-      "flooring": "Flooring",
-      "doors": "Doors",
-      "panels": "Panels"
+      "offices": "Offices",
+      "officeFurniture": "Office Furniture",
+      "workingStation": "Working Station",
+      "officeCupboardsShannon": "Office Cupboards & Shannon",
+      "meetingTable": "Meeting Table",
+      "chairs": "Chairs",
+      "counterReception": "Counter reception",
+      "officeBlinds": "Office blinds",
+      "maintenanceRepair": "Maintenance and repair"
     }
   },
   "footer": {
