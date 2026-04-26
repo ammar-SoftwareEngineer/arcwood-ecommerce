@@ -13,6 +13,7 @@ import CartSideDrawer from "../drawers/CartSideDrawer";
 import DesktopCategoryMenu from "./DesktopCategoryMenu";
 import DesktopMainNavLinks from "./DesktopMainNavLinks";
 import DesktopHeaderActions from "./DesktopHeaderActions";
+import { CiSearch } from "react-icons/ci";
 
 type DesktopHeaderProps = {
   promoText: string;
@@ -95,7 +96,7 @@ export default function DesktopHeader({
             className={`relative z-10 inline-flex h-10 w-10 cursor-pointer items-center justify-center transition ${iconButtonClass}`}
           >
             <span className={searchIconClass}>
-              <FontAwesomeIcon icon={faSearch} className=" text-main transition hover:text-black!" />
+              <CiSearch size={25} className="text-main cursor-pointer transition-colors hover:text-black!" />
             </span>
           </button>
 
