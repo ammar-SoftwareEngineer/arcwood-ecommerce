@@ -3,9 +3,9 @@ import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import navbarData from "@/lib/data/navbar.json";
 import logo from "@/public/logo/logo1.png";
-import "@/styles/home/Header.css";
+import "@/styles/layout/Header.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown, faLayerGroup } from "@fortawesome/free-solid-svg-icons";
+import { faChevronRight, faHeart, faLanguage, faLayerGroup, faSearch, faShoppingCart, faUser } from "@fortawesome/free-solid-svg-icons";
 
 type HeaderVariant = "default" | "home";
 
@@ -43,7 +43,7 @@ export default async function Header({ variant = "default" }: HeaderProps) {
     <header className={`${headerPositionClass} z-30`}>
       <div className={`hidden border-b backdrop-blur md:block ${topBarClass}`}>
         {/* Promo marquee shown only on desktop. */}
-        <div className="mx-auto w-full overflow-hidden px-6 py-2 text-xs">
+        <div className="mx-auto w-full overflow-hidden px-6 py-3 text-xs">
           <div className="flex items-center justify-center gap-12 whitespace-nowrap animate-[headerMarquee_18s_linear_infinite]">
             <p className="tracking-wide">{promoText}</p>
             <p className="tracking-wide" aria-hidden="true">
@@ -53,93 +53,103 @@ export default async function Header({ variant = "default" }: HeaderProps) {
         </div>
       </div>
 
-      <div className={`mx-auto mt-0 flex w-full items-center gap-3 border-b px-4 py-4 backdrop-blur md:gap-6 md:px-30 ${mainBarClass}`}>
-        <Link href="/" className="shrink-0 text-lg font-bold tracking-wide">
-          <Image src={logo} alt="logo" width={160} height={52} loading="lazy" />
-        </Link>
+      <div className={` mt-0 flex w-full justify-between  items-center gap-3 border-b px-4 py-6 backdrop-blur md:gap-6 md:px-20 ${mainBarClass}`}>
+        <div className="flex items-center gap-4">
+          <Link href="/" className="shrink-0 text-lg font-bold tracking-wide">
+            <Image src={logo} alt="logo" width={160} height={52} loading="lazy" />
+          </Link>
 
-        <nav className="hidden items-center gap-6 md:flex">
+          <nav className="hidden items-center gap-6 md:flex">
             {/* Highlighted categories trigger + dropdown for desktop. */}
             <div className="group relative">
-            <button
-              type="button"
-              className={`inline-flex items-center gap-1.5 rounded-lg border px-3 py-1.5 text-sm font-semibold transition ${categoryButtonClass}`}
-            >
-              <FontAwesomeIcon icon={faLayerGroup} />
-              {t("nav.categories")}
-              <FontAwesomeIcon icon={faChevronDown} />
-            </button>
-            <div className="invisible absolute top-8 min-w-56 rounded-md border border-white/10 bg-white/95 p-2 opacity-0 shadow-lg transition-all group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
-              <nav className="flex flex-col">
-                {categoryItems.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-black/80 transition hover:bg-white/10 hover:"
-                  >
-                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-400/80" />
-                    {t(item.labelKey)}
-                  </Link>
-                ))}
-              </nav>
+              <button
+                type="button"
+                className={`inline-flex items-center gap-1.5 rounded-0 border px-3 py-1.5 text-sm text-main font-semibold transition ${categoryButtonClass}`}
+              >
+                <FontAwesomeIcon icon={faLayerGroup} />
+                {t("nav.categories")}
+                <FontAwesomeIcon icon={faChevronRight} />
+              </button>
+              <div className="invisible absolute top-10 min-w-56 rounded-0 border border-white/10 bg-white/95 p-2 opacity-0 shadow-lg transition-all group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+                <nav className="flex flex-col">
+                  {categoryItems.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-black/80 transition hover:bg-white/10 hover:"
+                    >
+
+                      {t(item.labelKey)}
+                    </Link>
+                  ))}
+                </nav>
+              </div>
             </div>
-          </div>
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={`text-sm font-medium underline-offset-4 transition hover:underline ${navLinkClass}`}
-            >
-              {t(item.labelKey)}
-            </Link>
-          ))}
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`text-sm font-medium underline-offset-4 transition hover:underline ${navLinkClass}`}
+              >
+                {t(item.labelKey)}
+              </Link>
+            ))}
 
-        
-        </nav>
 
-        <form className="ml-auto hidden min-w-0 flex-1 md:block">
-          <label className="relative block">
-            <span className={`pointer-events-none absolute inset-y-0 left-3 flex items-center ${searchIconClass}`}>
-              <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.8">
-                <circle cx="11" cy="11" r="7" />
-                <path d="m20 20-3.5-3.5" />
-              </svg>
-            </span>
-            <input
-              type="search"
-              placeholder="Search for products"
-              className={`w-full rounded-full border py-2 pl-10 pr-4 text-sm outline-none transition ${searchInputClass}`}
-            />
-          </label>
-        </form>
+          </nav>
+        </div>
+
+
 
         <div className="ml-auto flex items-center gap-2 md:ml-0">
+          <form className=" hidden min-w-0 flex-1 lg:block">
+            <label className="relative block">
+              <span className={`pointer-events-none absolute inset-y-0 left-3 flex items-center ${searchIconClass}`}>
+                <FontAwesomeIcon icon={faSearch} />
+              </span>
+              <input
+                type="search"
+                placeholder="Search for products"
+                className={`w-80 rounded-0 border py-2 pl-10 pr-4 text-sm outline-none transition ${searchInputClass}`}
+              />
+            </label>
+          </form>
           <button
             type="button"
             aria-label="Account"
-            className={`rounded-full border p-2 transition ${iconButtonClass}`}
+            className={`rounded-0 border p-2 w-10 h-10 transition font-light text-sm ${iconButtonClass}`}
           >
-            <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8">
-              <circle cx="12" cy="8" r="3.5" />
-              <path d="M5 19c1.5-2.9 4.1-4.5 7-4.5s5.5 1.6 7 4.5" />
-            </svg>
+            <FontAwesomeIcon icon={faUser} />
+          </button>
+          <button
+            type="button"
+            aria-label="Wishlist"
+            className={`relative rounded-0 border p-2 w-10 h-10 transition font-light text-sm ${iconButtonClass}`}
+          >
+            <FontAwesomeIcon icon={faHeart} />
+            <span className="absolute -right-1 -top-2 rounded-full bg-main px-1.5 w-5 h-5 text-center flex items-center justify-center  text-[10px] font-medium text-white">0</span>
           </button>
           <button
             type="button"
             aria-label="Shopping cart"
-            className={`relative rounded-full border p-2 transition ${iconButtonClass}`}
+            className={`relative rounded-0 border p-2 w-10 h-10 transition font-light text-sm ${iconButtonClass}`}
           >
-            <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8">
-              <circle cx="9" cy="20" r="1.3" />
-              <circle cx="17" cy="20" r="1.3" />
-              <path d="M3 4h2l2.4 10.2a1.5 1.5 0 0 0 1.5 1.2h8.8a1.5 1.5 0 0 0 1.4-1l2-6.2H7.2" />
-            </svg>
-            <span className="absolute -right-1 -top-1 rounded-full bg-emerald-500 px-1.5 text-[10px] font-medium text-black">0</span>
+            <FontAwesomeIcon icon={faShoppingCart} />
+            <span className="absolute -right-1 -top-2 rounded-full bg-main px-1.5 w-5 h-5 text-center flex items-center justify-center  text-[10px] font-medium text-white">0</span>
           </button>
+          <button
+            type="button"
+            aria-label="Shopping cart"
+            className={`relative rounded-0 border p-2 w-10 h-10 transition font-bold text-sm ${iconButtonClass}`}
+          >
+            <span className="text-main">AR</span>
+
+          </button>
+
 
           {/* Mobile menu panel with search and nested category links. */}
           <details className="md:hidden">
-            <summary className={`list-none rounded-full border p-2 transition ${iconButtonClass}`}>
+            <summary className={`list-none rounded-0 border p-2 transition ${iconButtonClass}`}>
               <span className="sr-only">Open menu</span>
               <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8">
                 <path d="M4 7h16M4 12h16M4 17h16" />

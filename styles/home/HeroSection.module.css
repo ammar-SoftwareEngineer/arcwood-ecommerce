@@ -115,12 +115,12 @@
   top: 50%;
   transform: translateY(-50%);
   z-index: 10 !important;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.9);
   border: 1px solid rgba(255, 255, 255, 0.3);
-  color: #fff;
+  color: var(--primary);
   width: 46px;
   height: 46px;
-  border-radius: 50%;
+  border-radius: 0;
   font-size: 1.1rem;
   cursor: pointer;
   backdrop-filter: blur(5px);
@@ -137,7 +137,7 @@
 }
 
 .arrow:not(:disabled):hover {
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.8);
   transform: translateY(-50%) scale(1.07);
 }
 
@@ -168,8 +168,8 @@
 
 .dot {
   width: 24px;
-  height: 3px;
-  border-radius: 2px;
+  height: 6px;
+  border-radius: 0;
   border: none;
   background: rgba(255, 255, 255, 0.35);
   cursor: pointer;
