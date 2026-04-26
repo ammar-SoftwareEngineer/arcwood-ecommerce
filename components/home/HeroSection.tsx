@@ -150,17 +150,7 @@ export default function HeroSection() {
    <FontAwesomeIcon icon={faAngleRight} />
       </button>
 
-      <div className={styles.dots}>
-        {slides.map((_, i) => (
-          <button
-            key={`dot-${i}`}
-            type="button"
-            className={`${styles.dot} ${i === current ? styles.dotActive : ""}`}
-            onClick={() => goTo(i, current, i > current ? "next" : "prev")}
-            aria-label={`Go to slide ${i + 1}`}
-          />
-        ))}
-      </div>
+     
     </section>
   );
 }
