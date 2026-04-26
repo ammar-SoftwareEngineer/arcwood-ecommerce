@@ -20,6 +20,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { faFacebookF, faInstagram, faWhatsapp, faXTwitter } from "@fortawesome/free-brands-svg-icons";
 import type { HeaderItem } from "./headerTypes";
+import { CiHeart, CiSearch, CiShop, CiUser } from "react-icons/ci";
 
 type MobileHeaderProps = {
   navItems: HeaderItem[];
@@ -95,10 +96,10 @@ export default function MobileHeader({
       >
         <div className="mx-auto flex w-full items-center justify-around gap-1">
           <button type="button" aria-label="Account" className={actionButtonClass}>
-            <FontAwesomeIcon icon={faUser} />
+            <CiUser size={25} className="text-main cursor-pointer transition-colors hover:text-black!" />
           </button>
           <button type="button" aria-label="Wishlist" className={`relative ${actionButtonClass}`}>
-            <FontAwesomeIcon icon={faHeart} />
+            <CiHeart size={25} className="text-main cursor-pointer transition-colors hover:text-black!" />
             <span className="absolute top-1 inset-e-1 flex h-4 w-4 items-center justify-center rounded-full bg-main text-[9px] font-medium text-white">
               0
             </span>
@@ -111,7 +112,7 @@ export default function MobileHeader({
             onClick={openCart}
             className={`relative ${actionButtonClass}`}
           >
-            <FontAwesomeIcon icon={faShoppingCart} />
+            <CiShop size={25} className="text-main cursor-pointer transition-colors hover:text-black!" />
             <span className="absolute top-1 inset-e-1 flex h-4 w-4 items-center justify-center rounded-full bg-main text-[9px] font-medium text-white">
               0
             </span>
@@ -124,21 +125,21 @@ export default function MobileHeader({
             onClick={openSearch}
             className={`relative ${actionButtonClass}`}
           >
-            <FontAwesomeIcon icon={faSearch} />
+           
+              <CiSearch size={25} className="text-main cursor-pointer transition-colors hover:text-black!" />
+
           </button>
         </div>
       </div>
 
       <div
-        className={`fixed inset-0 z-50! transition duration-300 ${
-          isMenuOpen ? "pointer-events-auto bg-black/45 backdrop-blur-[1px] opacity-100" : "pointer-events-none bg-black/0 opacity-0"
-        }`}
+        className={`fixed inset-0 z-50! transition duration-300 ${isMenuOpen ? "pointer-events-auto bg-black/45 backdrop-blur-[1px] opacity-100" : "pointer-events-none bg-black/0 opacity-0"
+          }`}
         onClick={() => setIsMenuOpen(false)}
       >
         <div
-          className={`ml-auto flex h-screen w-full max-w-sm flex-col bg-slate-50 text-black shadow-2xl transition-transform duration-300 ease-out ${
-            isMenuOpen ? "translate-x-0" : "translate-x-full"
-          }`}
+          className={`ml-auto flex h-screen w-full max-w-sm flex-col bg-slate-50 text-black shadow-2xl transition-transform duration-300 ease-out ${isMenuOpen ? "translate-x-0" : "translate-x-full"
+            }`}
           onClick={(event) => event.stopPropagation()}
         >
           <div className="flex items-center justify-between border-b border-black/10 px-4 py-4 ">
@@ -215,7 +216,7 @@ export default function MobileHeader({
                   </div>
                 </div>
               </li>
-             
+
               <li>
                 <div className="flex items-start gap-3">
                   <FontAwesomeIcon icon={faLocationDot} className="mt-1 text-main" />
