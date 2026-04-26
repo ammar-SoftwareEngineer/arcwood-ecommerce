@@ -3,25 +3,23 @@
 import { Link } from "@/i18n/navigation";
 import Image, { type StaticImageData } from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useEffect, useState } from "react";
+import { useId, useState } from "react";
+import SearchSideDrawer from "./menus/SearchSideDrawer";
+import CartSideDrawer from "./menus/CartSideDrawer";
 import {
   faBars,
   faChevronDown,
-  faClock,
   faEnvelope,
   faHeart,
   faLocationDot,
   faPhoneVolume,
+  faSearch,
   faShoppingCart,
   faUser,
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import { faFacebookF, faInstagram, faWhatsapp, faXTwitter } from "@fortawesome/free-brands-svg-icons";
-
-type HeaderItem = {
-  href: string;
-  label: string;
-};
+import type { HeaderItem } from "./headerTypes";
 
 type MobileHeaderProps = {
   navItems: HeaderItem[];
@@ -41,9 +39,29 @@ export default function MobileHeader({
   categoriesLabel,
 }: MobileHeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const searchDrawerId = useId();
+  const cartDrawerId = useId();
   const actionButtonClass = "flex h-11 w-11 items-center justify-center rounded-xl text-black/75 transition hover:bg-black/5 hover:text-black";
 
+  const openSearch = () => {
+    setIsMenuOpen(false);
+    setIsCartOpen(false);
+    setIsSearchOpen(true);
+  };
 
+  const openCart = () => {
+    setIsMenuOpen(false);
+    setIsSearchOpen(false);
+    setIsCartOpen(true);
+  };
+
+  const openHamburger = () => {
+    setIsSearchOpen(false);
+    setIsCartOpen(false);
+    setIsMenuOpen(true);
+  };
 
   return (
     <div className={`flex w-full items-center justify-between gap-3 border-b px-4 py-4 md:hidden ${mainBarClass}`}>
@@ -64,7 +82,7 @@ export default function MobileHeader({
           type="button"
           aria-label="Open menu"
           aria-expanded={isMenuOpen}
-          onClick={() => setIsMenuOpen(true)}
+          onClick={openHamburger}
           className={`relative z-10 rounded-0 border p-2 transition ${iconButtonClass}`}
         >
           <span className="sr-only">Open menu</span>
@@ -81,11 +99,32 @@ export default function MobileHeader({
           </button>
           <button type="button" aria-label="Wishlist" className={`relative ${actionButtonClass}`}>
             <FontAwesomeIcon icon={faHeart} />
-            <span className="absolute right-1 top-1 flex h-4 w-4 items-center justify-center rounded-full bg-main text-[9px] font-medium text-white">0</span>
+            <span className="absolute top-1 inset-e-1 flex h-4 w-4 items-center justify-center rounded-full bg-main text-[9px] font-medium text-white">
+              0
+            </span>
           </button>
-          <button type="button" aria-label="Shopping cart" className={`relative ${actionButtonClass}`}>
+          <button
+            type="button"
+            aria-label="Shopping cart"
+            aria-expanded={isCartOpen}
+            aria-controls={cartDrawerId}
+            onClick={openCart}
+            className={`relative ${actionButtonClass}`}
+          >
             <FontAwesomeIcon icon={faShoppingCart} />
-            <span className="absolute right-1 top-1 flex h-4 w-4 items-center justify-center rounded-full bg-main text-[9px] font-medium text-white">0</span>
+            <span className="absolute top-1 inset-e-1 flex h-4 w-4 items-center justify-center rounded-full bg-main text-[9px] font-medium text-white">
+              0
+            </span>
+          </button>
+          <button
+            type="button"
+            aria-label="Search"
+            aria-expanded={isSearchOpen}
+            aria-controls={searchDrawerId}
+            onClick={openSearch}
+            className={`relative ${actionButtonClass}`}
+          >
+            <FontAwesomeIcon icon={faSearch} />
           </button>
         </div>
       </div>
@@ -205,6 +244,13 @@ export default function MobileHeader({
           </div>
         </div>
       </div>
+
+      <SearchSideDrawer
+        id={searchDrawerId}
+        isOpen={isSearchOpen}
+        onClose={() => setIsSearchOpen(false)}
+      />
+      <CartSideDrawer id={cartDrawerId} isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
     </div>
   );
 }

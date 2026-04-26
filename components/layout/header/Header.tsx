@@ -2,7 +2,7 @@ import { getTranslations } from "next-intl/server";
 import navbarData from "@/lib/data/navbar.json";
 import logo from "@/public/logo/logo1.png";
 import "@/styles/layout/Header.css";
-import DesktopHeader from "./DesktopHeader";
+import DesktopHeader from "./desktopHeader/DesktopHeader";
 import MobileHeader from "./MobileHeader";
 
 type HeaderVariant = "default" | "home";
@@ -36,9 +36,6 @@ export default async function Header({ variant = "default" }: HeaderProps) {
     ? "border-white/35 bg-white/10 text-white hover:bg-white/20"
     : "border-black/20 bg-black/5 text-black hover:bg-black/10";
   const searchIconClass = isHome ? "text-white/55" : "text-black/55";
-  const searchInputClass = isHome
-    ? "border-white/20 bg-black/35 text-white placeholder:text-white/55 focus:border-white/50"
-    : "border-black/20 bg-white/35 text-black placeholder:text-black/55 focus:border-black/40";
   const iconButtonClass = isHome
     ? "border-white/25 text-white/90 hover:bg-white/10 hover:text-white"
     : "border-black/20 text-black/90 hover:bg-black/10 hover:text-black";
@@ -58,7 +55,6 @@ export default async function Header({ variant = "default" }: HeaderProps) {
         navLinkClass={navLinkClass}
         categoryButtonClass={categoryButtonClass}
         searchIconClass={searchIconClass}
-        searchInputClass={searchInputClass}
         iconButtonClass={iconButtonClass}
         logoSrc={logo}
       />
