@@ -7,6 +7,8 @@ import type { HeaderItem } from "../headerTypes";
 import { useLocale } from "next-intl";
 import { routing } from "@/i18n/routing";
 
+import { FaChevronLeft ,FaChevronRight} from "react-icons/fa6";
+
 type AppLocale = (typeof routing.locales)[number];
 
 type DesktopCategoryMenuProps = {
@@ -25,7 +27,7 @@ export default function DesktopCategoryMenu({ items, label, buttonClass }: Deskt
       >
         <FontAwesomeIcon icon={faLayerGroup} className="h-3.5 w-3.5" />
         {label}
-        {locale === "en" ? <FontAwesomeIcon icon={faChevronRight} className="h-3 w-3" /> : <FontAwesomeIcon icon={faChevronLeft} className="h-3 w-3" />}
+        {locale === "en" ? <FaChevronRight size={25} className="text-main cursor-pointer transition-colors hover:text-black!" /> : <FaChevronLeft size={25} className="text-main cursor-pointer transition-colors hover:text-black!" />}
       </button>
       <div className="invisible absolute top-12 z-20 min-w-56 rounded-0 border border-white/10 bg-white/95 p-2 opacity-0 shadow-lg transition-all group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
         <nav className="flex flex-col" aria-label={label}>

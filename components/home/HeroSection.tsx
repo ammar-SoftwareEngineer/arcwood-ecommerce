@@ -4,8 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import slider1 from "@/public/slider/slider1.webp";
 import slider2 from "@/public/slider/slider2.webp";
 import styles from "@/styles/home/HeroSection.module.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 
 const COLS = 4;
 const STAGGER = 70;
@@ -139,7 +138,7 @@ export default function HeroSection() {
         onClick={handlePrev}
         aria-label="Previous slide"
       >
-        <FontAwesomeIcon icon={faAngleLeft} />
+        <FaChevronLeft size={25} className="text-main cursor-pointer transition-colors hover:text-black!" />
       </button>
       <button
         type="button"
@@ -147,7 +146,7 @@ export default function HeroSection() {
         onClick={handleNext}
         aria-label="Next slide"
       >
-   <FontAwesomeIcon icon={faAngleRight} />
+   <FaChevronRight size={25} className="text-main cursor-pointer transition-colors hover:text-black!" />
       </button>
 
      

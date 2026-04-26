@@ -121,7 +121,7 @@
   width: 46px;
   height: 46px;
   border-radius: 0;
-  font-size: 1.1rem;
+  font-size: 1.1rem !important;
   cursor: pointer;
   backdrop-filter: blur(5px);
   display: flex;
@@ -155,39 +155,7 @@
   right: 20px;
 }
 
-/* ===== DOTS ===== */
-.dots {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 2;
-  display: flex;
-  gap: 6px;
-}
 
-.dot {
-  width: 24px;
-  height: 6px;
-  border-radius: 0;
-  border: none;
-  background: rgba(255, 255, 255, 0.35);
-  cursor: pointer;
-  padding: 0;
-  transition: background 0.25s, width 0.25s;
-}
-
-/* Keyboard focus ring for dots */
-.dot:focus-visible {
-  outline: 2px solid #fff;
-  outline-offset: 3px;
-  border-radius: 3px;
-}
-
-.dotActive {
-  background: #fff;
-  width: 36px;
-}
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
