@@ -137,9 +137,7 @@ export default function MobileHeader({
             onClick={openSearch}
             className={`relative ${actionButtonClass}`}
           >
-           
-              <CiSearch size={25} className="text-main cursor-pointer transition-colors hover:text-black!" />
-
+            <CiSearch size={25} className="text-main cursor-pointer transition-colors hover:text-black!" />
           </button>
         </div>
       </div>
