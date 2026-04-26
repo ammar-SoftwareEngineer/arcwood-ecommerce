@@ -23,7 +23,7 @@ export default function DesktopCategoryMenu({ items, label, buttonClass }: Deskt
     <div className="group relative">
       <button
         type="button"
-        className={`inline-flex items-center gap-1.5 rounded-0  px-3 py-3 text-sm font-semibold text-white bg-main  transition ${buttonClass}`}
+        className={`inline-flex items-center gap-1.5 rounded-0  px-3 py-3 text-sm font-semibold text-white bg-main cursor-pointer transition ${buttonClass}`}
       >
         <FontAwesomeIcon icon={faLayerGroup} className="h-3.5 w-3.5" />
         {label}
