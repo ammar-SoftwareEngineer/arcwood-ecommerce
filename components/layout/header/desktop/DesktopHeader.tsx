@@ -95,7 +95,7 @@ export default function DesktopHeader({
             className={`relative z-10 inline-flex h-10 w-10 cursor-pointer items-center justify-center transition ${iconButtonClass}`}
           >
             <span className={searchIconClass}>
-              <FontAwesomeIcon icon={faSearch} className="h-4 w-4 text-main transition hover:text-black!" />
+              <FontAwesomeIcon icon={faSearch} className=" text-main transition hover:text-black!" />
             </span>
           </button>
 
