@@ -1,8 +1,10 @@
-import { Link} from "@/i18n/navigation";
+"use client";
+
+import { Link } from "@/i18n/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft, faChevronRight, faLayerGroup } from "@fortawesome/free-solid-svg-icons";
 import type { HeaderItem } from "../headerTypes";
-import { useLocale, useTranslations } from "next-intl";
+import { useLocale } from "next-intl";
 import { routing } from "@/i18n/routing";
 
 type AppLocale = (typeof routing.locales)[number];
@@ -15,7 +17,6 @@ type DesktopCategoryMenuProps = {
 
 export default function DesktopCategoryMenu({ items, label, buttonClass }: DesktopCategoryMenuProps) {
   const locale = useLocale() as AppLocale;
-  const t = useTranslations("header.categoriesMenu");
   return (
     <div className="group relative">
       <button

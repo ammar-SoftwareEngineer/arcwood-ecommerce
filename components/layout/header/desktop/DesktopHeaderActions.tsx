@@ -53,7 +53,7 @@ export default function DesktopHeaderActions({ isCartOpen, cartDrawerId, onOpenC
       <button
         type="button"
         onClick={switchLocale}
-        className="relative inline-flex h-10 w-12 cursor-pointer items-center justify-center rounded-0 border-0 bg-main text-base font-bold text-white transition-colors hover:text-main! hover:bg-white"
+        className="relative inline-flex h-10 w-16 cursor-pointer items-center justify-center rounded-0 border-0 bg-main text-base font-bold text-white transition-colors hover:text-main! hover:bg-white"
         aria-label={switchLabel}
         title={switchLabel}
       >

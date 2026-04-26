@@ -6,8 +6,8 @@ import { routing } from "@/i18n/routing";
 import Image, { type StaticImageData } from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useId, useState } from "react";
-import SearchSideDrawer from "./menus/SearchSideDrawer";
-import CartSideDrawer from "./menus/CartSideDrawer";
+import SearchSideDrawer from "./drawers/SearchSideDrawer";
+import CartSideDrawer from "./drawers/CartSideDrawer";
 import {
   faBars,
   faChevronDown,

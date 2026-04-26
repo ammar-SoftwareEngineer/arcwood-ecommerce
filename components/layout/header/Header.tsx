@@ -2,7 +2,7 @@ import { getTranslations } from "next-intl/server";
 import navbarData from "@/lib/data/navbar.json";
 import logo from "@/public/logo/logo1.png";
 import "@/styles/layout/Header.css";
-import DesktopHeader from "./desktopHeader/DesktopHeader";
+import DesktopHeader from "./desktop/DesktopHeader";
 import MobileHeader from "./MobileHeader";
 
 type HeaderVariant = "default" | "home";
@@ -22,7 +22,7 @@ export default async function Header({ variant = "default" }: HeaderProps) {
     label: t(item.labelKey),
   }));
   const isHome = variant === "home";
-  const promoText = "Only this week: 40% OFF on all sofas and couches";
+  const promoText = "Discounts of up to 20% on products";
 
   const headerPositionClass = isHome ? "relative inset-x-0 top-0 text-white" : "fixed inset-x-0 top-0 text-black";
   const topBarClass = isHome

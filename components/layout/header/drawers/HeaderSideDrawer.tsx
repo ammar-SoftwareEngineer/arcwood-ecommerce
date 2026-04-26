@@ -66,11 +66,11 @@ export default function HeaderSideDrawer({
           </h2>
           <button
             type="button"
-            className="inline-flex h-9 w-9 items-center justify-center rounded-0 border border-black/15 text-black/70 transition hover:bg-black/5 cursor-pointer"
+            className="inline-flex h-9 w-9 cursor-pointer items-center justify-center rounded-0 border border-black/15 text-black/70 transition hover:bg-black/5"
             aria-label={closeLabel}
             onClick={onClose}
           >
-            <FontAwesomeIcon icon={faXmark} className="h-4 w-4 " />
+            <FontAwesomeIcon icon={faXmark} className="h-4 w-4" />
           </button>
         </div>
         <div className="flex min-h-0 flex-1 flex-col overflow-y-auto overscroll-contain">{children}</div>

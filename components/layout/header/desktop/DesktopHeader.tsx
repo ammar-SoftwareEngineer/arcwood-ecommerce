@@ -8,8 +8,8 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 import type { HeaderItem } from "../headerTypes";
 import HeaderPromoBar from "../HeaderPromoBar";
-import SearchSideDrawer from "../menus/SearchSideDrawer";
-import CartSideDrawer from "../menus/CartSideDrawer";
+import SearchSideDrawer from "../drawers/SearchSideDrawer";
+import CartSideDrawer from "../drawers/CartSideDrawer";
 import DesktopCategoryMenu from "./DesktopCategoryMenu";
 import DesktopMainNavLinks from "./DesktopMainNavLinks";
 import DesktopHeaderActions from "./DesktopHeaderActions";
@@ -92,7 +92,7 @@ export default function DesktopHeader({
             aria-expanded={isSearchOpen}
             aria-controls={searchDrawerId}
             onClick={openSearch}
-            className="relative z-10 inline-flex h-10 w-10 cursor-pointer items-center justify-center "
+            className={`relative z-10 inline-flex h-10 w-10 cursor-pointer items-center justify-center transition ${iconButtonClass}`}
           >
             <span className={searchIconClass}>
               <FontAwesomeIcon icon={faSearch} className="h-4 w-4 text-main transition hover:text-black!" />

@@ -1,5 +1,5 @@
 import Footer from "@/components/layout/footer/Footer";
-import Header from "@/components/layout/header/Header";
+import Header from "@/components/layout/header";
 import { routing } from "@/i18n/routing";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import type { Metadata } from "next";
