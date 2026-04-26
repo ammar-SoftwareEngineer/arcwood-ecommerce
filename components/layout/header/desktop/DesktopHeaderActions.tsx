@@ -32,8 +32,12 @@ export default function DesktopHeaderActions({ isCartOpen, cartDrawerId, onOpenC
 
   return (
     <div className="flex items-center gap-1">
-      <button type="button" aria-label="Account" className="relative h-10 w-10 rounded-0 text-sm">
+      <button type="button" aria-label="Account" className="relative h-10 w-10 rounded-0 text-sm items-center justify-center transition">
         <CiUser size={25} className={iconClass} />
+      </button>
+      <button type="button" aria-label="Wishlist" className="relative h-10 w-10 rounded-0 text-sm items-center justify-center transition">
+        <CiHeart size={25} className={iconClass} />
+        <span className={badgeClassName}>0</span>
       </button>
       <button
         type="button"
@@ -41,19 +45,15 @@ export default function DesktopHeaderActions({ isCartOpen, cartDrawerId, onOpenC
         aria-expanded={isCartOpen}
         aria-controls={cartDrawerId}
         onClick={onOpenCart}
-        className="relative h-10 w-10 rounded-0 text-sm"
+        className="relative h-10 w-10 rounded-0 text-sm items-center justify-center transition"
       >
         <CiShop size={25} className={iconClass} />
-        <span className={badgeClassName}>0</span>
-      </button>
-      <button type="button" aria-label="Wishlist" className="relative h-10 w-10 rounded-0 text-sm">
-        <CiHeart size={25} className={iconClass} />
         <span className={badgeClassName}>0</span>
       </button>
       <button
         type="button"
         onClick={switchLocale}
-        className="relative inline-flex h-10 w-16 cursor-pointer items-center justify-center rounded-0 border-0 bg-main text-base font-bold text-white transition-colors hover:text-main! hover:bg-white"
+        className="relative inline-flex h-[70px] rtl:mr-3 ltr:ml-3  w-16 cursor-pointer items-center justify-center  rounded-0 border-0 bg-main text-base font-bold text-white hover:text-black!  transition-colors  hover:bg-white!"
         aria-label={switchLabel}
         title={switchLabel}
       >

@@ -69,14 +69,14 @@ export default function DesktopHeader({
       <HeaderPromoBar text={promoText} topBarClass={topBarClass} />
 
       <div
-        className={`mt-0 flex w-full flex-wrap items-center justify-between gap-3 border-b px-4 py-6 backdrop-blur md:gap-6 md:px-20 ${mainBarClass}`}
+        className={`py-0! my-0! flex w-full flex-wrap items-center justify-between gap-3 border-b px-4  backdrop-blur md:gap-6 md:px-20 ${mainBarClass}`}
       >
-        <div className="flex min-w-0 items-center gap-4">
+        <div className="flex  items-center gap-4">
           <Link href="/" className="shrink-0 text-lg font-bold tracking-wide">
             <Image src={logoSrc} alt="logo" width={160} height={52} loading="lazy" />
           </Link>
 
-          <nav className="flex min-w-0 items-center gap-6" aria-label="Main">
+          <nav className="flex min-h-[52px] items-center gap-6" aria-label="Main">
             <DesktopCategoryMenu
               items={categoryItems}
               label={categoriesLabel}
@@ -93,10 +93,10 @@ export default function DesktopHeader({
             aria-expanded={isSearchOpen}
             aria-controls={searchDrawerId}
             onClick={openSearch}
-            className={`relative z-10 inline-flex h-10 w-10 cursor-pointer items-center justify-center transition ${iconButtonClass}`}
+            className={`relative z-10 inline-flex h-10 w-10 cursor-pointer items-center justify-center transition `}
           >
             <span className={searchIconClass}>
-              <CiSearch size={25} className="text-main cursor-pointer transition-colors hover:text-black!" />
+              <CiSearch size={25} className="text-main cursor-pointer  transition-colors hover:text-black!" />
             </span>
           </button>
 

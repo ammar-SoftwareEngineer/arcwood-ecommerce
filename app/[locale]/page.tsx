@@ -1,3 +1,4 @@
+import Cartegories from "@/components/home/Cartegories";
 import HeroSection from "@/components/home/HeroSection";
 import { setRequestLocale } from "next-intl/server";
 
@@ -12,6 +13,7 @@ export default async function Home({ params }: Props) {
   return (
     <div>
       <HeroSection />
+      <Cartegories />
     </div>
   );
 }

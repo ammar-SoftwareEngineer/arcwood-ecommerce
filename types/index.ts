@@ -4,7 +4,7 @@ export type Product = {
   title: string;
   description: string;
   price: number;
-  currency: "USD";
+  currency: "EGP";
   image: string;
   categorySlug: string;
   inStock: boolean;

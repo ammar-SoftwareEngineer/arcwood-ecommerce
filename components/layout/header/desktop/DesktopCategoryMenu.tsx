@@ -7,7 +7,6 @@ import type { HeaderItem } from "../headerTypes";
 import { useLocale } from "next-intl";
 import { routing } from "@/i18n/routing";
 
-import { FaChevronLeft ,FaChevronRight} from "react-icons/fa6";
 
 type AppLocale = (typeof routing.locales)[number];
 
@@ -18,18 +17,18 @@ type DesktopCategoryMenuProps = {
 };
 
 export default function DesktopCategoryMenu({ items, label, buttonClass }: DesktopCategoryMenuProps) {
-  const locale = useLocale() as AppLocale;
+
   return (
     <div className="group relative">
       <button
         type="button"
-        className={`inline-flex items-center gap-1.5 rounded-0  px-3 py-3 text-sm font-semibold text-white bg-main cursor-pointer transition ${buttonClass}`}
+        className={`flex  items-center gap-1.5 rounded-0  w-40 h-[70px] justify-center  text-sm font-semibold text-white bg-main cursor-pointer transition-all ${buttonClass}`}
       >
         <FontAwesomeIcon icon={faLayerGroup} className="h-3.5 w-3.5" />
         {label}
-        {locale === "en" ? <FaChevronRight size={25} className="text-white cursor-pointer transition-colors hover:text-black!" /> : <FaChevronLeft size={25} className="text-white cursor-pointer transition-colors hover:text-black!" />}
+       
       </button>
-      <div className="invisible absolute top-12 z-20 min-w-56 rounded-0 border border-white/10 bg-white/95 p-2 opacity-0 shadow-lg transition-all group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+      <div className="invisible absolute top-[65px] z-20 min-w-56 rounded-0 border border-white/10 bg-white/95 p-2 opacity-0 shadow-lg transition-all group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
         <nav className="flex flex-col" aria-label={label}>
           {items.map((item) => (
             <Link
