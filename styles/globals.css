@@ -22,7 +22,7 @@ html,body{
 
 body {
   background: var(--background);
-  font-family: "Rubik", sans-serif !important;
+  font-family: "Plus Jakarta Sans", sans-serif !important;
 }
 
 [dir="rtl"] body {

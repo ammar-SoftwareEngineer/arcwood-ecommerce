@@ -3,16 +3,16 @@ import Header from "@/components/layout/header/Header";
 import { routing } from "@/i18n/routing";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import type { Metadata } from "next";
-import { Rubik, Lora } from "next/font/google";
+import { Plus_Jakarta_Sans, Lora } from "next/font/google";
 import { notFound } from "next/navigation";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import "@/styles/globals.css";
 
 
 
-const rubik = Rubik({
+  const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  variable: "--font-rubik",
+  variable: "--font-plus-jakarta-sans",
 });
 
 const lora = Lora({
@@ -55,7 +55,7 @@ export default async function LocaleLayout({ children, params }: Props) {
     <html
       lang={locale}
       dir={locale === "ar" ? "rtl" : "ltr"}
-      className={`${rubik.variable} ${lora.variable} h-full antialiased`}
+      className={`${plusJakartaSans.variable} ${lora.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <NextIntlClientProvider messages={messages}>
