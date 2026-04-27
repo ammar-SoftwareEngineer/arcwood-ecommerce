@@ -56,7 +56,7 @@ body {
   inset: 0;
   overflow: hidden;
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-  transform: scale(0.96);
+  transform: scale(0.97);
   transform-origin: center;
 }
 
