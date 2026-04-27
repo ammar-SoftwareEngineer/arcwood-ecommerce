@@ -44,7 +44,7 @@ export default function CategoryCard({ category, index }: CategoryCardProps) {
                     </div>
                     <div className="innerBorder pointer-events-none absolute inset-0" />
 
-                    <div className="badge absolute inset-0! w-full h-full py-3 text-white flex flex-col align-middle justify-center">
+                    <div className="badge absolute  rtl:inset-auto ltr:inset-0 w-full h-full py-3 text-white flex flex-col align-middle justify-center">
                         <p className="badgeCount text-base font-medium">
                             {category.count}
                         </p>
