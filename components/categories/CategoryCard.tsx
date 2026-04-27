@@ -49,7 +49,7 @@ export default function CategoryCard({ category, index }: CategoryCardProps) {
                             {category.count}
                         </p>
                         <div className="badgeDivider my-1 h-px bg-white/40" />
-                        {locale === "ar" ? <p className="badgeName text-base text-center">{category.nameAr}</p> : <p className="badgeName text-base text-center">{category.name}</p>}
+                        {locale === "ar" ? <p className="badgeName text-base font-bold text-center">{category.nameAr}</p> : <p className="badgeName text-base font-bold text-center">{category.name}</p>}
                     </div>
                 </div>
             </Link>
