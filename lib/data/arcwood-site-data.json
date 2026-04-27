@@ -13,48 +13,59 @@
   "mainCategories": [
     {
       "name": "Offices",
-      "image": null,
-      "imageAlt": "Offices"
+      "image": "./public/categories/1.webp",
+      "imageAlt": "Offices",
+      "nameAr": "مكاتب",
+      "count": 10
     },
     {
       "name": "Office Furniture",
-      "image": null,
-      "imageAlt": "Office Furniture"
+      "image": "./public/categories/2.webp",
+      "imageAlt": "Office Furniture",
+      "nameAr": "أثاث مكتبي",
+      "count": 10
     },
     {
       "name": "Working Station",
-      "image": null,
-      "imageAlt": "Working Station"
+      "image": "./public/categories/3.webp",
+      "imageAlt": "Working Station",
+      "nameAr": "محطات العمل",
+      "count": 10
     },
     {
       "name": "Office Cupboards & Shannon",
-      "image": null,
-      "imageAlt": "Office Cupboards & Shannon"
+      "image": "./public/categories/4.webp",
+      "imageAlt": "Office Cupboards & Shannon",
+      "nameAr": "خزائن مكتبية وشانون",
+      "count": 10
     },
     {
       "name": "Meeting Table",
-      "image": null,
-      "imageAlt": "Meeting Table"
+      "image": "./public/categories/5.webp",
+      "imageAlt": "Meeting Table",
+      "nameAr": "طاولات اجتماعات",
+      "count": 10
     },
     {
       "name": "Chairs",
-      "image": null,
-      "imageAlt": "Chairs"
+      "image": "./public/categories/6.webp",
+      "imageAlt": "Chairs",
+      "nameAr": "كراسي",
+      "count": 10
     },
     {
       "name": "Counter reception",
-      "image": null,
-      "imageAlt": "Counter reception"
+      "image": "./public/categories/7.webp",
+      "imageAlt": "Counter reception",
+      "nameAr": "كاونتر استقبال",
+      "count": 10
     },
     {
       "name": "Office blinds",
-      "image": null,
-      "imageAlt": "Office blinds"
-    },
-    {
-      "name": "Maintenance and repair",
-      "image": null,
-      "imageAlt": "Maintenance and repair"
+      "image": "./public/categories/8.webp",
+      "imageAlt": "Office blinds",
+      "nameAr": "ستائر مكتبية",
+      "count": 10
     }
   ],
   "chairsSubcategories": [
