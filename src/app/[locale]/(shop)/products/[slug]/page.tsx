@@ -18,23 +18,6 @@ export async function generateStaticParams() {
   return (data.products ?? []).map((product) => ({ slug: String(product.id) }));
 }
 
-// export async function generateMetadata({ params }: Props): Promise<Metadata> {
-//   const { slug } = await params;
-//   const query = await rtkStore.dispatch(productsApi.endpoints.getProductBySlug.initiate(slug));
-//   const product = query.data;
-
-//   if (!product) {
-//     return {
-//       title: "Product not found",
-//       robots: { index: false, follow: false },
-//     };
-//   }
-
-//   return {
-//     title: product.title,
-//     description: product.description,
-//   };
-// }
 
 export default async function ProductDetailsPage({ params }: Props) {
   const { slug } = await params;

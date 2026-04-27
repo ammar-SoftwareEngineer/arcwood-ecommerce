@@ -4,11 +4,7 @@ import { Link } from "@/i18n/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {  faLayerGroup } from "@fortawesome/free-solid-svg-icons";
 import type { HeaderItem } from "../headerTypes";
-import { useLocale } from "next-intl";
-import { routing } from "@/i18n/routing";
 
-
-type AppLocale = (typeof routing.locales)[number];
 
 type DesktopCategoryMenuProps = {
   items: HeaderItem[];

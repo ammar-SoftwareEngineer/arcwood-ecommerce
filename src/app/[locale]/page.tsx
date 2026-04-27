@@ -1,5 +1,5 @@
 import Cartegories from "@/components/home/Cartegories";
-import HeroSection from "@/components/home/HeroSection";
+import HeroSection from "@/components/home/HeroSection";  
 import { setRequestLocale } from "next-intl/server";
 
 type Props = {

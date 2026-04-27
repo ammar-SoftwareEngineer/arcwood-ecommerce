@@ -3,16 +3,16 @@ import type { AbstractIntlMessages } from "next-intl";
 
 const loaders = {
   en: {
-    common: () => import("../messages/en/common.json"),
-    home: () => import("../messages/en/home.json"),
-    about: () => import("../messages/en/about.json"),
-    categories: () => import("../messages/en/categories.json"),
+    common: () => import("../../messages/en/common.json"),
+    home: () => import("../../messages/en/home.json"),
+    about: () => import("../../messages/en/about.json"),
+    categories: () => import("../../messages/en/categories.json"),
   },
   ar: {
-    common: () => import("../messages/ar/common.json"),
-    home: () => import("../messages/ar/home.json"),
-    about: () => import("../messages/ar/about.json"),
-    categories: () => import("../messages/ar/categories.json"),
+    common: () => import("../../messages/ar/common.json"),
+    home: () => import("../../messages/ar/home.json"),
+    about: () => import("../../messages/ar/about.json"),
+    categories: () => import("../../messages/ar/categories.json"),
   },
 } as const;
 
