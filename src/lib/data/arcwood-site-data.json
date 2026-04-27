@@ -13,56 +13,56 @@
   "mainCategories": [
     {
       "name": "Offices",
-      "image": "./public/categories/1.webp",
+      "image": "../../../public/categories/1.webp",
       "imageAlt": "Offices",
       "nameAr": "مكاتب",
       "count": 4
     },
     {
       "name": "Office Furniture",
-      "image": "./public/categories/2.webp",
+      "image": "../../../public/categories/2.webp",
       "imageAlt": "Office Furniture",
       "nameAr": "أثاث مكتبي",
       "count": 5
     },
     {
       "name": "Working Station",
-      "image": "./public/categories/3.webp",
+      "image": "../../../public/categories/3.webp",
       "imageAlt": "Working Station",
       "nameAr": "محطات العمل",
       "count": 6
     },
     {
       "name": "Office Cupboards & Shannon",
-      "image": "./public/categories/4.webp",
+      "image": "../../../public/categories/4.webp",
       "imageAlt": "Office Cupboards & Shannon",
       "nameAr": "خزائن مكتبية وشانون",
       "count": 7
     },
     {
       "name": "Meeting Table",
-      "image": "./public/categories/5.webp",
+      "image": "../../../public/categories/5.webp",
       "imageAlt": "Meeting Table",
       "nameAr": "طاولات اجتماعات",
       "count": 8
     },
     {
       "name": "Chairs",
-      "image": "./public/categories/6.webp",
+      "image": "../../../public/categories/6.webp",
       "imageAlt": "Chairs",
       "nameAr": "كراسي",
       "count": 9
     },
     {
       "name": "Counter reception",
-      "image": "./public/categories/7.webp",
+      "image": "../../../public/categories/7.webp",
       "imageAlt": "Counter reception",
       "nameAr": "كاونتر استقبال",
       "count": 11
     },
     {
       "name": "Office blinds",
-      "image": "./public/categories/8.webp",
+      "image": "../../../public/categories/8.webp",
       "imageAlt": "Office blinds",
       "nameAr": "ستائر مكتبية",
       "count": 10

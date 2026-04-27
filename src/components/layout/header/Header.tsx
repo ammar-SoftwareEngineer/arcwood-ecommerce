@@ -1,6 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import navbarData from "@/lib/data/navbar.json";
-import logo from "@/public/logo/logo1.png";
+import logo from "@public/logo/logo1.png";
 import "@/styles/layout/Header.css";
 import DesktopHeader from "./desktop/DesktopHeader";
 import MobileHeader from "./MobileHeader";

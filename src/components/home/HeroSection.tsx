@@ -1,8 +1,8 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import slider1 from "@/public/slider/slider1.webp";
-import slider2 from "@/public/slider/slider2.webp";
+import slider1 from "../../../public/slider/slider1.webp";
+import slider2 from "../../../public/slider/slider2.webp";
 import styles from "@/styles/home/HeroSection.module.css";
 import { FaArrowLeft, FaArrowRight, FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 
