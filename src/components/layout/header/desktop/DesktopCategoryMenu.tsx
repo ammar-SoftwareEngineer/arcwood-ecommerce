@@ -18,7 +18,7 @@ export default function DesktopCategoryMenu({ items, label, buttonClass }: Deskt
     <div className="group relative">
       <button
         type="button"
-        className={`flex  items-center gap-1.5 rounded-0  w-40 h-[70px] justify-center  text-sm font-semibold text-white bg-main cursor-pointer transition-all ${buttonClass}`}
+        className={`flex  items-center gap-1.5 rounded-0  w-40 h-[70px] justify-center  text-lg rtl:text-base font-medium text-white bg-main cursor-pointer transition-all ${buttonClass}`}
       >
         <FontAwesomeIcon icon={faLayerGroup} className="h-3.5 w-3.5" />
         {label}
@@ -30,7 +30,7 @@ export default function DesktopCategoryMenu({ items, label, buttonClass }: Deskt
             <Link
               key={item.href}
               href={item.href}
-              className="flex items-center gap-2 rounded-0 px-3 py-2 text-sm font-medium text-black/80 transition hover:bg-black/5 cursor-pointer hover:text-main!"
+              className="flex items-center gap-2 rounded-0 px-3 py-2 text-base font-medium text-black/80 transition hover:bg-black/5 cursor-pointer hover:text-main!"
             >
               {item.label}
             </Link>
