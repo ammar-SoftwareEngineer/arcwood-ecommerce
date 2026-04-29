@@ -1,7 +1,10 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { useLocale } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
-
+import '@/styles/home/CategoriesSection.module.css'
 export type CardCategory = {
   name: string;
   nameAr: string;
@@ -33,7 +36,14 @@ export default function CategoryCard({ category, index }: CategoryCardProps) {
   return (
     <div className="col-span-12 sm:col-span-6 lg:col-span-4 xl:col-span-3   ">
       <Link href={`/categories/${category.name}`}>
-        <div className="hex hex-outer relative w-[250px] h-[300px]">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.5, delay: index * 0.08 }}
+          whileHover={{ y: -3, scale: 1.02 }}
+          className="hex hex-outer relative w-[250px] h-[300px]"
+        >
           <div className="hex-content">
             <Image
               src={src || ""}
@@ -59,7 +69,7 @@ export default function CategoryCard({ category, index }: CategoryCardProps) {
               </p>
             )}
           </div>
-        </div>
+        </motion.div>
       </Link>
     </div>
   );

@@ -17,6 +17,7 @@ export default async function Header({ variant = "default" }: HeaderProps) {
     href: item.href,
     label: t(item.labelKey),
   }));
+  console.log(navItems.filter((item) => item.label == "Home" ) );
   const categoryItems = navbarData.categoryItems.map((item) => ({
     href: item.href,
     label: t(item.labelKey),

@@ -3,16 +3,23 @@ import Header from "@/components/layout/header/Header";
 import { routing } from "@/i18n/routing";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Lora } from "next/font/google";
+import { Barlow_Condensed, Cormorant_Garamond ,Lora} from "next/font/google";
 import { notFound } from "next/navigation";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import "@/styles/globals.css";
 
 
 
-  const plusJakartaSans = Plus_Jakarta_Sans({
+const barlowCondensed = Barlow_Condensed({
   subsets: ["latin"],
-  variable: "--font-plus-jakarta-sans",
+  variable: "--font-barlow-condensed",
+  weight: [ "300", "400", "500", "600", "700", "800", "900"],
+});
+
+const cormorantGaramond = Cormorant_Garamond({
+  subsets: ["latin"],
+  variable: "--font-cormorant-garamond",
+  weight: [ "300", "400", "500", "600", "700"],
 });
 
 const lora = Lora({
@@ -55,7 +62,7 @@ export default async function LocaleLayout({ children, params }: Props) {
     <html
       lang={locale}
       dir={locale === "ar" ? "rtl" : "ltr"}
-      className={`${plusJakartaSans.variable} ${lora.variable} h-full antialiased`}
+      className={`${barlowCondensed.variable} ${cormorantGaramond.variable} ${lora.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <NextIntlClientProvider messages={messages}>
