@@ -3,6 +3,7 @@
 import CategoryGrid from "@/components/categories/CategoryGrid";
 import { motion } from "framer-motion";
 import "@/styles/home/CategoriesSection.module.css";
+import { Link } from "@/i18n/navigation";
 export default function Cartegories() {
   return (
     <section className="categories-section py-12 ">
@@ -40,7 +41,9 @@ export default function Cartegories() {
           whileTap={{ scale: 0.98 }}
           className={"cta mx-auto mt-16"}
         >
+          <Link href="/categories">
           View All Categories
+          </Link>
         </motion.button>
       </div>
     </section>

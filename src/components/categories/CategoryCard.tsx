@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { useLocale } from "next-intl";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import '@/styles/home/CategoriesSection.module.css'
 export type CardCategory = {
   name: string;
@@ -41,7 +41,7 @@ export default function CategoryCard({ category, index }: CategoryCardProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.5, delay: index * 0.08 }}
-          whileHover={{ y: -3, scale: 1.02 }}
+     
           className="hex hex-outer relative w-[250px] h-[300px]"
         >
           <div className="hex-content">
@@ -57,14 +57,14 @@ export default function CategoryCard({ category, index }: CategoryCardProps) {
           <div className="innerBorder pointer-events-none absolute inset-0" />
 
           <div className="badge absolute  rtl:inset-auto ltr:inset-0 w-full h-full py-3 text-white flex flex-col align-middle justify-center">
-            <p className="badgeCount text-base font-medium">{category.count}</p>
+            <p className="badgeCount text-lg font-medium">{category.count}</p>
             <div className="badgeDivider my-1 h-px bg-white/40" />
             {locale === "ar" ? (
-              <p className="badgeName text-base font-bold text-center">
+              <p className="badgeName text-lg font-bold text-center">
                 {category.nameAr}
               </p>
             ) : (
-              <p className="badgeName text-base font-bold text-center">
+              <p className="badgeName text-lg font-bold text-center">
                 {category.name}
               </p>
             )}
