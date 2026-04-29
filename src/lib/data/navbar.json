@@ -7,6 +7,7 @@
     { "href": "/contact", "labelKey": "nav.contact" }
   ],
   "categoryItems": [
+    { "href": "/categories", "labelKey": "categoriesMenu.allCategories" },
     { "href": "/categories/offices", "labelKey": "categoriesMenu.offices" },
     { "href": "/categories/office-furniture", "labelKey": "categoriesMenu.officeFurniture" },
     { "href": "/categories/working-station", "labelKey": "categoriesMenu.workingStation" },

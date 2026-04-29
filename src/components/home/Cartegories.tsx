@@ -15,7 +15,7 @@ export default function Cartegories() {
           transition={{ duration: 0.5 }}
           className={"header"}
         >
-          <div className={"hexIcon"} />
+       
           <p className={"subtitle"}>Explore Our Collection</p>
           <h2 className={"title"}>Shop by Category</h2>
           <div className={"divider"}>
@@ -39,7 +39,7 @@ export default function Cartegories() {
           transition={{ duration: 0.45, delay: 0.2 }}
   
           whileTap={{ scale: 0.98 }}
-          className={"cta mx-auto mt-16"}
+          className={"cta block mx-auto mt-16"}
         >
           <Link href="/categories">
           View All Categories

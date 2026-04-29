@@ -126,15 +126,15 @@
     text-transform: uppercase;
     color: var(--primary);
     margin-bottom: 14px;
-    font-weight: 700 !important;
+    font-weight: 600 !important;
 }
 
 .title {
-    font-size: 48px;
-    font-weight: 700 !important;
+    font-size: 50px;
+
     color: var(--black);
     line-height: 1.1;
-    letter-spacing: -0.5px;
+
     margin: 0;
 }
 
@@ -189,6 +189,6 @@
         background: var(--white);
         color: var(--primary);
         border: 1px solid var(--primary);
-        filter: drop-shadow(0 1px 20px rgba(134, 39, 66, 0.6));
+     
     }
 }
