@@ -1,4 +1,7 @@
-import { getTranslations } from "next-intl/server";
+"use client";
+
+import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 import navbarData from "@/lib/data/navbar.json";
 import logo from "@public/logo/logo1.png";
 import "@/styles/layout/Header.css";
@@ -11,26 +14,40 @@ type HeaderProps = {
   variant?: HeaderVariant;
 };
 
-export default async function Header({ variant = "default" }: HeaderProps) {
-  const t = await getTranslations("header");
+export default function Header({ variant = "default" }: HeaderProps) {
+  const t = useTranslations("header");
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 24);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const navItems = navbarData.navItems.map((item) => ({
     href: item.href,
     label: t(item.labelKey),
   }));
-  console.log(navItems.filter((item) => item.label == "Home" ) );
   const categoryItems = navbarData.categoryItems.map((item) => ({
     href: item.href,
     label: t(item.labelKey),
   }));
-  const isHome = variant === "home";
+  const isHome = variant === "home" && !isScrolled;
   const promoText = t("promoText");
 
-  const headerPositionClass = isHome ? "relative inset-x-0 top-0 text-white" : "fixed inset-x-0 top-0 text-black";
+  const headerPositionClass = isHome
+    ? "fixed inset-x-0 top-0 text-white transition-colors duration-300"
+    : "fixed inset-x-0 top-0 text-black transition-colors duration-300";
   const topBarClass = isHome
-    ? "border-white/10 bg-black/65 text-white/75"
+    ? "border-white/10 bg-white text-black/85 transition-colors duration-300"
     : "border-black/10 bg-white/55 text-black/75";
   const mainBarClass = isHome
-    ? "border-white/10 bg-black/35 text-white md:mt-2 md:rounded-xl"
+    ? "border-white/10 bg-black/20 text-white  transition-colors duration-300"
     : "w-full border-black/10 bg-white/55 text-black";
   const navLinkClass = isHome ? "text-white/80 hover:text-white" : "text-black/80 hover:text-main!";
   const categoryButtonClass = isHome
