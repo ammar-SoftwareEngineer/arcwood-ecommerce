@@ -6,7 +6,7 @@ type ProductGridProps = {
 
 export default function ProductGrid({ items }: ProductGridProps) {
   return (
-    <section className="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <section className="grid grid-cols-12 gap-7 justify-items-center">
 
     </section>
   );

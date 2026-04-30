@@ -7,11 +7,16 @@
     "templates": "Templates",
     "learning": "Learning"
   },
-  "cta": {
-    "deploy": "Deploy Now",
-    "documentation": "Documentation"
+  "products": {
+    "title": "Our Products",
+    "subtitle": "New Arrivals"
   },
-  "images": {
-    "vercelAlt": "Vercel logomark"
+  "categories": {
+    "title": "Our Categories",
+    "subtitle": "Shop by Category"
+  },
+  "cta": {
+    "viewAllCategories": "View All Categories",
+    "viewAllProducts": "View All Products"
   }
 }

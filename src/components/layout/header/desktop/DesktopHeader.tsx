@@ -66,7 +66,7 @@ export default function DesktopHeader({
 
   return (
     <div className="hidden md:block">
-      <HeaderPromoBar text={promoText} topBarClass={topBarClass} />
+      <HeaderPromoBar promoText={promoText} topBarClass={topBarClass} />
 
       <div
         className={`py-0! my-0! flex w-full flex-wrap items-center justify-between gap-3 border-b px-4  backdrop-blur md:gap-6 md:px-20 ${mainBarClass}`}

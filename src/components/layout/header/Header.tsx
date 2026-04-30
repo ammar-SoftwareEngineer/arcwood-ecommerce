@@ -23,7 +23,7 @@ export default async function Header({ variant = "default" }: HeaderProps) {
     label: t(item.labelKey),
   }));
   const isHome = variant === "home";
-  const promoText = "Discounts of up to 20% on products";
+  const promoText = t("promoText");
 
   const headerPositionClass = isHome ? "relative inset-x-0 top-0 text-white" : "fixed inset-x-0 top-0 text-black";
   const topBarClass = isHome

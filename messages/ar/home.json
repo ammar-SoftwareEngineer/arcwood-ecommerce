@@ -7,11 +7,16 @@
     "templates": "القوالب",
     "learning": "التعلّم"
   },
-  "cta": {
-    "deploy": "نشر الآن",
-    "documentation": "التوثيق"
+  "products": {
+    "title": "منتجاتنا",
+    "subtitle": "أحدث الإصدارات"
   },
-  "images": {
-    "vercelAlt": "شعار Vercel"
+  "categories": {
+    "title": "فئاتنا",
+    "subtitle": "تصفح الفئات"
+  },
+  "cta": {
+    "viewAllProducts": "عرض كل المنتجات",
+    "viewAllCategories": "عرض كل الفئات"
   }
 }

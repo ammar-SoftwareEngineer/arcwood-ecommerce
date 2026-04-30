@@ -3,7 +3,7 @@
 import CategoryGrid from "@/components/categories/CategoryGrid";
 import { motion } from "framer-motion";
 import "@/styles/home/CategoriesSection.module.css";
-import { Link } from "@/i18n/navigation";
+import ButtonMore from "../ui/ButtonMore";
 export default function Cartegories() {
   return (
     <section className="categories-section py-12 ">
@@ -15,7 +15,7 @@ export default function Cartegories() {
           transition={{ duration: 0.5 }}
           className={"header"}
         >
-       
+
           <p className={"subtitle"}>Explore Our Collection</p>
           <h2 className={"title"}>Shop by Category</h2>
           <div className={"divider"}>
@@ -32,19 +32,7 @@ export default function Cartegories() {
         >
           <CategoryGrid />
         </motion.div>
-        <motion.button
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.45, delay: 0.2 }}
-  
-          whileTap={{ scale: 0.98 }}
-          className={"cta block mx-auto mt-16"}
-        >
-          <Link href="/categories">
-          View All Categories
-          </Link>
-        </motion.button>
+        <ButtonMore href="/categories" text="View All Categories" />
       </div>
     </section>
   );

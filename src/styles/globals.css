@@ -52,3 +52,24 @@ h6 {
 [dir="rtl"] body {
   font-family: "Lora", serif !important;
 }
+/* ===== CTA Button ===== */
+.cta {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--white);
+  background: var(--primary);
+  border: 1px solid var(--primary);
+  padding: 14px 40px;
+  cursor: pointer;
+
+  transition: background 0.3s ease, color 0.3s ease;
+
+  &:hover {
+      background: var(--white);
+      color: var(--primary);
+      border: 1px solid var(--primary);
+   
+  }
+}

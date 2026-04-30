@@ -5,17 +5,18 @@ export default function CategoryGrid() {
   const categories: CardCategory[] = siteData.mainCategories
 
   return (
-    <div className="grid grid-cols-12 gap-7 justify-items-center">
-     
-        {categories.map((category, index) => (
+    <section className="grid grid-cols-12 gap-7 justify-items-center">
+
+      {categories.map((category, index) => (
         <CategoryCard
           key={category.name}
           category={category}
           index={index}
         />
       ))}
-        </div>
-     
-  
+      
+    </section>
+
+
   )
 }

@@ -1,5 +1,6 @@
 import Cartegories from "@/components/home/Cartegories";
 import HeroSection from "@/components/home/HeroSection";  
+import Products from "@/components/home/Products";
 import { setRequestLocale } from "next-intl/server";
 
 type Props = {
@@ -14,6 +15,7 @@ export default async function Home({ params }: Props) {
     <div>
       <HeroSection />
       <Cartegories />
+      <Products />
     </div>
   );
 }
