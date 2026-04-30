@@ -4,7 +4,7 @@ type HeaderPromoBarProps = {
   topBarClass: string;
 };
 
-export default async function HeaderPromoBar({ promoText, topBarClass }: HeaderPromoBarProps) {
+export default  function HeaderPromoBar({ promoText, topBarClass }: HeaderPromoBarProps) {
 
   return (
     <div className={`border-b backdrop-blur ${topBarClass}`}>

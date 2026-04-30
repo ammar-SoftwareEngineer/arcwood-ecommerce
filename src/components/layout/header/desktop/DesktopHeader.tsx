@@ -39,7 +39,7 @@ export default function DesktopHeader({
   navLinkClass,
   categoryButtonClass,
   searchIconClass,
-  iconButtonClass,
+
   logoSrc,
   categoriesLabel,
   searchDrawerTitle,
