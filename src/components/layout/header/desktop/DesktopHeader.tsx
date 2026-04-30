@@ -3,8 +3,7 @@
 import { useCallback, useId, useState } from "react";
 import { Link } from "@/i18n/navigation";
 import Image, { type StaticImageData } from "next/image";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+
 
 import type { HeaderItem } from "../headerTypes";
 import HeaderPromoBar from "../HeaderPromoBar";

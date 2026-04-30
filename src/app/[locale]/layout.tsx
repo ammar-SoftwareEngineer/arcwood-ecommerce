@@ -1,3 +1,4 @@
+import logo from "../../../public/logo/logo1.webp";
 import Footer from "@/components/layout/footer/Footer";
 import Header from "@/components/layout/header/Header";
 import { routing } from "@/i18n/routing";
@@ -7,7 +8,6 @@ import { Barlow_Condensed, Cormorant_Garamond ,Lora} from "next/font/google";
 import { notFound } from "next/navigation";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import "@/styles/globals.css";
-
 
 
 const barlowCondensed = Barlow_Condensed({
@@ -64,6 +64,9 @@ export default async function LocaleLayout({ children, params }: Props) {
       dir={locale === "ar" ? "rtl" : "ltr"}
       className={`${barlowCondensed.variable} ${cormorantGaramond.variable} ${lora.variable} h-full antialiased`}
     >
+      <head>
+        <link rel="icon" href={logo.src} />
+      </head>
       <body className="min-h-full flex flex-col">
         <NextIntlClientProvider messages={messages}>
           <Header variant="default" />
