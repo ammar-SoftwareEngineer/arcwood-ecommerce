@@ -8,12 +8,12 @@
     "learning": "Learning"
   },
   "products": {
-    "title": "Our Products",
+    "title": "Products",
     "subtitle": "New Arrivals"
   },
   "categories": {
-    "title": "Our Categories",
-    "subtitle": "Shop by Category"
+    "title": " Shop by Category",
+    "subtitle": "Our Categories"
   },
   "cta": {
     "viewAllCategories": "View All Categories",
