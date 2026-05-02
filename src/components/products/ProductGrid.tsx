@@ -1,7 +1,7 @@
 "use client";
 
 import { useLocale } from "next-intl";
-import { Navigation, Pagination } from "swiper/modules";
+import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import products from "@/lib/data/arcwood-site-data.json";
@@ -9,42 +9,41 @@ import ProductCard from "./ProductCard";
 
 import "swiper/css";
 import "swiper/css/navigation";
-import "swiper/css/pagination";
 
 export default function ProductGrid() {
   const locale = useLocale();
   const productsData = products.mostViewedProducts;
 
-  if (!productsData.length) {
-    return (
-      <section className="py-8 text-center text-sm text-neutral-500">
-        {/* لا توجد منتجات في البيانات */}
-      </section>
-    );
-  }
+  /** أسماء مكررة في JSON → مفتاح مستقر لكل شريحة */
+  const loopEnabled = productsData.length >= 8;
 
   return (
-    <section aria-label="Products slider" className="products-swiper px-4 sm:px-8 lg:px-10">
+    <section aria-label="Products slider" className="products-swiper ">
       <Swiper
-        modules={[Navigation, Pagination]}
+        modules={[Navigation, Autoplay]}
         dir={locale === "ar" ? "rtl" : "ltr"}
         spaceBetween={24}
         slidesPerView={1}
         grabCursor
         navigation
-        loop={true}
-        autoplay={{ delay: 3500, disableOnInteraction: false, pauseOnMouseEnter: true }}
+        loop={loopEnabled}
+        autoplay={{
+          delay: 3500,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true,
+        }}
         breakpoints={{
           480: { slidesPerView: 1, spaceBetween: 20 },
           640: { slidesPerView: 2, spaceBetween: 24 },
           1024: { slidesPerView: 3, spaceBetween: 28 },
           1280: { slidesPerView: 4, spaceBetween: 28 },
         }}
-      
+        observer
+        observeParents
       >
-        {productsData.map((product) => (
-          <SwiperSlide key={product.name} >
-            <div className="h-full pb-1">
+        {productsData.map((product, index) => (
+          <SwiperSlide key={`${product.name}-${index}`} >
+            <div className="h-full min-w-0 pb-1">
               <ProductCard item={product} />
             </div>
           </SwiperSlide>

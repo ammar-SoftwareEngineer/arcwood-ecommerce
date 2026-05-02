@@ -33,7 +33,7 @@
     }
 }
 
-/* تلميع داخلي: border مع clip لا يظهر — نستخدم inset box-shadow (يُرسم داخل شكل الـ clip) */
+
 .innerBorder {
     position: absolute;
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);

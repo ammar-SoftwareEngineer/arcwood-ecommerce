@@ -74,16 +74,29 @@ h6 {
   }
 }
 
-.products-swiper .swiper-button-next,
-.products-swiper .swiper-button-prev {
+.swiper-button-next,
+ .swiper-button-prev {
   color: var(--primary);
-}
-
-.products-swiper .swiper-button-next::after,
-.products-swiper .swiper-button-prev::after {
-  font-size: 1.25rem;
-}
-
-.products-swiper .swiper-pagination-bullet-active {
   background: var(--primary);
+  border: 1px solid var(--primary);
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  & svg{
+    color: var(--white);
+   width: 18px !important;
+   height: 18px !important;
+  }
+  &:hover {
+    background: var(--white);
+    svg{
+      color: var(--primary) ;
+    }
+    border: 1px solid var(--primary);
+  }
 }
+
