@@ -13,8 +13,6 @@ import "swiper/css/navigation";
 export default function ProductGrid() {
   const locale = useLocale();
   const productsData = products.mostViewedProducts;
-
-  /** أسماء مكررة في JSON → مفتاح مستقر لكل شريحة */
   const loopEnabled = productsData.length >= 8;
 
   return (
