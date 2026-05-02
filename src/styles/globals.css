@@ -73,3 +73,17 @@ h6 {
    
   }
 }
+
+.products-swiper .swiper-button-next,
+.products-swiper .swiper-button-prev {
+  color: var(--primary);
+}
+
+.products-swiper .swiper-button-next::after,
+.products-swiper .swiper-button-prev::after {
+  font-size: 1.25rem;
+}
+
+.products-swiper .swiper-pagination-bullet-active {
+  background: var(--primary);
+}

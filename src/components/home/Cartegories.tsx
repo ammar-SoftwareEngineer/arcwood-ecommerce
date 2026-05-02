@@ -7,13 +7,13 @@ import ButtonMore from "../ui/ButtonMore";
 import HeaderSection from "../ui/HeaderSection";
 import { useTranslations } from "next-intl";
 export default function Cartegories() {
-  const t = useTranslations("home.categories");
+  const t = useTranslations("home");
   return (
     <section className="categories-section py-12 ">
       <div className="container mx-auto lg:px-20 py-12">
         <HeaderSection
-          subtitle={t("subtitle")}
-          title={t("title")}
+          subtitle={t("categories.subtitle")}
+          title={t("categories.title")}
         />
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -23,7 +23,7 @@ export default function Cartegories() {
         >
           <CategoryGrid />
         </motion.div>
-        <ButtonMore href="/categories" text="View All Categories" />
+        <ButtonMore href="/categories" text={t("cta.viewAllCategories")} />
       </div>
     </section>
   );

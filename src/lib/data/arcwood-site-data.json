@@ -79,140 +79,140 @@
       "name": "zaan wood leather general manager chair",
       "category": "Rolling chairs",
       "priceEGP": 5175,
-      "image": null,
+      "image": "../../../public/products/1.webp",
       "imageAlt": "zaan wood leather general manager chair"
     },
     {
       "name": "Desk, size 120*60 cm",
       "category": "Offices",
       "priceEGP": 3140,
-      "image": null,
+      "image": "../../../public/products/2.webp",
       "imageAlt": "Desk, size 120*60 cm"
     },
     {
       "name": "vertical blinds",
       "category": "Office blinds",
       "priceEGP": 3296,
-      "image": null,
+      "image": "../../../public/products/3.webp",
       "imageAlt": "vertical blinds"
     },
     {
       "name": "Meeting and Conference Table",
       "category": "Meeting Table",
       "priceEGP": 8895,
-      "image": null,
+      "image": "../../../public/products/4.webp",
       "imageAlt": "Meeting and Conference Table"
     },
     {
       "name": "Foam sponge injection chair",
       "category": "Guest & Reception Chairs",
       "priceEGP": 1610,
-      "image": null,
+      "image": "../../../public/products/5.webp",
       "imageAlt": "Foam sponge injection chair"
     },
     {
       "name": "Modern Reception Counters",
       "category": "Counter reception",
       "priceEGP": 11601,
-      "image": null,
+      "image": "../../../public/products/6.webp",
       "imageAlt": "Modern Reception Counters"
     },
     {
       "name": "Reclining medical chair",
       "category": "Rolling chairs",
       "priceEGP": 7245,
-      "image": null,
+      "image": "../../../public/products/7.webp",
       "imageAlt": "Reclining medical chair"
     },
     {
       "name": "WOODEN COUNTER",
       "category": "Counter reception",
       "priceEGP": 11601,
-      "image": null,
+      "image": "../../../public/products/8.webp",
       "imageAlt": "WOODEN COUNTER"
     },
     {
       "name": "Workstation Desks",
       "category": "Working Station",
       "priceEGP": 16100,
-      "image": null,
+      "image": "../../../public/products/9.webp",
       "imageAlt": "Workstation Desks"
     },
     {
       "name": "Leather sofa - 2 chairs - black color",
       "category": "Office Furniture",
       "priceEGP": 20781,
-      "image": null,
+      "image": "../../../public/products/10.webp",
       "imageAlt": "Leather sofa - 2 chairs - black color"
     },
     {
       "name": "Wooden drawer unit 2-3-4 drawers",
       "category": "Office Cupboards & Shannon",
       "priceEGP": 13455,
-      "image": null,
+      "image": "../../../public/products/11.webp",
       "imageAlt": "Wooden drawer unit 2-3-4 drawers"
     },
     {
       "name": "Leather sofas for offices",
       "category": "Office Furniture",
       "priceEGP": 21678,
-      "image": null,
+        "image": "../../../public/products/12.webp",
       "imageAlt": "Leather sofas for offices"
     },
     {
       "name": "roller blind",
       "category": "Office blinds",
       "priceEGP": 2438,
-      "image": null,
+      "image": "../../../public/products/13.webp",
       "imageAlt": "roller blind"
     },
     {
       "name": "WOOD RECEPTION COUNTER",
       "category": "Counter reception",
       "priceEGP": 10166,
-      "image": null,
+      "image": "../../../public/products/14.webp",
       "imageAlt": "WOOD RECEPTION COUNTER"
     },
     {
       "name": "Open wooden library",
       "category": "Office Cupboards & Shannon",
       "priceEGP": 36225,
-      "image": null,
+      "image": "../../../public/products/15.webp",
       "imageAlt": "Open wooden library"
     },
     {
       "name": "MEDICAL MESH CHAIR",
       "category": "Rolling chairs",
       "priceEGP": 10235,
-      "image": null,
+      "image": "../../../public/products/16.webp",
       "imageAlt": "MEDICAL MESH CHAIR"
     },
     {
       "name": "CIRCULAR MEETING TABLE",
       "category": "Meeting Table",
       "priceEGP": 4186,
-      "image": null,
+      "image": "../../../public/products/17.webp",
       "imageAlt": "CIRCULAR MEETING TABLE"
     },
     {
       "name": "Work station for 4 people, size 60*120 cm",
       "category": "Working Station",
       "priceEGP": 6728,
-      "image": null,
+      "image": "../../../public/products/18.webp",
       "imageAlt": "Work station for 4 people, size 60*120 cm"
     },
     {
       "name": "Work station, quad work cell",
       "category": "Working Station",
       "priceEGP": 21448,
-      "image": null,
+      "image": "../../../public/products/19.webp",
       "imageAlt": "Work station, quad work cell"
     },
     {
       "name": "Workstation cell for 6 people (glass separator)",
       "category": "Working Station",
       "priceEGP": 19061,
-      "image": null,
+      "image": "../../../public/products/20.webp",
       "imageAlt": "Workstation cell for 6 people (glass separator)"
     }
   ],
