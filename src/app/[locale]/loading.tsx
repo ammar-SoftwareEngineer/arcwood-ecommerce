@@ -1,8 +1,8 @@
 import HexagonLoader from "@/components/ui/HexagonLoader";
-import { getLocale } from "next-intl/server";
 
-export default async function Loading() {
-  const locale = await getLocale();
+
+export default function Loading() {
+
  
   return (
     <div
