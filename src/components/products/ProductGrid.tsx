@@ -3,7 +3,7 @@
 import { useLocale } from "next-intl";
 import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-
+import { useRef } from "react";
 import products from "@/lib/data/arcwood-site-data.json";
 import ProductCard from "./ProductCard";
 
@@ -14,16 +14,20 @@ export default function ProductGrid() {
   const locale = useLocale();
   const productsData = products.mostViewedProducts;
   const loopEnabled = productsData.length >= 8;
-
+  const prevRef = useRef(null);
+  const nextRef = useRef(null);
   return (
     <section aria-label="Products slider" className="products-swiper ">
       <Swiper
         modules={[Navigation, Autoplay]}
         dir={locale === "ar" ? "rtl" : "ltr"}
-        spaceBetween={24}
+        spaceBetween={40}
         slidesPerView={1}
         grabCursor
-        navigation
+        navigation={{
+          prevEl: prevRef.current,
+          nextEl: nextRef.current,
+        }}
         loop={loopEnabled}
         autoplay={{
           delay: 3500,

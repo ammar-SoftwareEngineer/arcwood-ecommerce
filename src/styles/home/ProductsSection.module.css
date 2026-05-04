@@ -1,0 +1,10 @@
+.products-section{
+    position: relative;
+    z-index: 1;
+    background: url("../../../public/products/bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+}

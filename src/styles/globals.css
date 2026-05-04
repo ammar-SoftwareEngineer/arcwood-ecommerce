@@ -76,6 +76,7 @@ h6 {
 
 .swiper-button-next,
  .swiper-button-prev {
+  
   color: var(--primary);
   background: var(--primary);
   border: 1px solid var(--primary);
