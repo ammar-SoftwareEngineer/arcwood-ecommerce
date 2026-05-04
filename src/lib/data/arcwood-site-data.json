@@ -74,20 +74,36 @@
     "Chairs for restaurants and cafes",
     "Bar chairs"
   ],
+  "productCard": {
+    "actionDefaults": {
+      "wishlist": true,
+      "quickView": true,
+      "compare": true,
+      "addToCart": true
+    }
+  },
   "mostViewedProducts": [
     {
+      "id": "zaan-wood-leather-gm-chair",
       "name": "zaan wood leather general manager chair",
       "category": "Rolling chairs",
       "priceEGP": 5175,
       "image": "../../../public/products/1.webp",
-      "imageAlt": "zaan wood leather general manager chair"
+      "imageAlt": "zaan wood leather general manager chair",
+      "cardActions": {
+        "compare": false
+      }
     },
     {
+      "id": "desk-120-60",
       "name": "Desk, size 120*60 cm",
       "category": "Offices",
       "priceEGP": 3140,
       "image": "../../../public/products/2.webp",
-      "imageAlt": "Desk, size 120*60 cm"
+      "imageAlt": "Desk, size 120*60 cm",
+      "cardActions": {
+        "wishlist": false
+      }
     },
     {
       "name": "vertical blinds",

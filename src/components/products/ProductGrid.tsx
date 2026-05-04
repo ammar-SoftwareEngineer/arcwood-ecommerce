@@ -45,6 +45,7 @@ export default function ProductGrid() {
       >
         {productsData.map((product, index) => (
           <SwiperSlide key={`${product.name}-${index}`} >
+           
             <div className="h-full min-w-0 pb-1">
               <ProductCard item={product} />
             </div>
