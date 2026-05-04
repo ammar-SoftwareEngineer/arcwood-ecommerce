@@ -75,20 +75,20 @@ export default function MobileHeader({
   };
 
   return (
-    <div className={`flex w-full items-center justify-between gap-3 border-b px-4 py-4 md:hidden ${mainBarClass}`}>
-      <Link href="/" className="shrink-0 text-lg font-bold tracking-wide">
+    <div className={`flex w-full items-center justify-between gap-3 border-b   md:hidden ${mainBarClass}`}>
+      <Link href="/" className="shrink-0 text-lg font-bold tracking-wide px-4">
         <Image src={logoSrc} alt="logo" width={160} height={52} loading="lazy" />
       </Link>
 
-      <div className="ml-auto flex items-center gap-2">
+      <div className=" ltr:ml-auto flex items-center ">
         <button
           type="button"
           onClick={switchLocale}
-          className={`relative flex h-10 min-w-10 cursor-pointer items-center justify-center rounded-0 border px-2 text-sm font-bold transition ${iconButtonClass}`}
+        className="relative inline-flex h-[70px] rtl:mr-3 ltr:ml-3  w-16 cursor-pointer items-center justify-center  rounded-0 border-0 bg-main text-lg rtl:text-base  font-semibold text-white hover:text-black!  transition-colors  hover:bg-white!"
           aria-label={switchLabel}
           title={switchLabel}
         >
-          <span className="text-main">{targetLabel}</span>
+          <span className="text-white">{targetLabel}</span>
         </button>
 
         <button
@@ -96,7 +96,7 @@ export default function MobileHeader({
           aria-label="Open menu"
           aria-expanded={isMenuOpen}
           onClick={openHamburger}
-          className={`relative z-10 rounded-0 border p-2 transition ${iconButtonClass}`}
+          className={`relative z-10 rounded-0 border p-4 transition h-[70px] ${iconButtonClass}`}
         >
           <span className="sr-only">Open menu</span>
           <FontAwesomeIcon icon={faBars} />
@@ -104,7 +104,7 @@ export default function MobileHeader({
       </div>
 
       <div
-        className="fixed bottom-0 left-0 right-0 z-999 w-screen border-t border-black/10 bg-white/95 px-2 pb-2 pt-2 backdrop-blur md:hidden"
+        className="fixed bottom-0 left-0 right-0 z-3 w-screen border-t border-black/10 bg-white/95 px-2 pb-2 pt-2 backdrop-blur md:hidden"
       >
         <div className="mx-auto flex w-full items-center justify-around gap-1">
           <button type="button" aria-label="Account" className={actionButtonClass}>
@@ -173,7 +173,7 @@ export default function MobileHeader({
                   <Link
                     href={item.href}
                     onClick={() => setIsMenuOpen(false)}
-                    className="block rounded-md px-2 py-2 text-sm font-medium text-black/80 transition hover:bg-black/5 hover:text-black"
+                    className="block rounded-md px-2 py-2 text-lg font-medium text-black/80 transition hover:bg-black/5 hover:text-black"
                   >
                     {item.label}
                   </Link>
@@ -182,7 +182,7 @@ export default function MobileHeader({
 
               <li>
                 <details>
-                  <summary className="flex cursor-pointer items-center justify-between rounded-0 px-2 py-2 text-sm font-medium text-black/80 transition hover:bg-black/5 hover:text-black">
+                  <summary className="flex cursor-pointer items-center justify-between rounded-0 px-2 py-2 text-lg font-medium text-black/80 transition hover:bg-black/5 hover:text-black">
                     {categoriesLabel}
                     <FontAwesomeIcon icon={faChevronDown} className="text-xs" />
                   </summary>
@@ -192,7 +192,7 @@ export default function MobileHeader({
                         <Link
                           href={item.href}
                           onClick={() => setIsMenuOpen(false)}
-                          className="block rounded-md px-5 py-2 text-sm text-black/70 transition hover:bg-black/5 hover:text-black"
+                          className="block rounded-md px-5 py-2 text-base text-black/70 transition hover:bg-black/5 hover:text-black"
                         >
                           {item.label}
                         </Link>
@@ -207,7 +207,7 @@ export default function MobileHeader({
               <li className="mb-3 border-b border-black/10 pb-3">
                 <div className="flex items-start gap-3">
                   <FontAwesomeIcon icon={faEnvelope} className="mt-1 text-main" />
-                  <div className="text-sm">
+                  <div className="text-base">
                     <strong className="block">Email</strong>
                     <a href="mailto:info@arcwood-eg.com" className="text-black/70 hover:text-black">
                       info@arcwood-eg.com
@@ -218,7 +218,7 @@ export default function MobileHeader({
               <li className="mb-3 border-b border-black/10 pb-3">
                 <div className="flex items-start gap-3">
                   <FontAwesomeIcon icon={faPhoneVolume} className="mt-1 text-main" />
-                  <div className="text-sm">
+                  <div className="text-base">
                     <strong className="block">Phone</strong>
                     <a href="tel:+201234567890" className="text-black/70 hover:text-black">
                       +20 123 456 7890
@@ -230,7 +230,7 @@ export default function MobileHeader({
               <li>
                 <div className="flex items-start gap-3">
                   <FontAwesomeIcon icon={faLocationDot} className="mt-1 text-main" />
-                  <div className="text-sm text-black/70">
+                  <div className="text-base text-black/70">
                     <strong className="block text-black">Address</strong>
                     <span className="block">22 Dr. Abdel Hakim Al-Rifai Street, off Abbas Al-Akkad - Nasr City</span>
                   </div>
@@ -239,16 +239,16 @@ export default function MobileHeader({
             </ul>
 
             <div className="mt-4 flex items-center  gap-3 border-t border-black/10 pt-4">
-              <a href="#" className="flex h-9 w-9 items-center justify-center rounded-0  border border-black/15 text-xs font-semibold text-black/70 transition hover:bg-black/10 hover:text-black">
+              <a href="#" className="flex h-9 w-9 items-center justify-center rounded-0  border border-black/15 text-base font-semibold text-black/70 transition hover:bg-black/10 hover:text-black">
                 <FontAwesomeIcon icon={faFacebookF} />
               </a>
-              <a href="#" className="flex h-9 w-9 items-center justify-center rounded-0 border border-black/15 text-xs font-semibold text-black/70 transition hover:bg-black/10 hover:text-black">
+              <a href="#" className="flex h-9 w-9 items-center justify-center rounded-0 border border-black/15 text-base font-semibold text-black/70 transition hover:bg-black/10 hover:text-black">
                 <FontAwesomeIcon icon={faInstagram} />
               </a>
-              <a href="#" className="flex h-9 w-9 items-center justify-center rounded-0   border border-black/15 text-xs font-semibold text-black/70 transition hover:bg-black/10 hover:text-black">
+              <a href="#" className="flex h-9 w-9 items-center justify-center rounded-0   border border-black/15 text-base font-semibold text-black/70 transition hover:bg-black/10 hover:text-black">
                 <FontAwesomeIcon icon={faXTwitter} />
               </a>
-              <a href="#" className="flex h-9 w-9 items-center justify-center rounded-0 border border-black/15 text-xs font-semibold text-black/70 transition hover:bg-black/10 hover:text-black">
+              <a href="#" className="flex h-9 w-9 items-center justify-center rounded-0 border border-black/15 text-base font-semibold text-black/70 transition hover:bg-black/10 hover:text-black">
                 <FontAwesomeIcon icon={faWhatsapp} />
               </a>
             </div>

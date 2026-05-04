@@ -10,7 +10,7 @@ export default function Cartegories() {
   const t = useTranslations("home");
   return (
     <section className="categories-section py-12 ">
-      <div className="container mx-auto lg:px-16 py-12">
+      <div className="container mx-auto px-8 lg:px-16 py-12">
         <HeaderSection
           subtitle={t("categories.subtitle")}
           title={t("categories.title")}

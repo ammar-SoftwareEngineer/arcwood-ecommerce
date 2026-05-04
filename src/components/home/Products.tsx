@@ -9,7 +9,7 @@ export default function Products() {
   const t = useTranslations("home");
   return (
     <section className="products-section py-12" >
-      <div className="container mx-auto lg:px-16 py-12">
+      <div className="container mx-auto px-8 lg:px-16 py-12">
         <HeaderSection
           subtitle={t("products.subtitle")}
           title={t("products.title")}
