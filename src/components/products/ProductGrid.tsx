@@ -1,33 +1,30 @@
 "use client";
 
 import { useLocale } from "next-intl";
-import { Autoplay, Navigation } from "swiper/modules";
+import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { useRef } from "react";
-import products from "@/lib/data/arcwood-site-data.json";
-import ProductCard from "./ProductCard";
+import ProductCard, {
+  type BestSellerProduct,
+  type MostViewedProduct,
+} from "./ProductCard";
 
 import "swiper/css";
-import "swiper/css/navigation";
 
-export default function ProductGrid() {
+export default function ProductGrid({ bestSeller, productBestSellerData, productMostViewedData }: { bestSeller?: boolean, productBestSellerData?: BestSellerProduct[], productMostViewedData?: MostViewedProduct[] }) {
   const locale = useLocale();
-  const productsData = products.mostViewedProducts;
+  // Always resolve to an array to avoid undefined paths.
+  const productsData = bestSeller
+    ? (productBestSellerData ?? [])
+    : (productMostViewedData ?? []);
   const loopEnabled = productsData.length >= 8;
-  const prevRef = useRef(null);
-  const nextRef = useRef(null);
   return (
     <section aria-label="Products slider" className="products-swiper ">
       <Swiper
-        modules={[Navigation, Autoplay]}
+        modules={[Autoplay]}
         dir={locale === "ar" ? "rtl" : "ltr"}
         spaceBetween={40}
         slidesPerView={1}
         grabCursor
-        navigation={{
-          prevEl: prevRef.current,
-          nextEl: nextRef.current,
-        }}
         loop={loopEnabled}
         autoplay={{
           delay: 3500,
@@ -46,7 +43,7 @@ export default function ProductGrid() {
         {productsData.map((product, index) => (
           <SwiperSlide key={`${product.name}-${index}`} >
            
-            <div className="h-full min-w-0 pb-1">
+            <div className="h-full  pb-1">
               <ProductCard item={product} />
             </div>
           </SwiperSlide>

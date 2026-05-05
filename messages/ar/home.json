@@ -15,8 +15,25 @@
     "title": "فئاتنا",
     "subtitle": "تصفح الفئات"
   },
+  "bestSeller": {
+    "title": "أفضل المنتجات",
+    "subtitle": "أفضل المنتجات"
+  },
+  "why": {
+    "title": "لماذا نحن؟",
+    "subtitle": "لماذا نحن؟"
+  },
+  "discounts": {
+    "title": "أفضل عرض هذا الأسبوع",
+    "subtitle": "الخصومات هذا الأسبوع"
+  },
+  "blogs": {
+    "title": "المقالات",
+    "subtitle": "أحدث المقالات"
+  },
   "cta": {
     "viewAllProducts": "عرض كل المنتجات",
-    "viewAllCategories": "عرض كل الفئات"
+    "viewAllCategories": "عرض كل الفئات",
+    "viewAllBestSellerProducts": "عرض كل أفضل المنتجات"
   }
 }

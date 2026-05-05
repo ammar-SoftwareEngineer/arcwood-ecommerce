@@ -15,8 +15,25 @@
     "title": " Shop by Category",
     "subtitle": "Our Categories"
   },
+  "why": {
+    "title": "Why Choose Us?",
+    "subtitle": "Why Choose Us?"
+  },
+  "discounts": {
+    "title": "Best Deal This Week",
+    "subtitle": "Discounts This Week"
+  },
+  "blogs": {
+    "title": "Blogs",
+    "subtitle": "Latest Blogs"
+  },
+  "bestSeller": {
+    "title": "Best Seller ",
+    "subtitle": "Our Best Seller Products"
+  },
   "cta": {
     "viewAllCategories": "View All Categories",
-    "viewAllProducts": "View All Products"
+    "viewAllProducts": "View All Products",
+    "viewAllBestSellerProducts": "View All Best Seller Products"
   }
 }

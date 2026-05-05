@@ -10,6 +10,71 @@
     "tagline": "High Quality, Modern Designs, Affordable Prices",
     "promotion": "Discounts of up to 20% on products"
   },
+  "whyChooseUs": {
+    "subtitle": "Why Arcwood",
+    "subtitleAr": "لماذا أروود",
+    "title": "Why Choose Us",
+    "titleAr": "لماذا تختارنا",
+    "description": "Discounts of up to 20% on select products. High-quality office furniture with modern designs — do not miss this chance to upgrade your workspace.",
+    "descriptionAr": "خصومات تصل إلى 20٪ على منتجات مختارة. أثاث مكتبي عالي الجودة وتصاميم عصرية — لا تفوت فرصة تطوير مكان عملك.",
+    "ctaLabel": "Read More",
+    "ctaLabelAr": "اقرأ المزيد",
+    "ctaHref": "/about",
+    "primaryImage": "../../../public/banner/3.webp",
+    "primaryImageAlt": "Office and workspace furniture",
+    "primaryImageAltAr": "أثاث مكتبي ومساحات عمل",
+    "secondaryImage": "../../../public/banner/2.webp",
+    "secondaryImageAlt": "Office furniture collection",
+    "secondaryImageAltAr": "مجموعة أثاث مكتبي",
+    "videoUrl": null,
+    "features": [
+      {
+        "icon": "support",
+        "title": "24/7 Support",
+        "titleAr": "دعم على مدار الساعة"
+      },
+      {
+        "icon": "shield",
+        "title": "Secure Shopping",
+        "titleAr": "تسوق آمن"
+      },
+      {
+        "icon": "truck",
+        "title": "Free Shipping",
+        "titleAr": "شحن مجاني"
+      },
+      {
+        "icon": "return",
+        "title": "Money Return",
+        "titleAr": "سياسة إرجاع"
+      }
+    ]
+  },
+  "discountsBanner": {
+    "subtitle": "Get Discount Up To 20%",
+    "subtitleAr": "احصل على خصم حتى 20٪",
+    "title": "Best Deal This Week",
+    "titleAr": "أفضل عرض هذا الأسبوع",
+    "description": "Get up to 20% off on select products and special offers. Don't miss this chance — order now.",
+    "descriptionAr": "احصل على خصم يصل إلى 20٪ على منتجات وعروض مختارة. لا تفوت الفرصة — اطلب الآن.",
+    "ctaLabel": "Order Now",
+    "ctaLabelAr": "اطلب الآن",
+    "ctaHref": "/products",
+    "endsAt": "2026-06-30T23:59:59+02:00",
+    "image": "../../../public/banner/4.webp",
+    "imageAlt": "Modern living room interior with sofa",
+    "imageAltAr": "غرفة معيشة عصرية بأريكة",
+    "countdownLabels": {
+      "days": "Days",
+      "daysAr": "يوم",
+      "hours": "Hrs",
+      "hoursAr": "ساعة",
+      "minutes": "Mins",
+      "minutesAr": "دقيقة",
+      "seconds": "Secs",
+      "secondsAr": "ثانية"
+    }
+  },
   "mainCategories": [
     {
       "name": "Offices",
@@ -74,14 +139,7 @@
     "Chairs for restaurants and cafes",
     "Bar chairs"
   ],
-  "productCard": {
-    "actionDefaults": {
-      "wishlist": true,
-      "quickView": true,
-      "compare": true,
-      "addToCart": true
-    }
-  },
+
   "mostViewedProducts": [
     {
       "id": "zaan-wood-leather-gm-chair",
@@ -89,10 +147,8 @@
       "category": "Rolling chairs",
       "priceEGP": 5175,
       "image": "../../../public/products/1.webp",
-      "imageAlt": "zaan wood leather general manager chair",
-      "cardActions": {
-        "compare": false
-      }
+      "imageAlt": "zaan wood leather general manager chair"
+ 
     },
     {
       "id": "desk-120-60",
@@ -100,10 +156,8 @@
       "category": "Offices",
       "priceEGP": 3140,
       "image": "../../../public/products/2.webp",
-      "imageAlt": "Desk, size 120*60 cm",
-      "cardActions": {
-        "wishlist": false
-      }
+      "imageAlt": "Desk, size 120*60 cm"
+  
     },
     {
       "name": "vertical blinds",
@@ -201,6 +255,98 @@
       "category": "Rolling chairs",
       "priceEGP": 10235,
       "image": "../../../public/products/16.webp",
+      "imageAlt": "MEDICAL MESH CHAIR",
+      "new": true
+    },
+    {
+      "name": "CIRCULAR MEETING TABLE",
+      "category": "Meeting Table",
+      "priceEGP": 4186,
+      "image": "../../../public/products/17.webp",
+      "imageAlt": "CIRCULAR MEETING TABLE",
+      "new": true
+    },
+    {
+      "name": "Work station for 4 people, size 60*120 cm",
+      "category": "Working Station",
+      "priceEGP": 6728,
+      "image": "../../../public/products/18.webp",
+      "imageAlt": "Work station for 4 people, size 60*120 cm",
+      "new": true
+    },
+    {
+      "name": "Work station, quad work cell",
+      "category": "Working Station",
+      "priceEGP": 21448,
+      "image": "../../../public/products/19.webp",
+      "imageAlt": "Work station, quad work cell"
+    },
+    {
+      "name": "Workstation cell for 6 people (glass separator)",
+      "category": "Working Station",
+      "priceEGP": 19061,
+      "image": "../../../public/products/20.webp",
+      "imageAlt": "Workstation cell for 6 people (glass separator)"
+    }
+  ],
+  "bestSellerProducts": [
+    {
+      "name": "Workstation Desks",
+      "category": "Working Station",
+      "priceEGP": 16100,
+      "image": "../../../public/products/9.webp",
+      "imageAlt": "Workstation Desks"
+    },
+    {
+      "name": "Leather sofa - 2 chairs - black color",
+      "category": "Office Furniture",
+      "priceEGP": 20781,
+      "image": "../../../public/products/10.webp",
+      "imageAlt": "Leather sofa - 2 chairs - black color",
+      "new": true
+    },
+    {
+      "name": "Wooden drawer unit 2-3-4 drawers",
+      "category": "Office Cupboards & Shannon",
+      "priceEGP": 13455,
+      "image": "../../../public/products/11.webp",
+      "imageAlt": "Wooden drawer unit 2-3-4 drawers",
+      "new": true
+    },
+    {
+      "name": "Leather sofas for offices",
+      "category": "Office Furniture",
+      "priceEGP": 21678,
+        "image": "../../../public/products/12.webp",
+        "imageAlt": "Leather sofas for offices",
+      "new": true
+    },
+    {
+      "name": "roller blind",
+      "category": "Office blinds",
+      "priceEGP": 2438,
+      "image": "../../../public/products/13.webp",
+      "imageAlt": "roller blind"
+    },
+    {
+      "name": "WOOD RECEPTION COUNTER",
+      "category": "Counter reception",
+      "priceEGP": 10166,
+      "image": "../../../public/products/14.webp",
+      "imageAlt": "WOOD RECEPTION COUNTER"
+    },
+    {
+      "name": "Open wooden library",
+      "category": "Office Cupboards & Shannon",
+      "priceEGP": 36225,
+      "image": "../../../public/products/15.webp",
+      "imageAlt": "Open wooden library"
+    },
+    {
+      "name": "MEDICAL MESH CHAIR",
+      "category": "Rolling chairs",
+      "priceEGP": 10235,
+      "image": "../../../public/products/16.webp",
       "imageAlt": "MEDICAL MESH CHAIR"
     },
     {
@@ -230,141 +376,6 @@
       "priceEGP": 19061,
       "image": "../../../public/products/20.webp",
       "imageAlt": "Workstation cell for 6 people (glass separator)"
-    }
-  ],
-  "bestSellerProducts": [
-    {
-      "name": "Beech wood waiting chair",
-      "category": "Guest & Reception Chairs",
-      "priceEGP": 1898,
-      "image": null,
-      "imageAlt": "Beech wood waiting chair"
-    },
-    {
-      "name": "Waiting hotel chair",
-      "category": "Guest & Reception Chairs",
-      "priceEGP": 3680,
-      "image": null,
-      "imageAlt": "Waiting hotel chair"
-    },
-    {
-      "name": "Work station, quad work cell",
-      "category": "Working Station",
-      "priceEGP": 21448,
-      "image": null,
-      "imageAlt": "Work station, quad work cell"
-    },
-    {
-      "name": "Foam sponge injection star manager chair",
-      "category": "Rolling chairs",
-      "priceEGP": 2128,
-      "image": null,
-      "imageAlt": "Foam sponge injection star manager chair"
-    },
-    {
-      "name": "WOODEN RECEPTION COUNTER, 110*60*2 M",
-      "category": "Counter reception",
-      "priceEGP": 12334,
-      "image": null,
-      "imageAlt": "WOODEN RECEPTION COUNTER, 110*60*2 M"
-    },
-    {
-      "name": "MODERN MEETING TABLE, 2 COLORS, 180*100*75 CM",
-      "category": "Meeting Table",
-      "priceEGP": 10166,
-      "image": null,
-      "imageAlt": "MODERN MEETING TABLE, 2 COLORS, 180*100*75 CM"
-    },
-    {
-      "name": "Office reception lounge",
-      "category": "Office Furniture",
-      "priceEGP": 18389,
-      "image": null,
-      "imageAlt": "Office reception lounge"
-    },
-    {
-      "name": "CIRCULAR MEETING TABLE",
-      "category": "Meeting Table",
-      "priceEGP": 4186,
-      "image": null,
-      "imageAlt": "CIRCULAR MEETING TABLE"
-    },
-    {
-      "name": "Chassis waiting chair",
-      "category": "Guest & Reception Chairs",
-      "priceEGP": 633,
-      "image": null,
-      "imageAlt": "Chassis waiting chair"
-    },
-    {
-      "name": "NATURAL WOOD MEETING TABLE, 3 M",
-      "category": "Meeting Table",
-      "priceEGP": 55315,
-      "image": null,
-      "imageAlt": "NATURAL WOOD MEETING TABLE, 3 M"
-    },
-    {
-      "name": "Modern Reception Counters",
-      "category": "Counter reception",
-      "priceEGP": 11601,
-      "image": null,
-      "imageAlt": "Modern Reception Counters"
-    },
-    {
-      "name": "Quadruple Workstation, size 60*120 cm",
-      "category": "Working Station",
-      "priceEGP": 4635,
-      "image": null,
-      "imageAlt": "Quadruple Workstation, size 60*120 cm"
-    },
-    {
-      "name": "Medical chair supportive manager of cattlemen",
-      "category": "Rolling chairs",
-      "priceEGP": 4025,
-      "image": null,
-      "imageAlt": "Medical chair supportive manager of cattlemen"
-    },
-    {
-      "name": "Hydraulic leather manager chair",
-      "category": "Rolling chairs",
-      "priceEGP": 6670,
-      "image": null,
-      "imageAlt": "Hydraulic leather manager chair"
-    },
-    {
-      "name": "MOVABLE HYDRAULIC BAR STOOL - BLACK",
-      "category": "Bar chairs",
-      "priceEGP": 3738,
-      "image": null,
-      "imageAlt": "MOVABLE HYDRAULIC BAR STOOL - BLACK"
-    },
-    {
-      "name": "MEDICAL MESH CHAIR",
-      "category": "Rolling chairs",
-      "priceEGP": 10235,
-      "image": null,
-      "imageAlt": "MEDICAL MESH CHAIR"
-    },
-    {
-      "name": "Hydraulic Office Chair",
-      "category": "Rolling chairs",
-      "priceEGP": 1650,
-      "image": null,
-      "imageAlt": "Hydraulic Office Chair"
-    },
-    {
-      "name": "bar chair",
-      "category": "Bar chairs",
-      "priceEGP": 3738,
-      "image": null,
-      "imageAlt": "bar chair"
-    },
-    {
-      "name": "Gemmer Leather Seat",
-      "category": "Rolling chairs",
-      "priceEGP": 9085,
-      "image": null,
-      "imageAlt": "Gemmer Leather Seat"
     }
   ],
   "contact": {

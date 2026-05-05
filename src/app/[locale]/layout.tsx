@@ -67,7 +67,7 @@ export default async function LocaleLayout({ children, params }: Props) {
       <head>
         <link rel="icon" href={logo.src} />
       </head>
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full ">
         <NextIntlClientProvider messages={messages}>
           <Header variant="default" />
           {children}
