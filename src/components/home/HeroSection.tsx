@@ -4,7 +4,10 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import slider1 from "../../../public/slider/slider1.webp";
 import slider2 from "../../../public/slider/slider2.webp";
 import styles from "@/styles/home/HeroSection.module.css";
-import { FaArrowLeft, FaArrowRight, FaChevronLeft, FaChevronRight } from "react-icons/fa6";
+import { IoIosArrowRoundForward, IoIosArrowRoundBack  } from "react-icons/io";
+
+
+
 
 const COLS = 4;
 const STAGGER = 70;
@@ -138,7 +141,7 @@ export default function HeroSection() {
         onClick={handlePrev}
         aria-label="Previous slide"
       >
-        <FaArrowLeft size={25} className="text-main cursor-pointer transition-colors hover:text-black!" />
+        <IoIosArrowRoundBack size={25} className="icon-arrow cursor-pointer transition-colors " />
       </button>
       <button
         type="button"
@@ -146,7 +149,7 @@ export default function HeroSection() {
         onClick={handleNext}
         aria-label="Next slide"
       >
-   <FaArrowRight size={25} className="text-main cursor-pointer transition-colors hover:text-black!" />
+   <IoIosArrowRoundForward size={25} className="icon-arrow cursor-pointer transition-colors  " />
       </button>
 
      

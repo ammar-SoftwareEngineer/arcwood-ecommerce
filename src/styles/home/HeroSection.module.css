@@ -137,7 +137,8 @@
 }
 
 .arrow:not(:disabled):hover {
-  background: rgba(255, 255, 255, 0.8);
+  background: var(--primary);
+  color: var(--white);
   transform: translateY(-50%) scale(1.07);
 }
 
