@@ -378,6 +378,29 @@
       "imageAlt": "Workstation cell for 6 people (glass separator)"
     }
   ],
+  "blogs": [
+    {
+      "title": "Workstation prices in Egypt",
+      "description": "Workstations have become an essential part of any work environment, whether for companies or various business sectors.",
+      "image": "../../../public/blogs/1.webp",
+      "imageAlt": "Workstation prices in Egypt",
+      "href": "/blogs/workstation-prices-in-egypt"
+    },
+    {
+      "title": "The best office furnishing company",
+      "description": "There is no doubt that office furnishing is an essential part of the success of any business, reflecting professionalism and identity.",
+      "image": "../../../public/blogs/2.webp",
+      "imageAlt": "The best office furnishing company",
+      "href": "/blogs/the-best-office-furnishing-company"
+    },
+    {
+      "title": "Leather sofas for offices",
+      "description": "Leather office sofas have become a popular and elegant choice for furnishing work offices and reception spaces.",
+      "image": "../../../public/blogs/3.webp",
+      "imageAlt": "Leather sofas for offices",
+      "href": "/blogs/leather-sofas-for-offices"
+    }
+  ],
   "contact": {
     "email": "info@arcwood-eg.com",
     "phones": [

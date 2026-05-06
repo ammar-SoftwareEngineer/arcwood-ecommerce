@@ -41,14 +41,10 @@ export default function ProductCard({ item }: { item: MostViewedProduct | BestSe
   const [wishlisted, setWishlisted] = useState(false);
   const src = publicImagePath(item.image);
   // Card is wrapped with Link, so action buttons must block navigation.
-  const handleActionClick = (e: MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    e.stopPropagation();
-  };
 
   return (
     <section className="relative group flex h-full flex-col overflow-hidden rounded-0 bg-white transition-shadow hover:shadow-md cursor-pointer">
-      {/* <Link href={`/products/${item.name}`}> */}
+      <Link href={`/products/${item.name}`}>
       {item.new ? (
         <div className="absolute top-2 left-0 z-10 ">
           <Badge label="New" />
@@ -61,9 +57,9 @@ export default function ProductCard({ item }: { item: MostViewedProduct | BestSe
           <Image
             src={src}
             alt={item.imageAlt ?? item.name}
-            width={380}
-            height={380}
+            fill
             className="h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]"
+            sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 25vw"
           />
         ) : (
           <span className="px-3 text-center text-sm text-neutral-400 ">
@@ -83,7 +79,7 @@ export default function ProductCard({ item }: { item: MostViewedProduct | BestSe
               type="button"
               className={`${iconBtn} cursor-pointer `}
               aria-label="Quick view"
-              onClick={handleActionClick}
+
             >
               <HiOutlineEye size={22} className="h-5 w-5 transition duration-300 ease-out hover:scale-110" />
             </button>
@@ -91,7 +87,7 @@ export default function ProductCard({ item }: { item: MostViewedProduct | BestSe
               type="button"
               className={`${cartBtn} cursor-pointer w-full flex items-center justify-center`}
               aria-label="Add to cart"
-              onClick={handleActionClick}
+
             >
               <CiShop size={22} className=" transition duration-300 ease-out hover:scale-110" aria-hidden />
               <span className="text-base">Add to cart</span>
@@ -102,8 +98,8 @@ export default function ProductCard({ item }: { item: MostViewedProduct | BestSe
               aria-pressed={wishlisted}
               aria-label={wishlisted ? "Remove from wishlist" : "Add to wishlist"}
               onClick={(e) => {
-                handleActionClick(e);
-                setWishlisted((w) => !w);
+
+                setWishlisted((e) => !e);
               }}
             >
               {wishlisted ? (
@@ -137,7 +133,7 @@ export default function ProductCard({ item }: { item: MostViewedProduct | BestSe
           </p>
         </div>
       </div>
-      {/* </Link> */}
+      </Link>
     </section>
   );
 }
