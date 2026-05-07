@@ -1,7 +1,10 @@
+import HeroPages from "@/components/layout/hero/HeroPages";
+
 export default function AboutPage() {
   return (
     <div>
-      <h1>About</h1>
+      <HeroPages />
+
     </div>
   );
 }
