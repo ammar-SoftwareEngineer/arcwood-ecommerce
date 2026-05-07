@@ -25,9 +25,41 @@
       "counterReception": "كاونتر استقبال",
       "officeBlinds": "ستائر مكتبية",
       "maintenanceRepair": "صيانة وإصلاح"
+    },
+    "mobile": {
+      "openMenu": "فتح القائمة",
+      "closeMenu": "إغلاق القائمة",
+      "account": "الحساب",
+      "wishlist": "المفضلة",
+      "cart": "سلة التسوق",
+      "search": "بحث",
+      "switchToArabic": "العربية",
+      "switchToEnglish": "English",
+      "contactLabels": {
+        "email": "البريد",
+        "phone": "الهاتف",
+        "address": "العنوان"
+      }
     }
   },
+
+
   "footer": {
-    "copyright": "© {year} أركوود. جميع الحقوق محفوظة."
+    "copyright": "© {year} {brand}. جميع الحقوق محفوظة.",
+    "creditPrefix": "تصميم وتطوير بواسطة",
+    "beGroup": "Be Group",
+    "logoAlt": "شعار أركوود",
+    "tagline": "{brand} مزود رائد لأثاث المكاتب الفاخر وحلول مساحات عمل عصرية، بجودة تصنيع عملية وتصاميم عملية.",
+    "sections": {
+      "quickLinks": "روابط سريعة",
+      "categories": "أقسام المنتجات",
+      "contact": "تواصل معنا"
+    },
+    "quickLinks": {
+      "terms": "الشروط والأحكام",
+      "privacy": "سياسة الخصوصية",
+      "shipping": "الشحن والتوصيل",
+      "returns": "التوصيل والإرجاع"
+    }
   }
 }

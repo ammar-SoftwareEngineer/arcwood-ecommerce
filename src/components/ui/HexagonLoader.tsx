@@ -1,54 +1,46 @@
-'use client'
-import Lottie, { type LottieRefCurrentProps } from 'lottie-react'
-import loaderAnimation from '@public/loading/loading.json'
-import { useEffect, useRef, useState } from 'react'
+"use client";
 
-const HOLD_AFTER_LOAD_MS = 500
-const LOADER_LOTTIE_SPEED = 1
+import Lottie, { type LottieRefCurrentProps } from "lottie-react";
+import loaderAnimation from "@public/loading/loading.json";
+import { useEffect, useRef } from "react";
 
-export default function HexagonLoader() {
-  const [hide, setHide] = useState(false)
-  const lottieRef = useRef<LottieRefCurrentProps | null>(null)
+const loaderSpeed = 1;
+
+export type HexagonLoaderProps = {
+  /**
+   * الافتراضي `true` لـ Suspense (`loading.tsx`). التنقل من العميل يمرّر `active` من `NavigationRouteLoader`.
+   */
+  active?: boolean;
+};
+
+export default function HexagonLoader({ active = true }: HexagonLoaderProps) {
+  const lottieRef = useRef<LottieRefCurrentProps | null>(null);
 
   useEffect(() => {
-
-    const handleLoad = () => {
-      setTimeout(() => setHide(true), HOLD_AFTER_LOAD_MS)
+    if (active) {
+      lottieRef.current?.setSpeed(loaderSpeed);
     }
-
-    if (document.readyState === 'complete') {
-      handleLoad()
-    } else {
-      window.addEventListener('load', handleLoad)
-    }
-
-    return () => window.removeEventListener('load', handleLoad)
-  }, [])
+  }, [active]);
 
   return (
-    <div style={{
-      position: 'fixed',
-      inset: 0,
-      background: '#ffffff',
-      zIndex: 9999,
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-
-      opacity: hide ? 0 : 1,
-      pointerEvents: hide ? 'none' : 'all',
-      transition: 'opacity 0.6s ease',
-    }}>
+    <div
+      className={`fixed inset-0 z-9999 flex items-center justify-center bg-(--background) transition-opacity duration-600 ease-in-out ${
+        active ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
+      }`}
+      aria-busy={active}
+      aria-hidden={!active}
+    >
       <Lottie
         lottieRef={lottieRef}
         animationData={loaderAnimation}
         loop
         autoplay
         onDOMLoaded={() => {
-          lottieRef.current?.setSpeed(LOADER_LOTTIE_SPEED)
+          lottieRef.current?.setSpeed(loaderSpeed);
         }}
-        style={{ width: 250, height: 250 }}
-      />    </div>
-  )
+        className="h-[250px] w-[250px]"
+        aria-hidden
+      />
+    </div>
+  );
 }
-

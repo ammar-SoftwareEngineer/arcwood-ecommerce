@@ -40,10 +40,7 @@ body {
 
 h1,
 h2,
-h3,
-h4,
-h5,
-h6 {
+h3{
   font-family: 'Cormorant Garamond', Georgia, serif !important;
   font-weight: 700 !important;
 
@@ -138,7 +135,7 @@ h6 {
 }
 
 .about-header,.discounts-header {
-  text-align: left !important;
+  text-align: justify !important;
   margin-bottom: 0 !important;
   .divider {
     display: flex;

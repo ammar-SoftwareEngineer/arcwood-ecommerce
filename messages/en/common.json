@@ -25,9 +25,39 @@
       "counterReception": "Counter reception",
       "officeBlinds": "Office blinds",
       "maintenanceRepair": "Maintenance and repair"
+    },
+    "mobile": {
+      "openMenu": "Open menu",
+      "closeMenu": "Close menu",
+      "account": "Account",
+      "wishlist": "Wishlist",
+      "cart": "Shopping cart",
+      "search": "Search",
+      "switchToArabic": "Arabic",
+      "switchToEnglish": "English",
+      "contactLabels": {
+        "email": "Email",
+        "phone": "Phone",
+        "address": "Address"
+      }
     }
   },
   "footer": {
-    "copyright": "© {year} Arcwood. All rights reserved."
+    "copyright": "© {year} {brand}. All rights reserved.",
+    "creditPrefix": "Designed & Developed by",
+    "beGroup": "Be Group",
+    "logoAlt": "Arcwood logo",
+    "tagline": "{brand} is a leading supplier of premium office furniture and modern workspace solutions with quality craftsmanship and practical designs.",
+    "sections": {
+      "quickLinks": "Quick Links",
+      "categories": "Product Categories",
+      "contact": "Contact Us"
+    },
+    "quickLinks": {
+      "terms": "Terms & Conditions",
+      "privacy": "Privacy Policy",
+      "shipping": "Shipping & Delivery",
+      "returns": "Delivery & Return"
+    }
   }
 }

@@ -2,7 +2,7 @@ import { useState, type MouseEvent } from "react";
 import Image from "next/image";
 import { HiOutlineEye } from "react-icons/hi2";
 import { IoIosHeart, IoIosHeartEmpty } from "react-icons/io";
-import products from "@/lib/data/arcwood-site-data.json";
+import products from "@/lib/data/site.json";
 import { CiShop } from "react-icons/ci";
 import { Link } from "@/i18n/navigation";
 import Badge from "../ui/Badge";

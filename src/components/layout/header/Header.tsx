@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import navbarData from "@/lib/data/navbar.json";
+import siteData from "@/lib/data/site.json";
 import logo from "@public/logo/logo1.png";
 import "@/styles/layout/Header.css";
 import DesktopHeader from "./desktop/DesktopHeader";
@@ -49,7 +50,7 @@ export default function Header({ variant = "default" }: HeaderProps) {
   const mainBarClass = isHome
     ? "border-white/10 bg-black/20 text-white  transition-colors duration-300"
     : "w-full border-black/10 bg-white/55 text-black";
-  const navLinkClass = isHome ? "text-white/80 hover:text-white" : "text-black/80 hover:text-main!";
+  const navLinkClass = isHome ? "text-white/80 hover:text-white" : "text-black/80 hover:text-(--primary)";
   const categoryButtonClass = isHome
     ? "border-white/35 bg-white/10 text-white hover:bg-white/20"
     : "border-black/20 bg-black/5 text-black hover:bg-black/10";
@@ -83,6 +84,8 @@ export default function Header({ variant = "default" }: HeaderProps) {
         mainBarClass={mobileBarClass}
         iconButtonClass={mobileIconButtonClass}
         logoSrc={logo}
+        contact={siteData.contact}
+        social={siteData.social}
       />
     </header>
   );

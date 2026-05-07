@@ -5,7 +5,7 @@ import {
   HiOutlineShieldCheck,
   HiOutlineTruck,
 } from "react-icons/hi2";
-import siteData from "@/lib/data/arcwood-site-data.json";
+import siteData from "@/lib/data/site.json";
 
 type WhyFeature = (typeof siteData.whyChooseUs.features)[number];
 export type featureIconKey = WhyFeature["icon"];

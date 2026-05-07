@@ -5,7 +5,7 @@ import { Link } from "@/i18n/navigation";
 import Image, { type StaticImageData } from "next/image";
 
 
-import type { HeaderItem } from "../headerTypes";
+import type { HeaderItem } from "../types";
 import HeaderPromoBar from "../HeaderPromoBar";
 import SearchSideDrawer from "../drawers/SearchSideDrawer";
 import CartSideDrawer from "../drawers/CartSideDrawer";

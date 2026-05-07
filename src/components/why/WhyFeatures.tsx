@@ -1,4 +1,4 @@
-import siteData from "@/lib/data/arcwood-site-data.json";
+import siteData from "@/lib/data/site.json";
 import { whyFeatureIcons } from "./whyFeatureIcons";
 
 type Feature = (typeof siteData.whyChooseUs.features)[number];

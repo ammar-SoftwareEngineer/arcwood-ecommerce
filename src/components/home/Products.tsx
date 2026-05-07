@@ -5,7 +5,7 @@ import ButtonMore from "../ui/ButtonMore";
 import HeaderSection from "../ui/HeaderSection";
 import ProductGrid from "../products/ProductGrid";
 import { useTranslations } from "next-intl";
-import productMostViewed from "@/lib/data/arcwood-site-data.json";
+import productMostViewed from "@/lib/data/site.json";
 export default function Products() {
   const t = useTranslations("home");
   const productMostViewedData = productMostViewed.mostViewedProducts;

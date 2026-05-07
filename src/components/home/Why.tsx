@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useLocale } from "next-intl";
-import siteData from "@/lib/data/arcwood-site-data.json";
+import siteData from "@/lib/data/site.json";
 import ButtonMore from "../ui/ButtonMore";
 import WhyFeatures from "../why/WhyFeatures";
 import WhyOverlappingImages from "../why/WhyOverlappingImages";

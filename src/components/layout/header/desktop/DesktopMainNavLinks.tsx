@@ -1,5 +1,5 @@
 import { Link } from "@/i18n/navigation";
-import type { HeaderItem } from "../headerTypes";
+import type { HeaderItem } from "../types";
 
 type DesktopMainNavLinksProps = {
   items: HeaderItem[];

@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useLocale } from "next-intl";
-import siteData from "@/lib/data/arcwood-site-data.json";
+import siteData from "@/lib/data/site.json";
 import { publicImagePath } from "@/lib/publicImagePath";
 import ButtonMore from "../ui/ButtonMore";
 import HeaderSection from "../ui/HeaderSection";

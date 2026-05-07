@@ -1,4 +1,4 @@
-import siteData from "@/lib/data/arcwood-site-data.json"
+import siteData from "@/lib/data/site.json";
 import CategoryCard, { type CardCategory } from "@/components/categories/CategoryCard"
 
 export default function CategoryGrid() {

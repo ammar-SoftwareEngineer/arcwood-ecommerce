@@ -4,7 +4,7 @@ import ButtonMore from "../ui/ButtonMore";
 import ProductGrid from "../products/ProductGrid";
 import HeaderSection from "../ui/HeaderSection";
 import { useTranslations } from "next-intl";
-import productBestSeller from "@/lib/data/arcwood-site-data.json";
+import productBestSeller from "@/lib/data/site.json";
 export default function BestSeller() {
   const t = useTranslations("home");
   const productData = productBestSeller.bestSellerProducts;

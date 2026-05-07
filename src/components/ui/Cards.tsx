@@ -5,12 +5,13 @@ import { motion } from "framer-motion"
 import { IoIosArrowRoundForward } from "react-icons/io";
 import Image from "next/image";
 type CardsProps = {
-    title: string
-    image: string
-    description: string
-    href: string
-    readMoreText?: string
-}
+    title: string;
+    image: string;
+    description: string;
+    href: string;
+    imageAlt?: string;
+    readMoreText?: string;
+};
 function publicImagePath(src: string | null): string | null {
     if (!src) return null;
     if (src.startsWith("/")) return src;
@@ -25,6 +26,7 @@ export default function Cards({
     image,
     description,
     href,
+    imageAlt,
     readMoreText = "Read more",
 }: CardsProps) {
     const src = publicImagePath(image);
@@ -44,7 +46,7 @@ export default function Cards({
                     <div className="relative h-[380px] w-full overflow-hidden">
                         <Image
                             src={src}
-                            alt={title}
+                            alt={imageAlt ?? title}
                             fill
                             loading="lazy"
                             className="object-cover transition duration-300 group-hover:scale-[1.03]"

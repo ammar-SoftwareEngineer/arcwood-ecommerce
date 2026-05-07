@@ -3,7 +3,7 @@
 import { Link } from "@/i18n/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {  faLayerGroup } from "@fortawesome/free-solid-svg-icons";
-import type { HeaderItem } from "../headerTypes";
+import type { HeaderItem } from "../types";
 
 
 type DesktopCategoryMenuProps = {
