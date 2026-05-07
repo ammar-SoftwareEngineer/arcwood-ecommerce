@@ -1,7 +1,6 @@
 import logo from "../../../public/logo/logo1.webp";
 import Footer from "@/components/layout/footer/Footer";
 import Header from "@/components/layout/header/Header";
-import NavigationRouteLoader from "@/components/layout/navigation-route-loader";
 import { routing } from "@/i18n/routing";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import type { Metadata } from "next";
