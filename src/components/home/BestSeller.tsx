@@ -9,7 +9,7 @@ export default function BestSeller() {
   const t = useTranslations("home");
   const productData = productBestSeller.bestSellerProducts;
   return (
-    <section className="best-seller-section py-12" >
+    <section className="best-seller-section py-12 bg-gray-100" >
     <div className="container mx-auto px-8  xl:px-16 py-12">
       <HeaderSection
         subtitle={t("bestSeller.subtitle")}
