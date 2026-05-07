@@ -41,14 +41,14 @@ export default function Discounts() {
 
         <div className="grid grid-cols-12 items-center ">
           <motion.div
-            className="col-span-12 flex flex-col justify-center gap-6 lg:col-span-5 xl:col-span-6 md:px-24 px-8 md:py-10 py-12"
+            className="col-span-12 flex flex-col justify-center gap-6 lg:col-span-5 xl:col-span-6 md:px-24 px-8 h-[80vh]"
             initial={{ opacity: 0, x: slideCopyX }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.55, ease: motionEase }}
           >
             <HeaderSection subtitle={t("discounts.subtitle")} title={t("discounts.title")} className="discounts-header" />
-            <p className="max-w-xl text-lg leading-relaxed text-neutral-600 md:text-base">
+            <p className=" text-lg leading-relaxed text-neutral-600 md:text-base mb-3">
               {description}
             </p>
             <DiscountCountdown endsAt={banner.endsAt} labels={countdownLabels} />

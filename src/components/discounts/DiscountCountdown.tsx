@@ -53,12 +53,12 @@ export default function DiscountCountdown({ endsAt, labels }: Props) {
     <div className="flex flex-wrap gap-4 sm:gap-6 md:gap-8" role="timer" aria-live="polite">
       {units.map((u, idx) => (
         <div key={`${u.label}-${idx}`} className="flex flex-col items-center gap-2">
-          <div className="flex h-16 w-16 items-center justify-center rounded-full border border-neutral-200 bg-white shadow-sm sm:h-18 sm:w-18">
+          <div className="flex h-16 w-16 items-center justify-center rounded-0 border border-neutral-200 bg-white shadow-sm sm:h-18 sm:w-18">
             <span className="text-base font-bold tracking-tight text-neutral-900 tabular-nums sm:text-lg">
               {String(u.value).padStart(u.pad, "0")}
             </span>
           </div>
-          <span className="text-xs font-medium text-neutral-600 sm:text-sm">{u.label}</span>
+          <span className="text-xs font-medium text-neutral-600 sm:text-base">{u.label}</span>
         </div>
       ))}
     </div>
