@@ -1,23 +1,21 @@
-"use client";
-
 import HeaderSection from "../ui/HeaderSection";
-import { useLocale, useTranslations } from "next-intl";
-import Cards from "../ui/Cards";
-import blogs from "@/lib/data/site.json";
 import ButtonMore from "../ui/ButtonMore";
+import Cards from "../ui/Cards";
+import { getLocale, getTranslations } from "next-intl/server";
+import { listBlogs } from "@/lib/api/blogs";
 
-export default function Blogs() {
-  const t = useTranslations("home");
-  const locale = useLocale();
+export default async function Blogs() {
+  const t = await getTranslations("home");
+  const locale = await getLocale();
   const isAr = locale === "ar";
-  const blogsData = blogs;
+  const { data } = listBlogs(1, 3);
 
   return (
     <section className="blogs-section py-12">
-      <div className="container mx-auto px-8 lg:px-6 xl:px-16 py-12">
+      <div className="container mx-auto px-8 py-12 lg:px-6 xl:px-16">
         <HeaderSection subtitle={t("blogs.subtitle")} title={t("blogs.title")} />
-        <div className="grid grid-cols-12 gap-6  ">
-          {blogsData.blogs.map((blog) => (
+        <div className="grid grid-cols-12 gap-6">
+          {data.map((blog) => (
             <div key={blog.href} className="col-span-12 md:col-span-4">
               <Cards
                 title={isAr ? blog.titleAr : blog.title}
@@ -25,12 +23,12 @@ export default function Blogs() {
                 image={blog.image}
                 imageAlt={isAr ? blog.imageAltAr : blog.imageAlt}
                 href={blog.href}
+                readmore={isAr ? blog.readmoreAr : blog.readmore}
               />
             </div>
           ))}
         </div>
         <ButtonMore href="/blogs" text={t("cta.viewAllBlogs")} />
-
       </div>
     </section>
   );

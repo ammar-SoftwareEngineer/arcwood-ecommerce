@@ -25,7 +25,14 @@
   },
   "blogs": {
     "title": "Blogs",
-    "subtitle": "Latest Blogs"
+    "subtitle": "Latest Blogs",
+    "pagination": {
+      "navAria": "Blog list pagination",
+      "goToPage": "Go to page {n}",
+      "previous": "Previous page",
+      "next": "Next page",
+      "summary": "Page {page} of {total}"
+    }
   },
   "bestSeller": {
     "title": "Best Seller ",

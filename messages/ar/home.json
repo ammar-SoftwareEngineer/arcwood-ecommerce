@@ -29,7 +29,14 @@
   },
   "blogs": {
     "title": "المقالات",
-    "subtitle": "أحدث المقالات"
+    "subtitle": "أحدث المقالات",
+    "pagination": {
+      "navAria": "تصفح صفحات المقالات",
+      "goToPage": "الانتقال إلى الصفحة {n}",
+      "previous": "الصفحة السابقة",
+      "next": "الصفحة التالية",
+      "summary": "صفحة {page} من {total}"
+    }
   },
   "cta": {
     "viewAllProducts": "عرض كل المنتجات",

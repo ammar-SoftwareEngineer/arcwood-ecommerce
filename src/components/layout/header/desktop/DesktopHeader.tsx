@@ -2,7 +2,7 @@
 
 import { useCallback, useId, useState } from "react";
 import { Link } from "@/i18n/navigation";
-import Image, { type StaticImageData } from "next/image";
+import Image from "next/image";
 
 
 import type { HeaderItem } from "../types";
@@ -24,7 +24,7 @@ type DesktopHeaderProps = {
   categoryButtonClass: string;
   searchIconClass: string;
   iconButtonClass: string;
-  logoSrc: StaticImageData;
+  logoSrc: string;
   categoriesLabel: string;
   searchDrawerTitle?: string;
   searchPlaceholder?: string;
@@ -68,7 +68,7 @@ export default function DesktopHeader({
       <HeaderPromoBar promoText={promoText} topBarClass={topBarClass} />
 
       <div
-        className={`py-0! my-0! flex w-full flex-wrap items-center justify-between gap-3 border-b px-4  backdrop-blur md:gap-6 md:px-20 ${mainBarClass}`}
+        className={`py-0! my-0! flex w-full flex-wrap items-center justify-between gap-3 border-b px-4   md:gap-6 md:px-20 ${mainBarClass}`}
       >
         <div className="flex  items-center gap-4">
           <Link href="/" className="shrink-0 text-lg font-bold tracking-wide">

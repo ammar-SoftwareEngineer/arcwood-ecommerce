@@ -10,7 +10,7 @@ type CardsProps = {
     description: string;
     href: string;
     imageAlt?: string;
-    readMoreText?: string;
+    readmore?: string;
 };
 function publicImagePath(src: string | null): string | null {
     if (!src) return null;
@@ -27,7 +27,7 @@ export default function Cards({
     description,
     href,
     imageAlt,
-    readMoreText = "Read more",
+    readmore,
 }: CardsProps) {
     const src = publicImagePath(image);
     return (
@@ -65,7 +65,7 @@ export default function Cards({
                     {/* Keep this as text to avoid nested anchor/link hydration issues. */}
                     <div className="flex items-center text-base font-medium text-(--primary) transition-colors hover:text-blue-400">
                         <div className="flex items-center ">
-                            <p> {readMoreText}</p>
+                            <p> {readmore}</p>
                             <p className="ms-1" aria-hidden>
                                 <IoIosArrowRoundForward size={20} className=" cursor-pointer transition-colors  " />
                             </p>

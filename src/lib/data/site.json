@@ -379,38 +379,6 @@
       "imageAlt": "Workstation cell for 6 people (glass separator)"
     }
   ],
-  "blogs": [
-    {
-      "title": "Workstation prices in Egypt",
-      "titleAr": "أسعار محطات العمل في مصر",
-      "description": "Workstations have become an essential part of any work environment, whether for companies or various business sectors.",
-      "descriptionAr": "أصبحت محطات العمل جزءاً أساسياً من أي بيئة عمل، سواء للشركات أو لمختلف القطاعات التجارية.",
-      "image": "../../../public/blogs/1.webp",
-      "imageAlt": "Workstation prices in Egypt",
-      "imageAltAr": "أسعار محطات العمل في مصر",
-      "href": "/blogs/workstation-prices-in-egypt"
-    },
-    {
-      "title": "The best office furnishing company",
-      "titleAr": "أفضل شركة لتأثيث المكاتب",
-      "description": "There is no doubt that office furnishing is an essential part of the success of any business, reflecting professionalism and identity.",
-      "descriptionAr": "لا شك أن تأثيث المكاتب جزء أساسي من نجاح أي نشاط تجاري؛ فهو يعكس الاحترافية والهوية.",
-      "image": "../../../public/blogs/2.webp",
-      "imageAlt": "The best office furnishing company",
-      "imageAltAr": "أفضل شركة لتأثيث المكاتب",
-      "href": "/blogs/the-best-office-furnishing-company"
-    },
-    {
-      "title": "Leather sofas for offices",
-      "titleAr": "أرائك جلدية للمكاتب",
-      "description": "Leather office sofas have become a popular and elegant choice for furnishing work offices and reception spaces.",
-      "descriptionAr": "أصبحت أرائك الجلد للمكاتب خياراً شائعاً وأنيقاً لتأثيث مكاتب العمل ومساحات الاستقبال.",
-      "image": "../../../public/blogs/3.webp",
-      "imageAlt": "Leather sofas for offices",
-      "imageAltAr": "أرائك جلدية للمكاتب",
-      "href": "/blogs/leather-sofas-for-offices"
-    }
-  ],
   "contact": {
     "email": "info@arcwood-eg.com",
     "phones": [
