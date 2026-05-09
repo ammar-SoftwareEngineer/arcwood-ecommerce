@@ -70,7 +70,7 @@ export default async function LocaleLayout({ children, params }: Props) {
       <body className="min-h-full ">
         <NextIntlClientProvider messages={messages}>
 
-          <Header variant="default" />
+          <Header />
           {children}
           <Footer />
         </NextIntlClientProvider>
