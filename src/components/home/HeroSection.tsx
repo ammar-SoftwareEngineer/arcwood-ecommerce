@@ -135,7 +135,7 @@ export default function HeroSection() {
         </div>
       )}
 
-      <button
+      {/* <button
         type="button"
         className={`${styles.arrow} ${styles.arrowLeft}`}
         onClick={handlePrev}
@@ -150,7 +150,7 @@ export default function HeroSection() {
         aria-label="Next slide"
       >
    <IoIosArrowRoundForward size={25} className="icon-arrow cursor-pointer transition-colors  " />
-      </button>
+      </button> */}
 
      
     </section>
