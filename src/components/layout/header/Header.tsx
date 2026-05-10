@@ -47,10 +47,10 @@ export default function Header() {
       ? "fixed inset-x-0 top-0 text-black transition-colors duration-300"
       : "relative inset-x-0 top-0 text-black transition-colors duration-300";
   const topBarClass = isScrolled
-    ? " bg-white border-black/20 text-black transition-colors duration-300"
+    ? " bg-(--primary) text-white transition-colors duration-300"
     : isOverlayHeader
-      ? "border-white/10 bg-white/75 text-black transition-colors duration-300"
-      : "border-white/10  bg-white/75 text-black/75 transition-colors duration-300";
+      ? " bg-(--primary) text-white transition-colors duration-300"
+      : "  bg-(--primary) text-white transition-colors duration-300";
   const mainBarClass = isScrolled
     ? "w-full border-black/20  bg-white text-black transition-colors duration-300"
     : isOverlayHeader
