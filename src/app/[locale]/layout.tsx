@@ -4,7 +4,7 @@ import Header from "@/components/layout/header/Header";
 import { routing } from "@/i18n/routing";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import type { Metadata } from "next";
-import { Barlow_Condensed, Cormorant_Garamond ,Lora} from "next/font/google";
+import { Barlow_Condensed, Cormorant_Garamond ,Cairo} from "next/font/google";
 import { notFound } from "next/navigation";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import "@/styles/globals.css";
@@ -22,9 +22,10 @@ const cormorantGaramond = Cormorant_Garamond({
   weight: [ "300", "400", "500", "600", "700"],
 });
 
-const lora = Lora({
+const cairo = Cairo({
   subsets: ["latin"],
-  variable: "--font-lora",
+  variable: "--font-cairo",
+  weight: [ "300", "400", "500", "600", "700", "800", "900"],
 });
 
 export function generateStaticParams() {
@@ -62,7 +63,7 @@ export default async function LocaleLayout({ children, params }: Props) {
     <html
       lang={locale}
       dir={locale === "ar" ? "rtl" : "ltr"}
-      className={`${barlowCondensed.variable} ${cormorantGaramond.variable} ${lora.variable} h-full antialiased`}
+      className={`${barlowCondensed.variable} ${cormorantGaramond.variable} ${cairo.variable} h-full antialiased`}
     >
       <head>
         <link rel="icon" href={logo.src} />
