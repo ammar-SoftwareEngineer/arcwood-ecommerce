@@ -9,8 +9,6 @@
   --primary: #862742;
   --white: #ffffff;
   --black: #000000;
-
-
 }
 
 .text-main {
@@ -24,7 +22,7 @@
 html,
 body {
   overflow-x: hidden !important;
-  scroll-behavior:smooth;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -35,7 +33,7 @@ body {
 
 h1,
 h2,
-h3{
+h3 {
   font-family: 'Cormorant Garamond', Georgia, serif !important;
   font-weight: 700 !important;
 
@@ -44,6 +42,7 @@ h3{
 [dir="rtl"] body {
   font-family: "Cairo", sans-serif !important;
 }
+
 /* ===== CTA Button ===== */
 .cta {
   font-size: 12px;
@@ -59,12 +58,13 @@ h3{
   transition: background 0.3s ease, color 0.3s ease;
 
   &:hover {
-      background: var(--white);
-      color: var(--primary);
-      border: 1px solid var(--primary);
-   
+    background: var(--white);
+    color: var(--primary);
+    border: 1px solid var(--primary);
+
   }
 }
+
 /* ===== Header ===== */
 .header {
   text-align: center;
@@ -90,10 +90,8 @@ h3{
 
 .title {
   font-size: 50px;
-
   color: var(--black);
   line-height: 1.1;
-
   margin: 0;
 }
 
@@ -107,65 +105,67 @@ h3{
 
   .line,
   .lineReverse {
-      display: block;
-      width: 60px;
-      height: 1px;
+    display: block;
+    width: 60px;
+    height: 1px;
   }
 
   .line {
-      background: linear-gradient(90deg, transparent, var(--primary));
+    background: linear-gradient(90deg, transparent, var(--primary));
   }
 
   .dot {
-      display: block;
-      width: 12px;
-      height: 12px;
-      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-      background: var(--primary);
+    display: block;
+    width: 12px;
+    height: 12px;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    background: var(--primary);
   }
 
   .lineReverse {
-      background: linear-gradient(90deg, var(--primary), transparent);
+    background: linear-gradient(90deg, var(--primary), transparent);
   }
 }
 
-.about-header,.discounts-header {
+.about-header,
+.discounts-header {
   text-align: justify !important;
   margin-bottom: 0 !important;
+
   .divider {
     display: flex;
     align-items: center;
     justify-content: start;
     gap: 12px;
     margin-top: 20px;
-  
+
     .line,
     .lineReverse {
-        display: block;
-        width: 60px;
-        height: 1px;
+      display: block;
+      width: 60px;
+      height: 1px;
     }
-  
+
     .line {
-        background: linear-gradient(90deg, transparent, var(--primary));
+      background: linear-gradient(90deg, transparent, var(--primary));
     }
-  
+
     .dot {
-        display: block;
-        width: 12px;
-        height: 12px;
-        clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-        background: var(--primary);
+      display: block;
+      width: 12px;
+      height: 12px;
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+      background: var(--primary);
     }
-  
+
     .lineReverse {
-        background: linear-gradient(90deg, var(--primary), transparent);
+      background: linear-gradient(90deg, var(--primary), transparent);
     }
   }
 }
+
 .swiper-button-next,
- .swiper-button-prev {
-  
+.swiper-button-prev {
   color: var(--primary);
   background: var(--primary);
   border: 1px solid var(--primary);
@@ -176,16 +176,20 @@ h3{
   justify-content: center;
   cursor: pointer;
   transition: all 0.3s ease;
-  & svg{
+
+  & svg {
     color: var(--white);
-   width: 18px !important;
-   height: 18px !important;
+    width: 18px !important;
+    height: 18px !important;
   }
+
   &:hover {
     background: var(--white);
-    svg{
-      color: var(--primary) ;
+
+    svg {
+      color: var(--primary);
     }
+
     border: 1px solid var(--primary);
   }
 }

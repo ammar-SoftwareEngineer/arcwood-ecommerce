@@ -6,6 +6,7 @@ import products from "@/lib/data/site.json";
 import { CiShop } from "react-icons/ci";
 import { Link } from "@/i18n/navigation";
 import Badge from "../ui/Badge";
+import { useTranslations } from "next-intl";
 
 export type MostViewedProduct =
   (typeof products.mostViewedProducts)[number];
@@ -41,13 +42,13 @@ export default function ProductCard({ item }: { item: MostViewedProduct | BestSe
   const [wishlisted, setWishlisted] = useState(false);
   const src = publicImagePath(item.image);
   // Card is wrapped with Link, so action buttons must block navigation.
-
+  const t = useTranslations("products");
   return (
     <section className="relative group flex h-full flex-col overflow-hidden rounded-0 bg-white transition-shadow hover:shadow-md cursor-pointer">
       <Link href={`/products/${item.name}`}>
       {item.new ? (
-        <div className="absolute top-2 left-0 z-10 ">
-          <Badge label="New" />
+        <div className="absolute top-2 inset-0 z-10 ">
+          <Badge label={t("new")} />
 
         </div>
       ) : null}

@@ -6,5 +6,5 @@ type BadgeProps = {
 };
 
 export default function Badge({ label }: BadgeProps) {
-  return <span className="badge-products ">{label}</span>;
+  return <span className="badge-products">{label}</span>;
 }
