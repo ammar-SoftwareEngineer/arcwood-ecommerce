@@ -2,8 +2,6 @@ import HeroPages from "@/components/layout/hero/HeroPages";
 import BlogList from "@/components/blogs/BlogList";
 import Pagination from "@/components/ui/Pagination";
 import { listBlogs } from "@/lib/api/blogs";
-import { getShopPageMetadata } from "@/lib/page-metadata";
-import type { Metadata } from "next";
 import { getLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 
