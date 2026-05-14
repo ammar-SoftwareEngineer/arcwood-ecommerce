@@ -73,9 +73,7 @@ export default function Cards({ params }: { params: CardParams }) {
                         <div className="flex items-center my-0">
                             <p className="my-0"> {readmore}</p>
                             <p className="ms-1 my-0" aria-hidden>
-                                <Link href={href}>
-                                    {locale === "ar" ? <IoIosArrowRoundBack size={20} className=" cursor-pointer transition-colors  " /> : <IoIosArrowRoundForward size={20} className=" cursor-pointer transition-colors  " />}
-                                </Link>
+                                {locale === "ar" ? <IoIosArrowRoundBack size={20} className=" cursor-pointer transition-colors  " /> : <IoIosArrowRoundForward size={20} className=" cursor-pointer transition-colors  " />}
                             </p>
                         </div>
                     </div>

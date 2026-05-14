@@ -98,15 +98,20 @@ export default function ProductCard({ item }: { item: MostViewedProduct | BestSe
               className={`${wishlistBtn} ${wishlisted ? wishlistActive : wishlistIdle}`}
               aria-pressed={wishlisted}
               aria-label={wishlisted ? "Remove from wishlist" : "Add to wishlist"}
-              onClick={(e) => {
-
-                setWishlisted((e) => !e);
-              }}
+        
             >
               {wishlisted ? (
-                <IoIosHeart size={25} className=" transition duration-300 ease-out hover:scale-110" aria-hidden />
+                <IoIosHeart size={25} className=" transition duration-300 ease-out hover:scale-110" aria-hidden onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  setWishlisted((e) => !e);
+                }}/>
               ) : (
-                <IoIosHeartEmpty size={25} className=" transition duration-300 ease-out hover:scale-110" aria-hidden />
+                <IoIosHeartEmpty size={25} className=" transition duration-300 ease-out hover:scale-110" aria-hidden onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  setWishlisted((e) => !e);
+                }}/>
               )}
             </button>
           </div>
