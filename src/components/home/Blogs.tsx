@@ -16,14 +16,16 @@ export default async function Blogs() {
         <HeaderSection subtitle={t("blogs.subtitle")} title={t("blogs.title")} />
         <div className="grid grid-cols-12 gap-6">
           {data.map((blog) => (
-            <div key={blog.href} className="col-span-12 md:col-span-4">
+            <div key={blog.id} className="col-span-12 md:col-span-4">
               <Cards
-                title={isAr ? blog.titleAr : blog.title}
-                description={isAr ? blog.descriptionAr : blog.description}
-                image={blog.image}
-                imageAlt={isAr ? blog.imageAltAr : blog.imageAlt}
-                href={blog.href}
-                readmore={isAr ? blog.readmoreAr : blog.readmore}
+                params={{
+                  title: isAr ? blog.titleAr : blog.title,
+                  description: isAr ? blog.descriptionAr : blog.description,
+                  image: blog.image,
+                  imageAlt: isAr ? blog.imageAltAr : blog.imageAlt,
+                  href: blog.href,
+                  readmore: isAr ? blog.readmoreAr : blog.readmore,
+                }}
               />
             </div>
           ))}

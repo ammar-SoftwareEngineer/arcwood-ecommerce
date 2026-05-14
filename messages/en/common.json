@@ -3,6 +3,23 @@
     "title": "Arcwood",
     "description": "Arcwood — Next.js app with next-intl"
   },
+  "metadata": {
+    "title": {
+      "default": "Arcwood",
+      "home": "Home",
+      "blogs": "Blogs",
+      "products": "Products",
+      "about": "About Us",
+      "contact": "Contact Us"
+    },
+    "description": {
+      "home": "Discover premium office furniture and modern workspace solutions from Arcwood.",
+      "blogs": "Read Arcwood articles about office furniture, workstations, and workspace design.",
+      "products": "Browse Arcwood products, office furniture, and workspace solutions.",
+      "about": "Learn more about Arcwood and our mission to provide premium office furniture and modern workspace solutions.",
+      "contact": "Contact us for any questions or inquiries."
+    }
+  },
   "header": {
     "brand": "Arcwood",
     "promoText": "Discounts of up to 20% on products",

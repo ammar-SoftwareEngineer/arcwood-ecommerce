@@ -2,9 +2,11 @@
 
 import { Link } from "@/i18n/navigation"
 import { motion } from "framer-motion"
-import { IoIosArrowRoundForward } from "react-icons/io";
+import { IoIosArrowRoundBack, IoIosArrowRoundForward } from "react-icons/io";
+
 import Image from "next/image";
-type CardsProps = {
+import { useLocale } from "next-intl";
+type CardParams = {
     title: string;
     image: string;
     description: string;
@@ -12,6 +14,8 @@ type CardsProps = {
     imageAlt?: string;
     readmore?: string;
 };
+
+
 function publicImagePath(src: string | null): string | null {
     if (!src) return null;
     if (src.startsWith("/")) return src;
@@ -21,15 +25,17 @@ function publicImagePath(src: string | null): string | null {
         .replace(/^public\//, "");
     return `/${tail}`;
 }
-export default function Cards({
-    title,
-    image,
-    description,
-    href,
-    imageAlt,
-    readmore,
-}: CardsProps) {
+export default function Cards({ params }: { params: CardParams }) {
+    const {
+        title,
+        image,
+        description,
+        href,
+        imageAlt,
+        readmore,
+    } = params;
     const src = publicImagePath(image);
+    const locale = useLocale();
     return (
         <motion.article
             // Basic entrance + hover animation for better UX.
@@ -42,7 +48,7 @@ export default function Cards({
         >
             {/* Dynamic media content so card can be reused anywhere. */}
             <Link href={href}>
-                {src?(
+                {src ? (
                     <div className="relative h-[380px] w-full overflow-hidden">
                         <Image
                             src={src}
@@ -50,10 +56,10 @@ export default function Cards({
                             fill
                             loading="lazy"
                             className="object-cover transition duration-300 group-hover:scale-[1.03]"
-                     
+
                         />
                     </div>
-                ):(
+                ) : (
                     <span className="px-3 text-center text-sm text-neutral-400 ">
                         {title}
                     </span>
@@ -64,10 +70,12 @@ export default function Cards({
                     </div>
                     {/* Keep this as text to avoid nested anchor/link hydration issues. */}
                     <div className="flex items-center text-base font-medium text-(--primary) transition-colors hover:text-blue-400">
-                        <div className="flex items-center ">
-                            <p> {readmore}</p>
-                            <p className="ms-1" aria-hidden>
-                                <IoIosArrowRoundForward size={20} className=" cursor-pointer transition-colors  " />
+                        <div className="flex items-center my-0">
+                            <p className="my-0"> {readmore}</p>
+                            <p className="ms-1 my-0" aria-hidden>
+                                <Link href={href}>
+                                    {locale === "ar" ? <IoIosArrowRoundBack size={20} className=" cursor-pointer transition-colors  " /> : <IoIosArrowRoundForward size={20} className=" cursor-pointer transition-colors  " />}
+                                </Link>
                             </p>
                         </div>
                     </div>

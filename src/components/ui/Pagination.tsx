@@ -1,83 +1,85 @@
-"use client";
-
-export type PaginationLabels = {
-  nav: string;
-  summary: (page: number, totalPages: number) => string;
-  previous: string;
-  next: string;
-  page: (n: number) => string;
-};
+import PaginationButton from "@/components/ui/PaginationButton";
+import { getTranslations } from "next-intl/server";
+import { IoIosArrowRoundBack, IoIosArrowRoundForward } from "react-icons/io";
 
 type PaginationProps = {
-  page: number;
+  activePage: number;
   totalPages: number;
-  onPageChange: (page: number) => void;
-  labels: PaginationLabels;
-  busy?: boolean;
+  basePath: string;
   className?: string;
+  pageParam?: string;
 };
 
-const baseBtn =
-  "min-w-9 h-9 rounded border border-black/15 bg-white px-2 text-sm tabular-nums transition hover:bg-black/5 disabled:opacity-40";
-const activeBtn =
-  "border-(--primary) bg-[color-mix(in_srgb,var(--primary)_12%,white)] font-medium text-neutral-900";
+function getPages(current: number, total: number): (number | "...")[] {
+  if (total <= 7) return Array.from({ length: total }, (_, i) => i + 1);
+  if (current <= 4) return [1, 2, 3, 4, 5, "...", total];
+  if (current >= total - 3) return [1, "...", total - 4, total - 3, total - 2, total - 1, total];
+  return [1, "...", current - 1, current, current + 1, "...", total];
+}
 
-export default function Pagination({
-  page,
+function pageHref(basePath: string, page: number, pageParam: string) {
+  return page <= 1 ? basePath : `${basePath}?${pageParam}=${page}`;
+}
+
+export default async function Pagination({
+  activePage,
   totalPages,
-  onPageChange,
-  labels,
-  busy = false,
+  basePath,
   className = "",
+  pageParam = "page",
 }: PaginationProps) {
+  const t = await getTranslations("home.blogs.pagination");
+
   if (totalPages < 2) return null;
 
-  const nums = Array.from({ length: totalPages }, (_, i) => i + 1);
+  const pages = getPages(activePage, totalPages);
+  const previousPage = activePage - 1;
+  const nextPage = activePage + 1;
 
   return (
-    <nav
-      aria-label={labels.nav}
-      aria-busy={busy}
-      className={`flex flex-col items-center gap-4 border-t border-black/10 pt-8 ${className}`.trim()}
-    >
+    <nav aria-label={t("navAria")} className={`flex flex-col items-center gap-4 border-t border-black/10 pt-8 ${className}`}>
       <p className="text-sm tabular-nums text-neutral-600">
-        {labels.summary(page, totalPages)}
+        {t("summary", { page: activePage, total: totalPages })}
       </p>
 
       <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2">
-        <button
-          type="button"
-          className={`${baseBtn} px-3`}
-          disabled={busy || page < 2}
-          onClick={() => onPageChange(page - 1)}
-          aria-label={labels.previous}
+        <PaginationButton
+          href={pageHref(basePath, previousPage, pageParam)}
+          label={t("previous")}
+          isDisabled={previousPage < 1}
         >
-          ‹
-        </button>
+          <IoIosArrowRoundBack size={20} />
+        </PaginationButton>
 
-        {nums.map((n) => (
-          <button
-            key={n}
-            type="button"
-            className={`${baseBtn} ${n === page ? activeBtn : ""}`}
-            disabled={busy}
-            onClick={() => onPageChange(n)}
-            aria-label={labels.page(n)}
-            aria-current={n === page ? "page" : undefined}
-          >
-            {n}
-          </button>
-        ))}
+        {pages.map((page, index) =>
+          page === "..." ? (
+            <span
+              key={`ellipsis-${index}`}
+              className="inline-flex h-9 min-w-9 items-center justify-center text-sm text-neutral-400"
+              aria-hidden
+            >
+              ...
+            </span>
+          ) : (
+            <PaginationButton
+              key={page}
+              href={pageHref(basePath, page, pageParam)}
+              label={t("goToPage", { n: page })}
+              isActive={page === activePage}
+            >
+              {page}
+            </PaginationButton>
+          )
+        )}
 
-        <button
-          type="button"
-          className={`${baseBtn} px-3`}
-          disabled={busy || page >= totalPages}
-          onClick={() => onPageChange(page + 1)}
-          aria-label={labels.next}
+        <PaginationButton
+          href={pageHref(basePath, nextPage, pageParam)}
+          label={t("next")}
+          isDisabled={nextPage > totalPages}
+          className="cursor-pointer"
         >
-          ›
-        </button>
+          <IoIosArrowRoundForward size={20} />
+        </PaginationButton>
       </div>
     </nav>
   );

@@ -1,37 +1,45 @@
 import HeroPages from "@/components/layout/hero/HeroPages";
 import BlogList from "@/components/blogs/BlogList";
-import BlogPagination from "@/components/blogs/BlogPagination";
+import Pagination from "@/components/ui/Pagination";
 import { listBlogs } from "@/lib/api/blogs";
+import { getShopPageMetadata } from "@/lib/page-metadata";
+import type { Metadata } from "next";
 import { getLocale } from "next-intl/server";
-
-export const revalidate = 120;
-
-const PER_PAGE = 2;
+import { notFound } from "next/navigation";
 
 type BlogsPageProps = {
+
   searchParams: Promise<{ page?: string }>;
 };
 
-function parsePage(raw: string | undefined) {
-  const n = parseInt(raw ?? "1", 10);
-  return Number.isFinite(n) && n >= 1 ? n : 1;
+import { getTranslations } from "next-intl/server";
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "metadata" });
+
+  return {
+    title: t("title.blogs"),
+    description: t("description.blogs"),
+  };
 }
 
 export default async function BlogsPage({ searchParams }: BlogsPageProps) {
-  const sp = await searchParams;
-  const urlPage = parsePage(sp.page);
+  const page = Number((await searchParams).page ?? 1) || 1;
+  const activePage = Math.max(1, page);
+  const { data, meta } = await listBlogs(activePage);
   const locale = await getLocale();
-  const result = listBlogs(urlPage, PER_PAGE);
+
+  if (activePage > meta.pages) notFound();
 
   return (
     <div>
       <HeroPages />
       <div className="container mx-auto px-8 py-12 lg:px-6 xl:px-16">
-        <BlogList posts={result.data} isAr={locale === "ar"} />
-        <BlogPagination
-          className="mt-10"
-          activePage={result.meta.page}
-          totalPages={result.meta.pages}
+        <BlogList posts={data} isAr={locale === "ar"} />
+        <Pagination
+          basePath="/blogs"
+          activePage={activePage}
+          totalPages={meta.pages}
         />
       </div>
     </div>

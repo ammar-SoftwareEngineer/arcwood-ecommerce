@@ -28,23 +28,24 @@ const cairo = Cairo({
   weight: [ "300", "400", "500", "600", "700", "800", "900"],
 });
 
-export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
-}
-
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "site" });
+  const t = await getTranslations({ locale, namespace: "metadata" });
+ 
+
   return {
-    title: t("title"),
-    description: t("description"),
+    title: {
+      default: t("title.default"),
+      template: `%s | ${t("title.default")}`,
+    },
+    description: t("description.default"),
+   
   };
 }
-
 type Props = {
   children: React.ReactNode;
   params: Promise<{ locale: string }>;

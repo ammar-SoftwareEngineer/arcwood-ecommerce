@@ -30,7 +30,13 @@ body {
   font-family: 'Barlow Condensed', sans-serif;
 
 }
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
 
+}
 h1,
 h2,
 h3 {

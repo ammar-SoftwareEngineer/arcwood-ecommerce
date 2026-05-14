@@ -1,6 +1,7 @@
 import posts from "@/lib/data/blogs.json";
 
 export type BlogItem = {
+  id: number;
   href: string;
   title: string;
   titleAr: string;
@@ -13,29 +14,51 @@ export type BlogItem = {
   readmoreAr: string;
 };
 
-export type BlogsListMeta = {
-  page: number;
-  perPage: number;
-  total: number;
-  pages: number;
-};
-
-export type BlogsListResponse = {
+const blogs = posts as {
   data: BlogItem[];
-  meta: BlogsListMeta;
+  meta: {
+    perPage: number;
+    maxPerPage: number;
+  };
 };
 
-const all = posts as BlogItem[];
+export function listBlogs(
+  page = 1,
+  perPage = blogs.meta.perPage
+) {
+  // Validate perPage value
+  perPage = Math.max(
+    1,
+    Math.min(perPage, blogs.meta.maxPerPage)
+  );
 
-export function listBlogs(pageIn: number, perPageIn: number): BlogsListResponse {
-  const perPage = Math.min(50, Math.max(1, perPageIn));
-  const total = all.length;
-  const pages = Math.max(1, Math.ceil(total / perPage));
-  const page = Math.min(Math.max(1, pageIn), pages);
+  // Total number of blogs
+  const total = blogs.data.length;
+
+  // Total number of pages
+  const pages = Math.ceil(total / perPage);
+
+  // Validate current page
+  page = Math.max(1, Math.min(page, pages));
+
+  // Starting index
   const start = (page - 1) * perPage;
-  const data = all.slice(start, start + perPage);
+
+  // Get blogs for current page
+  const data = blogs.data.slice(
+    start,
+    start + perPage
+  );
+
+  // Return paginated data
   return {
     data,
-    meta: { page, perPage, total, pages },
+
+    meta: {
+      page,
+      perPage,
+      total,
+      pages,
+    },
   };
 }
