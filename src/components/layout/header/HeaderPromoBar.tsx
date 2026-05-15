@@ -4,26 +4,32 @@ type HeaderPromoBarProps = {
   topBarClass: string;
 };
 
-const PromoRepeat = 2;
 
-function PromoItems({ text }: { text: string }) {
-  return Array.from({ length: PromoRepeat }, (_, index) => (
-    <p key={index} className="header-promo-item">
-      {text}
-    </p>
-  ));
-}
 
-export default function HeaderPromoBar({ promoText, topBarClass }: HeaderPromoBarProps) {
+const PromosRepeat = 2;
+
+export default function HeaderPromoBar({
+  promoText,
+  topBarClass,
+}: HeaderPromoBarProps) {
+  const items = Array(PromosRepeat).fill(promoText);
+
   return (
     <div className={`border-b ${topBarClass}`}>
       <div className="header-promo-viewport">
         <div className="header-promo-rail">
-          <div className="header-promo-set">
-            <PromoItems text={promoText} />
-          </div>
-          <div className="header-promo-set" aria-hidden="true">
-            <PromoItems text={promoText} />
+          <div className="header-promo-rail">
+            {Array.from({ length: PromosRepeat }).map((_, index) => (
+              <div
+                key={index}
+                className="header-promo-set"
+                aria-hidden={index > 0}
+              >
+                <p className="header-promo-item">{promoText}</p>
+                <p className="header-promo-item">{promoText}</p>
+
+              </div>
+            ))}
           </div>
         </div>
       </div>
