@@ -2,6 +2,7 @@
 
 @import "./home/CategoriesSection.module.css";
 @import "./home/HeroSection.module.css";
+@import "./layout/Header.css";
 
 :root {
   --background: #ffffff;

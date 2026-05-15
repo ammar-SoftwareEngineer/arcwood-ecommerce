@@ -1,0 +1,40 @@
+{
+  "data": [
+    {
+      "id": "company",
+      "badge": "About the Company",
+      "badgeAr": "نبذة عن الشركة",
+      "title": "About the Company",
+      "titleAr": "نبذة عن الشركة",
+      "description": "Arc Wood Factory for office furniture manufactures and supplies everything related to office furniture, including chairs for managers and employees, waiting room and lounge tables, reception sofas, desks, bookcases, drawer units, filing cabinets, meeting tables, four- and six-person workstations, and reception counters. We also execute various models as requested by companies. The company is distinguished by its quality, durability, and high-quality finishing.",
+      "descriptionAr": "مصنع أرك وود لأثاث المكاتب يصنع ويورد كل ما يتعلق بأثاث المكاتب، بما في ذلك كراسي المديرين والموظفين، وطاولات غرف الانتظار والصالات، وأرائك الاستقبال، والمكاتب، والمكتبات، ووحدات الأدراج، وخزائن الملفات، وطاولات الاجتماعات، ومحطات العمل لأربعة وستة أشخاص، وكاونترات الاستقبال. كما ننفذ مختلف النماذج حسب طلب الشركات. تتميز الشركة بجودتها ومتانتها والتشطيبات عالية الجودة.",
+      "image": "../../../public/banner/3.webp",
+      "imageAlt": "Arcwood office furniture manufacturing",
+      "imageAltAr": "تصنيع أثاث مكاتب أرك وود"
+    },
+    {
+      "id": "vision",
+      "badge": "Our Vision",
+      "badgeAr": "رؤيتنا",
+      "title": "Setting Industry Standards",
+      "titleAr": "وضع معايير الصناعة",
+      "description": "To be the preferred partner for companies, architects, and decision-makers seeking premium office furniture solutions in Egypt and the region. We aim to set benchmarks in product quality, design variety, and professional service that transform every workspace into a productive, elegant environment.",
+      "descriptionAr": "أن نكون الشريك المفضل للشركات ومصممي الديكور وصناع القرار الباحثين عن حلول أثاث مكاتب متميزة في مصر والمنطقة. نسعى لوضع معايير في جودة المنتجات وتنوع التصاميم والخدمة الاحترافية التي تحوّل كل مساحة عمل إلى بيئة منتجة وأنيقة.",
+      "image": "../../../public/banner/2.webp",
+      "imageAlt": "Modern office workspace vision",
+      "imageAltAr": "رؤية مساحة عمل مكتبية عصرية"
+    },
+    {
+      "id": "mission",
+      "badge": "Our Mission",
+      "badgeAr": "رسالتنا",
+      "title": "Delivering Excellence",
+      "titleAr": "تقديم التميز",
+      "description": "To provide durable, finely finished office furniture that meets the real needs of modern workplaces. We are committed to quality craftsmanship, flexible custom execution, and reliable support—from consultation and supply to delivery—so every client receives solutions built to last.",
+      "descriptionAr": "تقديم أثاث مكاتب متين وبتشطيبات عالية يلبي احتياجات أماكن العمل الحديثة فعلياً. نلتزم بجودة التصنيع، والتنفيذ المرن حسب الطلب، والدعم الموثوق من الاستشارة والتوريد حتى التسليم، حتى يحصل كل عميل على حلول مصممة لتدوم.",
+      "image": "../../../public/banner/4.webp",
+      "imageAlt": "Office furniture mission and quality",
+      "imageAltAr": "رسالة وجودة أثاث المكاتب"
+    }
+  ]
+}

@@ -32,7 +32,7 @@ export default async function BlogsPage({ searchParams }: BlogsPageProps) {
   return (
     <div>
       <HeroPages />
-      <div className="container mx-auto px-8 py-12 lg:px-6 xl:px-16">
+      <div className="container mx-auto px-8 py-12 md:py-20 lg:px-6 xl:px-16">
         <BlogList posts={data} isAr={locale === "ar"} />
         <Pagination
           basePath="/blogs"
