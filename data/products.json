@@ -1,0 +1,394 @@
+{
+  "categories": [
+    {
+      "slug": "offices",
+      "name": "Offices",
+      "heroImage": "/categories/1.webp"
+    },
+    {
+      "slug": "office-furniture",
+      "name": "Office Furniture",
+      "heroImage": "/categories/2.webp"
+    },
+    {
+      "slug": "working-station",
+      "name": "Working Station",
+      "heroImage": "/categories/3.webp"
+    },
+    {
+      "slug": "office-cupboards-shannon",
+      "name": "Office Cupboards & Shannon",
+      "heroImage": "/categories/4.webp"
+    },
+    {
+      "slug": "meeting-table",
+      "name": "Meeting Table",
+      "heroImage": "/categories/5.webp"
+    },
+    {
+      "slug": "chairs",
+      "name": "Chairs",
+      "heroImage": "/categories/6.webp"
+    },
+    {
+      "slug": "counter-reception",
+      "name": "Counter reception",
+      "heroImage": "/categories/7.webp"
+    },
+    {
+      "slug": "office-blinds",
+      "name": "Office blinds",
+      "heroImage": "/categories/8.webp"
+    },
+    {
+      "slug": "maintenance-repair",
+      "name": "Maintenance & Repair",
+      "heroImage": "/banner/3.webp"
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "category": "chairs",
+      "name": "zaan wood leather general manager chair",
+      "type": "Rolling chairs",
+      "price": "5175.00",
+      "unit": "piece",
+      "image": "/products/1.webp",
+      "images": [
+        "/products/1.webp"
+      ],
+      "sku": "ARC-0001",
+      "description": "zaan wood leather general manager chair. Rolling chairs — Arc Wood office furniture (arcwood-eg.com).",
+      "specs": {
+        "Line": "Rolling chairs"
+      }
+    },
+    {
+      "id": "2",
+      "category": "offices",
+      "name": "Desk, size 120*60 cm",
+      "type": "Offices",
+      "price": "3140.00",
+      "unit": "piece",
+      "image": "/products/2.webp",
+      "images": [
+        "/products/2.webp"
+      ],
+      "sku": "ARC-0002",
+      "description": "Desk, size 120*60 cm. Offices — Arc Wood office furniture (arcwood-eg.com).",
+      "specs": {
+        "Line": "Offices"
+      }
+    },
+    {
+      "id": "3",
+      "category": "office-blinds",
+      "name": "vertical blinds",
+      "type": "Office blinds",
+      "price": "3296.00",
+      "unit": "piece",
+      "image": "/products/3.webp",
+      "images": [
+        "/products/3.webp"
+      ],
+      "sku": "ARC-0003",
+      "description": "vertical blinds. Office blinds — Arc Wood office furniture (arcwood-eg.com).",
+      "specs": {
+        "Line": "Office blinds"
+      }
+    },
+    {
+      "id": "4",
+      "category": "meeting-table",
+      "name": "Meeting and Conference Table",
+      "type": "Meeting Table",
+      "price": "8895.00",
+      "unit": "piece",
+      "image": "/products/4.webp",
+      "images": [
+        "/products/4.webp"
+      ],
+      "sku": "ARC-0004",
+      "description": "Meeting and Conference Table. Meeting Table — Arc Wood office furniture (arcwood-eg.com).",
+      "specs": {
+        "Line": "Meeting Table"
+      }
+    },
+    {
+      "id": "5",
+      "category": "chairs",
+      "name": "Foam sponge injection chair",
+      "type": "Guest & Reception Chairs",
+      "price": "1610.00",
+      "unit": "piece",
+      "image": "/products/5.webp",
+      "images": [
+        "/products/5.webp"
+      ],
+      "sku": "ARC-0005",
+      "description": "Foam sponge injection chair. Guest & Reception Chairs — Arc Wood office furniture (arcwood-eg.com).",
+      "specs": {
+        "Line": "Guest & Reception Chairs"
+      }
+    },
+    {
+      "id": "6",
+      "category": "counter-reception",
+      "name": "Modern Reception Counters",
+      "type": "Counter reception",
+      "price": "11601.00",
+      "unit": "piece",
+      "image": "/products/6.webp",
+      "images": [
+        "/products/6.webp"
+      ],
+      "sku": "ARC-0006",
+      "description": "Modern Reception Counters. Counter reception — Arc Wood office furniture (arcwood-eg.com).",
+      "specs": {
+        "Line": "Counter reception"
+      }
+    },
+    {
+      "id": "7",
+      "category": "chairs",
+      "name": "Reclining medical chair",
+      "type": "Rolling chairs",
+      "price": "7245.00",
+      "unit": "piece",
+      "image": "/products/7.webp",
+      "images": [
+        "/products/7.webp"
+      ],
+      "sku": "ARC-0007",
+      "description": "Reclining medical chair. Rolling chairs — Arc Wood office furniture (arcwood-eg.com).",
+      "specs": {
+        "Line": "Rolling chairs"
+      }
+    },
+    {
+      "id": "8",
+      "category": "counter-reception",
+      "name": "WOODEN COUNTER",
+      "type": "Counter reception",
+      "price": "11601.00",
+      "unit": "piece",
+      "image": "/products/8.webp",
+      "images": [
+        "/products/8.webp"
+      ],
+      "sku": "ARC-0008",
+      "description": "WOODEN COUNTER. Counter reception — Arc Wood office furniture (arcwood-eg.com).",
+      "specs": {
+        "Line": "Counter reception"
+      }
+    },
+    {
+      "id": "9",
+      "category": "working-station",
+      "name": "Workstation Desks",
+      "type": "Working Station",
+      "price": "16100.00",
+      "unit": "piece",
+      "image": "/products/9.webp",
+      "images": [
+        "/products/9.webp"
+      ],
+      "sku": "ARC-0009",
+      "description": "Workstation Desks. Working Station — Arc Wood office furniture (arcwood-eg.com).",
+      "specs": {
+        "Line": "Working Station"
+      }
+    },
+    {
+      "id": "10",
+      "category": "office-furniture",
+      "name": "Leather sofa - 2 chairs - black color",
+      "type": "Office Furniture",
+      "price": "20781.00",
+      "unit": "piece",
+      "image": "/products/10.webp",
+      "images": [
+        "/products/10.webp"
+      ],
+      "sku": "ARC-0010",
+      "description": "Leather sofa - 2 chairs - black color. Office Furniture — Arc Wood office furniture (arcwood-eg.com).",
+      "specs": {
+        "Line": "Office Furniture"
+      }
+    },
+    {
+      "id": "11",
+      "category": "office-cupboards-shannon",
+      "name": "Wooden drawer unit 2-3-4 drawers",
+      "type": "Office Cupboards & Shannon",
+      "price": "13455.00",
+      "unit": "piece",
+      "image": "/products/11.webp",
+      "images": [
+        "/products/11.webp"
+      ],
+      "sku": "ARC-0011",
+      "description": "Wooden drawer unit 2-3-4 drawers. Office Cupboards & Shannon — Arc Wood office furniture (arcwood-eg.com).",
+      "specs": {
+        "Line": "Office Cupboards & Shannon"
+      }
+    },
+    {
+      "id": "12",
+      "category": "office-furniture",
+      "name": "Leather sofas for offices",
+      "type": "Office Furniture",
+      "price": "21678.00",
+      "unit": "piece",
+      "image": "/products/12.webp",
+      "images": [
+        "/products/12.webp"
+      ],
+      "sku": "ARC-0012",
+      "description": "Leather sofas for offices. Office Furniture — Arc Wood office furniture (arcwood-eg.com).",
+      "specs": {
+        "Line": "Office Furniture"
+      }
+    },
+    {
+      "id": "13",
+      "category": "office-blinds",
+      "name": "roller blind",
+      "type": "Office blinds",
+      "price": "2438.00",
+      "unit": "piece",
+      "image": "/products/13.webp",
+      "images": [
+        "/products/13.webp"
+      ],
+      "sku": "ARC-0013",
+      "description": "roller blind. Office blinds — Arc Wood office furniture (arcwood-eg.com).",
+      "specs": {
+        "Line": "Office blinds"
+      }
+    },
+    {
+      "id": "14",
+      "category": "counter-reception",
+      "name": "WOOD RECEPTION COUNTER",
+      "type": "Counter reception",
+      "price": "10166.00",
+      "unit": "piece",
+      "image": "/products/14.webp",
+      "images": [
+        "/products/14.webp"
+      ],
+      "sku": "ARC-0014",
+      "description": "WOOD RECEPTION COUNTER. Counter reception — Arc Wood office furniture (arcwood-eg.com).",
+      "specs": {
+        "Line": "Counter reception"
+      }
+    },
+    {
+      "id": "15",
+      "category": "office-cupboards-shannon",
+      "name": "Open wooden library",
+      "type": "Office Cupboards & Shannon",
+      "price": "36225.00",
+      "unit": "piece",
+      "image": "/products/15.webp",
+      "images": [
+        "/products/15.webp"
+      ],
+      "sku": "ARC-0015",
+      "description": "Open wooden library. Office Cupboards & Shannon — Arc Wood office furniture (arcwood-eg.com).",
+      "specs": {
+        "Line": "Office Cupboards & Shannon"
+      }
+    },
+    {
+      "id": "16",
+      "category": "chairs",
+      "name": "MEDICAL MESH CHAIR",
+      "type": "Rolling chairs",
+      "price": "10235.00",
+      "unit": "piece",
+      "image": "/products/16.webp",
+      "images": [
+        "/products/16.webp"
+      ],
+      "sku": "ARC-0016",
+      "description": "MEDICAL MESH CHAIR. Rolling chairs — Arc Wood office furniture (arcwood-eg.com).",
+      "specs": {
+        "Line": "Rolling chairs",
+        "Badge": "New"
+      }
+    },
+    {
+      "id": "17",
+      "category": "meeting-table",
+      "name": "CIRCULAR MEETING TABLE",
+      "type": "Meeting Table",
+      "price": "4186.00",
+      "unit": "piece",
+      "image": "/products/17.webp",
+      "images": [
+        "/products/17.webp"
+      ],
+      "sku": "ARC-0017",
+      "description": "CIRCULAR MEETING TABLE. Meeting Table — Arc Wood office furniture (arcwood-eg.com).",
+      "specs": {
+        "Line": "Meeting Table",
+        "Badge": "New"
+      }
+    },
+    {
+      "id": "18",
+      "category": "working-station",
+      "name": "Work station for 4 people, size 60*120 cm",
+      "type": "Working Station",
+      "price": "6728.00",
+      "unit": "piece",
+      "image": "/products/18.webp",
+      "images": [
+        "/products/18.webp"
+      ],
+      "sku": "ARC-0018",
+      "description": "Work station for 4 people, size 60*120 cm. Working Station — Arc Wood office furniture (arcwood-eg.com).",
+      "specs": {
+        "Line": "Working Station",
+        "Badge": "New"
+      }
+    },
+    {
+      "id": "19",
+      "category": "working-station",
+      "name": "Work station, quad work cell",
+      "type": "Working Station",
+      "price": "21448.00",
+      "unit": "piece",
+      "image": "/products/19.webp",
+      "images": [
+        "/products/19.webp"
+      ],
+      "sku": "ARC-0019",
+      "description": "Work station, quad work cell. Working Station — Arc Wood office furniture (arcwood-eg.com).",
+      "specs": {
+        "Line": "Working Station"
+      }
+    },
+    {
+      "id": "20",
+      "category": "working-station",
+      "name": "Workstation cell for 6 people (glass separator)",
+      "type": "Working Station",
+      "price": "19061.00",
+      "unit": "piece",
+      "image": "/products/20.webp",
+      "images": [
+        "/products/20.webp"
+      ],
+      "sku": "ARC-0020",
+      "description": "Workstation cell for 6 people (glass separator). Working Station — Arc Wood office furniture (arcwood-eg.com).",
+      "specs": {
+        "Line": "Working Station"
+      }
+    }
+  ]
+}

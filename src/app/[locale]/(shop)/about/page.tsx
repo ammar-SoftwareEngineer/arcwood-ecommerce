@@ -22,17 +22,17 @@ export default async function AboutPage() {
     <div>
       <HeroPages />
       <section className="py-12 md:py-20">
-      <div className="container mx-auto space-y-16 px-8 md:space-y-20 lg:px-6 xl:px-16">
-        {data.map((section, index) => (
-          <AboutSectionRow
-            key={section.id}
-            section={section}
-            isAr={isAr}
-            reverse={index % 2 === 1}
-          />
-        ))}
-      </div>
-    </section>
+        <div className="container mx-auto space-y-24 px-8 md:space-y-20 lg:px-6 xl:px-16">
+          {data.map((section, index) => (
+            <AboutSectionRow
+              key={section.id}
+              section={section}
+              isAr={isAr}
+              reverse={index % 2 === 1}
+            />
+          ))}
+        </div>
+      </section>
     </div>
   );
 }

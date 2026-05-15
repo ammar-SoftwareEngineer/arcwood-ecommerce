@@ -23,21 +23,39 @@ export default function AboutSectionRow({
 
   return (
     <div
-      className={`grid grid-cols-12 gap-8 items-center lg:gap-12  ${reverse ? "lg:[&>*:first-child]:order-2" : ""
+      className={`grid grid-cols-12 gap-8  items-center lg:gap-12   ${reverse ? "lg:[&>*:first-child]:order-2 bg-gray-100  " : ""
         }`}
     >
-      <div className="col-span-12 lg:col-span-6 ">
-        <HeaderSection subtitle={badge} title={title} className="about-header" />
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.5 }}
-        >
-          <p className="mt-10 text-base leading-7 text-neutral-600 md:text-lg" >
-            {description}
-          </p>
-        </motion.div>
+      <div className="col-span-12 lg:col-span-6  ">
+        {reverse ? <div className="">
+          <HeaderSection subtitle={badge} title={title} className="about-header px-4 pt-4" />
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.5 }}
+          >
+
+            <p className="mt-10 text-base leading-7 text-neutral-600 md:text-lg px-8 " >
+              {description}
+            </p>
+          </motion.div>
+        </div> : 
+        <>
+          <HeaderSection subtitle={badge} title={title} className="about-header" />
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.5 }}
+          >
+
+            <p className="mt-10 text-base leading-7 text-neutral-600 md:text-lg " >
+              {description}
+            </p>
+          </motion.div>
+        </>
+        }
 
       </div>
 
@@ -49,18 +67,18 @@ export default function AboutSectionRow({
           transition={{ duration: 0.5 }}
         >
           {imageSrc ? (
-          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-0 shadow-md">
-            <Image
-              src={imageSrc}
-              alt={imageAlt}
-              fill
-              className="object-cover"
-              sizes="(max-width: 1024px) 100vw, 50vw"
-            />
-          </div>
-        ) : null}
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-0 shadow-md  ">
+              <Image
+                src={imageSrc}
+                alt={imageAlt}
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
+          ) : null}
         </motion.div>
-        
+
       </div>
     </div>
   );
