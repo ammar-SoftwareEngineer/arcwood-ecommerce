@@ -65,10 +65,10 @@ export default function ProductGrid({ bestSeller, productBestSellerData, product
           </SwiperSlide>
         ))}
         <div className="swiper-buttons md:block hidden ">
-          <button ref={nextButtonRef} type="button" className="swiper-button-next">
+          <button ref={nextButtonRef} type="button" className="swiper-button-next" aria-label="Next products">
             {locale === "ar" ? <IoIosArrowRoundBack size={20} /> : <IoIosArrowRoundForward size={20} />}
           </button>
-          <button ref={prevButtonRef} type="button" className="swiper-button-prev">
+          <button ref={prevButtonRef} type="button" className="swiper-button-prev" aria-label="Previous products">
             {locale === "ar" ? <IoIosArrowRoundForward size={20} /> : <IoIosArrowRoundBack size={20} />}
           </button>
         </div>

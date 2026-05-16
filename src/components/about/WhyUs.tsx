@@ -13,13 +13,9 @@ const why = siteData.whyChooseUs;
 export default function WhyUs() {
   const locale = useLocale();
   const isAr = locale === "ar";
-
   const subtitle = isAr ? why.subtitleAr : why.subtitle;
   const title = isAr ? why.titleAr : why.title;
-  const description = isAr ? why.descriptionAr : why.description;
-  const ctaLabel = isAr ? why.ctaLabelAr : why.ctaLabel;
-  const primaryAlt = isAr ? why.primaryImageAltAr : why.primaryImageAlt;
-  const secondaryAlt = isAr ? why.secondaryImageAltAr : why.secondaryImageAlt;
+  
   return (
     <div>
       <div
