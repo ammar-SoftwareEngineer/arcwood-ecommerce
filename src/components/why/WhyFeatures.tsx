@@ -10,7 +10,7 @@ type Props = {
 
 export default function WhyFeatures({ features, isAr }: Props) {
   return (
-    <ul className="grid gap-6 grid-cols-12">
+    <ul className="grid gap-6 grid-cols-12 " >
       {features.map((feature, index) => {
         const Icon = whyFeatureIcons[feature.icon];
         const label = isAr ? feature.titleAr : feature.title;

@@ -5,6 +5,7 @@ import { getTranslations } from "next-intl/server";
 
 import { getAboutSections } from "@/lib/api/about";
 import { getLocale } from "next-intl/server";
+import WhyUs from "@/components/about/WhyUs";
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "metadata" });
@@ -31,6 +32,10 @@ export default async function AboutPage() {
               reverse={index % 2 === 1}
             />
           ))}
+          <div className="pt-8">
+
+        <WhyUs /> 
+          </div>
         </div>
       </section>
     </div>

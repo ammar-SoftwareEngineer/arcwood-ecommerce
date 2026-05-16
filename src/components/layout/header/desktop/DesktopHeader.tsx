@@ -72,7 +72,7 @@ export default function DesktopHeader({
       >
         <div className="flex  items-center gap-4">
           <Link href="/" className="shrink-0 text-lg font-bold tracking-wide">
-            <Image src={logoSrc} alt="logo" width={160} height={52} loading="lazy" />
+            <Image src={logoSrc} alt="logo" className="object-contain" width={160} height={52} loading="lazy" />
           </Link>
 
           <nav className="flex min-h-[52px] items-center gap-6" aria-label="Main">
