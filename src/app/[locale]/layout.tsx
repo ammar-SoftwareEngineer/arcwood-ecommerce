@@ -1,4 +1,5 @@
 import logo from "../../../public/logo/logo1.webp";
+
 import Footer from "@/components/layout/footer/Footer";
 import Header from "@/components/layout/header/Header";
 import { routing } from "@/i18n/routing";
@@ -72,9 +73,10 @@ export default async function LocaleLayout({ children, params }: Props) {
       <body className="min-h-full ">
         <NextIntlClientProvider messages={messages}>
 
-          <Header />
-          {children}
-          <Footer />
+            <Header />
+            {children}
+            <Footer />
+     
         </NextIntlClientProvider>
       </body>
     </html>

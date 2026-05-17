@@ -32,7 +32,11 @@ export default function DesktopHeaderActions({ isCartOpen, cartDrawerId, onOpenC
 
   return (
     <div className="flex items-center gap-1">
-      <button type="button" aria-label="Account" className="relative h-10 w-10 rounded-0 text-sm items-center justify-center transition">
+      <button type="button" aria-label="Account" className="relative h-10 w-10 rounded-0 text-sm items-center justify-center transition"
+      onClick={() => {
+        router.push("/login");
+      }}
+      >
         <CiUser size={25} className={iconClass} />
       </button>
       <button type="button" aria-label="Wishlist" className="relative h-10 w-10 rounded-0 text-sm items-center justify-center transition">
