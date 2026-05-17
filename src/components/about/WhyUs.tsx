@@ -15,7 +15,7 @@ export default function WhyUs() {
   const isAr = locale === "ar";
   const subtitle = isAr ? why.subtitleAr : why.subtitle;
   const title = isAr ? why.titleAr : why.title;
-  
+
   return (
     <div>
       <div
@@ -30,30 +30,29 @@ export default function WhyUs() {
 
           <HeaderSection className="" subtitle={subtitle} title={title} />
         </motion.div>
-        <motion.div
-          initial={{ opacity: 0, x: 0 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.55, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-        >
+   
           <ul className="grid gap-24 grid-cols-12 " >
             {why.features.map((feature, index) => {
               const Icon = whyFeatureIcons[feature.icon];
               const label = isAr ? feature.titleAr : feature.title;
               return (
-                <li
+                <motion.li
                   key={`${feature.icon}-${index}`}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.55, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
                   className="col-span-3 flex items-center gap-3"
                 >
                   <span className="flex h-10 w-10 shrink-0 items-center justify-center text-(--primary)" aria-hidden>
                     <Icon className="h-10 w-10" aria-hidden />
                   </span>
                   <span className="text-lg font-medium text-neutral-800">{label}</span>
-                </li>
+                </motion.li>
               );
             })}
           </ul>
-        </motion.div>
+        
       </div>
     </div>
   );

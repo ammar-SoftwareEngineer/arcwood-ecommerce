@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   };
 }
 export default async function AboutPage() {
-  const { data } = getAboutSections();
+  const { data } = await getAboutSections();
   const locale = await getLocale();
   const isAr = locale === "ar";
   return (
