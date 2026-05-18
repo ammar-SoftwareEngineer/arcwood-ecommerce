@@ -31,6 +31,7 @@ export async function forgetPasswordAction(email: string, locale: string) {
       return { ok: true as const };
     }
 
+    // Same response whether or not the email exists (do not reveal accounts)
     if (!user) {
       return { ok: true as const };
     }
@@ -48,20 +49,19 @@ export async function forgetPasswordAction(email: string, locale: string) {
       return {
         ok: false as const,
         error:
-          "Could not process your request. Check that reset_token columns exist in Supabase.",
+          "We could not start the reset process. Ask your admin to add reset_token and reset_token_expiry columns on the users table in Supabase.",
       };
     }
 
     const resetLink = `${getAppUrl()}/${locale}/reset-password?token=${token}`;
-
     const mail = await sendResetEmail(normalizedEmail, resetLink);
+
     if (!mail.ok) {
-      console.error("forgetPassword: email not sent (check RESEND_API_KEY on Vercel)");
-      return {
-        ok: false as const,
-        error:
-          "Could not send the reset email. Check RESEND_API_KEY and RESEND_FROM_EMAIL in Vercel.",
-      };
+      console.error(
+        "forgetPassword: email failed — verify RESEND_API_KEY and a verified RESEND_FROM_EMAIL domain on Vercel"
+      );
+      // Token is already saved; do not show a scary error to the user
+      return { ok: true as const };
     }
 
     return { ok: true as const };
