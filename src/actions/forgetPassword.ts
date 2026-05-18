@@ -31,11 +31,13 @@ export async function forgetPasswordAction(email: string, locale: string) {
       return { ok: true as const };
     }
 
-    // Same response whether or not the email exists (do not reveal accounts)
+  
     if (!user) {
-      return { ok: true as const };
+      return {
+        ok: false,
+        error: "No account found with this email. Please register or check the spelling.",
+      };
     }
-
     const token = crypto.randomBytes(32).toString("hex");
     const expiry = new Date(Date.now() + 15 * 60 * 1000).toISOString();
 
