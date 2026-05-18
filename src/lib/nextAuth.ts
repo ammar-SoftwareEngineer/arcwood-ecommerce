@@ -1,5 +1,7 @@
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
+import { AuthError } from "next-auth";
+import { isRedirectError } from "next/dist/client/components/redirect-error";
 import bcrypt from "bcryptjs";
 import { getSupabase } from "@/lib/supabase";
 
@@ -61,3 +63,44 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     },
   },
 });
+
+type SignInResult =
+  | { ok: true }
+  | { ok: false; error: string };
+
+/** Use this from server actions — handles Next.js redirect quirks after signIn. */
+export async function signInWithCredentials(
+  email: string,
+  password: string
+): Promise<SignInResult> {
+  try {
+    await signIn("credentials", {
+      email,
+      password,
+      redirect: false,
+    });
+    return { ok: true };
+  } catch (error) {
+    // Next.js may throw on successful auth in some setups — treat as success
+    if (isRedirectError(error)) {
+      return { ok: true };
+    }
+
+    if (error instanceof AuthError) {
+      if (error.type === "CredentialsSignin") {
+        return {
+          ok: false,
+          error: "Invalid email or password. Please try again.",
+        };
+      }
+      console.error("signIn AuthError:", error.type, error.message);
+    } else {
+      console.error("signIn error:", error);
+    }
+
+    return {
+      ok: false,
+      error: "Something went wrong. Please try again.",
+    };
+  }
+}

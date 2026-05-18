@@ -5,7 +5,7 @@ import { loginAction } from "@/actions/login";
 import { useForm } from "react-hook-form";
 import { useTranslations } from "next-intl";
 import { z } from "zod";
-import { Link, useRouter } from "@/i18n/navigation";
+import { Link } from "@/i18n/navigation";
 import { loginSchema } from "@/lib/validation/auth.schema";
 import { toast } from "sonner";
 
@@ -16,7 +16,6 @@ const inputClass =
 
 export default function LoginForm() {
   const t = useTranslations("auth.login");
-  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -37,8 +36,8 @@ export default function LoginForm() {
     }
 
     toast.success("Welcome back! You are signed in.");
-    router.push("/");
-    router.refresh();
+    // Full page load so the session cookie is applied before home renders
+    window.location.assign("/");
   }
 
   return (

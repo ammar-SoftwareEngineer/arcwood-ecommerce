@@ -1,7 +1,7 @@
 "use server";
 
 import bcrypt from "bcryptjs";
-import { signIn } from "@/lib/nextAuth";
+import { signInWithCredentials } from "@/lib/nextAuth";
 import { getSupabase } from "@/lib/supabase";
 
 export async function createUserAccount({
@@ -57,24 +57,11 @@ export async function registerAction({
   email: string;
   password: string;
 }) {
-  try {
-    const result = await createUserAccount({ name, email, password });
+  const result = await createUserAccount({ name, email, password });
 
-    if (!result.ok) {
-      return result;
-    }
-
-    await signIn("credentials", {
-      email,
-      password,
-      redirect: false,
-    });
-
-    return { ok: true as const };
-  } catch {
-    return {
-      ok: false as const,
-      error: "Something went wrong. Please try again.",
-    };
+  if (!result.ok) {
+    return result;
   }
+
+  return signInWithCredentials(email, password);
 }

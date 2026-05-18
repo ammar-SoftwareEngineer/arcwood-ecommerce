@@ -5,7 +5,7 @@ import { registerAction } from "@/actions/register";
 import { useForm } from "react-hook-form";
 import { useTranslations } from "next-intl";
 import { z } from "zod";
-import { Link, useRouter } from "@/i18n/navigation";
+import { Link } from "@/i18n/navigation";
 import { registerSchema } from "@/lib/validation/auth.schema";
 import { toast } from "sonner";
 
@@ -16,8 +16,6 @@ const inputClass =
 
 export default function RegisterForm() {
   const t = useTranslations("auth.register");
-  const router = useRouter();
-
   const {
     register,
     handleSubmit,
@@ -39,8 +37,7 @@ export default function RegisterForm() {
     }
 
     toast.success("Account created successfully. Welcome!");
-    router.push("/");
-    router.refresh();
+    window.location.assign("/");
   }
 
   return (
