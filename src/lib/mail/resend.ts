@@ -5,7 +5,7 @@ export async function sendResetEmail(email: string, resetLink: string) {
   if (!apiKey) return { ok: false as const };
 
   const resend = new Resend(apiKey);
-  const from = process.env.RESEND_FROM_EMAIL ?? "onboarding@resend.dev";
+  const from = process.env.RESEND_FROM_EMAIL ?? "arcwood-dev@resend.dev";
 
   const { error } = await resend.emails.send({
     from,

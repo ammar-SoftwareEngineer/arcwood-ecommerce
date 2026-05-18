@@ -32,12 +32,12 @@ export async function forgetPasswordAction(email: string, locale: string) {
     }
 
   
-    if (!user) {
-      return {
-        ok: false,
-        error: "No account found with this email. Please register or check the spelling.",
-      };
-    }
+if (!user) {
+  return {
+    ok: false,
+    error: "No account found with this email. Please register or check the spelling.",
+  };
+}
     const token = crypto.randomBytes(32).toString("hex");
     const expiry = new Date(Date.now() + 15 * 60 * 1000).toISOString();
 
