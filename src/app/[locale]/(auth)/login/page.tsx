@@ -1,38 +1,26 @@
-"use client";
+import HeroPages from "@/components/layout/hero/HeroPages";
+import LoginForm from "@/components/forms/LoginForm";
+import { getTranslations } from "next-intl/server";
 
-import { signIn } from "next-auth/react";
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "metadata" });
 
-import { useForm } from "react-hook-form";
+  return {
+    title: t("title.login"),
+    description: t("description.login"),
+  };
+}
 
 export default function LoginPage() {
-  const { register, handleSubmit } =
-    useForm();
-
-  async function onSubmit(data: any) {
-    await signIn("credentials", {
-      email: data.email,
-      password: data.password,
-      redirect: true,
-      callbackUrl: "/",
-    });
-  }
-
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <input
-        placeholder="Email"
-        {...register("email")}
-      />
-
-      <input
-        type="password"
-        placeholder="Password"
-        {...register("password")}
-      />
-
-      <button type="submit">
-        Login
-      </button>
-    </form>
+    <div>
+      <HeroPages />
+      <LoginForm />
+    </div>
   );
 }

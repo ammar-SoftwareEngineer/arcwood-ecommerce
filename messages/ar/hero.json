@@ -4,6 +4,10 @@
   "blogs": "المقالات",
   "products": "المنتجات",
   "categories": "الفئات",
-  "contact": "تواصل معنا"
-
+  "contact": "تواصل معنا",
+  "login": "تسجيل الدخول",
+  "register": "إنشاء حساب",
+  "forget-password": "نسيت كلمة المرور",
+  "auth": "المصادقة",
+  "error": "خطأ"
 }

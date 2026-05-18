@@ -1,6 +1,11 @@
 import HeroPages from "@/components/layout/hero/HeroPages";
 import { getTranslations } from "next-intl/server";
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "metadata" });
 
@@ -9,11 +14,14 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     description: t("description.products"),
   };
 }
+
 export default function ProductsPage() {
   return (
     <section className="space-y-6">
       <HeroPages />
-      <h1 className="text-2xl font-semibold">Products</h1>
+      <div className="container mx-auto px-8 py-8">
+        <h1 className="text-2xl font-semibold">Products</h1>
+      </div>
     </section>
   );
 }

@@ -4,5 +4,10 @@
   "blogs": "Blogs",
   "products": "Products",
   "categories": "Categories",
-  "contact": "Contact Us"
+  "contact": "Contact Us",
+  "login": "Login",
+  "register": "Register",
+  "forget-password": "Forgot Password",
+  "auth": "Authentication",
+  "error": "Error"
 }

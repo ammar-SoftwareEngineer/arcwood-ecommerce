@@ -2,6 +2,7 @@ import logo from "../../../public/logo/logo1.webp";
 
 import Footer from "@/components/layout/footer/Footer";
 import Header from "@/components/layout/header/Header";
+import AuthProvider from "@/components/providers/AuthProvider";
 import { routing } from "@/i18n/routing";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import type { Metadata } from "next";
@@ -72,11 +73,11 @@ export default async function LocaleLayout({ children, params }: Props) {
       </head>
       <body className="min-h-full ">
         <NextIntlClientProvider messages={messages}>
-
+          <AuthProvider>
             <Header />
             {children}
             <Footer />
-     
+          </AuthProvider>
         </NextIntlClientProvider>
       </body>
     </html>
