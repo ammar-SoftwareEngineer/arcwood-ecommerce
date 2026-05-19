@@ -1,29 +1,30 @@
-import aboutData from "@/lib/data/about.json";
+import { getSupabase } from "@/lib/supabase";
 
 export type AboutSection = {
   id: string;
-
+  slug: string;
   badge: string;
-  badgeAr: string;
-
+  badge_ar: string;
   title: string;
-  titleAr: string;
-
+  title_ar: string;
   description: string;
-  descriptionAr: string;
-
-  image: string;
-
-  imageAlt: string;
-  imageAltAr: string;
+  description_ar: string;
+  image: string | null;
+  image_alt: string;
+  image_alt_ar: string;
 };
 
-export type AboutResponse = {
-  data: AboutSection[];
-};
+export async function getAboutSections(): Promise<AboutSection[]> {
+  const supabase = getSupabase();
 
-export async function getAboutSections() {
-  return {
-    data: aboutData.data,
-  };
+  const { data, error } = await supabase
+    .from("about_sections")
+    .select("*")
+
+  if (error) {
+    console.error("getAboutSections:", error.message);
+    throw new Error("Could not load about sections");
+  }
+
+  return data ?? [];
 }

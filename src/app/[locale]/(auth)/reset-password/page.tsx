@@ -16,11 +16,17 @@ export async function generateMetadata({
   };
 }
 
-export default function ResetPasswordPage() {
+type ResetPasswordPageProps = {
+  searchParams: Promise<{ token?: string }>;
+};
+
+export default async function ResetPasswordPage({ searchParams }: ResetPasswordPageProps) {
+  const { token } = await searchParams;
+
   return (
     <div>
       <HeroPages />
-      <ResetPasswordForm />
+      <ResetPasswordForm token={token ?? null} />
     </div>
   );
 }

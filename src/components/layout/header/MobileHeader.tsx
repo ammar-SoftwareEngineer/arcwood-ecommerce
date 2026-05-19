@@ -129,11 +129,11 @@ export default function MobileHeader({
 
       <div className="fixed bottom-0 left-0 right-0 z-30 w-screen border-t border-black/10 bg-white/95 px-2 pb-2 pt-2 backdrop-blur md:hidden">
         <div className="mx-auto flex w-full items-center justify-around gap-1">
-          <button type="button" aria-label={t("mobile.account")} className={actionButtonClass}  onClick={() => router.push("/login")}>
+          <button type="button" aria-label={t("mobile.account")} className={actionButtonClass} onClick={() => router.push("/login")}>
             <CiUser
               size={25}
               className="cursor-pointer text-main transition-colors hover:text-black!"
-             
+
               aria-hidden
             />
           </button>

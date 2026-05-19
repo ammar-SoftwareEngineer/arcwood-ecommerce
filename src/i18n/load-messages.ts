@@ -4,7 +4,6 @@ const loaders = {
   en: {
     common: () => import("../../messages/en/common.json"),
     home: () => import("../../messages/en/home.json"),
-    about: () => import("../../messages/en/about.json"),
     hero: () => import("../../messages/en/hero.json"),
     products: () => import("../../messages/en/products.json"),
     categories: () => import("../../messages/en/categories.json"),
@@ -12,7 +11,6 @@ const loaders = {
   ar: {
     common: () => import("../../messages/ar/common.json"),
     home: () => import("../../messages/ar/home.json"),
-    about: () => import("../../messages/ar/about.json"),
     hero: () => import("../../messages/ar/hero.json"),
     products: () => import("../../messages/ar/products.json"),
     categories: () => import("../../messages/ar/categories.json"),
@@ -25,7 +23,6 @@ type ModuleName = keyof (typeof loaders)["en"];
 const loadOrder: ModuleName[] = [
   "common",
   "home",
-  "about",
   "hero",
   "products",
   "categories",
