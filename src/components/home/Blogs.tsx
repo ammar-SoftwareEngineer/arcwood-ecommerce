@@ -8,7 +8,7 @@ export default async function Blogs() {
   const t = await getTranslations("home");
   const locale = await getLocale();
   const isAr = locale === "ar";
-  const { data } = listBlogs(1, 3);
+  const { data, meta } = await listBlogs(1);
 
   return (
     <section className="blogs-section py-12">

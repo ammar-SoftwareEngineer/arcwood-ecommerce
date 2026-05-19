@@ -1,6 +1,8 @@
-import posts from "@/lib/data/blogs.json";
+import { getSupabase } from "@/lib/supabase";
 
-export type BlogItem = {
+const supabase = getSupabase();
+
+export type Blog = {
   id: number;
   href: string;
   title: string;
@@ -12,53 +14,50 @@ export type BlogItem = {
   imageAltAr: string;
   readmore: string;
   readmoreAr: string;
+  created_at?: string;
 };
 
-const blogs = posts as {
-  data: BlogItem[];
+type BlogsResponse = {
+  data: Blog[];
   meta: {
+    page: number;
     perPage: number;
-    maxPerPage: number;
+    total: number;
+    totalPages: number;
   };
 };
 
-export function listBlogs(
+export async function listBlogs(
   page = 1,
-  perPage = blogs.meta.perPage
-) {
-  // Validate perPage value
-  perPage = Math.max(
-    1,
-    Math.min(perPage, blogs.meta.maxPerPage)
+  perPage?: number
+): Promise<BlogsResponse> {
+  const { data, error } = await supabase.rpc(
+    "get_blogs_paginated",
+    {
+      page_number: page,
+      per_page: perPage ?? null,
+    }
   );
 
-  // Total number of blogs
-  const total = blogs.data.length;
+  if (error) {
+    console.error(error.message);
+    throw new Error("Failed to fetch blogs");
+  }
 
-  // Total number of pages
-  const pages = Math.ceil(total / perPage);
+  return data;
+}
 
-  // Validate current page
-  page = Math.max(1, Math.min(page, pages));
+export async function getBlogBySlug(slug: string) {
+  const { data, error } = await supabase
+    .from("blogs")
+    .select("*")
+    .eq("href", `/blogs/${slug}`)
+    .maybeSingle();
 
-  // Starting index
-  const start = (page - 1) * perPage;
+  if (error) {
+    console.error(error.message);
+    throw new Error("Failed to fetch blog");
+  }
 
-  // Get blogs for current page
-  const data = blogs.data.slice(
-    start,
-    start + perPage
-  );
-
-  // Return paginated data
-  return {
-    data,
-
-    meta: {
-      page,
-      perPage,
-      total,
-      pages,
-    },
-  };
+  return data as Blog | null;
 }

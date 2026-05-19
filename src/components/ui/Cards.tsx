@@ -16,15 +16,7 @@ type CardParams = {
 };
 
 
-function publicImagePath(src: string | null): string | null {
-    if (!src) return null;
-    if (src.startsWith("/")) return src;
-    const tail = src
-        .replace(/^(?:\.\.\/)+public\//, "")
-        .replace(/^\.\//, "")
-        .replace(/^public\//, "");
-    return `/${tail}`;
-}
+
 export default function Cards({ params }: { params: CardParams }) {
     const {
         title,
@@ -34,7 +26,6 @@ export default function Cards({ params }: { params: CardParams }) {
         imageAlt,
         readmore,
     } = params;
-    const src = publicImagePath(image);
     const locale = useLocale();
     return (
         <motion.article
@@ -48,10 +39,10 @@ export default function Cards({ params }: { params: CardParams }) {
         >
             {/* Dynamic media content so card can be reused anywhere. */}
             <Link href={href}>
-                {src ? (
+                {image && image !== "" ? (
                     <div className="relative h-[380px] w-full overflow-hidden">
                         <Image
-                            src={src}
+                            src={image}
                             alt={imageAlt ?? title}
                             fill
                             loading="lazy"
