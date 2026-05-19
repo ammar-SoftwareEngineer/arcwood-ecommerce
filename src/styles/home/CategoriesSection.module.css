@@ -106,3 +106,9 @@
     }
 }
 
+.category-swiper{
+    overflow: visible !important;
+    & .swiper-wrapper{
+        overflow: visible !important;
+    }
+}

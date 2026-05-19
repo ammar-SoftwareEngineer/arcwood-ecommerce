@@ -46,6 +46,7 @@ export default function RegisterForm() {
         <h2 className="mb-10 text-center text-3xl md:text-4xl">{t("title")}</h2>
 
         <form
+          method="post"
           onSubmit={handleSubmit(onSubmit, () => {
             const msg =
               errors.name?.message ??

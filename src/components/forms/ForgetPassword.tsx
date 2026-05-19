@@ -64,6 +64,7 @@ export default function ForgetPassword() {
           </div>
         ) : (
           <form
+            method="post"
             onSubmit={handleSubmit(onSubmit, () => {
               if (errors.email?.message) toast.error(errors.email.message);
             })}

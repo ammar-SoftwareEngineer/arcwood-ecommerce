@@ -85,6 +85,7 @@ export default function ResetPasswordForm({ token }: ResetPasswordFormProps) {
         <p className="mb-10 text-center text-sm text-neutral-600">{t("description")}</p>
 
         <form
+          method="post"
           onSubmit={handleSubmit(onSubmit, () => {
             const msg = errors.password?.message ?? errors.confirmPassword?.message;
             if (msg) toast.error(msg);

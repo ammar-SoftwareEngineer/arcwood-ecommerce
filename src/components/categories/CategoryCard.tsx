@@ -4,7 +4,8 @@ import { motion } from "framer-motion";
 import { useLocale } from "next-intl";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
-import '@/styles/home/CategoriesSection.module.css'
+import "@/styles/home/CategoriesSection.module.css";
+
 export type CardCategory = {
   name: string;
   nameAr: string;
@@ -27,22 +28,32 @@ function publicImagePath(src: string | null): string | null {
 type CategoryCardProps = {
   category: CardCategory;
   index: number;
+  variant?: "grid" | "slider";
 };
 
-export default function CategoryCard({ category, index }: CategoryCardProps) {
+export default function CategoryCard({
+  category,
+  index,
+  variant = "grid",
+}: CategoryCardProps) {
   const src = publicImagePath(category.image);
   const locale = useLocale() as "en" | "ar";
 
   return (
-    <div className="col-span-12 sm:col-span-6 lg:col-span-4 xl:col-span-3   ">
+    <motion.div
+      className={
+        variant === "grid"
+          ? "col-span-12 sm:col-span-6 lg:col-span-4 xl:col-span-3"
+          : "flex w-full justify-center"
+      }
+    >
       <Link href={`/categories/${category.name}`}>
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.5, delay: index * 0.08 }}
-     
-          className="hex hex-outer relative w-[300px] h-[350px]"
+          className="hex hex-outer relative h-[350px] w-[300px]"
         >
           <div className="hex-content">
             <Image
@@ -56,21 +67,23 @@ export default function CategoryCard({ category, index }: CategoryCardProps) {
           </div>
           <div className="innerBorder pointer-events-none absolute inset-0" />
 
-          <div className="badge absolute  rtl:inset-auto ltr:inset-0 w-full h-full py-3 text-white flex flex-col align-middle justify-center">
-            <p className=" text-lg font-medium bg-(--primary) w-fit px-3 py-1 mx-auto">{category.count}</p>
+          <motion.div className="badge absolute  rtl:inset-auto ltr:inset-0 flex h-full w-full flex-col justify-center py-3 text-white">
+            <p className="mx-auto w-fit bg-(--primary) px-3 py-1 text-lg font-medium">
+              {category.count}
+            </p>
             <div className="badgeDivider my-1 h-px bg-white/40" />
             {locale === "ar" ? (
-              <p className="badgeName text-lg font-bold text-center">
+              <p className="badgeName text-center text-lg font-bold">
                 {category.nameAr}
               </p>
             ) : (
-              <p className="badgeName text-lg font-bold text-center">
+              <p className="badgeName text-center text-lg font-bold">
                 {category.name}
               </p>
             )}
-          </div>
+          </motion.div>
         </motion.div>
       </Link>
-    </div>
+    </motion.div>
   );
 }

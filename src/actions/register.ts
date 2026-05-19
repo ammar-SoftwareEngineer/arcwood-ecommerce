@@ -1,7 +1,7 @@
 "use server";
 
 import bcrypt from "bcryptjs";
-import { signInWithCredentials } from "@/lib/nextAuth";
+import { signInWithCredentials } from "@/actions/login";
 import { getSupabase } from "@/lib/supabase";
 
 export async function createUserAccount({
