@@ -8,7 +8,7 @@ import { whyFeatureIcons } from "../why/whyFeatureIcons";
 
 
 
-export default function WhyUs({ why }: { why:Promise<WhyUs | null> }) {
+export default function WhyUs({ why }: { why:Promise<typeof getWhyUs> }) {
   const locale = useLocale();
   const isAr = locale === "ar";
   const subtitle = isAr ? why.subtitleAr : why.subtitle;

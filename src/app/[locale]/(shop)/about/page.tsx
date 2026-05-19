@@ -21,10 +21,9 @@ export async function generateMetadata({
 export default async function AboutPage() {
   const sections = await getAboutSections();
  
-  const why = await getWhyUs();
- 
   const locale = await getLocale();
   const isAr = locale === "ar";
+  const why = await getWhyUs(locale);
 
   return (
     <div>
