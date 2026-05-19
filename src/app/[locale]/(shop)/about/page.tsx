@@ -3,7 +3,7 @@ import WhyUs from "@/components/about/WhyUs";
 import HeroPages from "@/components/layout/hero/HeroPages";
 import { getAboutSections } from "@/lib/api/about";
 import { getLocale, getTranslations } from "next-intl/server";
-
+import { getWhyUs } from "@/lib/api/why";
 export async function generateMetadata({
   params,
 }: {
@@ -20,7 +20,9 @@ export async function generateMetadata({
 
 export default async function AboutPage() {
   const sections = await getAboutSections();
-  console.log("sections", sections);
+ 
+  const why = await getWhyUs();
+ 
   const locale = await getLocale();
   const isAr = locale === "ar";
 
@@ -37,7 +39,7 @@ export default async function AboutPage() {
               reverse={index % 2 === 1}
             />
           ))}
-          <WhyUs />
+          <WhyUs why={why} />
         </div>
       </section>
     </div>

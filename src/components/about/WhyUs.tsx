@@ -2,13 +2,13 @@
 
 import { motion } from "framer-motion";
 import { useLocale } from "next-intl";
-import siteData from "@/lib/data/site.json";
+import { getWhyUs } from "@/lib/api/why";
 import HeaderSection from "../ui/HeaderSection";
 import { whyFeatureIcons } from "../why/whyFeatureIcons";
 
-const why = siteData.whyChooseUs;
 
-export default function WhyUs() {
+
+export default function WhyUs( why:Promise<WhyUs | null> ) {
   const locale = useLocale();
   const isAr = locale === "ar";
   const subtitle = isAr ? why.subtitleAr : why.subtitle;
