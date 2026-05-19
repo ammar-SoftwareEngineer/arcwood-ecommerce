@@ -22,8 +22,8 @@ export default function WhyOverlappingImages({
         {primarySrc ? (
           <div className="relative aspect-3/4 w-[85%] overflow-hidden rounded-0">
             <Image
-              src={primarySrc}
-              alt={primaryAlt}
+              src={primarySrc || ""}
+              alt={primaryAlt || ""}
             loading="lazy"
 
               className="object-contain w-full h-full"
@@ -38,8 +38,8 @@ export default function WhyOverlappingImages({
           <div className="absolute  xl:bottom-24 lg:bottom-50 md:bottom-24 bottom-10 inset-e-0 md:w-[68%] overflow-hidden rounded-0 border-4 border-white bg-neutral-100 shadow-lg ">
             <div className="relative md:h-[320px] w-full">
               <Image
-                src={secondarySrc}
-                alt={secondaryAlt}
+                src={secondarySrc || ""}
+                alt={secondaryAlt || ""}
                 loading="lazy"
                 className="md:object-cover object-contain h-full w-full"
                width={500}

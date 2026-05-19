@@ -1,6 +1,13 @@
+import ContactForm from "@/components/contact/ContactForm";
+import ContactInfo from "@/components/contact/ContactInfo";
 import HeroPages from "@/components/layout/hero/HeroPages";
 import { getTranslations } from "next-intl/server";
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "metadata" });
 
@@ -9,11 +16,23 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     description: t("description.contact"),
   };
 }
+
 export default function ContactPage() {
   return (
     <div>
       <HeroPages />
-      <h1>Contact</h1>
+      <section className="py-12 md:py-20">
+        <div className="container mx-auto px-8 lg:px-6 xl:px-16">
+          <div className="grid grid-cols-12 items-start gap-8 lg:gap-12">
+            <div className="col-span-12 lg:col-span-6">
+              <ContactInfo />
+            </div>
+            <div className="col-span-12 lg:col-span-6">
+              <ContactForm />
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

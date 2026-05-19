@@ -27,8 +27,7 @@ type Props = {
 };
 
 export default function DiscountCountdown({ endsAt, labels }: Props) {
-  // Avoid hydration mismatch: server and first client paint use the same placeholder;
-  // real time updates only run after mount in the browser.
+
   const [now, setNow] = useState<number | null>(null);
 
   useEffect(() => {

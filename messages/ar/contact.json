@@ -1,0 +1,21 @@
+{
+  "title": "تواصل معنا",
+  "description": "لديك سؤال أو تحتاج عرض سعر؟ نحن هنا لمساعدتك. تواصل معنا وسنرد عليك في أقرب وقت.",
+  "form": {
+    "title": "أرسل رسالة",
+    "name": "الاسم",
+    "namePlaceholder": "اسمك",
+    "email": "البريد الإلكتروني",
+    "emailPlaceholder": "you@example.com",
+    "phone": "الهاتف",
+    "phonePlaceholder": "01xxxxxxxxx",
+    "subject": "الموضوع",
+    "subjectPlaceholder": "كيف يمكننا مساعدتك؟",
+    "message": "الرسالة",
+    "messagePlaceholder": "اكتب رسالتك...",
+    "submit": "إرسال الرسالة",
+    "submitting": "جاري الإرسال...",
+    "success": "شكراً لك! تم إرسال رسالتك بنجاح.",
+    "error": "تعذر إرسال الرسالة. حاول مرة أخرى."
+  }
+}

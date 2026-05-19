@@ -20,6 +20,7 @@ export async function generateMetadata({
 
 export default async function AboutPage() {
   const sections = await getAboutSections();
+  console.log("sections", sections);
   const locale = await getLocale();
   const isAr = locale === "ar";
 

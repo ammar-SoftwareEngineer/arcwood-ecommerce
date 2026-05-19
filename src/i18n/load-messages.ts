@@ -7,6 +7,7 @@ const loaders = {
     hero: () => import("../../messages/en/hero.json"),
     products: () => import("../../messages/en/products.json"),
     categories: () => import("../../messages/en/categories.json"),
+    contact: () => import("../../messages/en/contact.json"),
   },
   ar: {
     common: () => import("../../messages/ar/common.json"),
@@ -14,6 +15,7 @@ const loaders = {
     hero: () => import("../../messages/ar/hero.json"),
     products: () => import("../../messages/ar/products.json"),
     categories: () => import("../../messages/ar/categories.json"),
+    contact: () => import("../../messages/ar/contact.json"),
   },
 } as const;
 
@@ -26,6 +28,7 @@ const loadOrder: ModuleName[] = [
   "hero",
   "products",
   "categories",
+  "contact",
 ];
 
 export async function loadMessages(

@@ -5,13 +5,10 @@ import {
   HiOutlineShieldCheck,
   HiOutlineTruck,
 } from "react-icons/hi2";
-import siteData from "@/lib/data/site.json";
-
-type WhyFeature = (typeof siteData.whyChooseUs.features)[number];
-export type featureIconKey = WhyFeature["icon"];
+export type FeatureIconKey = "support" | "shield" | "truck" | "return";
 
 export const whyFeatureIcons: Record<
-  featureIconKey,
+  FeatureIconKey,
   ComponentType<{ className?: string; "aria-hidden"?: boolean; size?: number }>
 > = {
   support: HiOutlineLifebuoy,
