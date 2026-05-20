@@ -11,7 +11,7 @@ export default function CategoryGrid() {
 
   return (
     <>
-      <section className="hidden md:grid grid-cols-12 gap-7 justify-items-center">
+      <section className="hidden md:grid grid-cols-12 gap-8 justify-items-center">
         {categories.map((category, index) => (
           <CategoryCard
             key={category.name}
@@ -27,7 +27,7 @@ export default function CategoryGrid() {
           modules={[Autoplay]}
           spaceBetween={0}
           slidesPerView="auto"
-          loop={categories.length > 2}
+          loop={true}
 
           autoplay={{
             delay: 3500,

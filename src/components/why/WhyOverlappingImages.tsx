@@ -17,7 +17,7 @@ export default function WhyOverlappingImages({
   secondaryAlt,
 }: Props) {
   return (
-    <div className="relative md:h-screen h-[550px]">
+    <div className="relative md:h-screen xl:h-[90vh] 2xl:h-screen h-[75vh]">
       {/* One relative root: secondary is absolute so it overlaps the primary */}
       <div className="relative w-full h-full">
         {primarySrc ? (

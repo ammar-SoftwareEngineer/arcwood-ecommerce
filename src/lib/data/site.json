@@ -51,31 +51,6 @@
       }
     ]
   },
-  "discountsBanner": {
-    "subtitle": "Get Discount Up To 20%",
-    "subtitleAr": "احصل على خصم حتى 20٪",
-    "title": "Best Deal This Week",
-    "titleAr": "أفضل عرض هذا الأسبوع",
-    "description": "Get up to 20% off on select products and special offers. Don't miss this chance — order now.",
-    "descriptionAr": "احصل على خصم يصل إلى 20٪ على منتجات وعروض مختارة. لا تفوت الفرصة — اطلب الآن.",
-    "ctaLabel": "Order Now",
-    "ctaLabelAr": "اطلب الآن",
-    "ctaHref": "/products",
-    "endsAt": "2026-06-30T23:59:59+02:00",
-    "image": "../../../public/banner/4.webp",
-    "imageAlt": "Modern living room interior with sofa",
-    "imageAltAr": "غرفة معيشة عصرية بأريكة",
-    "countdownLabels": {
-      "days": "Days",
-      "daysAr": "يوم",
-      "hours": "Hrs",
-      "hoursAr": "ساعة",
-      "minutes": "Mins",
-      "minutesAr": "دقيقة",
-      "seconds": "Secs",
-      "secondsAr": "ثانية"
-    }
-  },
   "mainCategories": [
     {
       "name": "Offices",

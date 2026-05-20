@@ -16,7 +16,7 @@ export default async function Blogs() {
         <HeaderSection subtitle={t("blogs.subtitle")} title={t("blogs.title")} />
         <div className="grid grid-cols-12 gap-6">
           {data.map((blog) => (
-            <div key={blog.id} className="col-span-12 md:col-span-4">
+            <div key={blog.id} className="col-span-12  md:col-span-6 lg:col-span-4">
               <Cards
                 params={{
                   title: isAr ? blog.titleAr : blog.title,

@@ -31,3 +31,9 @@
     font-weight: 600;
     text-transform: uppercase;
 }
+.products-swiper{
+    overflow: visible !important;
+    & .swiper-wrapper{
+        overflow: visible !important;
+    }
+}

@@ -12,7 +12,7 @@ export default async function Why() {
 
   return (
     <section className="why-section">
-      <div className="container mx-auto px-8 lg:px-6 xl:px-16 md:pb-0 pb-16">
+      <div className="container mx-auto px-8 lg:px-6 xl:px-16 xl:pb-0 pb-16">
         <div className="grid grid-cols-12 gap-8 lg:items-center xl:gap-12">
           <div className="col-span-12 lg:col-span-7 xl:col-span-6">
             <WhyOverlappingImages
