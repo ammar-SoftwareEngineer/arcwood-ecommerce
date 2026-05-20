@@ -50,7 +50,7 @@ export default function WhyFeatures({
             </span>
             <span className="text-lg font-medium text-neutral-800">{feature.title}</span>
           </Item>
-        );
+        ); 
       })}
     </motion.ul>
   );
