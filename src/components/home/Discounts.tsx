@@ -28,9 +28,9 @@ export default async function Discounts() {
   };
 
   return (
-    <section className="discounts-banner overflow-hidden bg-neutral-100">
+    <section className="discounts-banner overflow-hidden bg-white shadow-lg">
       <div className="grid grid-cols-12 items-center">
-        <div className="col-span-12 flex h-[80vh] flex-col justify-center gap-6 px-8 md:px-24 lg:col-span-5 xl:col-span-6">
+        <div className="col-span-12 flex md:h-[80vh] h-full flex-col justify-center gap-6 px-8 md:px-24 lg:col-span-5 xl:col-span-6 pt-16 md:pt-0 md:pb-0 pb-16">
           <HeaderSection
             subtitle={subtitle ?? ""}
             title={title ?? ""}
