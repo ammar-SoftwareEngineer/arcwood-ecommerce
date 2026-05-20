@@ -23,11 +23,11 @@ export default function ContactPage() {
       <HeroPages />
       <section className="py-12 md:py-20">
         <div className="container mx-auto px-8 lg:px-6 xl:px-16">
-          <div className="grid grid-cols-12 items-start gap-8 lg:gap-12">
-            <div className="col-span-12 lg:col-span-6">
+          <div className="grid grid-cols-12 overflow-hidden gap-8 lg:gap-12">
+            <div className="col-span-12 lg:col-span-6 ">
               <ContactInfo />
             </div>
-            <div className="col-span-12 lg:col-span-6">
+            <div className="col-span-12 lg:col-span-6 ">
               <ContactForm />
             </div>
           </div>

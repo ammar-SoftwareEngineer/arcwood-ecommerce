@@ -57,8 +57,8 @@ export default function ContactForm() {
             id="contactName"
             label={t("name")}
             placeholder={t("namePlaceholder")}
+            className="col-span-12 md:col-span-6"
             autoComplete="name"
-            wrapperClassName="col-span-12 md:col-span-6"
             error={errors.name?.message}
             {...register("name")}
           />
@@ -68,8 +68,8 @@ export default function ContactForm() {
             label={t("email")}
             type="email"
             placeholder={t("emailPlaceholder")}
+            className="col-span-12 md:col-span-6"
             autoComplete="email"
-            wrapperClassName="col-span-12 md:col-span-6"
             error={errors.email?.message}
             {...register("email")}
           />
@@ -79,8 +79,8 @@ export default function ContactForm() {
             label={t("phone")}
             type="tel"
             placeholder={t("phonePlaceholder")}
+            className="col-span-12 md:col-span-12"
             autoComplete="tel"
-            wrapperClassName="col-span-12"
             {...register("phone")}
           />
 
@@ -88,7 +88,7 @@ export default function ContactForm() {
             id="contactSubject"
             label={t("subject")}
             placeholder={t("subjectPlaceholder")}
-            wrapperClassName="col-span-12"
+            className="col-span-12 md:col-span-12"
             {...register("subject")}
           />
 
@@ -98,8 +98,8 @@ export default function ContactForm() {
             multiline
             rows={4}
             placeholder={t("messagePlaceholder")}
-            wrapperClassName="col-span-12"
             error={errors.message?.message}
+            className="col-span-12 md:col-span-12"
             {...register("message")}
           />
 

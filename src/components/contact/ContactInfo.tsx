@@ -10,11 +10,11 @@ export default async function ContactInfo() {
   const mapsQuery = encodeURIComponent(contact.address);
 
   return (
-    <div>
+    <div className="h-full">
       <HeaderSection subtitle={t("title")} title={t("title")} className="mb-6 about-header" />
-      <p className="mb-8 max-w-lg leading-relaxed text-neutral-600">{t("description")}</p>
+      
 
-      <ul className="grid gap-4 text-base">
+      <ul className="grid gap-4 text-base mt-6">
         <li>
           <a
             href={`https://www.google.com/maps/search/?api=1&query=${mapsQuery}`}
@@ -45,6 +45,16 @@ export default async function ContactInfo() {
           </a>
         </li>
       </ul>
+      <div className=" mt-6 h-full">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3453.4252597810378!2d31.3413904!3d30.0533425!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14583f7a265d6957%3A0xc56711bad71c220b!2sArc%20Wood%20Office%20furniture!5e0!3m2!1sen!2seg!4v1779245404659!5m2!1sen!2seg"
+          title="Arc Wood location on Google Maps"
+          className="h-full w-full border-0"
+          loading="lazy"
+          allowFullScreen
+          referrerPolicy="no-referrer-when-downgrade"
+        />
+      </div>
     </div>
   );
 }
