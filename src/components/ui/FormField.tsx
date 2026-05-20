@@ -20,8 +20,6 @@ export default function FormField({
     "text-neutral-900 placeholder:text-neutral-400 transition " +
     "focus:border-(--primary) focus:outline-none focus:ring-1 focus:ring-(--primary)"
 
-
-
   return (
     <div className={className ? className : ""}>
       <label
