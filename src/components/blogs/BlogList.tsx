@@ -1,8 +1,8 @@
 import Cards from "@/components/ui/Cards";
-import type { BlogItem } from "@/lib/api/blogs";
+import type { Blog } from "@/lib/api/blogs";
 
 type BlogListProps = {
-  posts: BlogItem[];
+  posts: Blog[];
   isAr: boolean;
 };
 
