@@ -2,6 +2,7 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { loginAction } from "@/actions/login";
+import FormField from "@/components/ui/FormField";
 import { useForm } from "react-hook-form";
 import { useTranslations } from "next-intl";
 import { z } from "zod";
@@ -10,9 +11,6 @@ import { loginSchema } from "@/lib/validation/auth.schema";
 import { toast } from "sonner";
 
 type LoginFormValues = z.infer<typeof loginSchema>;
-
-const inputClass =
-  "w-full rounded-0 border border-neutral-300 bg-white px-4 py-3 text-base text-neutral-900 placeholder:text-neutral-400 transition focus:border-(--primary) focus:outline-none focus:ring-1 focus:ring-(--primary)";
 
 export default function LoginForm() {
   const t = useTranslations("auth.login");
@@ -36,7 +34,7 @@ export default function LoginForm() {
     }
 
     toast.success("Welcome back! You are signed in.");
-    // Full page load so the session cookie is applied before home renders
+
     window.location.assign("/");
   }
 
@@ -54,52 +52,32 @@ export default function LoginForm() {
           className="space-y-6"
           noValidate
         >
-          <div className="space-y-2">
-            <label
-              htmlFor="email"
-              className="block text-xs font-semibold uppercase tracking-widest text-neutral-600"
-            >
-              {t("email")}
-            </label>
-            <input
-              id="email"
-              type="email"
-              autoComplete="email"
-              placeholder={t("emailPlaceholder")}
-              className={inputClass}
-              {...register("email")}
-            />
-            {errors.email?.message ? (
-              <p className="text-sm text-red-600">{errors.email.message}</p>
-            ) : null}
-          </div>
+          <FormField
+            id="email"
+            label={t("email")}
+            type="email"
+            autoComplete="email"
+            placeholder={t("emailPlaceholder")}
+            error={errors.email?.message}
+            {...register("email")}
+          />
 
-          <div className="space-y-2">
-            <div className="flex items-center justify-between gap-3">
-              <label
-                htmlFor="password"
-                className="block text-xs font-semibold uppercase tracking-widest text-neutral-600"
-              >
-                {t("password")}
-              </label>
-              <Link
-                href="/forget-password"
-                className="text-xs font-medium uppercase tracking-wide text-main transition hover:opacity-80"
-              >
-                {t("forgotPassword")}
-              </Link>
-            </div>
-            <input
+          <div className="relative">
+            <Link
+              href="/forget-password"
+              className="absolute top-0 right-0 z-10 text-xs font-medium uppercase tracking-wide text-main transition hover:opacity-80"
+            >
+              {t("forgotPassword")}
+            </Link>
+            <FormField
               id="password"
+              label={t("password")}
               type="password"
               autoComplete="current-password"
               placeholder={t("passwordPlaceholder")}
-              className={inputClass}
+              error={errors.password?.message}
               {...register("password")}
             />
-            {errors.password?.message ? (
-              <p className="text-sm text-red-600">{errors.password.message}</p>
-            ) : null}
           </div>
 
           <button

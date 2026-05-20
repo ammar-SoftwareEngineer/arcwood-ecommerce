@@ -68,7 +68,7 @@ export default function DesktopHeader({
       <HeaderPromoBar promoText={promoText} topBarClass={topBarClass} />
 
       <div
-        className={`py-0! my-0! flex w-full flex-wrap items-center justify-between gap-3 border-b px-4   md:gap-6 md:px-20 ${mainBarClass}`}
+        className={`py-0! my-0! flex w-full flex-wrap items-center justify-between gap-3 border-b px-4   md:gap-6 md:px-40 ${mainBarClass}`}
       >
         <div className="flex  items-center gap-4">
           <Link href="/" className="shrink-0 text-lg font-bold tracking-wide">

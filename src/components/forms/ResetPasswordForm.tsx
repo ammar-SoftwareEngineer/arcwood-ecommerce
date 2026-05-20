@@ -7,13 +7,11 @@ import { useTranslations } from "next-intl";
 import { z } from "zod";
 import { Link } from "@/i18n/navigation";
 import { resetPasswordAction } from "@/actions/resetPassword";
+import FormField from "@/components/ui/FormField";
 import { resetPasswordSchema } from "@/lib/validation/auth.schema";
 import { toast } from "sonner";
 
 type ResetPasswordFormValues = z.infer<typeof resetPasswordSchema>;
-
-const inputClass =
-  "w-full rounded-0 border border-neutral-300 bg-white px-4 py-3 text-base text-neutral-900 placeholder:text-neutral-400 transition focus:border-(--primary) focus:outline-none focus:ring-1 focus:ring-(--primary)";
 
 type ResetPasswordFormProps = {
   token: string | null;
@@ -93,37 +91,25 @@ export default function ResetPasswordForm({ token }: ResetPasswordFormProps) {
           className="space-y-6"
           noValidate
         >
-          <div className="space-y-2">
-            <label htmlFor="password" className="block text-xs font-semibold uppercase tracking-widest text-neutral-600">
-              {t("password")}
-            </label>
-            <input
-              id="password"
-              type="password"
-              autoComplete="new-password"
-              placeholder={t("passwordPlaceholder")}
-              className={inputClass}
-              {...register("password")}
-            />
-            {errors.password?.message ? <p className="text-sm text-red-600">{errors.password.message}</p> : null}
-          </div>
+          <FormField
+            id="password"
+            label={t("password")}
+            type="password"
+            autoComplete="new-password"
+            placeholder={t("passwordPlaceholder")}
+            error={errors.password?.message}
+            {...register("password")}
+          />
 
-          <div className="space-y-2">
-            <label htmlFor="confirmPassword" className="block text-xs font-semibold uppercase tracking-widest text-neutral-600">
-              {t("confirmPassword")}
-            </label>
-            <input
-              id="confirmPassword"
-              type="password"
-              autoComplete="new-password"
-              placeholder={t("confirmPasswordPlaceholder")}
-              className={inputClass}
-              {...register("confirmPassword")}
-            />
-            {errors.confirmPassword?.message ? (
-              <p className="text-sm text-red-600">{errors.confirmPassword.message}</p>
-            ) : null}
-          </div>
+          <FormField
+            id="confirmPassword"
+            label={t("confirmPassword")}
+            type="password"
+            autoComplete="new-password"
+            placeholder={t("confirmPasswordPlaceholder")}
+            error={errors.confirmPassword?.message}
+            {...register("confirmPassword")}
+          />
 
           <button type="submit" disabled={isSubmitting} className="cta w-full disabled:cursor-not-allowed disabled:opacity-60">
             {isSubmitting ? t("submitting") : t("submit")}

@@ -2,6 +2,7 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { registerAction } from "@/actions/register";
+import FormField from "@/components/ui/FormField";
 import { useForm } from "react-hook-form";
 import { useTranslations } from "next-intl";
 import { z } from "zod";
@@ -10,9 +11,6 @@ import { registerSchema } from "@/lib/validation/auth.schema";
 import { toast } from "sonner";
 
 type RegisterFormValues = z.infer<typeof registerSchema>;
-
-const inputClass =
-  "w-full rounded-0 border border-neutral-300 bg-white px-4 py-3 text-base text-neutral-900 placeholder:text-neutral-400 transition focus:border-(--primary) focus:outline-none focus:ring-1 focus:ring-(--primary)";
 
 export default function RegisterForm() {
   const t = useTranslations("auth.register");
@@ -58,67 +56,45 @@ export default function RegisterForm() {
           className="space-y-6"
           noValidate
         >
-          <div className="space-y-2">
-            <label htmlFor="name" className="block text-xs font-semibold uppercase tracking-widest text-neutral-600">
-              {t("name")}
-            </label>
-            <input
-              id="name"
-              type="text"
-              autoComplete="name"
-              placeholder={t("namePlaceholder")}
-              className={inputClass}
-              {...register("name")}
-            />
-            {errors.name?.message ? <p className="text-sm text-red-600">{errors.name.message}</p> : null}
-          </div>
+          <FormField
+            id="name"
+            label={t("name")}
+            type="text"
+            autoComplete="name"
+            placeholder={t("namePlaceholder")}
+            error={errors.name?.message}
+            {...register("name")}
+          />
 
-          <div className="space-y-2">
-            <label htmlFor="email" className="block text-xs font-semibold uppercase tracking-widest text-neutral-600">
-              {t("email")}
-            </label>
-            <input
-              id="email"
-              type="email"
-              autoComplete="email"
-              placeholder={t("emailPlaceholder")}
-              className={inputClass}
-              {...register("email")}
-            />
-            {errors.email?.message ? <p className="text-sm text-red-600">{errors.email.message}</p> : null}
-          </div>
+          <FormField
+            id="email"
+            label={t("email")}
+            type="email"
+            autoComplete="email"
+            placeholder={t("emailPlaceholder")}
+            error={errors.email?.message}
+            {...register("email")}
+          />
 
-          <div className="space-y-2">
-            <label htmlFor="password" className="block text-xs font-semibold uppercase tracking-widest text-neutral-600">
-              {t("password")}
-            </label>
-            <input
-              id="password"
-              type="password"
-              autoComplete="new-password"
-              placeholder={t("passwordPlaceholder")}
-              className={inputClass}
-              {...register("password")}
-            />
-            {errors.password?.message ? <p className="text-sm text-red-600">{errors.password.message}</p> : null}
-          </div>
+          <FormField
+            id="password"
+            label={t("password")}
+            type="password"
+            autoComplete="new-password"
+            placeholder={t("passwordPlaceholder")}
+            error={errors.password?.message}
+            {...register("password")}
+          />
 
-          <div className="space-y-2">
-            <label htmlFor="confirmPassword" className="block text-xs font-semibold uppercase tracking-widest text-neutral-600">
-              {t("confirmPassword")}
-            </label>
-            <input
-              id="confirmPassword"
-              type="password"
-              autoComplete="new-password"
-              placeholder={t("confirmPasswordPlaceholder")}
-              className={inputClass}
-              {...register("confirmPassword")}
-            />
-            {errors.confirmPassword?.message ? (
-              <p className="text-sm text-red-600">{errors.confirmPassword.message}</p>
-            ) : null}
-          </div>
+          <FormField
+            id="confirmPassword"
+            label={t("confirmPassword")}
+            type="password"
+            autoComplete="new-password"
+            placeholder={t("confirmPasswordPlaceholder")}
+            error={errors.confirmPassword?.message}
+            {...register("confirmPassword")}
+          />
 
           <button type="submit" disabled={isSubmitting} className="cta w-full disabled:cursor-not-allowed disabled:opacity-60">
             {isSubmitting ? t("submitting") : t("submit")}

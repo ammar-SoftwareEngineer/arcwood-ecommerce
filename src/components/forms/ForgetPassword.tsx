@@ -7,13 +7,11 @@ import { useLocale, useTranslations } from "next-intl";
 import { z } from "zod";
 import { Link } from "@/i18n/navigation";
 import { forgetPasswordAction } from "@/actions/forgetPassword";
+import FormField from "@/components/ui/FormField";
 import { forgetPasswordSchema } from "@/lib/validation/auth.schema";
 import { toast } from "sonner";
 
 type ForgetPasswordFormValues = z.infer<typeof forgetPasswordSchema>;
-
-const inputClass =
-  "w-full rounded-0 border border-neutral-300 bg-white px-4 py-3 text-base text-neutral-900 placeholder:text-neutral-400 transition focus:border-(--primary) focus:outline-none focus:ring-1 focus:ring-(--primary)";
 
 export default function ForgetPassword() {
   const locale = useLocale();
@@ -71,25 +69,15 @@ export default function ForgetPassword() {
             className="space-y-6"
             noValidate
           >
-            <div className="space-y-2">
-              <label
-                htmlFor="forget-email"
-                className="block text-xs font-semibold uppercase tracking-widest text-neutral-600"
-              >
-                {t("email")}
-              </label>
-              <input
-                id="forget-email"
-                type="email"
-                autoComplete="email"
-                placeholder={t("emailPlaceholder")}
-                className={inputClass}
-                {...register("email")}
-              />
-              {errors.email?.message ? (
-                <p className="text-sm text-red-600">{errors.email.message}</p>
-              ) : null}
-            </div>
+            <FormField
+              id="forget-email"
+              label={t("email")}
+              type="email"
+              autoComplete="email"
+              placeholder={t("emailPlaceholder")}
+              error={errors.email?.message}
+              {...register("email")}
+            />
 
             <button
               type="submit"

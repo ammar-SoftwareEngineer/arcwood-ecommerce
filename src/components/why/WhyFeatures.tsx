@@ -21,7 +21,10 @@ export default function WhyFeatures({
   const Item = animated ? motion.li : "li";
 
   return (
-    <ul className={listClassName}>
+    <motion.ul initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, amount: 0.3 }}
+    transition={{ duration: 0.5 }} className={listClassName}>
       {features.map((feature) => {
         const Icon = whyFeatureIcons[feature.icon as keyof typeof whyFeatureIcons];
         if (!Icon) return null;
@@ -49,6 +52,6 @@ export default function WhyFeatures({
           </Item>
         );
       })}
-    </ul>
+    </motion.ul>
   );
 }
