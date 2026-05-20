@@ -8,14 +8,14 @@ import Why from "@/components/home/Why";
 import { getWhyUs } from "@/lib/api/why";
 
 export default async function Home() {
-  const why = await getWhyUs();
+  
 
   return (
     <div>
       <HeroSection />
       <Cartegories />
       <Products />
-      {why ? <Why why={why} /> : null}
+      <Why />
       <BestSeller />
       <Discounts />
       <Blogs />
