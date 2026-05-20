@@ -2,9 +2,10 @@ import DiscountCountdown from "@/components/discounts/DiscountCountdown";
 import ButtonMore from "@/components/ui/ButtonMore";
 import HeaderSection from "@/components/ui/HeaderSection";
 import { getDiscountsBanner } from "@/lib/api/discountsBanner";
-import { log } from "console";
+
 import { getLocale } from "next-intl/server";
-import Image from "next/image";
+
+import DiscountImage from "@/components/discounts/DiscountImage";
 
 export default async function Discounts() {
   const banner = await getDiscountsBanner();
@@ -30,7 +31,7 @@ export default async function Discounts() {
   return (
     <section className="discounts-banner overflow-hidden bg-white shadow-lg">
       <div className="grid grid-cols-12 items-center">
-        <div className="col-span-12 flex md:h-[80vh] h-full flex-col justify-center gap-6 px-8 md:px-24 lg:col-span-5 xl:col-span-6 pt-16 md:pt-0 md:pb-0 pb-16">
+        <div className="col-span-12 flex md:h-[80vh] h-full flex-col justify-center gap-6 px-8 md:px-24 lg:col-span-5  pt-16 md:pt-0 md:pb-0 pb-16">
           <HeaderSection
             subtitle={subtitle ?? ""}
             title={title ?? ""}
@@ -46,17 +47,9 @@ export default async function Discounts() {
             <ButtonMore href={banner.cta_href} text={ctaLabel ?? ""} />
           </div>
         </div>
-
-        <div className="relative col-span-12 h-full min-h-[380px] w-full lg:col-span-7 xl:col-span-6">
-          <Image
-            src={banner.image}
-            alt={imageAlt ?? ""}
-            fill
-            sizes="(max-width: 1024px) 100vw, 50vw"
-            className="h-full w-full object-cover"
-            priority
-          />
-        </div>
+        
+          <DiscountImage src={banner.image ?? ""} alt={imageAlt ?? ""} />
+        
       </div>
     </section>
   );
