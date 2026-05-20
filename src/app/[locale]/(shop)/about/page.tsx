@@ -23,7 +23,7 @@ export default async function AboutPage() {
  
   const locale = await getLocale();
   const isAr = locale === "ar";
-  const why = await getWhyUs(locale);
+  const why = await getWhyUs();
 
   return (
     <div>
@@ -38,7 +38,7 @@ export default async function AboutPage() {
               reverse={index % 2 === 1}
             />
           ))}
-          <WhyUs why={why} />
+          {why ? <WhyUs why={why} /> : null}
         </div>
       </section>
     </div>

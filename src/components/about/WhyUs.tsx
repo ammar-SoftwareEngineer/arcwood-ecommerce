@@ -2,17 +2,28 @@
 
 import { motion } from "framer-motion";
 import { useLocale } from "next-intl";
-import { getWhyUs } from "@/lib/api/why";
-import HeaderSection from "../ui/HeaderSection";
-import { whyFeatureIcons } from "../why/whyFeatureIcons";
+import HeaderSection from "@/components/ui/HeaderSection";
+import WhyFeatures from "@/components/why/WhyFeatures";
+import type { WhyUsData } from "@/lib/api/why";
 
+type WhyUsProps = {
+  why: WhyUsData | null;
+};
 
-
-export default function WhyUs({ why }: { why:Promise<typeof getWhyUs> }) {
+export default function WhyUs({ why }: WhyUsProps) {
   const locale = useLocale();
   const isAr = locale === "ar";
-  const subtitle = isAr ? why.subtitleAr : why.subtitle;
-  const title = isAr ? why.titleAr : why.title;
+
+  if (!why) return null;
+
+  const subtitle = isAr ? why.subtitle_ar : why.subtitle;
+  const title = isAr ? why.title_ar : why.title;
+
+  const features = why.features.map((feature) => ({
+    id: feature.id,
+    icon: feature.icon,
+    title: isAr ? feature.title_ar : feature.title,
+  }));
 
   return (
     <div className="pt-8">
@@ -23,34 +34,15 @@ export default function WhyUs({ why }: { why:Promise<typeof getWhyUs> }) {
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.55, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
         >
-          <HeaderSection subtitle={subtitle} title={title} />
+          <HeaderSection subtitle={subtitle ?? ""} title={title ?? ""} />
         </motion.div>
 
-        <ul className="grid grid-cols-12 gap-24">
-          {why.features.map((feature, index) => {
-            const Icon = whyFeatureIcons[feature.icon];
-            const label = isAr ? feature.titleAr : feature.title;
-
-            return (
-              <motion.li
-                key={`${feature.icon}-${index}`}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.55, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-                className="col-span-3 flex items-center gap-3"
-              >
-                <span
-                  className="flex h-10 w-10 shrink-0 items-center justify-center text-(--primary)"
-                  aria-hidden
-                >
-                  <Icon className="h-10 w-10" aria-hidden />
-                </span>
-                <span className="text-lg font-medium text-neutral-800">{label}</span>
-              </motion.li>
-            );
-          })}
-        </ul>
+        <WhyFeatures
+          features={features}
+          animated
+          listClassName="grid grid-cols-12 gap-24"
+          itemClassName="col-span-3 flex items-center gap-3"
+        />
       </div>
     </div>
   );
