@@ -11,6 +11,7 @@ type WhyUsProps = {
 };
 
 export default function WhyUs({ why }: WhyUsProps) {
+  console.log(why);
   const locale = useLocale();
   const isAr = locale === "ar";
 

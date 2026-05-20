@@ -38,7 +38,7 @@ export default async function AboutPage() {
               reverse={index % 2 === 1}
             />
           ))}
-          {why ? <WhyUs why={why} /> : null}
+          <WhyUs why={why} />
         </div>
       </section>
     </div>
