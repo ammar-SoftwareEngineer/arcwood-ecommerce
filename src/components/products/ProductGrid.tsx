@@ -4,26 +4,33 @@ import { useRef } from "react";
 import { useLocale } from "next-intl";
 import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import ProductCard, {
-  type BestSellerProduct,
-  type MostViewedProduct,
-} from "./ProductCard";
+import type { Product } from "@/lib/api/products";
+import ProductCard from "./ProductCard";
 
 import "swiper/css";
 import "swiper/css/navigation";
 import { IoIosArrowRoundBack, IoIosArrowRoundForward } from "react-icons/io";
+import { motion } from "framer-motion";
 
-export default function ProductGrid({ bestSeller, productBestSellerData, productMostViewedData }: { bestSeller?: boolean, productBestSellerData?: BestSellerProduct[], productMostViewedData?: MostViewedProduct[] }) {
+export default function ProductGrid({
+  products = [],
+  isBestSeller = false,
+}: {
+  products?: Product[];
+  isBestSeller?: boolean;
+}) {
   const locale = useLocale();
   const prevButtonRef = useRef<HTMLButtonElement | null>(null);
   const nextButtonRef = useRef<HTMLButtonElement | null>(null);
-  // Always resolve to an array to avoid undefined paths.
-  const productsData = bestSeller
-    ? (productBestSellerData ?? [])
-    : (productMostViewedData ?? []);
-  const loopEnabled = productsData.length >= 8;
+  const loopEnabled = products.length >= 8;
+
+  if (products.length === 0) return null;
+
   return (
-    <section aria-label="Products slider" className="products-swiper  ">
+    <motion.section initial={{ opacity: 0, y: 24 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, amount: 0.2 }}
+    transition={{ duration: 0.55, delay: 0.1 }} aria-label="Products slider" className="products-swiper  ">
       <Swiper
         modules={[Autoplay, Navigation]}
         dir={locale === "ar" ? "rtl" : "ltr"}
@@ -56,8 +63,8 @@ export default function ProductGrid({ bestSeller, productBestSellerData, product
         observeParents
         className=" overflow-visible"
       >
-        {productsData.map((product, index) => (
-          <SwiperSlide key={`${product.name}-${index}`}  >
+        {products.map((product) => (
+          <SwiperSlide key={product.id}>
 
             <div className="h-full  pb-1">
               <ProductCard item={product} />
@@ -75,6 +82,6 @@ export default function ProductGrid({ bestSeller, productBestSellerData, product
         </div>
 
       </Swiper>
-    </section>
+    </motion.section>
   );
 }

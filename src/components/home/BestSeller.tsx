@@ -1,30 +1,25 @@
-"use client";
-import { motion } from "framer-motion";
 import ButtonMore from "../ui/ButtonMore";
 import ProductGrid from "../products/ProductGrid";
 import HeaderSection from "../ui/HeaderSection";
-import { useTranslations } from "next-intl";
-import productBestSeller from "@/lib/data/site.json";
-export default function BestSeller() {
-  const t = useTranslations("home");
-  const productData = productBestSeller.bestSellerProducts;
+import { getProducts } from "@/lib/api/products";
+import { getTranslations } from "next-intl/server";
+
+export default async function BestSeller() {
+  const t = await getTranslations("home");
+  const products = await getProducts({ bestSeller: true, limit: 8 });
+
+  if (products.length === 0) return null;
+
   return (
-    <section className="best-seller-section py-12 bg-gray-100" >
-    <div className="container mx-auto px-8  xl:px-16 py-12">
-      <HeaderSection
-        subtitle={t("bestSeller.subtitle")}
-        title={t("bestSeller.title")}
-      />
-      <motion.div
-        initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-      >
-        <ProductGrid bestSeller={true} productBestSellerData={productData} />
-      </motion.div>
-      <ButtonMore href="/products" text={t("cta.viewAllProducts")} />
-    </div>
-  </section>
+    <section className="best-seller-section py-12 bg-gray-100">
+      <div className="container mx-auto px-8 xl:px-16 py-12">
+        <HeaderSection
+          subtitle={t("bestSeller.subtitle")}
+          title={t("bestSeller.title")}
+        />
+        <ProductGrid products={products}  />
+        <ButtonMore href="/products" text={t("cta.viewAllProducts")} />
+      </div>
+    </section>
   );
 }

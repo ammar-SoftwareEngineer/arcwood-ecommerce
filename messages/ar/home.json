@@ -9,7 +9,15 @@
   },
   "products": {
     "title": "منتجاتنا",
-    "subtitle": "أحدث الإصدارات"
+    "subtitle": "أحدث الإصدارات",
+    "pagination": {
+      "navAria": "تصفح صفحات المنتجات",
+      "goToPage": "الانتقال إلى الصفحة {n}",
+      "previous": "الصفحة السابقة",
+      "next": "الصفحة التالية",
+      "summary": "صفحة {page} من {total}"
+    },
+    "empty": "لا توجد منتجات."
   },
   "categories": {
     "title": "فئاتنا",

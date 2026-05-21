@@ -9,7 +9,15 @@
   },
   "products": {
     "title": "Products",
-    "subtitle": "New Arrivals"
+    "subtitle": "New Arrivals",
+    "pagination": {
+      "navAria": "Product list pagination",
+      "goToPage": "Go to page {n}",
+      "previous": "Previous page",
+      "next": "Next page",
+      "summary": "Page {page} of {total}"
+    },
+    "empty": "No products found."
   },
   "categories": {
     "title": " Shop by Category",

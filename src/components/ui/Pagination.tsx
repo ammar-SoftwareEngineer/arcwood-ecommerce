@@ -8,6 +8,8 @@ type PaginationProps = {
   basePath: string;
   className?: string;
   pageParam?: string;
+  /** next-intl namespace for labels, e.g. "home.products.pagination" */
+  labelsNamespace?: string;
 };
 
 function getPages(current: number, total: number): (number | "...")[] {
@@ -27,8 +29,9 @@ export default async function Pagination({
   basePath,
   className = "",
   pageParam = "page",
+  labelsNamespace = "home.blogs.pagination",
 }: PaginationProps) {
-  const t = await getTranslations("home.blogs.pagination");
+  const t = await getTranslations(labelsNamespace);
 
   if (totalPages < 2) return null;
 
