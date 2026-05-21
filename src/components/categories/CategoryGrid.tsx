@@ -1,20 +1,26 @@
 "use client";
 
-import siteData from "@/lib/data/site.json";
-import CategoryCard, { type CardCategory } from "@/components/categories/CategoryCard";
+import CategoryCard from "@/components/categories/CategoryCard";
+import { type Category } from "@/lib/api/categories";
 import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import { motion } from "framer-motion";
 
-export default function CategoryGrid() {
-  const categories: CardCategory[] = siteData.mainCategories;
+
+
+export default function CategoryGrid({ categories }: { categories: Category[] }) {
+
 
   return (
-    <>
+    <motion.div initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.55, delay: 0.1 }}>
       <section className="hidden md:grid grid-cols-12 gap-8 justify-items-center">
         {categories.map((category, index) => (
           <CategoryCard
-            key={category.name}
+            key={category.id}
             category={category}
             index={index}
             variant="grid"
@@ -50,6 +56,6 @@ export default function CategoryGrid() {
           ))}
         </Swiper>
       </section>
-    </>
+    </motion.div>
   );
 }

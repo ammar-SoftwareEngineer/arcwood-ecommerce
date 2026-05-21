@@ -5,10 +5,11 @@ import HeroSection from "@/components/home/HeroSection";
 import Products from "@/components/home/Products";
 import Blogs from "@/components/home/Blogs";
 import Why from "@/components/home/Why";
+import { getCategories } from "@/lib/api/categories";
 import { getWhyUs } from "@/lib/api/why";
 
 export default async function Home() {
-  
+  const categories = await getCategories();
 
   return (
     <div>

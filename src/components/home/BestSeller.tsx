@@ -6,7 +6,7 @@ import { getTranslations } from "next-intl/server";
 
 export default async function BestSeller() {
   const t = await getTranslations("home");
-  const products = await getProducts({ bestSeller: true, limit: 8 });
+  const { products } = await getProducts({ bestSeller: true, limit: 8 });
 
   if (products.length === 0) return null;
 

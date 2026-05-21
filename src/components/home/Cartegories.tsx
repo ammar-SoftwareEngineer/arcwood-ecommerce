@@ -1,13 +1,17 @@
-"use client";
 
 import CategoryGrid from "@/components/categories/CategoryGrid";
-import { motion } from "framer-motion";
+import { getCategories} from "@/lib/api/categories";
 import "@/styles/home/CategoriesSection.module.css";
 import ButtonMore from "../ui/ButtonMore";
 import HeaderSection from "../ui/HeaderSection";
-import { useTranslations } from "next-intl";
-export default function Cartegories() {
-  const t = useTranslations("home");
+
+import { getTranslations } from "next-intl/server";
+
+
+
+export default async function Cartegories() {
+  const categories = await getCategories();
+  const t = await getTranslations("home");
   return (
     <section className="categories-section py-12 ">
       <div className="container mx-auto px-8  xl:px-16 py-12">
@@ -15,14 +19,9 @@ export default function Cartegories() {
           subtitle={t("categories.subtitle")}
           title={t("categories.title")}
         />
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.55, delay: 0.1 }}
-        >
-          <CategoryGrid />
-        </motion.div>
+   
+          <CategoryGrid categories={categories} />
+      
         <ButtonMore href="/categories" text={t("cta.viewAllCategories")} />
       </div>
     </section>

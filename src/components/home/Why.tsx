@@ -8,6 +8,19 @@ import { getLocale } from "next-intl/server";
 
 export default async function Why() {
   const why = await getWhyUs();
+  const locale = await getLocale();
+  const isAr = locale === "ar";
+  const subtitle = isAr ? why?.subtitle_ar : why?.subtitle;
+  const title = isAr ? why?.title_ar : why?.title;
+  const description = isAr ? why?.description_ar : why?.description;
+  const features = why?.features.map((feature) => ({
+    id: feature.id,
+    icon: feature.icon,
+    title: isAr ? feature.title_ar : feature.title,
+  }));
+
+  const ctaHref = why?.cta_href;
+  const ctaLabel = isAr ? why?.cta_label_ar : why?.cta_label;
   if (!why) return null;
 
   return (
@@ -24,11 +37,11 @@ export default async function Why() {
           </div>
 
           <div className="col-span-12 flex flex-col gap-2 lg:col-span-5 xl:col-span-6">
-            <HeaderSection className="about-header" subtitle={why.subtitle || ""} title={why.title || ""} />
-            <p className="mt-6 mb-5 text-lg text-neutral-600">{why.description}</p>
-            <WhyFeatures features={why.features} />
+            <HeaderSection className="about-header" subtitle={subtitle || ""} title={title || ""} />
+            <p className="mt-6 mb-5 text-lg text-neutral-600">{description}</p>
+            <WhyFeatures features={features || []} />
             <div className="flex justify-start pt-2 [&_button]:mx-0 [&_button]:mt-4">
-              <ButtonMore href={why.cta_href || ""} text={why.cta_label || ""} />
+              <ButtonMore href={ctaHref || ""} text={ctaLabel || ""} />
             </div>
           </div>
         </div>

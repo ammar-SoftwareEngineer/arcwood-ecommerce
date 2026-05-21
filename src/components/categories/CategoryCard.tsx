@@ -5,38 +5,22 @@ import { useLocale } from "next-intl";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import "@/styles/home/CategoriesSection.module.css";
+import { Category } from "@/lib/api/categories";
 
 export type CardCategory = {
+  id: string;
   name: string;
-  nameAr: string;
+  name_ar: string;
   count: number;
   image: string | null;
   imageAlt: string;
 };
 
-/** JSON stores repo-relative paths; public assets are served from `/`. */
-function publicImagePath(src: string | null): string | null {
-  if (!src) return null;
-  if (src.startsWith("/")) return src;
-  const tail = src
-    .replace(/^(?:\.\.\/)+public\//, "")
-    .replace(/^\.\//, "")
-    .replace(/^public\//, "");
-  return `/${tail}`;
-}
 
-type CategoryCardProps = {
-  category: CardCategory;
-  index: number;
-  variant?: "grid" | "slider";
-};
 
-export default function CategoryCard({
-  category,
-  index,
-  variant = "grid",
-}: CategoryCardProps) {
-  const src = publicImagePath(category.image);
+
+export default function CategoryCard({ category,variant,index }: { category: Category,variant: "grid" | "slider",index: number }) {
+
   const locale = useLocale() as "en" | "ar";
 
   return (
@@ -47,7 +31,7 @@ export default function CategoryCard({
           : "flex w-full justify-center"
       }
     >
-      <Link href={`/categories/${category.name}`}>
+      <Link href={`/products?category=${encodeURIComponent(category.name)}`}>
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -57,8 +41,8 @@ export default function CategoryCard({
         >
           <div className="hex-content">
             <Image
-              src={src || ""}
-              alt={category.imageAlt || ""}
+              src={category.image_url || ""}
+              alt={category.name || ""}
               fill
               sizes="250px"
               className="object-cover"
@@ -69,12 +53,12 @@ export default function CategoryCard({
 
           <motion.div className="badge absolute  rtl:inset-auto ltr:inset-0 flex h-full w-full flex-col justify-center py-3 text-white">
             <p className="mx-auto w-fit bg-(--primary) px-3 py-1 text-lg font-medium">
-              {category.count}
+              {category.product_count}
             </p>
             <div className="badgeDivider my-1 h-px bg-white/40" />
             {locale === "ar" ? (
               <p className="badgeName text-center text-lg font-bold">
-                {category.nameAr}
+                {category.name_ar}
               </p>
             ) : (
               <p className="badgeName text-center text-lg font-bold">

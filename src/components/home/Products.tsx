@@ -7,7 +7,9 @@ import { getTranslations } from "next-intl/server";
 
 export default async function Products() {
   const t = await getTranslations("home");
-  const products = await getProducts({ limit: 8 });
+  const { products } = await getProducts({ limit: 8 });
+
+  if (products.length === 0) return null;
 
   return (
     <section className="products-section py-12">
