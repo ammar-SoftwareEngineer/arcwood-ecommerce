@@ -14,10 +14,10 @@ import { motion } from "framer-motion";
 
 export default function ProductGrid({
   products = [],
-  isBestSeller = false,
+
 }: {
   products?: Product[];
-  isBestSeller?: boolean;
+
 }) {
   const locale = useLocale();
   const prevButtonRef = useRef<HTMLButtonElement | null>(null);
@@ -28,9 +28,9 @@ export default function ProductGrid({
 
   return (
     <motion.section initial={{ opacity: 0, y: 24 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true, amount: 0.2 }}
-    transition={{ duration: 0.55, delay: 0.1 }} aria-label="Products slider" className="products-swiper  ">
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.55, delay: 0.1 }} aria-label="Products slider" className="products-swiper  ">
       <Swiper
         modules={[Autoplay, Navigation]}
         dir={locale === "ar" ? "rtl" : "ltr"}

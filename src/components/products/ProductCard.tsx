@@ -28,7 +28,7 @@ const wishlistActive =
 
 export default function ProductCard({ item }: { item: Product }) {
   const [wishlisted, setWishlisted] = useState(false);
- 
+
   // Card is wrapped with Link, so action buttons must block navigation.
   const t = useTranslations("products");
   return (

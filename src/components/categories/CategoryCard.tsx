@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import "@/styles/home/CategoriesSection.module.css";
@@ -11,7 +11,7 @@ export type CardCategory = {
   id: string;
   name: string;
   name_ar: string;
-  count: number;
+  product_count: number;
   image: string | null;
   imageAlt: string;
 };
@@ -20,6 +20,8 @@ export type CardCategory = {
 
 
 export default function CategoryCard({ category,variant,index }: { category: Category,variant: "grid" | "slider",index: number }) {
+
+const t = useTranslations("categories");
 
   const locale = useLocale() as "en" | "ar";
 
@@ -52,8 +54,9 @@ export default function CategoryCard({ category,variant,index }: { category: Cat
           <div className="innerBorder pointer-events-none absolute inset-0" />
 
           <motion.div className="badge absolute  rtl:inset-auto ltr:inset-0 flex h-full w-full flex-col justify-center py-3 text-white">
-            <p className="mx-auto w-fit bg-(--primary) px-3 py-1 text-lg font-medium">
-              {category.product_count}
+            <p className="mx-auto flex items-center gap-2 w-fit bg-(--primary) px-3 py-1 text-lg font-medium">
+              {category.product_count} 
+              <span className="text-base">{t("products")}</span>
             </p>
             <div className="badgeDivider my-1 h-px bg-white/40" />
             {locale === "ar" ? (
@@ -61,7 +64,7 @@ export default function CategoryCard({ category,variant,index }: { category: Cat
                 {category.name_ar}
               </p>
             ) : (
-              <p className="badgeName text-center text-lg font-bold">
+              <p className="badgeName text-center text-xl font-bold">
                 {category.name}
               </p>
             )}

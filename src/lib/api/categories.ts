@@ -12,12 +12,15 @@ export type Category = {
 export async function getCategories(): Promise<Category[]> {
   const supabase = getSupabase();
 
-  const { data, error } = await supabase.from("categories").select(`*`);
+  const { data, error } = await supabase.from("categories").select(`* ,products(count)`);
 
   if (error) {
     console.error(error.message);
     throw new Error("Could not load categories");
   }
 
-  return (data ?? []);
+  return (data ?? []).map((cat) => ({
+    ...cat,
+    product_count: cat.products[0]?.count ?? 0,
+  }));
 }

@@ -4,6 +4,7 @@ export type Product = {
   id: string;
   name: string;
   category: string | null;
+  category_id: string | null;
   price_egp: number;
   image_url: string | null;
   is_new: boolean;
@@ -32,17 +33,18 @@ export type GetProductsOptions = {
     const page = options?.page ?? 1;
     const from = (page - 1) * limit;
     const to = from + limit - 1;
-  
+
     let query = supabase
       .from("products")
       .select("*", { count: "exact" })
       .order("created_at", { ascending: false })
       .range(from, to);
-  
+
     // فلتر الكاتيجوري
     if (options?.category) {
       query = query.eq("category", options.category);
     }
+    
   
     // فلتر الخامة
     if (options?.material) {
