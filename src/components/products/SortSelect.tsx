@@ -15,21 +15,23 @@ export default function SortSelect({ sort, query }: Props) {
   const locale = useLocale();
 
   return (
-    <select
-      value={sort}
-      onChange={(e) => {
-        const p = new URLSearchParams(query);
-        p.set("sort", e.target.value);
-        p.delete("page");
-        router.push(`${pathname}?${p}`);
-      }}
-      className="border border-black/15 px-3 py-2 text-base outline-none focus:border-(--primary)"
-    >
-      {SORT_OPTIONS.map((opt) => (
-        <option key={opt.value} value={opt.value}>
-          {locale === "ar" ? opt.label_ar : opt.label}
-        </option>
-      ))}
-    </select>
+    <div className="flex min-w-0 flex-1 lg:flex-none">
+      <select
+        value={sort}
+        onChange={(e) => {
+          const p = new URLSearchParams(query);
+          p.set("sort", e.target.value);
+          p.delete("page");
+          router.push(`${pathname}?${p}`);
+        }}
+        className="h-11 min-h-11 w-full min-w-0 border border-black/15 px-3 py-2 text-base outline-none focus:border-(--primary) lg:min-w-[200px]"
+      >
+        {SORT_OPTIONS.map((opt) => (
+          <option key={opt.value} value={opt.value}>
+            {locale === "ar" ? opt.label_ar : opt.label}
+          </option>
+        ))}
+      </select>
+    </div>
   );
 }

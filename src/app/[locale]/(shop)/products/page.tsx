@@ -51,23 +51,26 @@ export default async function ProductsPage({ searchParams }: Props) {
   return (
     <section className="space-y-6">
       <HeroPages />
-      <div className="container mx-auto px-8 py-12 md:py-20 lg:px-6 xl:px-16">
-        <div className="grid grid-cols-12 gap-16">
-          <div className="col-span-12 lg:col-span-3">
-            <ProductFilters q={q} />
+      <div className="container mx-auto px-4 py-8 sm:px-6 md:py-12 lg:px-8 xl:px-16">
+        <div className="grid grid-cols-12 gap-6  lg:gap-10 w-full">
+          <div className="hidden xl:col-span-3 md:col-span-4 col-span-12 lg:block">
+            <ProductFilters q={q} show="desktop" />
           </div>
 
-          <div className="col-span-12 lg:col-span-9">
-            <div className="mb-6 flex justify-between items-center">
+          <div className=" xl:col-span-9 lg:col-span-8 col-span-12">
+            <div className="mb-6 flex flex-row items-stretch gap-3 lg:justify-between">
+              <ProductFilters q={q} show="mobile" />
               <SortSelect sort={getSort(q)} query={query} />
             </div>
 
             {products.length === 0 ? (
-              <p className="bg-(--primary) p-4 text-center text-lg text-white">{t("empty")}</p>
+              <p className="bg-(--primary) p-4 text-center text-base text-white sm:text-lg">
+                {t("empty")}
+              </p>
             ) : (
               <ProductList
                 products={products}
-                className="col-span-12 sm:col-span-6 lg:col-span-4"
+                className="col-span-12 sm:col-span-6 xl:col-span-4"
               />
             )}
 
@@ -77,7 +80,7 @@ export default async function ProductsPage({ searchParams }: Props) {
               totalPages={totalPages}
               filterQuery={query}
               labelsNamespace="home.products.pagination"
-              className="mt-12"
+              className="mt-10"
             />
           </div>
         </div>

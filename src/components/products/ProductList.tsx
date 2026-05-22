@@ -8,7 +8,7 @@ type ProductListProps = {
 
 export default function ProductList({ products, className }: ProductListProps) {
   return (
-    <div className="grid grid-cols-12 gap-6">
+    <div className="grid grid-cols-12 gap-4 sm:gap-6">
       {products.map((product) => (
         <div
           key={product.id}
