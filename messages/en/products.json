@@ -1,5 +1,14 @@
 {
   "new": "New",
+  "sort": {
+    "label": "Sort by"
+  },
+  "toolbar": {
+    "columns": "Grid columns",
+    "cols2": "2 columns",
+    "cols3": "3 columns",
+    "cols4": "4 columns"
+  },
   "filters": {
     "title": "Filters",
     "open": "Filters",

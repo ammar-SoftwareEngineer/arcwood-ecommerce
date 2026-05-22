@@ -1,5 +1,14 @@
 import { getSupabase } from "@/lib/supabase";
 
+
+export const SORT_OPTIONS = [
+  { value: "newest", label: "Newest", label_ar: "الأحدث", column: "created_at", ascending: false },
+  { value: "price_asc", label: "Price: Low to High", label_ar: "السعر: من الأقل", column: "price_egp", ascending: true },
+  { value: "price_desc", label: "Price: High to Low", label_ar: "السعر: من الأعلى", column: "price_egp", ascending: false },
+] as const;
+
+export type SortValue = typeof SORT_OPTIONS[number]["value"];
+
 export type Product = {
   id: string;
   name: string;
@@ -22,13 +31,14 @@ export type GetProductsOptions = {
     isNew?: boolean;
     bestSeller?: boolean;
     search?: string;
+    sort?: SortValue;
   };
 
   export async function getProducts(
     options?: GetProductsOptions,
   ): Promise<{ products: Product[]; totalPages: number; totalCount: number; limit: number }> {
     const supabase = getSupabase();
-  
+    const selectedSort = SORT_OPTIONS.find(s => s.value === options?.sort) ?? SORT_OPTIONS[0];
     const limit = options?.limit ?? 9;
     const page = options?.page ?? 1;
     const from = (page - 1) * limit;
@@ -37,7 +47,7 @@ export type GetProductsOptions = {
     let query = supabase
       .from("products")
       .select("*", { count: "exact" })
-      .order("created_at", { ascending: false })
+      .order(selectedSort.column, { ascending: selectedSort.ascending })
       .range(from, to);
 
     if (options?.category) {
