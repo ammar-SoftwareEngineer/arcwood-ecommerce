@@ -3,15 +3,16 @@ import type { Product } from "@/lib/api/products";
 
 type ProductListProps = {
   products: Product[];
+  className?: string;
 };
 
-export default function ProductList({ products }: ProductListProps) {
+export default function ProductList({ products, className }: ProductListProps) {
   return (
     <div className="grid grid-cols-12 gap-6">
       {products.map((product) => (
         <div
           key={product.id}
-          className="col-span-12 sm:col-span-6 lg:col-span-4 xl:col-span-3"
+          className={className}
         >
           <ProductCard item={product} />
         </div>

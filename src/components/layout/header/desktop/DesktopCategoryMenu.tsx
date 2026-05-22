@@ -7,6 +7,7 @@ import type { HeaderItem } from "../types";
 
 
 type DesktopCategoryMenuProps = {
+
   items: HeaderItem[];
   label: string;
   buttonClass: string;
@@ -28,7 +29,7 @@ export default function DesktopCategoryMenu({ items, label, buttonClass }: Deskt
         <nav className="flex flex-col" aria-label={label}>
           {items.map((item) => (
             <Link
-              key={item.href}
+              key={item.label}
               href={item.href}
               className="flex items-center gap-2 rounded-0 px-3 py-2 text-base font-medium text-black/80 transition hover:bg-black/5 cursor-pointer hover:text-main!"
             >

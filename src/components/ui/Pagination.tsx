@@ -8,6 +8,8 @@ type PaginationProps = {
   basePath: string;
   className?: string;
   pageParam?: string;
+  /** e.g. `material=wood&isNew=true` — page number is added automatically */
+  filterQuery?: string;
   /** next-intl namespace for labels, e.g. "home.products.pagination" */
   labelsNamespace?: string;
 };
@@ -19,8 +21,16 @@ function getPages(current: number, total: number): (number | "...")[] {
   return [1, "...", current - 1, current, current + 1, "...", total];
 }
 
-function pageHref(basePath: string, page: number, pageParam: string) {
-  return page <= 1 ? basePath : `${basePath}?${pageParam}=${page}`;
+function pageHref(
+  basePath: string,
+  page: number,
+  pageParam: string,
+  filterQuery?: string,
+) {
+  const params = new URLSearchParams(filterQuery);
+  if (page > 1) params.set(pageParam, String(page));
+  const qs = params.toString();
+  return qs ? `${basePath}?${qs}` : basePath;
 }
 
 export default async function Pagination({
@@ -29,6 +39,7 @@ export default async function Pagination({
   basePath,
   className = "",
   pageParam = "page",
+  filterQuery,
   labelsNamespace = "home.blogs.pagination",
 }: PaginationProps) {
   const t = await getTranslations(labelsNamespace);
@@ -47,7 +58,7 @@ export default async function Pagination({
 
       <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2">
         <PaginationButton
-          href={pageHref(basePath, previousPage, pageParam)}
+          href={pageHref(basePath, previousPage, pageParam, filterQuery)}
           label={t("previous")}
           isDisabled={previousPage < 1}
         >
@@ -66,7 +77,7 @@ export default async function Pagination({
           ) : (
             <PaginationButton
               key={page}
-              href={pageHref(basePath, page, pageParam)}
+              href={pageHref(basePath, page, pageParam, filterQuery)}
               label={t("goToPage", { n: page })}
               isActive={page === activePage}
             >
@@ -76,7 +87,7 @@ export default async function Pagination({
         )}
 
         <PaginationButton
-          href={pageHref(basePath, nextPage, pageParam)}
+          href={pageHref(basePath, nextPage, pageParam, filterQuery)}
           label={t("next")}
           isDisabled={nextPage > totalPages}
           className="cursor-pointer"

@@ -1,3 +1,22 @@
 {
-    "new": "New"
+  "new": "New",
+  "filters": {
+    "title": "Filters",
+    "open": "Filters",
+    "close": "Close filters",
+    "search": "Search",
+    "searchPlaceholder": "Search by product name…",
+    "material": "Material",
+    "allMaterials": "All materials",
+    "price": "Price (EGP)",
+    "minPrice": "Min",
+    "maxPrice": "Max",
+    "flags": "Product flags",
+    "isNew": "New arrivals",
+    "bestSeller": "Best sellers",
+    "category": "Category",
+    "apply": "Apply filters",
+    "loading": "Loading…",
+    "clear": "Clear filters"
+  }
 }

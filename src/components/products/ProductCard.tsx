@@ -32,7 +32,7 @@ export default function ProductCard({ item }: { item: Product }) {
   // Card is wrapped with Link, so action buttons must block navigation.
   const t = useTranslations("products");
   return (
-    <section className="relative group flex h-full flex-col overflow-hidden rounded-0 bg-white transition-shadow hover:shadow-md cursor-pointer">
+    <section className="relative z-0 group flex h-full flex-col overflow-hidden rounded-0 bg-white transition-shadow hover:shadow-md cursor-pointer">
       <Link href={`/products/${item.id}`}>
         {item.is_new ? (
           <div className="absolute top-2 inset-0 z-10 ">

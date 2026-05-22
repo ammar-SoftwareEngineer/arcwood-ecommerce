@@ -1,3 +1,22 @@
 {
-    "new": "جديد"
+  "new": "جديد",
+  "filters": {
+    "title": "التصفية",
+    "open": "التصفية",
+    "close": "إغلاق التصفية",
+    "search": "بحث",
+    "searchPlaceholder": "ابحث باسم المنتج…",
+    "material": "الخامة",
+    "allMaterials": "كل الخامات",
+    "price": "السعر (جنيه)",
+    "minPrice": "من",
+    "maxPrice": "إلى",
+    "flags": "خصائص المنتج",
+    "isNew": "وصل حديثاً",
+    "bestSeller": "الأكثر مبيعاً",
+    "category": "الفئة",
+    "apply": "تطبيق التصفية",
+    "loading": "جاري التحميل…",
+    "clear": "مسح التصفية"
+  }
 }

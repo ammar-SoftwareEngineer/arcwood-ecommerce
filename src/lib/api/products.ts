@@ -29,7 +29,7 @@ export type GetProductsOptions = {
   ): Promise<{ products: Product[]; totalPages: number; totalCount: number; limit: number }> {
     const supabase = getSupabase();
   
-    const limit = options?.limit ?? 12;
+    const limit = options?.limit ?? 9;
     const page = options?.page ?? 1;
     const from = (page - 1) * limit;
     const to = from + limit - 1;
@@ -40,12 +40,10 @@ export type GetProductsOptions = {
       .order("created_at", { ascending: false })
       .range(from, to);
 
-    // فلتر الكاتيجوري
     if (options?.category) {
       query = query.eq("category", options.category);
     }
-    
-  
+
     // فلتر الخامة
     if (options?.material) {
       query = query.eq("material", options.material);
