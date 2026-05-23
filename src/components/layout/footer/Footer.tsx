@@ -1,6 +1,7 @@
 import { getLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import siteData from "@/lib/data/site.json";
+import navbarData from "@/lib/data/navbar.json";
 import { slugify, telEgyptHref } from "@/lib/utils";
 import { footerQuickLinks, footerSocialOrder } from "./footer-links";
 import { FaCcAmex, FaCcMastercard, FaCcPaypal, FaCcVisa, FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
@@ -17,6 +18,7 @@ const footerSocialIcons = {
 
 export default async function Footer() {
   const t = await getTranslations("footer");
+  const tNav = await getTranslations("header");
   const locale = await getLocale();
   const year = new Date().getFullYear();
 
@@ -24,9 +26,9 @@ export default async function Footer() {
   const contact = siteData.contact;
   const social = siteData.social as Record<(typeof footerSocialOrder)[number], string>;
 
-  const footerCategories = siteData.mainCategories.slice(0, 5).map((category) => ({
-    href: `/products?category=${slugify(category.name)}`,
-    label: locale === "ar" ? category.nameAr : category.name,
+  const categoryItems = navbarData.categoryItems.map((item) => ({
+    href: item.href,
+    label: tNav(item.labelKey),
   }));
 
   return (
@@ -67,7 +69,7 @@ export default async function Footer() {
           <div className="lg:col-span-3">
             <h5 className="mb-3 text-lg font-bold text-(--primary)">{t("sections.categories")}</h5>
             <ul className="grid gap-3 text-base">
-              {footerCategories.map((item) => (
+              {categoryItems.map((item) => (
                 <li key={item.href}>
                   <Link href={item.href} className="hover:text-neutral-950">
                     {item.label}

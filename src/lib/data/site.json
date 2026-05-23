@@ -11,110 +11,9 @@
     "tagline": "High Quality, Modern Designs, Affordable Prices",
     "promotion": "Discounts of up to 20% on products"
   },
-  "whyChooseUs": {
-    "subtitle": "Why Arcwood",
-    "subtitleAr": "لماذا أروود",
-    "title": "Why Choose Us",
-    "titleAr": "لماذا تختارنا",
-    "description": "Discounts of up to 20% on select products. High-quality office furniture with modern designs — do not miss this chance to upgrade your workspace.",
-    "descriptionAr": "خصومات تصل إلى 20٪ على منتجات مختارة. أثاث مكتبي عالي الجودة وتصاميم عصرية — لا تفوت فرصة تطوير مكان عملك.",
-    "ctaLabel": "Read More",
-    "ctaLabelAr": "اقرأ المزيد",
-    "ctaHref": "/about",
-    "primaryImage": "../../../public/banner/3.webp",
-    "primaryImageAlt": "Office and workspace furniture",
-    "primaryImageAltAr": "أثاث مكتبي ومساحات عمل",
-    "secondaryImage": "../../../public/banner/2.webp",
-    "secondaryImageAlt": "Office furniture collection",
-    "secondaryImageAltAr": "مجموعة أثاث مكتبي",
-    "videoUrl": null,
-    "features": [
-      {
-        "icon": "support",
-        "title": "24/7 Support",
-        "titleAr": "دعم على مدار الساعة"
-      },
-      {
-        "icon": "shield",
-        "title": "Secure Shopping",
-        "titleAr": "تسوق آمن"
-      },
-      {
-        "icon": "truck",
-        "title": "Free Shipping",
-        "titleAr": "شحن مجاني"
-      },
-      {
-        "icon": "return",
-        "title": "Money Return",
-        "titleAr": "سياسة إرجاع"
-      }
-    ]
-  },
-  "mainCategories": [
-    {
-      "name": "Offices",
-      "image": "../../../public/categories/1.webp",
-      "imageAlt": "Offices",
-      "nameAr": "مكاتب",
-      "count": 4
-    },
-    {
-      "name": "Office Furniture",
-      "image": "../../../public/categories/2.webp",
-      "imageAlt": "Office Furniture",
-      "nameAr": "أثاث مكتبي",
-      "count": 5
-    },
-    {
-      "name": "Working Station",
-      "image": "../../../public/categories/3.webp",
-      "imageAlt": "Working Station",
-      "nameAr": "محطات العمل",
-      "count": 6
-    },
-    {
-      "name": "Office Cupboards & Shannon",
-      "image": "../../../public/categories/4.webp",
-      "imageAlt": "Office Cupboards & Shannon",
-      "nameAr": "خزائن مكتبية وشانون",
-      "count": 7
-    },
-    {
-      "name": "Meeting Table",
-      "image": "../../../public/categories/5.webp",
-      "imageAlt": "Meeting Table",
-      "nameAr": "طاولات اجتماعات",
-      "count": 8
-    },
-    {
-      "name": "Chairs",
-      "image": "../../../public/categories/6.webp",
-      "imageAlt": "Chairs",
-      "nameAr": "كراسي",
-      "count": 9
-    },
-    {
-      "name": "Counter reception",
-      "image": "../../../public/categories/7.webp",
-      "imageAlt": "Counter reception",
-      "nameAr": "كاونتر استقبال",
-      "count": 11
-    },
-    {
-      "name": "Office blinds",
-      "image": "../../../public/categories/8.webp",
-      "imageAlt": "Office blinds",
-      "nameAr": "ستائر مكتبية",
-      "count": 10
-    }
-  ],
-  "chairsSubcategories": [
-    "Guest & Reception Chairs",
-    "Rolling chairs",
-    "Chairs for restaurants and cafes",
-    "Bar chairs"
-  ],
+
+
+
 
 
   "contact": {
@@ -134,6 +33,7 @@
     "whatsapp": "https://wa.me/201501909001"
   },
   "navigation": {
+
     "quickLinks": [
       "About Us",
       "Trending",
