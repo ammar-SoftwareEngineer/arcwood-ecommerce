@@ -65,7 +65,7 @@ export default function MobileMenuDrawer({
       >
         <div className="flex items-center justify-between border-b border-black/10 px-4 py-4">
           <Link href="/" className="navbar-brand w-full" onClick={onClose}>
-            <Image src={logoSrc} alt="logo" width={125} height={40} loading="lazy" />
+            <Image src={logoSrc} alt="logo" width={150} height={40} loading="lazy" />
           </Link>
           <button
             type="button"
