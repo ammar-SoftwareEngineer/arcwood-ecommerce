@@ -8,6 +8,7 @@ const loaders = {
     products: () => import("../../messages/en/products.json"),
     categories: () => import("../../messages/en/categories.json"),
     contact: () => import("../../messages/en/contact.json"),
+    toast: () => import("../../messages/en/toast.json"),
   },
   ar: {
     common: () => import("../../messages/ar/common.json"),
@@ -16,6 +17,7 @@ const loaders = {
     products: () => import("../../messages/ar/products.json"),
     categories: () => import("../../messages/ar/categories.json"),
     contact: () => import("../../messages/ar/contact.json"),
+    toast: () => import("../../messages/ar/toast.json"),
   },
 } as const;
 
@@ -29,6 +31,7 @@ const loadOrder: ModuleName[] = [
   "products",
   "categories",
   "contact",
+  "toast",
 ];
 
 export async function loadMessages(

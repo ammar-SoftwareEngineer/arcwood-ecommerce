@@ -10,6 +10,7 @@ import { Barlow_Condensed, Cormorant_Garamond ,Cairo} from "next/font/google";
 import { notFound } from "next/navigation";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import "@/styles/globals.css";
+import StoreProvider from "@/components/providers/StoreProvider";
 
 
 const barlowCondensed = Barlow_Condensed({
@@ -74,9 +75,11 @@ export default async function LocaleLayout({ children, params }: Props) {
       <body className="min-h-full ">
         <NextIntlClientProvider messages={messages}>
           <AuthProvider>
+            <StoreProvider>
             <Header />
             {children}
             <Footer />
+            </StoreProvider>
           </AuthProvider>
         </NextIntlClientProvider>
       </body>

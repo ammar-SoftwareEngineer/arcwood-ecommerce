@@ -31,13 +31,13 @@ export async function forgetPasswordAction(email: string, locale: string) {
       return { ok: true as const };
     }
 
-  
-if (!user) {
-  return {
-    ok: false,
-    error: "No account found with this email. Please register or check the spelling.",
-  };
-}
+    if (!user) {
+      return {
+        ok: false,
+        error:
+          "No account found with this email. Please register or check the spelling.",
+      };
+    }
     const token = crypto.randomBytes(32).toString("hex");
     const expiry = new Date(Date.now() + 15 * 60 * 1000).toISOString();
 
@@ -60,9 +60,9 @@ if (!user) {
 
     if (!mail.ok) {
       console.error(
-        "forgetPassword: email failed — verify RESEND_API_KEY and a verified RESEND_FROM_EMAIL domain on Vercel"
+        "forgetPassword: email failed — verify RESEND_API_KEY and a verified RESEND_FROM_EMAIL domain on Vercel",
       );
-      // Token is already saved; do not show a scary error to the user
+
       return { ok: true as const };
     }
 

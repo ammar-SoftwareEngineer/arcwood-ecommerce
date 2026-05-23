@@ -19,7 +19,7 @@ export async function resetPasswordAction(token: string, password: string) {
     };
   }
 
-  if (!user.reset_token_expiry) { 
+  if (!user.reset_token_expiry) {
     return {
       ok: false as const,
       error: "This reset link is invalid. Request a new one.",

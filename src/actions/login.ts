@@ -8,7 +8,7 @@ export type LoginResult = { ok: true } | { ok: false; error: string };
 
 export async function signInWithCredentials(
   email: string,
-  password: string
+  password: string,
 ): Promise<LoginResult> {
   try {
     await signIn("credentials", {

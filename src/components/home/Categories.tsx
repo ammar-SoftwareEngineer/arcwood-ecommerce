@@ -9,7 +9,7 @@ import { getTranslations } from "next-intl/server";
 
 
 
-export default async function Cartegories() {
+export default async function Categories() {
   const categories = await getCategories();
   const t = await getTranslations("home");
   return (

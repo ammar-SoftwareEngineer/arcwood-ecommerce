@@ -1,0 +1,10 @@
+{
+  "wishlistAdded": "Item added to wishlist",
+  "wishlistRemoved": "Item removed from wishlist",
+  "wishlistSignInRequired": "Sign in to save items to your wishlist.",
+  "wishlistSignInToUpdate": "Sign in to update your wishlist.",
+  "wishlistDbError": "Wishlist database setup issue. Check user_id foreign key in Supabase.",
+  "wishlistProductNotFound": "This product does not exist in the database.",
+  "wishlistSaveFailed": "Could not save to wishlist. Try again.",
+  "wishlistRemoveFailed": "Could not remove from wishlist."
+}

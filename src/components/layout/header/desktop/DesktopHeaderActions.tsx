@@ -4,6 +4,7 @@ import { usePathname, useRouter } from "@/i18n/navigation";
 import { useLocale } from "next-intl";
 import { CiUser, CiShop, CiHeart } from "react-icons/ci";
 import { routing } from "@/i18n/routing";
+import { useWishlistStore } from "@/store/wishlistStore";
 
 const iconClass = "text-main cursor-pointer transition-colors hover:text-black!";
 
@@ -25,23 +26,30 @@ export default function DesktopHeaderActions({ isCartOpen, cartDrawerId, onOpenC
   const targetLocale: AppLocale = locale === "en" ? "ar" : "en";
   const targetLabel = targetLocale === "ar" ? "AR" : "EN";
   const switchLabel = targetLocale === "ar" ? "العربية" : "English";
-
+  const wishlistCount = useWishlistStore(s => s.items.length);
   const switchLocale = () => {
     router.replace(pathname, { locale: targetLocale });
   };
 
   return (
-    <div className="flex items-center gap-1">
-      <button type="button" aria-label="Account" className="relative h-10 w-10 rounded-0 text-sm items-center justify-center transition"
-      onClick={() => {
-        router.push("/login");
-      }}
+    <div className="flex items-center ">
+      <button type="button" aria-label="Account" className="relative flex h-10 w-10 rounded-0 text-sm items-center justify-center transition"
+        onClick={() => {
+          router.push("/login");
+        }}
       >
         <CiUser size={25} className={iconClass} />
       </button>
-      <button type="button" aria-label="Wishlist" className="relative h-10 w-10 rounded-0 text-sm items-center justify-center transition">
+      <button
+        type="button"
+        aria-label="Wishlist"
+        className="relative flex h-10 w-10 items-center justify-center rounded-0 text-sm transition"
+        onClick={() => router.push("/wishlist")}
+      >
         <CiHeart size={25} className={iconClass} />
-        <span className={badgeClassName}>0</span>
+        {wishlistCount > 0 && (
+          <span className={badgeClassName}>{wishlistCount}</span>
+        )}
       </button>
       <button
         type="button"

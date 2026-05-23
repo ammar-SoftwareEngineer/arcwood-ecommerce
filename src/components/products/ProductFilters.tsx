@@ -8,7 +8,6 @@ const input =
 
 type ProductFiltersProps = {
   q: ProductQuery;
-  /** mobile = زر فلاتر فوق المنتجات | desktop = سايدبار */
   show: "mobile" | "desktop";
 };
 

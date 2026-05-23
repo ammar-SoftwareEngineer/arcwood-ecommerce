@@ -1,0 +1,10 @@
+{
+  "wishlistAdded": "تم إضافة المنتج إلى المفضلة",
+  "wishlistRemoved": "تم إزالة المنتج من المفضلة",
+  "wishlistSignInRequired": "سجّل الدخول لحفظ المنتجات في المفضلة.",
+  "wishlistSignInToUpdate": "سجّل الدخول لتحديث المفضلة.",
+  "wishlistDbError": "مشكلة في إعداد المفضلة في قاعدة البيانات. راجع foreign key في Supabase.",
+  "wishlistProductNotFound": "هذا المنتج غير موجود في قاعدة البيانات.",
+  "wishlistSaveFailed": "تعذّر الحفظ في المفضلة. حاول مرة أخرى.",
+  "wishlistRemoveFailed": "تعذّر الإزالة من المفضلة."
+}

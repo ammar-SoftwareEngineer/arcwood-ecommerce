@@ -1,20 +1,18 @@
 import BestSeller from "@/components/home/BestSeller";
-import Cartegories from "@/components/home/Cartegories";
 import Discounts from "@/components/home/Discounts";
 import HeroSection from "@/components/home/HeroSection";
 import Products from "@/components/home/Products";
 import Blogs from "@/components/home/Blogs";
 import Why from "@/components/home/Why";
-import { getCategories } from "@/lib/api/categories";
-import { getWhyUs } from "@/lib/api/why";
+import Categories from "@/components/home/Categories";
 
 export default async function Home() {
-  const categories = await getCategories();
+
 
   return (
     <div>
       <HeroSection />
-      <Cartegories />
+      <Categories />
       <Products />
       <Why />
       <BestSeller />
