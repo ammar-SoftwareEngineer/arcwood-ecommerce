@@ -26,7 +26,7 @@ export default async function Footer() {
   const contact = siteData.contact;
   const social = siteData.social as Record<(typeof footerSocialOrder)[number], string>;
 
-  const categoryItems = navbarData.categoryItems.map((item) => ({
+  const categoryItems = navbarData.categoryItems.slice(1, 6).map((item) => ({
     href: item.href,
     label: tNav(item.labelKey),
   }));
