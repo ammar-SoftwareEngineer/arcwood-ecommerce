@@ -65,10 +65,8 @@ export default function CartLineItem({ item, showPrice = false, variant }: Props
         <span className="line-clamp-2 text-base font-medium leading-snug text-black/90 md:text-lg">{item.name}</span>
         {showPrice ? (
           <p className="mt-4 tabular-nums text-black/60">
-            {formatEgp(item.price_egp)}
-            {item.quantity > 1 ? (
-              <span className="text-sm text-black/60 rtl:me-2 ltr:ms-1">x {item.quantity}</span>
-            ) : null}
+            {item.price_egp * item.quantity} EGP
+            
           </p>
         ) : null}
       </div>
