@@ -1,3 +1,6 @@
+/**
+ * Client wishlist state (Zustand) — same optimistic pattern as cartStore.
+ */
 import { create } from "zustand";
 import {
   addWishlistItemAction,
@@ -58,6 +61,5 @@ export const useWishlistStore = create<WishlistStore>((set, get) => ({
     return result;
   },
 
-  isInWishlist: (productId) =>
-    get().items.some((i) => i.product_id === productId),
+  isInWishlist: (productId) => get().items.some((i) => i.product_id === productId),
 }));

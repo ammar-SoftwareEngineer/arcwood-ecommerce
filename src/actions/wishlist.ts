@@ -1,3 +1,6 @@
+/**
+ * Server Actions: wishlist_items in Supabase (signed-in user).
+ */
 "use server";
 
 import { auth } from "@/lib/nextAuth";

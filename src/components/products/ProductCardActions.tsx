@@ -1,15 +1,20 @@
 "use client";
 
+/**
+ * Hover actions on product card: quick view, cart, wishlist.
+ * Owns cart/wishlist state and passes handlers into ProductQuickViewModal (no duplicate stores there).
+ */
 import { useState, type MouseEvent } from "react";
 import { HiOutlineEye } from "react-icons/hi2";
 import { IoIosHeart, IoIosHeartEmpty } from "react-icons/io";
 import { CiShop } from "react-icons/ci";
 import { useTranslations } from "next-intl";
-import { toast } from "sonner";
 import type { Product } from "@/lib/api/products";
 import { toCartPayload } from "@/lib/product";
+import { addToCartWithToast, decreaseCartWithToast } from "@/lib/cart/cart-toast";
+import { addWishlistWithToast, removeWishlistWithToast } from "@/lib/wishlist/wishlist-toast";
 import CartQuantityStepper from "@/components/cart/CartQuantityStepper";
-import { useCartActions } from "@/components/cart/useCartActions";
+import { useCartStore } from "@/store/cartStore";
 import { useWishlistStore } from "@/store/wishlistStore";
 import ProductQuickViewModal from "./ProductQuickViewModal";
 
@@ -29,7 +34,8 @@ const wishlistActive = "bg-white text-(--primary) hover:text-(--primary)";
 const bar =
   "pointer-events-auto flex gap-2 opacity-100 transition-all duration-300 md:translate-y-3 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100";
 
-function stopClick(e: MouseEvent) {
+/** Card is wrapped in <Link>; stop navigation when clicking action buttons. */
+function stopCardNavigation(e: MouseEvent) {
   e.preventDefault();
   e.stopPropagation();
 }
@@ -42,22 +48,30 @@ export default function ProductCardActions({ product }: ProductCardActionsProps)
   const t = useTranslations("products");
   const toastT = useTranslations("toast");
   const [quickViewOpen, setQuickViewOpen] = useState(false);
-  const cart = useCartActions(product.id, toCartPayload(product));
+
+  const cartPayload = toCartPayload(product);
+  const addItem = useCartStore((s) => s.addItem);
+  const decreaseItem = useCartStore((s) => s.decreaseItem);
+  const cartQty = useCartStore((s) => s.items.find((i) => i.product_id === product.id)?.quantity ?? 0);
+
   const addWishlist = useWishlistStore((s) => s.addItem);
   const removeWishlist = useWishlistStore((s) => s.removeItem);
   const inWishlist = useWishlistStore((s) => s.isInWishlist(product.id));
 
+  async function addToCart() {
+    await addToCartWithToast(addItem, toastT, cartPayload, cartQty);
+  }
+
+  async function decreaseCart() {
+    await decreaseCartWithToast(decreaseItem, toastT, product.id);
+  }
+
   async function toggleWishlist() {
     if (inWishlist) {
-      const result = await removeWishlist(product.id);
-      if (result.ok) toast.success(toastT("wishlistRemoved"));
-      else toast.error(toastT(result.messageKey));
-      return;
+      await removeWishlistWithToast(removeWishlist, toastT, product.id);
+    } else {
+      await addWishlistWithToast(addWishlist, toastT, cartPayload);
     }
-
-    const result = await addWishlist(toCartPayload(product));
-    if (result.ok) toast.success(toastT("wishlistAdded"));
-    else toast.error(toastT(result.messageKey));
   }
 
   return (
@@ -68,26 +82,26 @@ export default function ProductCardActions({ product }: ProductCardActionsProps)
           className={iconBtn}
           aria-label={t("quickView.title")}
           onClick={(e) => {
-            stopClick(e);
+            stopCardNavigation(e);
             setQuickViewOpen(true);
           }}
         >
           <HiOutlineEye size={22} />
         </button>
 
-        {cart.qty > 0 ? (
+        {cartQty > 0 ? (
           <CartQuantityStepper
-            quantity={cart.qty}
+            quantity={cartQty}
             groupLabel={t("addToCart")}
             decreaseLabel={t("decreaseQuantity")}
             increaseLabel={t("increaseQuantity")}
             onDecrease={(e) => {
-              stopClick(e);
-              void cart.decrease();
+              stopCardNavigation(e);
+              void decreaseCart();
             }}
             onIncrease={(e) => {
-              stopClick(e);
-              void cart.add();
+              stopCardNavigation(e);
+              void addToCart();
             }}
           />
         ) : (
@@ -96,8 +110,8 @@ export default function ProductCardActions({ product }: ProductCardActionsProps)
             className={cartBtn}
             aria-label={t("addToCart")}
             onClick={(e) => {
-              stopClick(e);
-              void cart.add();
+              stopCardNavigation(e);
+              void addToCart();
             }}
           >
             <CiShop size={22} aria-hidden />
@@ -111,7 +125,7 @@ export default function ProductCardActions({ product }: ProductCardActionsProps)
           aria-pressed={inWishlist}
           aria-label={inWishlist ? t("quickView.removeFromWishlist") : t("quickView.addToWishlist")}
           onClick={(e) => {
-            stopClick(e);
+            stopCardNavigation(e);
             void toggleWishlist();
           }}
         >
@@ -129,6 +143,9 @@ export default function ProductCardActions({ product }: ProductCardActionsProps)
         onClose={() => setQuickViewOpen(false)}
         inWishlist={inWishlist}
         onToggleWishlist={toggleWishlist}
+        cartQty={cartQty}
+        onAddToCart={addToCart}
+        onDecreaseCart={decreaseCart}
       />
     </>
   );

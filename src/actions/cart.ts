@@ -1,3 +1,7 @@
+/**
+ * Server Actions: cart_items in Supabase (requires signed-in user via NextAuth).
+ * UI uses cartStore for optimistic updates; these functions persist to DB.
+ */
 "use server";
 
 import { randomUUID } from "crypto";

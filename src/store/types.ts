@@ -1,3 +1,4 @@
+/** Line in cart drawer / store — synced from Supabase cart_items + products join. */
 export type CartItem = {
   id: string;
   product_id: string;
@@ -7,6 +8,7 @@ export type CartItem = {
   quantity: number;
 };
 
+/** Saved product row — extra fields optional until join returns them. */
 export type WishlistItem = {
   id: string;
   product_id: string;

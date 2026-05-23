@@ -1,6 +1,5 @@
-"use client";
 import Image from "next/image";
-import { getTranslations } from "next-intl/server";
+
 import type { Product } from "@/lib/api/products";
 import { productSlug } from "@/lib/product";
 import { Link } from "@/i18n/navigation";
@@ -12,6 +11,10 @@ type ProductCardProps = {
   item: Product;
 };
 
+/**
+ * Product tile (Server Component): image + link + footer.
+ * Cart/wishlist/quick-view live in ProductCardActions (client) because they use Zustand.
+ */
 export default function ProductCard({ item }: ProductCardProps) {
   const t = useTranslations("products");
   const slug = productSlug(item.name);
@@ -43,6 +46,7 @@ export default function ProductCard({ item }: ProductCardProps) {
           )}
         </Link>
 
+        {/* Actions sit above the link; z-20 so clicks hit buttons, not navigation. */}
         <div className="absolute inset-x-0 bottom-3 z-20 flex w-full justify-center px-4">
           <ProductCardActions product={item} />
         </div>
@@ -52,9 +56,11 @@ export default function ProductCard({ item }: ProductCardProps) {
         href={`/products/${slug}`}
         className="flex flex-1 flex-col border border-(--primary) border-t-0"
       >
-        <p className="mb-2 w-fit bg-(--primary) px-2 py-2 text-sm font-medium uppercase tracking-wide text-white">
-          {item.category}
-        </p>
+        {item.category ? (
+          <p className="mb-2 w-fit bg-(--primary) px-2 py-2 text-sm font-medium uppercase tracking-wide text-white">
+            {item.category}
+          </p>
+        ) : null}
         <div className="mt-3 flex flex-col gap-3 px-4 pb-4">
           <h3 className="line-clamp-1 text-lg font-semibold text-neutral-900">{item.name}</h3>
           <p className="text-main font-medium tabular-nums">{item.price_egp.toLocaleString()} EGP</p>

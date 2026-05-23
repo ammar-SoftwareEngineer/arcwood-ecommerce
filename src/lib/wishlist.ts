@@ -1,3 +1,6 @@
+/**
+ * Map wishlist rows to Product so ProductCard works on /wishlist page.
+ */
 import type { Product } from "@/lib/api/products";
 import type { WishlistItem } from "@/store/types";
 

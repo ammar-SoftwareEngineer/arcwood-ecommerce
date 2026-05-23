@@ -1,3 +1,7 @@
+/**
+ * Client cart state (Zustand).
+ * Flow: optimistic UI update → Server Action → reload or rollback on error.
+ */
 import { create } from "zustand";
 import {
   addCartItemAction,
@@ -31,10 +35,11 @@ export const useCartStore = create<CartStore>((set, get) => ({
     const previous = get().items;
     const existing = previous.find((i) => i.product_id === item.product_id);
 
+    // Optimistic: bump qty or append temp row until server confirms.
     set({
       items: existing
         ? previous.map((i) =>
-            i.product_id === item.product_id ? { ...i, quantity: i.quantity + 1 } : i
+            i.product_id === item.product_id ? { ...i, quantity: i.quantity + 1 } : i,
           )
         : [...previous, { ...item, id: `temp-${item.product_id}`, quantity: 1 }],
     });
@@ -60,7 +65,7 @@ export const useCartStore = create<CartStore>((set, get) => ({
         current.quantity <= 1
           ? previous.filter((i) => i.product_id !== productId)
           : previous.map((i) =>
-              i.product_id === productId ? { ...i, quantity: i.quantity - 1 } : i
+              i.product_id === productId ? { ...i, quantity: i.quantity - 1 } : i,
             ),
     });
 
@@ -85,6 +90,7 @@ export const useCartStore = create<CartStore>((set, get) => ({
   },
 }));
 
+/** Total units (for header badge), not number of distinct products. */
 export function cartItemCount(items: CartItem[]) {
   return items.reduce((n, item) => n + item.quantity, 0);
 }
