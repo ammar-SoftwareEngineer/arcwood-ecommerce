@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useId, useState } from "react";
+import { useId, useState } from "react";
 import { useTranslations } from "next-intl";
 import type { StaticImageData } from "next/image";
 import SearchSideDrawer from "../drawers/SearchSideDrawer";
@@ -11,6 +11,8 @@ import { drawerSocialOrder } from "../drawer-social";
 import MobileTopBar from "./MobileTopBar";
 import MobileBottomActions from "./MobileBottomActions";
 import MobileMenuDrawer from "./MobileMenuDrawer";
+
+type MobileDrawer = "menu" | "search" | "cart" | "user";
 
 type MobileHeaderProps = {
   navItems: HeaderItem[];
@@ -35,10 +37,7 @@ export default function MobileHeader({
 }: MobileHeaderProps) {
   const tUser = useTranslations("header.userMenu");
   const t = useTranslations("header");
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [isCartOpen, setIsCartOpen] = useState(false);
-  const [isUserOpen, setIsUserOpen] = useState(false);
+  const [activeDrawer, setActiveDrawer] = useState<MobileDrawer | null>(null);
   const searchDrawerId = useId();
   const cartDrawerId = useId();
   const userDrawerId = useId();
@@ -48,38 +47,8 @@ export default function MobileHeader({
     { href: "/orders", label: tUser("orders") },
   ];
 
-  const closeMenu = useCallback(() => setIsMenuOpen(false), []);
-  const closeSearch = useCallback(() => setIsSearchOpen(false), []);
-  const closeCart = useCallback(() => setIsCartOpen(false), []);
-  const closeUser = useCallback(() => setIsUserOpen(false), []);
-
-  const openSearch = useCallback(() => {
-    setIsMenuOpen(false);
-    setIsCartOpen(false);
-    setIsUserOpen(false);
-    setIsSearchOpen(true);
-  }, []);
-
-  const openCart = useCallback(() => {
-    setIsMenuOpen(false);
-    setIsSearchOpen(false);
-    setIsUserOpen(false);
-    setIsCartOpen(true);
-  }, []);
-
-  const openMenu = useCallback(() => {
-    setIsSearchOpen(false);
-    setIsCartOpen(false);
-    setIsUserOpen(false);
-    setIsMenuOpen(true);
-  }, []);
-
-  const openUser = useCallback(() => {
-    setIsMenuOpen(false);
-    setIsSearchOpen(false);
-    setIsCartOpen(false);
-    setIsUserOpen(true);
-  }, []);
+  const open = (drawer: MobileDrawer) => () => setActiveDrawer(drawer);
+  const close = () => setActiveDrawer(null);
 
   return (
     <>
@@ -87,25 +56,25 @@ export default function MobileHeader({
         mainBarClass={mainBarClass}
         iconButtonClass={iconButtonClass}
         logoSrc={logoSrc}
-        isMenuOpen={isMenuOpen}
-        onOpenMenu={openMenu}
+        isMenuOpen={activeDrawer === "menu"}
+        onOpenMenu={open("menu")}
       />
 
       <MobileBottomActions
-        isCartOpen={isCartOpen}
-        isSearchOpen={isSearchOpen}
-        isUserOpen={isUserOpen}
+        isCartOpen={activeDrawer === "cart"}
+        isSearchOpen={activeDrawer === "search"}
+        isUserOpen={activeDrawer === "user"}
         cartDrawerId={cartDrawerId}
         searchDrawerId={searchDrawerId}
         userDrawerId={userDrawerId}
-        onOpenCart={openCart}
-        onOpenSearch={openSearch}
-        onOpenUser={openUser}
+        onOpenCart={open("cart")}
+        onOpenSearch={open("search")}
+        onOpenUser={open("user")}
       />
 
       <MobileMenuDrawer
-        isOpen={isMenuOpen}
-        onClose={closeMenu}
+        isOpen={activeDrawer === "menu"}
+        onClose={close}
         logoSrc={logoSrc}
         navItems={navItems}
         categoryItems={categoryItems}
@@ -114,12 +83,12 @@ export default function MobileHeader({
         social={social}
       />
 
-      <SearchSideDrawer id={searchDrawerId} isOpen={isSearchOpen} onClose={closeSearch} />
-      <CartSideDrawer id={cartDrawerId} isOpen={isCartOpen} onClose={closeCart} />
+      <SearchSideDrawer id={searchDrawerId} isOpen={activeDrawer === "search"} onClose={close} />
+      <CartSideDrawer id={cartDrawerId} isOpen={activeDrawer === "cart"} onClose={close} />
       <UserSideDrawer
         id={userDrawerId}
-        isOpen={isUserOpen}
-        onClose={closeUser}
+        isOpen={activeDrawer === "user"}
+        onClose={close}
         title={t("mobile.account")}
         items={userMenuItems}
         logoutLabel={tUser("logout")}

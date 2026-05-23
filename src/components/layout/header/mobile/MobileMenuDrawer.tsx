@@ -4,12 +4,24 @@ import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import Image, { type StaticImageData } from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import {
+  faChevronDown,
+  faEnvelope,
+  faLocationDot,
+  faPhoneVolume,
+  faXmark,
+} from "@fortawesome/free-solid-svg-icons";
+import { faFacebookF, faInstagram, faWhatsapp, faXTwitter } from "@fortawesome/free-brands-svg-icons";
+import { telEgyptHref } from "@/lib/utils";
 import type { HeaderItem, SiteContact } from "../types";
 import { drawerSocialOrder } from "../drawer-social";
-import MobileNavLinks from "./MobileNavLinks";
-import MobileCategoryMenu from "./MobileCategoryMenu";
-import MobileMenuContact from "./MobileMenuContact";
+
+const drawerSocialIcons = {
+  facebook: faFacebookF,
+  instagram: faInstagram,
+  twitter: faXTwitter,
+  whatsapp: faWhatsapp,
+} as const;
 
 type MobileMenuDrawerProps = {
   isOpen: boolean;
@@ -33,6 +45,7 @@ export default function MobileMenuDrawer({
   social,
 }: MobileMenuDrawerProps) {
   const t = useTranslations("header");
+  const primaryPhoneHref = telEgyptHref(contact.phones[0] ?? "");
 
   return (
     <div
@@ -66,11 +79,88 @@ export default function MobileMenuDrawer({
 
         <div className="overflow-y-auto px-4 py-4 pb-24">
           <ul className="flex flex-col gap-2">
-            <MobileNavLinks items={navItems} onNavigate={onClose} />
-            <MobileCategoryMenu items={categoryItems} label={categoriesLabel} onNavigate={onClose} />
+            {navItems.map((item) => (
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  onClick={onClose}
+                  className="block rounded-0 px-2 py-2 text-lg font-medium text-black/80 transition hover:bg-black/5 hover:text-black"
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+            <li>
+              <details>
+                <summary className="flex cursor-pointer items-center justify-between rounded-none px-2 py-2 text-lg font-medium text-black/80 transition hover:bg-black/5 hover:text-black">
+                  {categoriesLabel}
+                  <FontAwesomeIcon icon={faChevronDown} className="text-xs" aria-hidden />
+                </summary>
+                <ul className="mt-1 flex flex-col">
+                  {categoryItems.map((item) => (
+                    <li key={item.href}>
+                      <Link
+                        href={item.href}
+                        onClick={onClose}
+                        className="block rounded-0 px-5 py-2 text-base text-black/70 transition hover:bg-black/5 hover:text-black"
+                      >
+                        {item.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </details>
+            </li>
           </ul>
 
-          <MobileMenuContact contact={contact} social={social} />
+          <ul className="mt-6 rounded-none border border-black/10 bg-white p-4 shadow-sm">
+            <li className="mb-3 border-b border-black/10 pb-3">
+              <div className="flex items-start gap-3">
+                <FontAwesomeIcon icon={faEnvelope} className="mt-1 text-main" aria-hidden />
+                <div className="text-base">
+                  <strong className="block">{t("mobile.contactLabels.email")}</strong>
+                  <a href={`mailto:${contact.email}`} className="text-black/70 hover:text-black">
+                    {contact.email}
+                  </a>
+                </div>
+              </div>
+            </li>
+            <li className="mb-3 border-b border-black/10 pb-3">
+              <div className="flex items-start gap-3">
+                <FontAwesomeIcon icon={faPhoneVolume} className="mt-1 text-main" aria-hidden />
+                <div className="text-base">
+                  <strong className="block">{t("mobile.contactLabels.phone")}</strong>
+                  <a href={primaryPhoneHref} className="text-black/70 hover:text-black">
+                    {contact.phones[0]}
+                  </a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div className="flex items-start gap-3">
+                <FontAwesomeIcon icon={faLocationDot} className="mt-1 text-main" aria-hidden />
+                <div className="text-base text-black/70">
+                  <strong className="block text-black">{t("mobile.contactLabels.address")}</strong>
+                  <span className="block">{contact.address}</span>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+          <div className="mt-4 flex items-center gap-3 border-t border-black/10 pt-4">
+            {drawerSocialOrder.map((key) => (
+              <a
+                key={key}
+                href={social[key]}
+                target="_blank"
+                rel="noreferrer"
+                className="flex h-9 w-9 items-center justify-center rounded-none border border-black/15 text-base font-semibold text-black/70 transition hover:bg-black/10 hover:text-black"
+                aria-label={key}
+              >
+                <FontAwesomeIcon icon={drawerSocialIcons[key]} aria-hidden />
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </div>

@@ -61,7 +61,7 @@ export default function HeaderSideDrawer({
         className={`${panelClass} ${isOpen ? onScreen : offScreen}`}
       >
         <div className="flex shrink-0 items-center justify-between border-b border-black/10 p-4">
-          <h2 id={titleId} className="text-base font-semibold text-black/90">
+          <h2 id={titleId} className="text-lg font-semibold text-black/90">
             {title}
           </h2>
           <button
