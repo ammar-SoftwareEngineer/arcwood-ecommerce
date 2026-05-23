@@ -25,7 +25,7 @@ export default function WishlistPage() {
         ) : (
           <ProductList
             products={products}
-            className="col-span-12 sm:col-span-6 xl:col-span-4"
+            className="col-span-12 sm:col-span-6 xl:col-span-3"
           />
         )}
       </section>
