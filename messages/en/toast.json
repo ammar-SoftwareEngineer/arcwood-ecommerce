@@ -16,5 +16,7 @@
   "cartSaveFailed": "Could not add to cart. Try again.",
   "cartRemoveFailed": "Could not remove from cart.",
   "cartIncreased": "Item increased in cart",
-  "cartDecreased": "Item decreased in cart"
+  "cartDecreased": "Item decreased in cart",
+  "linkCopied": "Product link copied",
+  "shareFailed": "Could not share this product"
 }

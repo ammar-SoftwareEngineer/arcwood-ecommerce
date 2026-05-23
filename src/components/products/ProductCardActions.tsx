@@ -1,6 +1,6 @@
 "use client";
 
-import type { MouseEvent } from "react";
+import { useState, type MouseEvent } from "react";
 import { HiOutlineEye } from "react-icons/hi2";
 import { IoIosHeart, IoIosHeartEmpty } from "react-icons/io";
 import { CiShop } from "react-icons/ci";
@@ -11,6 +11,7 @@ import { toCartPayload } from "@/lib/product";
 import CartQuantityStepper from "@/components/cart/CartQuantityStepper";
 import { useCartActions } from "@/components/cart/useCartActions";
 import { useWishlistStore } from "@/store/wishlistStore";
+import ProductQuickViewModal from "./ProductQuickViewModal";
 
 const iconBtn =
   "inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-0 bg-white text-neutral-800 shadow-md transition hover:bg-(--primary) hover:text-white cursor-pointer";
@@ -40,14 +41,13 @@ type ProductCardActionsProps = {
 export default function ProductCardActions({ product }: ProductCardActionsProps) {
   const t = useTranslations("products");
   const toastT = useTranslations("toast");
+  const [quickViewOpen, setQuickViewOpen] = useState(false);
   const cart = useCartActions(product.id, toCartPayload(product));
   const addWishlist = useWishlistStore((s) => s.addItem);
   const removeWishlist = useWishlistStore((s) => s.removeItem);
   const inWishlist = useWishlistStore((s) => s.isInWishlist(product.id));
 
-  async function toggleWishlist(e: MouseEvent<HTMLButtonElement>) {
-    stopClick(e);
-
+  async function toggleWishlist() {
     if (inWishlist) {
       const result = await removeWishlist(product.id);
       if (result.ok) toast.success(toastT("wishlistRemoved"));
@@ -61,50 +61,75 @@ export default function ProductCardActions({ product }: ProductCardActionsProps)
   }
 
   return (
-    <div className={bar}>
-      <button type="button" className={iconBtn} aria-label="Quick view">
-        <HiOutlineEye size={22} />
-      </button>
-
-      {cart.qty > 0 ? (
-        <CartQuantityStepper
-          quantity={cart.qty}
-          groupLabel={t("addToCart")}
-          decreaseLabel={t("decreaseQuantity")}
-          increaseLabel={t("increaseQuantity")}
-          onDecrease={(e) => {
-            stopClick(e);
-            void cart.decrease();
-          }}
-          onIncrease={(e) => {
-            stopClick(e);
-            void cart.add();
-          }}
-        />
-      ) : (
+    <>
+      <div className={bar}>
         <button
           type="button"
-          className={cartBtn}
-          aria-label={t("addToCart")}
+          className={iconBtn}
+          aria-label={t("quickView.title")}
           onClick={(e) => {
             stopClick(e);
-            void cart.add();
+            setQuickViewOpen(true);
           }}
         >
-          <CiShop size={22} aria-hidden />
-          <span className="text-base">{t("addToCart")}</span>
+          <HiOutlineEye size={22} />
         </button>
-      )}
 
-      <button
-        type="button"
-        className={`${wishlistBtn} ${inWishlist ? wishlistActive : wishlistIdle}`}
-        aria-pressed={inWishlist}
-        aria-label={inWishlist ? "Remove from wishlist" : "Add to wishlist"}
-        onClick={toggleWishlist}
-      >
-        {inWishlist ? <IoIosHeart size={25} aria-hidden /> : <IoIosHeartEmpty size={25} aria-hidden />}
-      </button>
-    </div>
+        {cart.qty > 0 ? (
+          <CartQuantityStepper
+            quantity={cart.qty}
+            groupLabel={t("addToCart")}
+            decreaseLabel={t("decreaseQuantity")}
+            increaseLabel={t("increaseQuantity")}
+            onDecrease={(e) => {
+              stopClick(e);
+              void cart.decrease();
+            }}
+            onIncrease={(e) => {
+              stopClick(e);
+              void cart.add();
+            }}
+          />
+        ) : (
+          <button
+            type="button"
+            className={cartBtn}
+            aria-label={t("addToCart")}
+            onClick={(e) => {
+              stopClick(e);
+              void cart.add();
+            }}
+          >
+            <CiShop size={22} aria-hidden />
+            <span className="text-base">{t("addToCart")}</span>
+          </button>
+        )}
+
+        <button
+          type="button"
+          className={`${wishlistBtn} ${inWishlist ? wishlistActive : wishlistIdle}`}
+          aria-pressed={inWishlist}
+          aria-label={inWishlist ? t("quickView.removeFromWishlist") : t("quickView.addToWishlist")}
+          onClick={(e) => {
+            stopClick(e);
+            void toggleWishlist();
+          }}
+        >
+          {inWishlist ? (
+            <IoIosHeart size={25} aria-hidden />
+          ) : (
+            <IoIosHeartEmpty size={25} aria-hidden />
+          )}
+        </button>
+      </div>
+
+      <ProductQuickViewModal
+        product={product}
+        isOpen={quickViewOpen}
+        onClose={() => setQuickViewOpen(false)}
+        inWishlist={inWishlist}
+        onToggleWishlist={toggleWishlist}
+      />
+    </>
   );
 }

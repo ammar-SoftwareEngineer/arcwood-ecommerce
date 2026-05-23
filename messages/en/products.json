@@ -1,5 +1,14 @@
 {
   "new": "New",
+  "quickView": {
+    "title": "Quick view",
+    "close": "Close",
+    "viewDetails": "View full details",
+    "share": "Share",
+    "bestSeller": "Best seller",
+    "addToWishlist": "Add to wishlist",
+    "removeFromWishlist": "Remove from wishlist"
+  },
   "addToCart": "Add to cart",
   "decreaseQuantity": "Decrease quantity",
   "increaseQuantity": "Increase quantity",

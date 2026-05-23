@@ -3,6 +3,10 @@
 @import "./home/CategoriesSection.module.css";
 @import "./home/HeroSection.module.css";
 @import "./layout/Header.css";
+@import "./home/products.css";
+@import "./layout/Footer.css";
+@import "./layout/HeroPages.css";
+
 
 :root {
   --background: #ffffff;

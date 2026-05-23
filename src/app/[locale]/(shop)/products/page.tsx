@@ -58,7 +58,7 @@ export default async function ProductsPage({ searchParams }: Props) {
           </div>
 
           <div className=" xl:col-span-9 lg:col-span-8 col-span-12">
-            <div className="mb-6 flex flex-row items-stretch gap-3 lg:justify-between">
+            <div className="mb-6 flex  flex-row items-stretch gap-3 lg:justify-between">
               <ProductFilters q={q} show="mobile" />
               <SortSelect sort={getSort(q)} query={query} />
             </div>

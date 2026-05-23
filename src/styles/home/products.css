@@ -20,20 +20,36 @@
 
 }
 
-.badge-products {
-
-    background-color: var(--primary);
-    color: var(--white);
-
+/* Ribbon with arrow on the end (LTR: point → right) */
+.badge-products{
     padding: 20px;
     clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     -moz-clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    background-color: var(--primary);
+    color: var(--white);
+    padding: 20px;
     font-size: 1rem;
     font-weight: 600;
     text-transform: uppercase;
 }
+.quick-view-badge {
+    background-color: var(--primary);
+    color: var(--white);
+    padding: 0.4rem 1.1rem 0.4rem 0.65rem;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    clip-path: polygon(0% 0%, calc(100% - 0.75em) 0%, 100% 50%, calc(100% - 0.75em) 100%, 0% 100%);
+    -webkit-clip-path: polygon(0% 0%, calc(100% - 0.75em) 0%, 100% 50%, calc(100% - 0.75em) 100%, 0% 100%);
+}
 
+html[dir="rtl"] .badge-products,
+html[dir="rtl"] .quick-view-badge {
+    padding: 0.4rem 0.65rem 0.4rem 1.1rem;
+    clip-path: polygon(0.75em 0%, 100% 0%, 100% 100%, 0.75em 100%, 0% 50%);
+    -webkit-clip-path: polygon(0.75em 0%, 100% 0%, 100% 100%, 0.75em 100%, 0% 50%);
+}
 .products-swiper {
     overflow: visible !important;
 

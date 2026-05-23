@@ -1,5 +1,14 @@
 {
   "new": "جديد",
+  "quickView": {
+    "title": "معاينة سريعة",
+    "close": "إغلاق",
+    "viewDetails": "عرض التفاصيل الكاملة",
+    "share": "مشاركة",
+    "bestSeller": "الأكثر مبيعاً",
+    "addToWishlist": "أضف للمفضلة",
+    "removeFromWishlist": "إزالة من المفضلة"
+  },
   "addToCart": "أضف للسلة",
   "decreaseQuantity": "تقليل الكمية",
   "increaseQuantity": "زيادة الكمية",

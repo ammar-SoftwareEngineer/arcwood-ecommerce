@@ -16,5 +16,7 @@
   "cartSaveFailed": "تعذّر الإضافة إلى السلة. حاول مرة أخرى.",
   "cartRemoveFailed": "تعذّر الإزالة من السلة.",
   "cartIncreased": "تم زيادة المنتج في السلة",
-  "cartDecreased": "تم تقليل المنتج في السلة"
+  "cartDecreased": "تم تقليل المنتج في السلة",
+  "linkCopied": "تم نسخ رابط المنتج",
+  "shareFailed": "تعذّرت مشاركة المنتج"
 }

@@ -17,7 +17,7 @@ export default function ProductCard({ item }: ProductCardProps) {
   const slug = productSlug(item.name);
 
   return (
-    <section className="group relative flex h-full flex-col overflow-hidden rounded-0 bg-white transition-shadow hover:shadow-md">
+    <section className="group relative z-0 flex h-full flex-col overflow-hidden rounded-0 bg-white transition-shadow hover:shadow-md">
       <div className="relative z-0 aspect-square overflow-hidden bg-neutral-50">
         <Link href={`/products/${slug}`} className="absolute inset-0 z-0">
           {item.is_new ? (
