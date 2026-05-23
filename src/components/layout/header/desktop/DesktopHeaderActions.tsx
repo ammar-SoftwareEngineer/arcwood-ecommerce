@@ -47,9 +47,9 @@ export default function DesktopHeaderActions({ isCartOpen, cartDrawerId, onOpenC
         onClick={() => router.push("/wishlist")}
       >
         <CiHeart size={25} className={iconClass} />
-        {wishlistCount > 0 && (
+        {wishlistCount > 0 ? (
           <span className={badgeClassName}>{wishlistCount}</span>
-        )}
+        ) : <span className={badgeClassName}>0</span>}
       </button>
       <button
         type="button"
