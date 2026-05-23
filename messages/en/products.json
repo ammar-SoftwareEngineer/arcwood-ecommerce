@@ -21,7 +21,24 @@
     "continueShopping": "Continue shopping",
     "subtotal": "Subtotal",
     "viewCart": "View cart",
-    "checkout": "Checkout"
+    "checkout": "Checkout",
+    "product": "Product",
+    "unitPrice": "Price",
+    "quantity": "Quantity",
+    "lineTotal": "Total",
+    "remove": "Remove",
+    "actions": "Actions",
+    "viewProduct": "View",
+    "discount": "Discount",
+    "total": "Total",
+    "items": "{count, plural, one {# item} other {# items}}",
+    "coupon": {
+      "label": "Coupon code",
+      "placeholder": "Enter code",
+      "apply": "Apply",
+      "remove": "Remove",
+      "applied": "{code} (−{percent}%)"
+    }
   },
   "sort": {
     "label": "Sort by"

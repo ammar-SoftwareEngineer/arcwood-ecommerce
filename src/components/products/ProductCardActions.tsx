@@ -10,8 +10,8 @@ import { IoIosHeart, IoIosHeartEmpty } from "react-icons/io";
 import { CiShop } from "react-icons/ci";
 import { useTranslations } from "next-intl";
 import type { Product } from "@/lib/api/products";
-import { toCartPayload, toWishlistPayload } from "@/lib/product";
-import { addToCartWithToast, decreaseCartWithToast } from "@/lib/cart/cart-toast";
+import { toCartPayload, toWishlistPayload } from "@/lib/products/product";
+import { addToCartWithToast, decreaseCartWithToast } from "@/components/cart";
 import { addWishlistWithToast, removeWishlistWithToast } from "@/lib/wishlist/wishlist-toast";
 import CartQuantityStepper from "@/components/cart/CartQuantityStepper";
 import { useCartStore } from "@/store/cartStore";
@@ -63,6 +63,7 @@ export default function ProductCardActions({ product }: ProductCardActionsProps)
   }
 
   async function decreaseCart() {
+
     await decreaseCartWithToast(decreaseItem, toastT, product.id);
   }
 
@@ -115,7 +116,7 @@ export default function ProductCardActions({ product }: ProductCardActionsProps)
             }}
           >
             <CiShop size={22} aria-hidden />
-            <span className="text-base">{t("addToCart")}</span>
+           
           </button>
         )}
 

@@ -1,5 +1,6 @@
 /**
- * Cart actions + Sonner toasts. Store fns are passed in so callers own `useCartStore` subscriptions.
+ * Cart mutation feedback — wraps store actions with Sonner toasts.
+ * Used from `CartLineItem` and product card actions; keeps toast logic out of components.
  */
 import { toast } from "sonner";
 import type { CartResult } from "@/actions/cart";
@@ -7,7 +8,7 @@ import type { CartItem } from "@/store/types";
 
 export type CartPayload = Omit<CartItem, "id" | "quantity">;
 
-type ToastT = (key: string) => string;
+type ToastT = (key: string, values?: Record<string, string | number>) => string;
 
 export async function addToCartWithToast(
   addItem: (item: CartPayload) => Promise<CartResult>,
@@ -16,11 +17,8 @@ export async function addToCartWithToast(
   currentQty: number,
 ) {
   const result = await addItem(payload);
-  if (!result.ok) {
-    toast.error(toastT(result.messageKey));
-  } else {
-    toast.success(toastT(currentQty > 0 ? "cartIncreased" : "cartAdded"));
-  }
+  if (!result.ok) toast.error(toastT(result.messageKey));
+  else toast.success(toastT(currentQty > 0 ? "cartIncreased" : "cartAdded"));
   return result;
 }
 

@@ -4,7 +4,7 @@ import ProductList from "@/components/products/ProductList";
 import SortSelect from "@/components/products/SortSelect";
 import Pagination from "@/components/ui/Pagination";
 import { getProducts } from "@/lib/api/products";
-import { getSort, toQueryString } from "@/lib/product-query";
+import { getSort, toQueryString } from "@/lib/products/product-query";
 import { getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 

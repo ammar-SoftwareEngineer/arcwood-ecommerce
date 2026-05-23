@@ -11,19 +11,25 @@ import {
   type CartResult,
 } from "@/actions/cart";
 import type { CartItem } from "./types";
+import type { CartCoupon, CouponResult } from "@/components/cart/lib/coupon";
+import { validateCoupon } from "@/components/cart/lib/coupon";
 
 type CartStore = {
   items: CartItem[];
   loading: boolean;
+  coupon: CartCoupon | null;
   loadCart: () => Promise<void>;
   addItem: (item: Omit<CartItem, "id" | "quantity">) => Promise<CartResult>;
   decreaseItem: (productId: string) => Promise<CartResult>;
   removeItem: (productId: string) => Promise<CartResult>;
+  applyCoupon: (code: string) => CouponResult;
+  removeCoupon: () => void;
 };
 
 export const useCartStore = create<CartStore>((set, get) => ({
   items: [],
   loading: false,
+  coupon: null,
 
   loadCart: async () => {
     set({ loading: true });
@@ -91,9 +97,13 @@ export const useCartStore = create<CartStore>((set, get) => ({
 
     return result;
   },
-}));
 
-/** Total units (for header badge), not number of distinct products. */
-export function cartItemCount(items: CartItem[]) {
-  return items.reduce((n, item) => n + item.quantity, 0);
-}
+  applyCoupon: (code) => {
+    const result = validateCoupon(code);
+    if (result.ok) set({ coupon: result.coupon });
+    return result;
+  },
+
+  /** Coupon is client-only for now — not persisted to Supabase until checkout. */
+  removeCoupon: () => set({ coupon: null }),
+}));

@@ -21,7 +21,24 @@
     "continueShopping": "متابعة التسوق",
     "subtotal": "المجموع الفرعي",
     "viewCart": "عرض السلة",
-    "checkout": "إتمام الشراء"
+    "checkout": "إتمام الشراء",
+    "product": "المنتج",
+    "unitPrice": "السعر",
+    "quantity": "الكمية",
+    "lineTotal": "الإجمالي",
+    "remove": "إزالة",
+    "actions": "إجراءات",
+    "viewProduct": "عرض",
+    "discount": "الخصم",
+    "total": "الإجمالي",
+    "items": "{count, plural, one {منتج واحد} other {# منتجات}}",
+    "coupon": {
+      "label": "كود الخصم",
+      "placeholder": "أدخل الكود",
+      "apply": "تطبيق",
+      "remove": "إزالة",
+      "applied": "{code} (−{percent}%)"
+    }
   },
   "sort": {
     "label": "ترتيب حسب"

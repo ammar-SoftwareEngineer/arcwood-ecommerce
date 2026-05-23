@@ -2,7 +2,7 @@
 
 import HeroPages from "@/components/layout/hero/HeroPages";
 import ProductList from "@/components/products/ProductList";
-import { wishlistItemToProduct } from "@/lib/wishlist";
+import { wishlistItemToProduct } from "@/lib/wishlist/wishlist";
 import { useWishlistStore } from "@/store/wishlistStore";
 
 export default function WishlistPage() {

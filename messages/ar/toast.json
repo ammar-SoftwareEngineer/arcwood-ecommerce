@@ -17,6 +17,9 @@
   "cartRemoveFailed": "تعذّر الإزالة من السلة.",
   "cartIncreased": "تم زيادة المنتج في السلة",
   "cartDecreased": "تم تقليل المنتج في السلة",
+  "cartCouponApplied": "تم تطبيق كود {code} (خصم {percent}%)",
+  "cartCouponInvalid": "كود الخصم غير صالح أو منتهي",
+  "cartCouponEmpty": "أدخل كود الخصم",
   "linkCopied": "تم نسخ رابط المنتج",
   "shareFailed": "تعذّرت مشاركة المنتج"
 }

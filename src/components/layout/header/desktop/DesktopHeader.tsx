@@ -7,7 +7,7 @@ import { CiSearch } from "react-icons/ci";
 import type { HeaderItem } from "../types";
 import HeaderPromoBar from "../HeaderPromoBar";
 import SearchSideDrawer from "../drawers/SearchSideDrawer";
-import CartSideDrawer from "../drawers/CartSideDrawer";
+import { CartSideDrawer } from "@/components/cart";
 import DesktopCategoryMenu from "./DesktopCategoryMenu";
 import DesktopHeaderActions from "./DesktopHeaderActions";
 

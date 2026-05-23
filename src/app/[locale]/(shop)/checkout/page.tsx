@@ -13,10 +13,13 @@ export const metadata: Metadata = {
 
 export default function CheckoutPage() {
   return (
-    <section className="p-6 space-y-4">
+    <section className="">
       <HeroPages />
+      <div className="container mx-auto px-4 py-12 sm:px-6 lg:px-8">
       <h1 className="text-2xl font-semibold">Checkout</h1>
       <CheckoutForm />
+      </div>
+   
     </section>
   );
 }

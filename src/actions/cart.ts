@@ -17,9 +17,7 @@ export type CartToastKey =
   | "cartSaveFailed"
   | "cartRemoveFailed";
 
-export type CartResult =
-  | { ok: true }
-  | { ok: false; messageKey: CartToastKey };
+export type CartResult = { ok: true } | { ok: false; messageKey: CartToastKey };
 
 async function getUserId() {
   const session = await auth();
@@ -96,7 +94,9 @@ export async function loadCartAction(): Promise<CartItem[]> {
   return (data ?? []).map(mapRow);
 }
 
-export async function addCartItemAction(productId: string): Promise<CartResult> {
+export async function addCartItemAction(
+  productId: string,
+): Promise<CartResult> {
   const userId = await getUserId();
   if (!userId) return { ok: false, messageKey: "cartSignInRequired" };
 
@@ -129,7 +129,9 @@ export async function addCartItemAction(productId: string): Promise<CartResult> 
   return { ok: true };
 }
 
-export async function decreaseCartItemAction(productId: string): Promise<CartResult> {
+export async function decreaseCartItemAction(
+  productId: string,
+): Promise<CartResult> {
   const userId = await getUserId();
   if (!userId) return { ok: false, messageKey: "cartSignInToUpdate" };
 
@@ -140,7 +142,7 @@ export async function decreaseCartItemAction(productId: string): Promise<CartRes
     .eq("user_id", userId)
     .eq("product_id", productId)
     .maybeSingle();
-
+ 
   if (!row) return { ok: true };
 
   if (row.quantity <= 1) {
@@ -160,7 +162,9 @@ export async function decreaseCartItemAction(productId: string): Promise<CartRes
   return { ok: true };
 }
 
-export async function removeCartItemAction(productId: string): Promise<CartResult> {
+export async function removeCartItemAction(
+  productId: string,
+): Promise<CartResult> {
   const userId = await getUserId();
   if (!userId) return { ok: false, messageKey: "cartSignInToUpdate" };
 

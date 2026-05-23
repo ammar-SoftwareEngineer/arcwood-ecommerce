@@ -6,7 +6,8 @@ import { CiUser, CiShop, CiHeart } from "react-icons/ci";
 import { signOut, useSession } from "next-auth/react";
 import { routing } from "@/i18n/routing";
 import { useWishlistStore } from "@/store/wishlistStore";
-import { cartItemCount, useCartStore } from "@/store/cartStore";
+import { cartItemCount } from "@/components/cart/lib/utils";
+import { useCartStore } from "@/store/cartStore";
 import DesktopUser from "./DesktopUser";
 
 const iconClass = "text-main cursor-pointer transition-colors hover:text-black!";

@@ -15,7 +15,7 @@ import { IoIosHeart, IoIosHeartEmpty } from "react-icons/io";
 import { CiShop, CiShare2 } from "react-icons/ci";
 import { toast } from "sonner";
 import type { Product } from "@/lib/api/products";
-import { productSlug } from "@/lib/product";
+import { productSlug } from "@/lib/products/product";
 import { Link, getPathname } from "@/i18n/navigation";
 import CartQuantityStepper from "@/components/cart/CartQuantityStepper";
 

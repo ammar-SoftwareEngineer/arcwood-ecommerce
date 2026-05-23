@@ -38,7 +38,7 @@ export default function HexagonLoader({ active = true }: HexagonLoaderProps) {
         onDOMLoaded={() => {
           lottieRef.current?.setSpeed(loaderSpeed);
         }}
-        className="h-[250px] w-[250px]"
+        className="h-[350px] w-[350px]"
         aria-hidden
       />
     </div>

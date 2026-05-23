@@ -5,7 +5,8 @@ import { useTranslations } from "next-intl";
 import { useSession } from "next-auth/react";
 import { CiHeart, CiSearch, CiShop, CiUser } from "react-icons/ci";
 import { useWishlistStore } from "@/store/wishlistStore";
-import { cartItemCount, useCartStore } from "@/store/cartStore";
+import { cartItemCount } from "@/components/cart/lib/utils";
+import { useCartStore } from "@/store/cartStore";
 
 const actionButtonClass =
   "flex h-11 w-11 items-center justify-center rounded-xl text-black/75 transition hover:bg-black/5 hover:text-black";

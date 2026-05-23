@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 import type { Product } from "@/lib/api/products";
-import { productSlug } from "@/lib/product";
+import { productSlug } from "@/lib/products/product";
 import { Link } from "@/i18n/navigation";
 import Badge from "../ui/Badge";
 import ProductCardActions from "./ProductCardActions";

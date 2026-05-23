@@ -4,7 +4,7 @@ import { useId, useState } from "react";
 import { useTranslations } from "next-intl";
 import type { StaticImageData } from "next/image";
 import SearchSideDrawer from "../drawers/SearchSideDrawer";
-import CartSideDrawer from "../drawers/CartSideDrawer";
+import { CartSideDrawer } from "@/components/cart";
 import UserSideDrawer from "../drawers/UserSideDrawer";
 import type { HeaderItem, SiteContact } from "../types";
 import { drawerSocialOrder } from "../drawer-social";

@@ -1,5 +1,5 @@
 import { Link } from "@/i18n/navigation";
-import type { ProductQuery } from "@/lib/product-query";
+import type { ProductQuery } from "@/lib/products/product-query";
 import { getTranslations } from "next-intl/server";
 import { CiFilter } from "react-icons/ci";
 
