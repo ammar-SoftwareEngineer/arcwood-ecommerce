@@ -10,7 +10,7 @@ import { IoIosHeart, IoIosHeartEmpty } from "react-icons/io";
 import { CiShop } from "react-icons/ci";
 import { useTranslations } from "next-intl";
 import type { Product } from "@/lib/api/products";
-import { toCartPayload } from "@/lib/product";
+import { toCartPayload, toWishlistPayload } from "@/lib/product";
 import { addToCartWithToast, decreaseCartWithToast } from "@/lib/cart/cart-toast";
 import { addWishlistWithToast, removeWishlistWithToast } from "@/lib/wishlist/wishlist-toast";
 import CartQuantityStepper from "@/components/cart/CartQuantityStepper";
@@ -71,14 +71,7 @@ export default function ProductCardActions({ product }: ProductCardActionsProps)
       await removeWishlistWithToast(removeWishlist, toastT, product.id);
       return;
     }
-    await addWishlistWithToast(addWishlist, toastT, {
-      ...cartPayload,
-      category: product.category,
-      category_id: product.category_id,
-      is_new: product.is_new,
-      is_best_seller: product.is_best_seller,
-      created_at: product.created_at,
-    });
+    await addWishlistWithToast(addWishlist, toastT, toWishlistPayload(product));
   }
 
   return (
@@ -99,7 +92,7 @@ export default function ProductCardActions({ product }: ProductCardActionsProps)
         {cartQty > 0 ? (
           <CartQuantityStepper
             quantity={cartQty}
-            groupLabel={t("addToCart")}
+            groupLabel={t("quantity")}
             decreaseLabel={t("decreaseQuantity")}
             increaseLabel={t("increaseQuantity")}
             onDecrease={(e) => {

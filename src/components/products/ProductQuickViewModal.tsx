@@ -173,7 +173,7 @@ export default function ProductQuickViewModal({
                     {cartQty > 0 ? (
                       <CartQuantityStepper
                         quantity={cartQty}
-                        groupLabel={t("addToCart")}
+                        groupLabel={t("quantity")}
                         decreaseLabel={t("decreaseQuantity")}
                         increaseLabel={t("increaseQuantity")}
                         onDecrease={() => void onDecreaseCart()}

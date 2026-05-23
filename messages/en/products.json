@@ -10,6 +10,7 @@
     "removeFromWishlist": "Remove from wishlist"
   },
   "addToCart": "Add to cart",
+  "quantity": "Quantity",
   "decreaseQuantity": "Decrease quantity",
   "increaseQuantity": "Increase quantity",
   "removeFromCart": "Remove from cart",

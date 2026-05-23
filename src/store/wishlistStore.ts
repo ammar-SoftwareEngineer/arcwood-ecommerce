@@ -35,9 +35,9 @@ export const useWishlistStore = create<WishlistStore>((set, get) => ({
     const previous = get().items;
     set({
       items: [...previous, { ...item, id: `temp-${item.product_id}` }],
-    });
+    }); // optimistic until server confirms
 
-    const result = await addWishlistItemAction(item);
+    const result = await addWishlistItemAction(item.product_id);
 
     if (!result.ok) {
       set({ items: previous });

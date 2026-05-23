@@ -10,6 +10,7 @@
     "removeFromWishlist": "إزالة من المفضلة"
   },
   "addToCart": "أضف للسلة",
+  "quantity": "الكمية",
   "decreaseQuantity": "تقليل الكمية",
   "increaseQuantity": "زيادة الكمية",
   "removeFromCart": "إزالة من السلة",

@@ -65,7 +65,7 @@ function CartDrawerLine({ item }: { item: CartItem }) {
           </button>
           <CartQuantityStepper
             quantity={item.quantity}
-            groupLabel={t("addToCart")}
+            groupLabel={t("quantity")}
             decreaseLabel={t("decreaseQuantity")}
             increaseLabel={t("increaseQuantity")}
             onDecrease={() => void decreaseCartWithToast(decreaseItem, toastT, item.product_id)}
@@ -90,7 +90,7 @@ export default function CartSideDrawer({ isOpen, onClose, id }: CartSideDrawerPr
           <div className="flex h-full flex-col">
             <ul className="flex flex-1 flex-col">
               {items.map((item) => (
-                <CartDrawerLine key={item.id} item={item} />
+                <CartDrawerLine key={item.product_id} item={item} />
               ))}
             </ul>
 
@@ -107,13 +107,13 @@ export default function CartSideDrawer({ isOpen, onClose, id }: CartSideDrawerPr
                 >
                   {t("viewCart")}
                 </Link>
-                <button
-                  type="button"
+                <Link
+                  href="/checkout"
                   onClick={onClose}
-                  className="cta justify-center rounded-0 border border-main bg-main px-5 py-2.5 text-base font-medium text-white transition hover:bg-main/90"
+                  className="cta text-center justify-center rounded-0 border border-main bg-main px-5 py-2.5 text-base font-medium text-white transition hover:bg-main/90"
                 >
                   {t("checkout")}
-                </button>
+                </Link>
               </div>
             </div>
           </div>

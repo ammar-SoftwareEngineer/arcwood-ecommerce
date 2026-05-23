@@ -1,5 +1,6 @@
 /**
- * Server Actions: wishlist_items in Supabase (signed-in user).
+ * Server Actions: wishlist_items in Supabase (signed-in user via NextAuth).
+ * UI uses wishlistStore for optimistic updates; these functions persist to DB.
  */
 "use server";
 
@@ -47,6 +48,18 @@ function mapRow(row: {
   };
 }
 
+function mapWishlistError(error: { message: string; code?: string }): WishlistResult {
+  if (error.message.includes("wishlist_items_user_id_fkey")) {
+    return { ok: false, messageKey: "wishlistDbError" };
+  }
+  if (error.message.includes("wishlist_items_product_id_fkey")) {
+    return { ok: false, messageKey: "wishlistProductNotFound" };
+  }
+  // Unique (user_id, product_id) — already saved.
+  if (error.code === "23505") return { ok: true };
+  return { ok: false, messageKey: "wishlistSaveFailed" };
+}
+
 export async function loadWishlistAction(): Promise<WishlistItem[]> {
   const userId = await getUserId();
   if (!userId) return [];
@@ -66,28 +79,18 @@ export async function loadWishlistAction(): Promise<WishlistItem[]> {
   return (data ?? []).map(mapRow);
 }
 
-export async function addWishlistItemAction(
-  item: Omit<WishlistItem, "id">
-): Promise<WishlistResult> {
+export async function addWishlistItemAction(productId: string): Promise<WishlistResult> {
   const userId = await getUserId();
   if (!userId) return { ok: false, messageKey: "wishlistSignInRequired" };
 
   const { error } = await getSupabase().from("wishlist_items").insert({
     user_id: userId,
-    product_id: item.product_id,
+    product_id: productId,
   });
 
   if (error) {
     console.error("addWishlistItemAction:", error.message);
-    if (error.message.includes("wishlist_items_user_id_fkey")) {
-      return { ok: false, messageKey: "wishlistDbError" };
-    }
-    if (error.message.includes("wishlist_items_product_id_fkey")) {
-      return { ok: false, messageKey: "wishlistProductNotFound" };
-    }
-    // Already in wishlist (unique user_id + product_id).
-    if (error.code === "23505") return { ok: true };
-    return { ok: false, messageKey: "wishlistSaveFailed" };
+    return mapWishlistError(error);
   }
 
   return { ok: true };

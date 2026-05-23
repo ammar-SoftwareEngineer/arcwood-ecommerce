@@ -5,7 +5,6 @@ import { toast } from "sonner";
 import type { CartResult } from "@/actions/cart";
 import type { CartItem } from "@/store/types";
 
-/** Product fields needed for optimistic `addItem` (no row id / quantity). */
 export type CartPayload = Omit<CartItem, "id" | "quantity">;
 
 type ToastT = (key: string) => string;
