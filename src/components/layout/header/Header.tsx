@@ -8,7 +8,7 @@ import siteData from "@/lib/data/site.json";
 import logo from "@public/logo/logo1.png";
 import "@/styles/layout/Header.css";
 import DesktopHeader from "./desktop/DesktopHeader";
-import MobileHeader from "./MobileHeader";
+import MobileHeader from "./mobile/MobileHeader";
 
 
 export default function Header() {

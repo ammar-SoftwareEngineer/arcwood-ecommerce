@@ -31,7 +31,7 @@ export default function DesktopHeaderActions({
   const locale = useLocale() as AppLocale;
   const t = useTranslations("header.userMenu");
   const { status } = useSession();
-console.log(status);
+
 
   const targetLocale: AppLocale = locale === "en" ? "ar" : "en";
   const targetLabel = targetLocale === "ar" ? "AR" : "EN";

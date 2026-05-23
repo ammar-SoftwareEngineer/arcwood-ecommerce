@@ -40,6 +40,12 @@ export default function CategoryGrid({ categories }: { categories: Category[] })
             disableOnInteraction: false,
             pauseOnMouseEnter: true,
           }}
+          breakpoints={{
+            480: { slidesPerView: 1, spaceBetween: 20 },
+            640: { slidesPerView: 2, spaceBetween: 24 },
+            1024: { slidesPerView: 3, spaceBetween: 28 },
+            1400: { slidesPerView: 4, spaceBetween: 28 },
+          }}
           className="category-swiper "
         >
           {categories.map((category, index) => (
