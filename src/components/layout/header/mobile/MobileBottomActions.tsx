@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { useSession } from "next-auth/react";
 import { CiHeart, CiSearch, CiShop, CiUser } from "react-icons/ci";
 import { useWishlistStore } from "@/store/wishlistStore";
+import { cartItemCount, useCartStore } from "@/store/cartStore";
 
 const actionButtonClass =
   "flex h-11 w-11 items-center justify-center rounded-xl text-black/75 transition hover:bg-black/5 hover:text-black";
@@ -41,6 +42,7 @@ export default function MobileBottomActions({
   const router = useRouter();
   const { status } = useSession();
   const wishlistCount = useWishlistStore((s) => s.items.length);
+  const cartCount = useCartStore((s) => cartItemCount(s.items));
 
   const handleAccount = () => {
     if (status === "authenticated") {
@@ -83,7 +85,7 @@ export default function MobileBottomActions({
           className={`relative ${actionButtonClass}`}
         >
           <CiShop size={25} className={iconClass} aria-hidden />
-          <span className={badgeClassName}>0</span>
+          {cartCount > 0 ? <span className={badgeClassName}>{cartCount}</span> : null}
         </button>
 
         <button

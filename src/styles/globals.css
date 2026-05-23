@@ -31,13 +31,16 @@ body {
   font-family: 'Barlow Condensed', sans-serif;
 
 }
+
 ::-webkit-scrollbar {
   width: 6px;
 }
+
 ::-webkit-scrollbar-thumb {
   background-color: var(--primary);
 
 }
+
 h1,
 h2,
 h3 {
@@ -69,6 +72,25 @@ h3 {
     color: var(--primary);
     border: 1px solid var(--primary);
 
+  }
+}
+
+.cta-outline {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--primary);
+  background: var(--white);
+  border: 1px solid var(--primary);
+  padding: 14px 40px;
+  cursor: pointer;
+
+  transition: background 0.3s ease, color 0.3s ease;
+
+  &:hover {
+    background: var(--primary);
+    color: var(--white);
   }
 }
 

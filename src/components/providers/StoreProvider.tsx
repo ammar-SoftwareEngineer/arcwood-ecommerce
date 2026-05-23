@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { useWishlistStore } from "@/store/wishlistStore";
+import { useCartStore } from "@/store/cartStore";
 
 export default function StoreProvider({
   children,
@@ -9,10 +10,12 @@ export default function StoreProvider({
   children: React.ReactNode;
 }) {
   const loadWishlist = useWishlistStore((s) => s.loadWishlist);
+  const loadCart = useCartStore((s) => s.loadCart);
 
   useEffect(() => {
     void loadWishlist();
-  }, [loadWishlist]);
+    void loadCart();
+  }, [loadWishlist, loadCart]);
 
   return <>{children}</>;
 }

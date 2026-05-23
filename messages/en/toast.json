@@ -6,5 +6,15 @@
   "wishlistDbError": "Wishlist database setup issue. Check user_id foreign key in Supabase.",
   "wishlistProductNotFound": "This product does not exist in the database.",
   "wishlistSaveFailed": "Could not save to wishlist. Try again.",
-  "wishlistRemoveFailed": "Could not remove from wishlist."
+  "wishlistRemoveFailed": "Could not remove from wishlist.",
+  "cartAdded": "Item added to cart",
+  "cartRemoved": "Item removed from cart",
+  "cartSignInRequired": "Sign in to add items to your cart.",
+  "cartSignInToUpdate": "Sign in to update your cart.",
+  "cartDbError": "Cart database setup issue. Check user_id foreign key in Supabase.",
+  "cartProductNotFound": "This product does not exist in the database.",
+  "cartSaveFailed": "Could not add to cart. Try again.",
+  "cartRemoveFailed": "Could not remove from cart.",
+  "cartIncreased": "Item increased in cart",
+  "cartDecreased": "Item decreased in cart"
 }

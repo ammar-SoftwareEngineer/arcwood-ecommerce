@@ -6,5 +6,15 @@
   "wishlistDbError": "مشكلة في إعداد المفضلة في قاعدة البيانات. راجع foreign key في Supabase.",
   "wishlistProductNotFound": "هذا المنتج غير موجود في قاعدة البيانات.",
   "wishlistSaveFailed": "تعذّر الحفظ في المفضلة. حاول مرة أخرى.",
-  "wishlistRemoveFailed": "تعذّر الإزالة من المفضلة."
+  "wishlistRemoveFailed": "تعذّر الإزالة من المفضلة.",
+  "cartAdded": "تم إضافة المنتج إلى السلة",
+  "cartRemoved": "تم إزالة المنتج من السلة",
+  "cartSignInRequired": "سجّل الدخول لإضافة المنتجات إلى السلة.",
+  "cartSignInToUpdate": "سجّل الدخول لتحديث السلة.",
+  "cartDbError": "مشكلة في إعداد السلة في قاعدة البيانات. راجع foreign key في Supabase.",
+  "cartProductNotFound": "هذا المنتج غير موجود في قاعدة البيانات.",
+  "cartSaveFailed": "تعذّر الإضافة إلى السلة. حاول مرة أخرى.",
+  "cartRemoveFailed": "تعذّر الإزالة من السلة.",
+  "cartIncreased": "تم زيادة المنتج في السلة",
+  "cartDecreased": "تم تقليل المنتج في السلة"
 }

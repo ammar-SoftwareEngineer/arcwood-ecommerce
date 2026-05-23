@@ -1,13 +1,11 @@
 .header-promo-viewport {
   overflow: hidden;
   width: 100%;
-  mask-image: linear-gradient(
-    90deg,
-    transparent,
-    #000 12%,
-    #000 88%,
-    transparent
-  );
+  mask-image: linear-gradient(90deg,
+      transparent,
+      #000 12%,
+      #000 88%,
+      transparent);
 }
 
 .header-promo-rail {
@@ -52,10 +50,6 @@
   letter-spacing: 0.03em;
   opacity: 0.95;
 }
-
-
-
-
 
 @keyframes headerMarquee {
   0% {

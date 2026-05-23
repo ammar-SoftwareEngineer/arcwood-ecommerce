@@ -11,12 +11,19 @@ import Badge from "../ui/Badge";
 import { useTranslations } from "next-intl";
 import { toast } from "sonner";
 import { useWishlistStore } from "@/store/wishlistStore";
+import { useCartStore } from "@/store/cartStore";
 
 const iconBtn =
   "inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-0 bg-white text-neutral-800 shadow-md transition hover:bg-(--primary) hover:text-white cursor-pointer";
 
 const cartBtn =
   "inline-flex h-10 shrink-0 items-center gap-2 rounded-0 bg-white px-3 text-sm font-medium text-neutral-800 shadow-md transition hover:bg-(--primary) hover:text-white cursor-pointer";
+
+const cartStepperBtn =
+  "inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-0 text-lg font-medium text-neutral-800 transition hover:bg-(--primary) hover:text-white cursor-pointer";
+
+const cartStepper =
+  "inline-flex h-10 shrink-0 items-center gap-1 rounded-0 bg-white px-2 text-sm font-medium text-neutral-800 shadow-md";
 
 const wishlistBtn =
   "inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-0 cursor-pointer transition ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--primary) focus-visible:ring-offset-2";
@@ -30,9 +37,14 @@ const actions =
 
 export default function ProductCard({ item }: { item: Product }) {
   const slug = item.name.toLowerCase().replace(/ /g, "-");
-  const addItem = useWishlistStore((s) => s.addItem);
-  const removeItem = useWishlistStore((s) => s.removeItem);
+  const addWishlistItem = useWishlistStore((s) => s.addItem);
+  const removeWishlistItem = useWishlistStore((s) => s.removeItem);
   const inWishlist = useWishlistStore((s) => s.isInWishlist(item.id));
+  const addCartItem = useCartStore((s) => s.addItem);
+  const decreaseCartItem = useCartStore((s) => s.decreaseItem);
+  const cartQty = useCartStore(
+    (s) => s.items.find((i) => i.product_id === item.id)?.quantity ?? 0
+  );
 
   const t = useTranslations("products");
   const toastT = useTranslations("toast");
@@ -42,13 +54,13 @@ export default function ProductCard({ item }: { item: Product }) {
     e.stopPropagation();
 
     if (inWishlist) {
-      const result = await removeItem(item.id);
+      const result = await removeWishlistItem(item.id);
       if (result.ok) toast.success(toastT("wishlistRemoved"));
       else toast.error(toastT(result.messageKey));
       return;
     }
 
-    const result = await addItem({
+    const result = await addWishlistItem({
       product_id: item.id,
       name: item.name,
       price_egp: item.price_egp,
@@ -59,9 +71,48 @@ export default function ProductCard({ item }: { item: Product }) {
     else toast.error(toastT(result.messageKey));
   }
 
+  async function onCartClick(e: MouseEvent<HTMLButtonElement>) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const result = await addCartItem({
+      product_id: item.id,
+      name: item.name,
+      price_egp: item.price_egp,
+      image_url: item.image_url,
+    });
+
+    if (result.ok) toast.success(toastT("cartAdded"));
+    else toast.error(toastT(result.messageKey));
+  }
+
+  async function onIncreaseCart(e: MouseEvent<HTMLButtonElement>) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const result = await addCartItem({
+      product_id: item.id,
+      name: item.name,
+      price_egp: item.price_egp,
+      image_url: item.image_url,
+    });
+    if (result.ok) toast.success(toastT("cartIncreased"));
+    else toast.error(toastT(result.messageKey));
+  }
+
+  async function onDecreaseCart(e: MouseEvent<HTMLButtonElement>) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const wasLast = cartQty <= 1;
+    const result = await decreaseCartItem(item.id);
+    if (result.ok) toast.success(toastT("cartDecreased"));
+    else if (!result.ok) toast.error(toastT(result.messageKey));
+  }
+
   return (
     <section className="group relative flex h-full flex-col overflow-hidden rounded-0 bg-white transition-shadow hover:shadow-md">
-      <div className="relative aspect-square bg-neutral-50 overflow-hidden">
+      <div className="relative z-0 aspect-square bg-neutral-50 overflow-hidden">
         <Link href={`/products/${slug}`} className="absolute inset-0 z-0">
           {item.is_new ? (
             <div className="absolute top-2 z-10">
@@ -91,10 +142,32 @@ export default function ProductCard({ item }: { item: Product }) {
             <button type="button" className={iconBtn} aria-label="Quick view">
               <HiOutlineEye size={22} />
             </button>
-            <button type="button"  className={cartBtn} aria-label="Add to cart">
-              <CiShop size={22} aria-hidden />
-              <span className="text-base">Add to cart</span>
-            </button>
+            {cartQty > 0 ? (
+              <div className={cartStepper} role="group" aria-label={t("addToCart")}>
+                <button
+                  type="button"
+                  className={cartStepperBtn}
+                  aria-label={t("decreaseQuantity")}
+                  onClick={onDecreaseCart}
+                >
+                  −
+                </button>
+                <span className="min-w-6 text-center text-base tabular-nums">{cartQty}</span>
+                <button
+                  type="button"
+                  className={cartStepperBtn}
+                  aria-label={t("increaseQuantity")}
+                  onClick={onIncreaseCart}
+                >
+                  +
+                </button>
+              </div>
+            ) : (
+              <button type="button" className={cartBtn} aria-label={t("addToCart")} onClick={onCartClick}>
+                <CiShop size={22} aria-hidden />
+                <span className="text-base">{t("addToCart")}</span>
+              </button>
+            )}
             <button
               type="button"
               className={`${wishlistBtn} ${inWishlist ? wishlistActive : wishlistIdle}`}

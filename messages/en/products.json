@@ -1,5 +1,9 @@
 {
   "new": "New",
+  "addToCart": "Add to cart",
+  "decreaseQuantity": "Decrease quantity",
+  "increaseQuantity": "Increase quantity",
+  "removeFromCart": "Remove from cart",
   "sort": {
     "label": "Sort by"
   },

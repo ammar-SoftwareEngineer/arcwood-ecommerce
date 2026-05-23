@@ -21,19 +21,21 @@
 }
 
 .badge-products {
-    
-    background-color: var(--primary) ;
+
+    background-color: var(--primary);
     color: var(--white);
-    
+
     padding: 20px;
     clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     font-size: 1rem;
     font-weight: 600;
     text-transform: uppercase;
 }
-.products-swiper{
+
+.products-swiper {
     overflow: visible !important;
-    & .swiper-wrapper{
+
+    & .swiper-wrapper {
         overflow: visible !important;
     }
 }

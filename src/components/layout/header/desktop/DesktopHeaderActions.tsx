@@ -6,6 +6,7 @@ import { CiUser, CiShop, CiHeart } from "react-icons/ci";
 import { signOut, useSession } from "next-auth/react";
 import { routing } from "@/i18n/routing";
 import { useWishlistStore } from "@/store/wishlistStore";
+import { cartItemCount, useCartStore } from "@/store/cartStore";
 import DesktopUser from "./DesktopUser";
 
 const iconClass = "text-main cursor-pointer transition-colors hover:text-black!";
@@ -37,6 +38,7 @@ export default function DesktopHeaderActions({
   const targetLabel = targetLocale === "ar" ? "AR" : "EN";
   const switchLabel = targetLocale === "ar" ? "العربية" : "English";
   const wishlistCount = useWishlistStore((s) => s.items.length);
+  const cartCount = useCartStore((s) => cartItemCount(s.items));
 
   const userMenuItems = [
     { href: "/account", label: t("account") },
@@ -92,7 +94,7 @@ export default function DesktopHeaderActions({
         className="relative flex h-10 w-10 items-center justify-center rounded-0 text-sm transition"
       >
         <CiShop size={25} className={iconClass} />
-        <span className={badgeClassName}>0</span>
+        {cartCount > 0 ? <span className={badgeClassName}>{cartCount}</span> : null}
       </button>
 
       <button

@@ -1,5 +1,9 @@
 {
   "new": "جديد",
+  "addToCart": "أضف للسلة",
+  "decreaseQuantity": "تقليل الكمية",
+  "increaseQuantity": "زيادة الكمية",
+  "removeFromCart": "إزالة من السلة",
   "sort": {
     "label": "ترتيب حسب"
   },
