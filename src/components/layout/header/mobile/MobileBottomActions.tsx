@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 import { useSession } from "next-auth/react";
 import { CiHeart, CiSearch, CiShop, CiUser } from "react-icons/ci";
 import { useWishlistStore } from "@/store/wishlistStore";
-import { cartItemCount } from "@/components/cart/lib/utils";
+import { cartItemCount } from "@/lib/cart/utils";
 import { useCartStore } from "@/store/cartStore";
 
 const actionButtonClass =

@@ -11,8 +11,8 @@ import {
   type CartResult,
 } from "@/actions/cart";
 import type { CartItem } from "./types";
-import type { CartCoupon, CouponResult } from "@/components/cart/lib/coupon";
-import { validateCoupon } from "@/components/cart/lib/coupon";
+import type { CartCoupon, CouponResult } from "@/lib/cart/coupon";
+import { validateCoupon } from "@/lib/cart/coupon";
 
 type CartStore = {
   items: CartItem[];

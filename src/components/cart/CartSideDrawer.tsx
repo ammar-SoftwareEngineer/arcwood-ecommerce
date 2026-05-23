@@ -8,7 +8,7 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import HeaderSideDrawer from "@/components/layout/header/drawers/HeaderSideDrawer";
 import { useCartStore } from "@/store/cartStore";
-import { formatEgp, cartItemCount, cartSubtotal } from "./lib/utils";
+import { formatEgp, cartItemCount, cartSubtotal } from "../../lib/cart/utils";
 import CartLineItem from "./CartLineItem";
 
 type Props = { isOpen: boolean; onClose: () => void; id: string };

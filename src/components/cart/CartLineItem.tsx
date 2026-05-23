@@ -17,8 +17,8 @@ import { CiFileOn, CiTrash } from "react-icons/ci";
 import { toCartPayloadFromItem, productSlug } from "@/lib/products/product";
 import { useCartStore } from "@/store/cartStore";
 import type { CartItem } from "@/store/types";
-import { addToCartWithToast, decreaseCartWithToast, removeFromCartWithToast } from "./lib/toast";
-import { formatEgp, lineTotal } from "./lib/utils";
+import { addToCartWithToast, decreaseCartWithToast, removeFromCartWithToast } from "../../lib/cart/toast";
+import { formatEgp, lineTotal } from "../../lib/cart/utils";
 import CartQuantityStepper from "./CartQuantityStepper";
 import { BsBoxArrowUpRight } from "react-icons/bs";
 

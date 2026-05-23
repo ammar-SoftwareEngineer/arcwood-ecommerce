@@ -8,8 +8,8 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import HexagonLoader from "@/components/ui/HexagonLoader";
 import { useCartStore } from "@/store/cartStore";
-import { cartDiscountAmount, cartTotal, submitCartCouponForm } from "./lib/coupon";
-import { formatEgp, cartItemCount, cartSubtotal } from "./lib/utils";
+import { cartDiscountAmount, cartTotal, submitCartCouponForm } from "../../lib/cart/coupon";
+import { formatEgp, cartItemCount, cartSubtotal } from "../../lib/cart/utils";
 import CartLineItem from "./CartLineItem";
 
 const th = "border-b border-black/10 px-4 py-3 text-start text-sm font-semibold uppercase tracking-wide text-black/70";
