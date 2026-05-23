@@ -141,6 +141,11 @@
       "officeBlinds": "ستائر مكتبية",
       "maintenanceRepair": "صيانة وإصلاح"
     },
+    "userMenu": {
+      "account": "حسابي",
+      "orders": "طلباتي",
+      "logout": "تسجيل الخروج"
+    },
     "mobile": {
       "openMenu": "فتح القائمة",
       "closeMenu": "إغلاق القائمة",

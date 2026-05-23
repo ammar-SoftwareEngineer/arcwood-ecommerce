@@ -141,6 +141,11 @@
       "officeBlinds": "Office blinds",
       "maintenanceRepair": "Maintenance and repair"
     },
+    "userMenu": {
+      "account": "My Account",
+      "orders": "Orders",
+      "logout": "Log out"
+    },
     "mobile": {
       "openMenu": "Open menu",
       "closeMenu": "Close menu",
