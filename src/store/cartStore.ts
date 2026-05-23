@@ -84,7 +84,10 @@ export const useCartStore = create<CartStore>((set, get) => ({
     set({ items: previous.filter((i) => i.product_id !== productId) });
 
     const result = await removeCartItemAction(productId);
-    if (!result.ok) set({ items: previous });
+    if (!result.ok) {
+      set({ items: previous });
+      return result;
+    }
 
     return result;
   },

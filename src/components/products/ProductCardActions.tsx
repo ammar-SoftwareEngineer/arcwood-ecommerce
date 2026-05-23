@@ -69,9 +69,16 @@ export default function ProductCardActions({ product }: ProductCardActionsProps)
   async function toggleWishlist() {
     if (inWishlist) {
       await removeWishlistWithToast(removeWishlist, toastT, product.id);
-    } else {
-      await addWishlistWithToast(addWishlist, toastT, cartPayload);
+      return;
     }
+    await addWishlistWithToast(addWishlist, toastT, {
+      ...cartPayload,
+      category: product.category,
+      category_id: product.category_id,
+      is_new: product.is_new,
+      is_best_seller: product.is_best_seller,
+      created_at: product.created_at,
+    });
   }
 
   return (

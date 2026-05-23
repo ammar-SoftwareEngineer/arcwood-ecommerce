@@ -85,6 +85,7 @@ export async function addWishlistItemAction(
     if (error.message.includes("wishlist_items_product_id_fkey")) {
       return { ok: false, messageKey: "wishlistProductNotFound" };
     }
+    // Already in wishlist (unique user_id + product_id).
     if (error.code === "23505") return { ok: true };
     return { ok: false, messageKey: "wishlistSaveFailed" };
   }

@@ -13,6 +13,15 @@
   "decreaseQuantity": "Decrease quantity",
   "increaseQuantity": "Increase quantity",
   "removeFromCart": "Remove from cart",
+  "cart": {
+    "title": "Cart",
+    "close": "Close cart",
+    "empty": "Your cart is empty",
+    "continueShopping": "Continue shopping",
+    "subtotal": "Subtotal",
+    "viewCart": "View cart",
+    "checkout": "Checkout"
+  },
   "sort": {
     "label": "Sort by"
   },

@@ -22,13 +22,8 @@ type CartSideDrawerProps = {
   isOpen: boolean;
   onClose: () => void;
   id: string;
-  title?: string;
-  emptyMessage?: string;
-  continueLabel?: string;
-  continueHref?: string;
 };
 
-/** One row in the drawer — own hooks for store selectors. */
 function CartDrawerLine({ item }: { item: CartItem }) {
   const t = useTranslations("products");
   const toastT = useTranslations("toast");
@@ -54,7 +49,7 @@ function CartDrawerLine({ item }: { item: CartItem }) {
 
         <div className="flex min-w-0 flex-1 flex-col justify-between gap-1">
           <p className="line-clamp-2 text-lg font-medium leading-snug text-black/90">{item.name}</p>
-          <p className="text-base text-black/60 tabular-nums ">
+          <p className="text-base text-black/60 tabular-nums">
             {(item.price_egp * item.quantity).toLocaleString()} EGP
           </p>
         </div>
@@ -82,21 +77,14 @@ function CartDrawerLine({ item }: { item: CartItem }) {
   );
 }
 
-export default function CartSideDrawer({
-  isOpen,
-  onClose,
-  id,
-  title = "Cart",
-  emptyMessage = "Your cart is empty",
-  continueLabel = "Continue shopping",
-  continueHref = "/products",
-}: CartSideDrawerProps) {
+export default function CartSideDrawer({ isOpen, onClose, id }: CartSideDrawerProps) {
+  const t = useTranslations("products.cart");
   const items = useCartStore((s) => s.items);
   const itemCount = cartItemCount(items);
   const subtotal = items.reduce((sum, item) => sum + item.price_egp * item.quantity, 0);
 
   return (
-    <HeaderSideDrawer isOpen={isOpen} onClose={onClose} id={id} title={title} closeLabel="Close cart">
+    <HeaderSideDrawer isOpen={isOpen} onClose={onClose} id={id} title={t("title")} closeLabel={t("close")}>
       <div className="flex flex-1 flex-col">
         {itemCount > 0 ? (
           <div className="flex h-full flex-col">
@@ -108,7 +96,7 @@ export default function CartSideDrawer({
 
             <div className="mt-4 flex flex-col gap-3 p-4">
               <div className="flex items-center justify-between">
-                <p className="text-lg font-medium text-black">Subtotal</p>
+                <p className="text-lg font-medium text-black">{t("subtotal")}</p>
                 <p className="text-lg font-medium text-black/70">{subtotal.toLocaleString()} EGP</p>
               </div>
               <div className="mt-4 flex flex-col gap-3">
@@ -117,27 +105,27 @@ export default function CartSideDrawer({
                   onClick={onClose}
                   className="cta-outline text-center justify-center rounded-0 border border-main bg-main px-5 py-2.5 text-base font-medium text-white transition hover:bg-main/90"
                 >
-                  View Cart
+                  {t("viewCart")}
                 </Link>
                 <button
                   type="button"
                   onClick={onClose}
                   className="cta justify-center rounded-0 border border-main bg-main px-5 py-2.5 text-base font-medium text-white transition hover:bg-main/90"
                 >
-                  Checkout
+                  {t("checkout")}
                 </button>
               </div>
             </div>
           </div>
         ) : (
           <div className="flex flex-1 flex-col items-center justify-center gap-4 py-8 text-center">
-            <p className="text-base text-black/70">{emptyMessage}</p>
+            <p className="text-base text-black/70">{t("empty")}</p>
             <Link
-              href={continueHref}
+              href="/products"
               onClick={onClose}
               className="inline-flex rounded-0 border border-main bg-main px-5 py-2.5 text-base font-medium text-white transition hover:bg-main/90"
             >
-              {continueLabel}
+              {t("continueShopping")}
             </Link>
           </div>
         )}

@@ -1,5 +1,5 @@
 /**
- * UI helpers for wishlist actions: store + Sonner (mirrors lib/cart/cart-toast).
+ * Wishlist UI feedback — mirrors `lib/cart/cart-toast.ts` (store fn + Sonner, no hooks).
  */
 import { toast } from "sonner";
 import type { WishlistResult } from "@/actions/wishlist";

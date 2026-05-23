@@ -44,8 +44,7 @@ export const useWishlistStore = create<WishlistStore>((set, get) => ({
       return result;
     }
 
-    const serverItems = await loadWishlistAction();
-    if (serverItems.length > 0) set({ items: serverItems });
+    set({ items: await loadWishlistAction() });
 
     return { ok: true };
   },

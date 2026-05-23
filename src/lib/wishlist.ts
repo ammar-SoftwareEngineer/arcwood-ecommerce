@@ -1,5 +1,5 @@
 /**
- * Map wishlist rows to Product so ProductCard works on /wishlist page.
+ * Adapter: wishlist store rows → `Product` shape for reusing `ProductCard` on `/wishlist`.
  */
 import type { Product } from "@/lib/api/products";
 import type { WishlistItem } from "@/store/types";

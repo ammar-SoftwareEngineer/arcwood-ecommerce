@@ -13,6 +13,15 @@
   "decreaseQuantity": "تقليل الكمية",
   "increaseQuantity": "زيادة الكمية",
   "removeFromCart": "إزالة من السلة",
+  "cart": {
+    "title": "السلة",
+    "close": "إغلاق السلة",
+    "empty": "سلتك فارغة",
+    "continueShopping": "متابعة التسوق",
+    "subtotal": "المجموع الفرعي",
+    "viewCart": "عرض السلة",
+    "checkout": "إتمام الشراء"
+  },
   "sort": {
     "label": "ترتيب حسب"
   },

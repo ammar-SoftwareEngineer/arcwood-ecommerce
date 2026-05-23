@@ -1,8 +1,6 @@
 "use client";
 
-/**
- * Shared [−] qty [+] control for product card, quick view modal, and cart drawer.
- */
+/** [−] qty [+] — product card, quick view, cart drawer. Handlers vary per context (toast, stopPropagation). */
 import type { MouseEvent } from "react";
 
 type CartQuantityStepperProps = {

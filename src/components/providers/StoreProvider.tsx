@@ -1,9 +1,6 @@
 "use client";
 
-/**
- * Loads cart + wishlist once after mount (logged-in user data from Server Actions).
- * Wrap app layout so header badges and cards share the same Zustand state.
- */
+/** Loads cart + wishlist from Server Actions once on mount (shared Zustand for header/cards/drawer). */
 import { useEffect } from "react";
 import { useWishlistStore } from "@/store/wishlistStore";
 import { useCartStore } from "@/store/cartStore";
