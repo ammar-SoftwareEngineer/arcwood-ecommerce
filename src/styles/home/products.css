@@ -27,6 +27,8 @@
 
     padding: 20px;
     clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    -moz-clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     font-size: 1rem;
     font-weight: 600;
     text-transform: uppercase;
