@@ -3,8 +3,7 @@
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import { CiUser, CiShop, CiHeart } from "react-icons/ci";
-import { logoutAction } from "@/actions/login";
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import { routing } from "@/i18n/routing";
 import { useWishlistStore } from "@/store/wishlistStore";
 import { cartItemCount } from "@/lib/cart/utils";
@@ -52,7 +51,7 @@ export default function DesktopHeaderActions({
   };
 
   const handleLogout = () => {
-    void logoutAction(`/${locale}`);
+    void signOut({ callbackUrl: `/${locale}` });
   };
 
   return (
