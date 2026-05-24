@@ -15,8 +15,8 @@ type Props = {
 export default function WhyFeatures({
   features,
   animated = false,
-  listClassName = "grid grid-cols-12 gap-6",
-  itemClassName = "col-span-6 flex items-center gap-3",
+  listClassName,
+  itemClassName ,
 }: Props) {
   const Item = animated ? motion.li : "li";
 

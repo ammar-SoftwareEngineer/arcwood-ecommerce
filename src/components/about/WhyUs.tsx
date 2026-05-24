@@ -40,8 +40,8 @@ export default function WhyUs({ why }: WhyUsProps) {
         <WhyFeatures
           features={features}
           animated
-          listClassName="grid grid-cols-12 gap-24"
-          itemClassName="col-span-3 flex items-center gap-3"
+          listClassName="grid grid-cols-12 md:gap-24 gap-6"
+          itemClassName=" md:col-span-3 col-span-6 flex items-center gap-3"
         />
       </div>
     </div>

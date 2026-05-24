@@ -49,7 +49,7 @@ export default async function ProductsPage({ searchParams }: Props) {
   }
 
   return (
-    <section className="space-y-6">
+    <section className="space-y-6 bg-gray-100">
       <HeroPages />
       <div className="container mx-auto px-4 py-8 sm:px-6 md:py-12 lg:px-8 xl:px-16">
         <div className="grid grid-cols-12 gap-6  lg:gap-10 w-full">

@@ -51,7 +51,7 @@ export default async function Pagination({
   const nextPage = activePage + 1;
 
   return (
-    <nav aria-label={t("navAria")} className={`flex flex-col items-center gap-4 border-t border-black/10 pt-8 ${className}`}>
+    <nav aria-label={t("navAria")} className={`flex flex-col items-center gap-4 bg-white border-t border-black/10 pt-8 ${className}`}>
       <p className="text-sm tabular-nums text-neutral-600">
         {t("summary", { page: activePage, total: totalPages })}
       </p>
