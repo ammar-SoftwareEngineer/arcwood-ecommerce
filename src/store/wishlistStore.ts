@@ -21,7 +21,7 @@ type WishlistStore = {
 
 export const useWishlistStore = create<WishlistStore>((set, get) => ({
   items: [],
-  loading: false,
+  loading: true,
 
   loadWishlist: async () => {
     set({ loading: true });

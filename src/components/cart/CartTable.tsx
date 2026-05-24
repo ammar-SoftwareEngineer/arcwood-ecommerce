@@ -32,7 +32,7 @@ export default function CartTable() {
     return <CartSkeleton />;
   }
 
-  if (!items.length && !loading) {
+  if (items.length === 0) {
     return (
       <div className="flex flex-col items-center gap-4 py-16 text-center">
         <p className="text-lg text-black/70">{t("empty")}</p>
