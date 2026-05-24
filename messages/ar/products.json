@@ -40,6 +40,13 @@
       "applied": "{code} (−{percent}%)"
     }
   },
+  "wishlist": {
+    "title": "المفضلة",
+    "close": "إغلاق المفضلة",
+    "empty": "لا يوجد منتجات في المفضلة",
+    "continueShopping": "متابعة التسوق",
+    "viewWishlist": "عرض المفضلة"
+  },
   "sort": {
     "label": "ترتيب حسب"
   },
