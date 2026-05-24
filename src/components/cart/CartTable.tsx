@@ -6,7 +6,7 @@
 
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import HexagonLoader from "@/components/ui/HexagonLoader";
+import CartSkeleton from "@/components/cart/CartSkeleton";
 import { useCartStore } from "@/store/cartStore";
 import { cartDiscountAmount, cartTotal, submitCartCouponForm } from "../../lib/cart/coupon";
 import { formatEgp, cartItemCount, cartSubtotal } from "../../lib/cart/utils";
@@ -29,11 +29,7 @@ export default function CartTable() {
   const total = cartTotal(subtotal, coupon);
 
   if (loading) {
-    return (
-      <div className="flex min-h-[240px] items-center justify-center py-12">
-        <HexagonLoader />
-      </div>
-    );
+    return <CartSkeleton />;
   }
 
   if (!items.length) {

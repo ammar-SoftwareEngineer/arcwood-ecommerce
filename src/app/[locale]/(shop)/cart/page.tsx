@@ -1,13 +1,18 @@
-/** Cart shop page — server shell; interactive table is a client component. */
+import { Suspense } from "react";
+import dynamic from "next/dynamic";
 import HeroPages from "@/components/layout/hero/HeroPages";
-import { CartTable } from "@/components/cart";
+import CartSkeleton from "@/components/cart/CartSkeleton";
+
+const CartTable = dynamic(() => import("@/components/cart/CartTable"));
 
 export default function CartPage() {
   return (
     <section>
       <HeroPages />
       <div className="container mx-auto px-4 py-12 sm:px-6 lg:px-8">
-        <CartTable />
+        <Suspense fallback={<CartSkeleton />}>
+          <CartTable />
+        </Suspense>
       </div>
     </section>
   );
