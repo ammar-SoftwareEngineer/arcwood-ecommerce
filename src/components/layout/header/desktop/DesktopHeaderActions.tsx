@@ -51,7 +51,7 @@ export default function DesktopHeaderActions({
   };
 
   const handleLogout = () => {
-    void signOut({ callbackUrl: `/${locale}` });
+    void signOut({ callbackUrl: `${process.env.NEXT_PUBLIC_APP_URL}` });
   };
 
   return (
