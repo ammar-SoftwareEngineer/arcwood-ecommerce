@@ -1,6 +1,6 @@
 "use server";
 
-import { signIn } from "@/lib/nextAuth";
+import { signIn, signOut } from "@/lib/nextAuth";
 import { AuthError } from "next-auth";
 import { isRedirectError } from "next/dist/client/components/redirect-error";
 
@@ -49,4 +49,9 @@ export async function loginAction({
   password: string;
 }): Promise<LoginResult> {
   return signInWithCredentials(email, password);
+}
+
+/** Ends session on the server and redirects (Auth.js clears the session cookie). */
+export async function logoutAction(redirectTo: string) {
+  await signOut({ redirectTo });
 }
