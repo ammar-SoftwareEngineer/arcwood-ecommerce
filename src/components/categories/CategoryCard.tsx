@@ -54,17 +54,14 @@ const t = useTranslations("categories");
           <div className="innerBorder pointer-events-none absolute inset-0" />
 
           <motion.div className="badge absolute  rtl:inset-auto ltr:inset-0 flex h-full w-full flex-col justify-center py-3 text-white">
-            <p className="mx-auto flex items-center gap-2 w-fit bg-(--primary) px-3 py-1 text-lg font-medium">
-              {category.product_count} 
-              <span className="text-base">{t("products")}</span>
-            </p>
-            <div className="badgeDivider my-1 h-px bg-white/40" />
+        
+    
             {locale === "ar" ? (
-              <p className="badgeName text-center text-lg font-bold">
+              <p className="badgeName text-center mx-auto flex items-center gap-2 w-fit bg-(--primary) px-3 py-1 text-xl font-medium">
                 {category.name_ar}
               </p>
             ) : (
-              <p className="badgeName text-center text-xl font-bold">
+              <p className="badgeName text-center  mx-auto flex items-center gap-2 w-fit bg-(--primary) px-3 py-1 text-xl font-medium">
                 {category.name}
               </p>
             )}
