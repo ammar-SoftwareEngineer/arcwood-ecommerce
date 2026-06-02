@@ -28,18 +28,33 @@ export default function HeroPages({ title }: HeroPagesProps) {
         const getLabel = (seg: string) =>
             t.has(seg) ? t(seg) : formatSegment(seg);
 
-        const breadcrumbs = [
-            { label: t("home"), href: prefix || "/" },
-            ...segments.map((seg, i) => ({
-                // لو آخر segment وعندنا title من API → استخدمه في الـ breadcrumb
-                label: i === segments.length - 1 && title?.trim() ? title.trim() : getLabel(seg),
-                href: `${prefix}/${segments.slice(0, i + 1).join("/")}`,
-            })),
-        ];
+        const isBlogDetail =
+            segments[0] === "blog" && segments.length === 2;
 
-        const pageTitle =
-            title?.trim() ||
-            (segments.at(-1) ? getLabel(segments.at(-1)!) : t("home"));
+        const breadcrumbs = isBlogDetail
+            ? [
+                  { label: t("home"), href: prefix || "/" },
+                  { label: t("blogs"), href: `${prefix}/blogs` },
+                  {
+                      label: title?.trim() || t("blog-details"),
+                      href: `${prefix}/blog/${segments[1]}`,
+                  },
+              ]
+            : [
+                  { label: t("home"), href: prefix || "/" },
+                  ...segments.map((seg, i) => ({
+                      label:
+                          i === segments.length - 1 && title?.trim()
+                              ? title.trim()
+                              : getLabel(seg),
+                      href: `${prefix}/${segments.slice(0, i + 1).join("/")}`,
+                  })),
+              ];
+
+        const pageTitle = isBlogDetail
+            ? title?.trim() || t("blog-details")
+            : title?.trim() ||
+              (segments.at(-1) ? getLabel(segments.at(-1)!) : t("home"));
 
         return { pageTitle, breadcrumbs };
     }, [pathname, title, t]);

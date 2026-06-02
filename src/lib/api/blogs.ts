@@ -2,6 +2,12 @@ import { getSupabase } from "@/lib/supabase";
 
 const supabase = getSupabase();
 
+/** Maps stored `/blogs/...` paths to public detail URLs `/blog/...`. */
+export function toBlogDetailPath(href: string): string {
+  const path = href.startsWith("/") ? href : `/${href}`;
+  return path.replace(/^\/blogs\//, "/blog/");
+}
+
 export type Blog = {
   id: number;
   href: string;
@@ -44,14 +50,21 @@ export async function listBlogs(
     throw new Error("Failed to fetch blogs");
   }
 
-  return data;
+  const response = data as BlogsResponse;
+  return {
+    ...response,
+    data: response.data.map((blog) => ({
+      ...blog,
+      href: toBlogDetailPath(blog.href),
+    })),
+  };
 }
 
 export async function getBlogBySlug(slug: string) {
   const { data, error } = await supabase
     .from("blogs")
     .select("*")
-    .eq("href", `/blogs/${slug}`)
+    .or(`href.eq./blog/${slug},href.eq./blogs/${slug}`)
     .maybeSingle();
 
   if (error) {
@@ -59,5 +72,10 @@ export async function getBlogBySlug(slug: string) {
     throw new Error("Failed to fetch blog");
   }
 
-  return data as Blog | null;
+  if (!data) return null;
+
+  return {
+    ...(data as Blog),
+    href: toBlogDetailPath((data as Blog).href),
+  };
 }
