@@ -57,3 +57,21 @@ html[dir="rtl"] .quick-view-badge {
         overflow: visible !important;
     }
 }
+
+/* Product details gallery: horizontal thumbs on mobile, vertical on md+ */
+.pd-gallery-thumbs {
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+}
+
+@media (min-width: 768px) {
+    .pd-gallery-thumbs {
+        max-height: min(70vw, 320px);
+    }
+}
+
+@media (min-width: 1024px) {
+    .pd-gallery-thumbs {
+        max-height: 360px;
+    }
+}

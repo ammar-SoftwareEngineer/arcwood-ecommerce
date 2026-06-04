@@ -89,7 +89,7 @@ export default function HeroPages({ title }: HeroPagesProps) {
                         </ol>
                     </nav>
                     {/* Page Title */}
-                    <h1 className="text-white text-4xl md:text-6xl font-semibold uppercase tracking-wide">
+                    <h1 className="text-white text-4xl md:text-5xl font-semibold capitalize tracking-wide">
                         {pageTitle}
                     </h1>
 

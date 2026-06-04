@@ -56,6 +56,61 @@
     "cols3": "3 columns",
     "cols4": "4 columns"
   },
+  "details": {
+    "galleryThumbs": "Product images",
+    "lightbox": {
+      "title": "Image gallery for {name}",
+      "open": "View full size image",
+      "close": "Close image viewer",
+      "prev": "Previous image",
+      "next": "Next image",
+      "counter": "{current} / {total}"
+    },
+    "delivery": {
+      "title": "Delivery time",
+      "productDays": "{days} business days after order confirmation",
+      "defaultRange": "3–5 business days",
+      "defaultPeak": "Up to 10 days during peak seasons",
+      "coverage": "Delivery across Egypt"
+    },
+    "payment": {
+      "title": "Payment methods",
+      "cod": "Cash on delivery",
+      "bank": "Bank transfer",
+      "cards": "Visa, Mastercard, Amex & PayPal"
+    },
+    "category": "Category",
+    "description": "Description",
+    "descriptionEmpty": "No description available for this product yet.",
+    "material": "Material",
+    "related": "Related Products",
+    "backToProducts": "Back to products",
+    "tabs": {
+      "aria": "Product information",
+      "specifications": "Specifications",
+      "description": "Description",
+      "reviews": "Reviews"
+    },
+    "specs": {
+      "name": "Name",
+      "brand": "Brand",
+      "code": "Code",
+      "barcode": "Barcode",
+      "material": "Material",
+      "warranty": "Warranty",
+      "afterSale": "After Sale Service",
+      "vatExcluded": "Prices exclude value-added tax",
+      "transportExcluded": "Prices exclude transportation and installation",
+      "supplyDuration": "Supplying duration"
+    },
+    "reviews": {
+      "count": "{count} Reviews",
+      "noReviewsYet": "No reviews yet",
+      "stars": "{count} Stars",
+      "noteLabel": "Note",
+      "bookingNote": "You must pay 25% of the total price to confirm your booking."
+    }
+  },
   "filters": {
     "title": "Filters",
     "open": "Filters",

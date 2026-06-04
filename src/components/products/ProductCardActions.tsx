@@ -1,90 +1,137 @@
 "use client";
 
-/**
- * Hover actions on product card: quick view, cart, wishlist.
- * Owns cart/wishlist state and passes handlers into ProductQuickViewModal (no duplicate stores there).
- */
-import { useState, type MouseEvent } from "react";
+import { useEffect, useId, useState, type MouseEvent } from "react";
+import { createPortal } from "react-dom";
+import Image from "next/image";
 import { HiOutlineEye } from "react-icons/hi2";
 import { IoIosHeart, IoIosHeartEmpty } from "react-icons/io";
 import { CiShop } from "react-icons/ci";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { useTranslations } from "next-intl";
 import type { Product } from "@/lib/api/products";
-import { toCartPayload, toWishlistPayload } from "@/lib/products/product";
+import { productSlug, toCartPayload } from "@/lib/products/product";
+import { toggleProductWishlist } from "@/lib/products/product-actions";
 import { addToCartWithToast, decreaseCartWithToast } from "@/components/cart";
-import { addWishlistWithToast, removeWishlistWithToast } from "@/lib/wishlist/wishlist-toast";
 import CartQuantityStepper from "@/components/cart/CartQuantityStepper";
+import ProductPurchaseBar from "@/components/products/ProductPurchaseBar";
+import { Link } from "@/i18n/navigation";
 import { useCartStore } from "@/store/cartStore";
 import { useWishlistStore } from "@/store/wishlistStore";
-import ProductQuickViewModal from "./ProductQuickViewModal";
 
-const iconBtn =
-  "inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-0 bg-white text-neutral-800 shadow-md transition hover:bg-(--primary) hover:text-white cursor-pointer";
-
-const cartBtn =
-  "inline-flex h-10 shrink-0 items-center gap-2 rounded-0 bg-white px-3 text-sm font-medium text-neutral-800 shadow-md transition hover:bg-(--primary) hover:text-white cursor-pointer";
-
-const wishlistBtn =
-  "inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-0 cursor-pointer transition ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--primary) focus-visible:ring-offset-2";
-
-const wishlistIdle =
-  "bg-white text-(--primary) hover:bg-(--primary) hover:text-white";
-const wishlistActive = "bg-white text-(--primary) hover:text-(--primary)";
-
-const bar =
-  "pointer-events-auto flex gap-2 opacity-100 transition-all duration-300 md:translate-y-3 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100";
-
-/** Card is wrapped in <Link>; stop navigation when clicking action buttons. */
-function stopCardNavigation(e: MouseEvent) {
+function stopLink(e: MouseEvent) {
   e.preventDefault();
   e.stopPropagation();
 }
 
-type ProductCardActionsProps = {
+/** نافذة المعاينة السريعة — تُستخدم من بطاقة المنتج فقط */
+function ProductQuickView({
+  product,
+  open,
+  onClose,
+}: {
   product: Product;
-};
+  open: boolean;
+  onClose: () => void;
+}) {
+  const t = useTranslations("products");
+  const titleId = useId();
+  const href = `/products/${productSlug(product.name)}` as const;
+  const [ready, setReady] = useState(false);
 
-export default function ProductCardActions({ product }: ProductCardActionsProps) {
+  useEffect(() => setReady(true), []);
+
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [open, onClose]);
+
+  if (!open || !ready) return null;
+
+  return createPortal(
+    <div className="fixed inset-0 z-2200 flex items-center justify-center bg-black/50 p-4" onClick={onClose}>
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby={titleId}
+        className="flex max-h-[min(90dvh,720px)] w-full max-w-3xl flex-col overflow-hidden bg-white shadow-2xl"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="flex items-center justify-between border-b border-black/10 px-4 py-3">
+          <h2 id={titleId} className="text-lg font-semibold">
+            {t("quickView.title")}
+          </h2>
+          <button type="button" onClick={onClose} aria-label={t("quickView.close")} className="h-9 w-9 border border-black/15">
+            <FontAwesomeIcon icon={faXmark} className="mx-auto h-4 w-4" />
+          </button>
+        </div>
+
+        <div className="overflow-y-auto p-4 md:p-6">
+          <div className="grid gap-6 md:grid-cols-2">
+            <div className="relative aspect-square bg-neutral-50">
+              {product.image_url ? (
+                <Image src={product.image_url} alt={product.name} fill className="object-cover" sizes="400px" />
+              ) : (
+                <span className="flex h-full items-center justify-center text-sm text-neutral-400">{product.name}</span>
+              )}
+            </div>
+
+            <div className="flex flex-col gap-4">
+              {product.is_new && (
+                <span className="quick-view-badge w-fit text-xs font-medium uppercase text-white">{t("new")}</span>
+              )}
+              {product.category && (
+                <p className="w-fit bg-(--primary) px-2 py-1 text-sm font-medium uppercase text-white">{product.category}</p>
+              )}
+              <h3 className="text-xl font-semibold">{product.name}</h3>
+              <p className="text-main text-xl font-medium tabular-nums">{product.price_egp.toLocaleString()} EGP</p>
+              <Link href={href} onClick={onClose} className="text-sm font-medium text-main hover:underline">
+                {t("quickView.viewDetails")}
+              </Link>
+              <ProductPurchaseBar
+                product={product}
+                className="mt-auto flex flex-col gap-3 pt-2 sm:flex-row sm:items-center"
+                stepperClassName="w-full flex-1 justify-center gap-3 px-2 py-1.5"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>,
+    document.body,
+  );
+}
+
+/** أزرار البطاقة: معاينة + سلة + مفضلة */
+export default function ProductCardActions({ product }: { product: Product }) {
   const t = useTranslations("products");
   const toastT = useTranslations("toast");
-  const [quickViewOpen, setQuickViewOpen] = useState(false);
+  const [quickOpen, setQuickOpen] = useState(false);
 
   const cartPayload = toCartPayload(product);
   const addItem = useCartStore((s) => s.addItem);
   const decreaseItem = useCartStore((s) => s.decreaseItem);
   const cartQty = useCartStore((s) => s.items.find((i) => i.product_id === product.id)?.quantity ?? 0);
-
   const addWishlist = useWishlistStore((s) => s.addItem);
   const removeWishlist = useWishlistStore((s) => s.removeItem);
   const inWishlist = useWishlistStore((s) => s.isInWishlist(product.id));
 
-  async function addToCart() {
-    await addToCartWithToast(addItem, toastT, cartPayload, cartQty);
-  }
-
-  async function decreaseCart() {
-
-    await decreaseCartWithToast(decreaseItem, toastT, product.id);
-  }
-
-  async function toggleWishlist() {
-    if (inWishlist) {
-      await removeWishlistWithToast(removeWishlist, toastT, product.id);
-      return;
-    }
-    await addWishlistWithToast(addWishlist, toastT, toWishlistPayload(product));
-  }
-
   return (
     <>
-      <div className={bar}>
+      <div className="pointer-events-auto flex gap-2 opacity-100 transition-all duration-300 md:translate-y-3 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100">
         <button
           type="button"
-          className={iconBtn}
+          className="inline-flex h-10 w-10 items-center justify-center bg-white shadow-md hover:bg-(--primary) hover:text-white"
           aria-label={t("quickView.title")}
           onClick={(e) => {
-            stopCardNavigation(e);
-            setQuickViewOpen(true);
+            stopLink(e);
+            setQuickOpen(true);
           }}
         >
           <HiOutlineEye size={22} />
@@ -97,57 +144,44 @@ export default function ProductCardActions({ product }: ProductCardActionsProps)
             decreaseLabel={t("decreaseQuantity")}
             increaseLabel={t("increaseQuantity")}
             onDecrease={(e) => {
-              stopCardNavigation(e);
-              void decreaseCart();
+              stopLink(e);
+              void decreaseCartWithToast(decreaseItem, toastT, product.id);
             }}
             onIncrease={(e) => {
-              stopCardNavigation(e);
-              void addToCart();
+              stopLink(e);
+              void addToCartWithToast(addItem, toastT, cartPayload, cartQty);
             }}
           />
         ) : (
           <button
             type="button"
-            className={cartBtn}
+            className="inline-flex h-10 items-center bg-white px-3 shadow-md hover:bg-(--primary) hover:text-white"
             aria-label={t("addToCart")}
             onClick={(e) => {
-              stopCardNavigation(e);
-              void addToCart();
+              stopLink(e);
+              void addToCartWithToast(addItem, toastT, cartPayload, cartQty);
             }}
           >
-            <CiShop size={22} aria-hidden />
-           
+            <CiShop size={22} />
           </button>
         )}
 
         <button
           type="button"
-          className={`${wishlistBtn} ${inWishlist ? wishlistActive : wishlistIdle}`}
+          className={`inline-flex h-9 w-9 items-center justify-center ${
+            inWishlist ? "bg-white text-(--primary)" : "bg-white text-(--primary) hover:bg-(--primary) hover:text-white"
+          }`}
           aria-pressed={inWishlist}
-          aria-label={inWishlist ? t("quickView.removeFromWishlist") : t("quickView.addToWishlist")}
           onClick={(e) => {
-            stopCardNavigation(e);
-            void toggleWishlist();
+            stopLink(e);
+            void toggleProductWishlist(product, inWishlist, addWishlist, removeWishlist, toastT);
           }}
         >
-          {inWishlist ? (
-            <IoIosHeart size={25} aria-hidden />
-          ) : (
-            <IoIosHeartEmpty size={25} aria-hidden />
-          )}
+          {inWishlist ? <IoIosHeart size={25} /> : <IoIosHeartEmpty size={25} />}
         </button>
       </div>
 
-      <ProductQuickViewModal
-        product={product}
-        isOpen={quickViewOpen}
-        onClose={() => setQuickViewOpen(false)}
-        inWishlist={inWishlist}
-        onToggleWishlist={toggleWishlist}
-        cartQty={cartQty}
-        onAddToCart={addToCart}
-        onDecreaseCart={decreaseCart}
-      />
+      <ProductQuickView product={product} open={quickOpen} onClose={() => setQuickOpen(false)} />
     </>
   );
 }

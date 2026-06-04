@@ -56,6 +56,61 @@
     "cols3": "3 أعمدة",
     "cols4": "4 أعمدة"
   },
+  "details": {
+    "galleryThumbs": "صور المنتج",
+    "lightbox": {
+      "title": "معرض صور {name}",
+      "open": "عرض الصورة بالحجم الكامل",
+      "close": "إغلاق عارض الصور",
+      "prev": "الصورة السابقة",
+      "next": "الصورة التالية",
+      "counter": "{current} / {total}"
+    },
+    "delivery": {
+      "title": "مدة التوصيل",
+      "productDays": "{days} أيام عمل بعد تأكيد الطلب",
+      "defaultRange": "٣–٥ أيام عمل",
+      "defaultPeak": "قد تصل إلى ١٠ أيام في المواسم",
+      "coverage": "التوصيل داخل مصر"
+    },
+    "payment": {
+      "title": "طرق الدفع",
+      "cod": "الدفع عند الاستلام",
+      "bank": "تحويل بنكي",
+      "cards": "فيزا، ماستركارد، أمريكان إكسبريس وبال باي"
+    },
+    "category": "التصنيف",
+    "description": "الوصف",
+    "descriptionEmpty": "لا يوجد وصف لهذا المنتج حالياً.",
+    "material": "الخامة",
+    "related": "منتجات ذات صلة",
+    "backToProducts": "العودة للمنتجات",
+    "tabs": {
+      "aria": "معلومات المنتج",
+      "specifications": "المواصفات",
+      "description": "الوصف",
+      "reviews": "التقييمات"
+    },
+    "specs": {
+      "name": "الاسم",
+      "brand": "العلامة التجارية",
+      "code": "الكود",
+      "barcode": "الباركود",
+      "material": "الخامة",
+      "warranty": "الضمان",
+      "afterSale": "خدمة ما بعد البيع",
+      "vatExcluded": "الأسعار لا تشمل ضريبة القيمة المضافة",
+      "transportExcluded": "الأسعار لا تشمل النقل والتركيب",
+      "supplyDuration": "مدة التوريد"
+    },
+    "reviews": {
+      "count": "{count} تقييم",
+      "noReviewsYet": "لا توجد تقييمات بعد",
+      "stars": "{count} نجوم",
+      "noteLabel": "ملاحظة",
+      "bookingNote": "يجب دفع 25% من إجمالي السعر لتأكيد الحجز."
+    }
+  },
   "filters": {
     "title": "التصفية",
     "open": "التصفية",
