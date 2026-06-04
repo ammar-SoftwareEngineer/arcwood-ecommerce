@@ -8,6 +8,7 @@ const loaders = {
     products: () => import("../../messages/en/products.json"),
     categories: () => import("../../messages/en/categories.json"),
     contact: () => import("../../messages/en/contact.json"),
+    checkout: () => import("../../messages/en/checkout.json"),
     toast: () => import("../../messages/en/toast.json"),
   },
   ar: {
@@ -17,6 +18,7 @@ const loaders = {
     products: () => import("../../messages/ar/products.json"),
     categories: () => import("../../messages/ar/categories.json"),
     contact: () => import("../../messages/ar/contact.json"),
+    checkout: () => import("../../messages/ar/checkout.json"),
     toast: () => import("../../messages/ar/toast.json"),
   },
 } as const;
@@ -31,6 +33,7 @@ const loadOrder: ModuleName[] = [
   "products",
   "categories",
   "contact",
+  "checkout",
   "toast",
 ];
 

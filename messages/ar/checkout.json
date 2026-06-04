@@ -1,0 +1,46 @@
+{
+  "form": {
+    "title": "التوصيل والدفع",
+    "loading": "جاري تحميل السلة…",
+    "emptyCart": "سلتك فارغة. أضف منتجات قبل إتمام الشراء.",
+    "firstName": "الاسم الأول",
+    "firstNamePlaceholder": "الاسم الأول",
+    "lastName": "اسم العائلة",
+    "lastNamePlaceholder": "اسم العائلة",
+    "email": "البريد الإلكتروني",
+    "emailPlaceholder": "you@example.com",
+    "phone": "الهاتف",
+    "phonePlaceholder": "01xxxxxxxxx",
+    "address": "العنوان",
+    "addressPlaceholder": "المبنى، الشارع، المنطقة",
+    "city": "المدينة",
+    "cityPlaceholder": "المدينة",
+    "governorate": "المحافظة",
+    "governoratePlaceholder": "اختر المحافظة",
+    "notes": "ملاحظات الطلب (اختياري)",
+    "notesPlaceholder": "تعليمات التوصيل…",
+    "paymentMethod": "طريقة الدفع",
+    "payment": {
+      "cod": "الدفع عند الاستلام",
+      "bank": "تحويل بنكي"
+    },
+    "gov": {
+      "cairo": "القاهرة",
+      "giza": "الجيزة",
+      "alexandria": "الإسكندرية",
+      "qalyubia": "القليوبية",
+      "sharqia": "الشرقية",
+      "dakahlia": "الدقهلية",
+      "other": "أخرى"
+    },
+    "submit": "تأكيد الطلب",
+    "submitting": "جاري تأكيد الطلب…",
+    "success": "شكراً! تم استلام طلبك {orderId}.",
+    "error": "تعذر إتمام الطلب. حاول مرة أخرى."
+  },
+  "summary": {
+    "title": "ملخص الطلب",
+    "empty": "لا توجد منتجات للدفع.",
+    "backToCart": "العودة للسلة"
+  }
+}

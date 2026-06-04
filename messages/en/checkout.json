@@ -1,0 +1,46 @@
+{
+  "form": {
+    "title": "Billing & delivery",
+    "loading": "Loading your cart…",
+    "emptyCart": "Your cart is empty. Add products before checkout.",
+    "firstName": "First name",
+    "firstNamePlaceholder": "First name",
+    "lastName": "Last name",
+    "lastNamePlaceholder": "Last name",
+    "email": "Email",
+    "emailPlaceholder": "you@example.com",
+    "phone": "Phone",
+    "phonePlaceholder": "01xxxxxxxxx",
+    "address": "Street address",
+    "addressPlaceholder": "Building, street, area",
+    "city": "City",
+    "cityPlaceholder": "City",
+    "governorate": "Governorate",
+    "governoratePlaceholder": "Select governorate",
+    "notes": "Order notes (optional)",
+    "notesPlaceholder": "Delivery instructions…",
+    "paymentMethod": "Payment method",
+    "payment": {
+      "cod": "Cash on delivery",
+      "bank": "Bank transfer"
+    },
+    "gov": {
+      "cairo": "Cairo",
+      "giza": "Giza",
+      "alexandria": "Alexandria",
+      "qalyubia": "Qalyubia",
+      "sharqia": "Sharqia",
+      "dakahlia": "Dakahlia",
+      "other": "Other"
+    },
+    "submit": "Place order",
+    "submitting": "Placing order…",
+    "success": "Thank you! Your order {orderId} has been received.",
+    "error": "Could not place your order. Please try again."
+  },
+  "summary": {
+    "title": "Order summary",
+    "empty": "No items to checkout.",
+    "backToCart": "Back to cart"
+  }
+}
