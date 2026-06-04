@@ -1,9 +1,9 @@
 import { toast } from "sonner";
 import { getPathname } from "@/i18n/navigation";
-import { addWishlistWithToast, removeWishlistWithToast } from "@/lib/wishlist/wishlist-toast";
+import type { WishlistResult } from "@/actions/wishlist";
+import { addWishlistWithToast, removeWishlistWithToast, type WishlistPayload } from "@/lib/wishlist/wishlist-toast";
 import type { Product } from "@/lib/api/products";
 import { productSlug, toWishlistPayload } from "@/lib/products/product";
-import type { WishlistItem } from "@/store/types";
 
 type ToastT = (key: string) => string;
 
@@ -28,8 +28,8 @@ export async function shareProduct(product: Product, locale: string, toastT: Toa
 export async function toggleProductWishlist(
   product: Product,
   inWishlist: boolean,
-  addItem: (item: Omit<WishlistItem, "id">) => Promise<{ ok: boolean; messageKey?: string }>,
-  removeItem: (productId: string) => Promise<{ ok: boolean; messageKey?: string }>,
+  addItem: (item: WishlistPayload) => Promise<WishlistResult>,
+  removeItem: (productId: string) => Promise<WishlistResult>,
   toastT: ToastT,
 ) {
   if (inWishlist) {
