@@ -20,7 +20,7 @@ type Props = {
 export default function ProductPurchaseBar({
   product,
   className = "flex w-full flex-col gap-3 border-t border-black/10 pt-5 sm:flex-row sm:flex-wrap sm:items-stretch sm:pt-6",
-  stepperClassName = "md:w-fit h-full w-full justify-center gap-3 px-2 py-1.5",
+  stepperClassName = "md:w-fit h-full w-full justify-center gap-3 px-2 py-2.5 md:py-auto",
 }: Props) {
   const locale = useLocale();
   const t = useTranslations("products");
