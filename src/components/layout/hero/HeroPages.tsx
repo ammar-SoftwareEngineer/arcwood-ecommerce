@@ -29,7 +29,7 @@ export default function HeroPages({ title }: HeroPagesProps) {
             t.has(seg) ? t(seg) : formatSegment(seg);
 
         const isBlogDetail =
-            segments[0] === "blog" && segments.length === 2;
+            segments[0] === "blogs" && segments.length === 2;
 
         const breadcrumbs = isBlogDetail
             ? [
@@ -37,7 +37,7 @@ export default function HeroPages({ title }: HeroPagesProps) {
                   { label: t("blogs"), href: `${prefix}/blogs` },
                   {
                       label: title?.trim() || t("blog-details"),
-                      href: `${prefix}/blog/${segments[1]}`,
+                      href: `${prefix}/blogs/${segments[1]}`,
                   },
               ]
             : [

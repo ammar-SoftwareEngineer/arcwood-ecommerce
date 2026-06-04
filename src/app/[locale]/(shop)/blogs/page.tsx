@@ -37,13 +37,18 @@ export default async function BlogsPage({
   }
 
   const locale = await getLocale();
+  const isAr = locale === "ar";
 
   return (
     <div>
       <HeroPages />
 
       <div className="container mx-auto px-8 py-12 md:py-20 lg:px-6 xl:px-16">
-        <BlogList posts={data} isAr={locale === "ar"} />
+        <BlogList
+          posts={data}
+          isAr={isAr}
+          readmore={isAr ? "اقرأ المزيد" : "Read more"}
+        />
 
         <Pagination
           basePath="/blogs"

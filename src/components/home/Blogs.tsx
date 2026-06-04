@@ -8,7 +8,8 @@ export default async function Blogs() {
   const t = await getTranslations("home");
   const locale = await getLocale();
   const isAr = locale === "ar";
-  const { data, meta } = await listBlogs(1);
+  const { data } = await listBlogs(1);
+  const readmore = isAr ? "اقرأ المزيد" : "Read more";
 
   return (
     <section className="blogs-section py-12">
@@ -24,7 +25,7 @@ export default async function Blogs() {
                   image: blog.image,
                   imageAlt: isAr ? blog.imageAltAr : blog.imageAlt,
                   href: blog.href,
-                  readmore: isAr ? blog.readmoreAr : blog.readmore,
+                  readmore,
                 }}
               />
             </div>

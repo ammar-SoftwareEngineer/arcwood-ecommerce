@@ -4,9 +4,14 @@ import type { Blog } from "@/lib/api/blogs";
 type BlogListProps = {
   posts: Blog[];
   isAr: boolean;
+  readmore?: string;
 };
 
-export default function BlogList({ posts, isAr }: BlogListProps) {
+export default function BlogList({
+  posts,
+  isAr,
+  readmore = isAr ? "اقرأ المزيد" : "Read more",
+}: BlogListProps) {
   return (
     <div className="grid grid-cols-12 gap-6">
       {posts.map((post) => (
@@ -18,7 +23,7 @@ export default function BlogList({ posts, isAr }: BlogListProps) {
               image: post.image,
               imageAlt: isAr ? post.imageAltAr : post.imageAlt,
               href: post.href,
-              readmore: isAr ? post.readmoreAr : post.readmore,
+              readmore,
             }}
           />
         </article>
