@@ -130,9 +130,9 @@ export async function getBlogBySlug(slug: string): Promise<Blog | null> {
   return mapBlogPost(data as BlogPostRow);
 }
 
-export async function listRelatedBlogs(
+export async function listLatestBlogs(
   excludeId: number,
-  limit = 12
+  limit = 8
 ): Promise<Blog[]> {
   const { data, error } = await supabase
     .from("blog_posts")
@@ -143,9 +143,67 @@ export async function listRelatedBlogs(
     .limit(limit);
 
   if (error) {
-    console.error("listRelatedBlogs:", error.message);
-    throw new Error("Failed to fetch related blogs");
+    console.error("listLatestBlogs:", error.message);
+    throw new Error("Failed to fetch latest blogs");
   }
 
   return (data as BlogPostRow[]).map(mapBlogPost);
+}
+
+/** Same category, newest first — for sidebar / bottom related */
+export async function listBlogsByCategory(
+  category: string,
+  excludeId: number,
+  limit = 6
+): Promise<Blog[]> {
+  const trimmed = category.trim();
+  if (!trimmed) return [];
+
+  const { data, error } = await supabase
+    .from("blog_posts")
+    .select("*")
+    .eq("is_published", true)
+    .eq("category", trimmed)
+    .neq("id", excludeId)
+    .order("published_at", { ascending: false })
+    .limit(limit);
+
+  if (error) {
+    console.error("listBlogsByCategory:", error.message);
+    throw new Error("Failed to fetch category blogs");
+  }
+
+  return (data as BlogPostRow[]).map(mapBlogPost);
+}
+
+/** Uses view_count when column exists; falls back to latest by date */
+export async function listPopularBlogs(
+  excludeId: number,
+  limit = 6
+): Promise<Blog[]> {
+  const { data, error } = await supabase
+    .from("blog_posts")
+    .select("*")
+    .eq("is_published", true)
+    .neq("id", excludeId)
+    .order("view_count", { ascending: false, nullsFirst: false })
+    .order("published_at", { ascending: false })
+    .limit(limit);
+
+  if (error) {
+    if (error.message.includes("view_count")) {
+      return listLatestBlogs(excludeId, limit);
+    }
+    console.error("listPopularBlogs:", error.message);
+    throw new Error("Failed to fetch popular blogs");
+  }
+
+  return (data as BlogPostRow[]).map(mapBlogPost);
+}
+
+export async function listRelatedBlogs(
+  excludeId: number,
+  limit = 12
+): Promise<Blog[]> {
+  return listLatestBlogs(excludeId, limit);
 }
